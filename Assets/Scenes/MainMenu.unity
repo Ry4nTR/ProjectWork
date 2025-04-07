@@ -716,7 +716,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 364738072682995213, guid: 5b91c2b7879add049a7672bbaec06331, type: 3}
       propertyPath: m_text
-      value: Options
+      value: Settings
       objectReference: {fileID: 0}
     - target: {fileID: 364738072682995213, guid: 5b91c2b7879add049a7672bbaec06331, type: 3}
       propertyPath: m_fontSize
@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8327071092304161291, guid: 5b91c2b7879add049a7672bbaec06331, type: 3}
       propertyPath: m_Name
-      value: OptionsBtn
+      value: SettingsBtn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1852,7 +1852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7485528794930769222, guid: 6ab6aa15638abee41a9dff5f53abe56d, type: 3}
       propertyPath: m_Name
-      value: OptionsPanel
+      value: SettingsPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
