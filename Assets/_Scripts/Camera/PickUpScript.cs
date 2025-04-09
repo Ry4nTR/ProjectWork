@@ -36,11 +36,6 @@ public class PickUpScript : MonoBehaviour
                 // Show pickup prompt with a custom message
                 ShowPickUpPrompt();
 
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    print("DEVI PRENDERLO NON INTERAGIRE...");
-                }
-
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     PickUpObject(hit.transform.gameObject);
