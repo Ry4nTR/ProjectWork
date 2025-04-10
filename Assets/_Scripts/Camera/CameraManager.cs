@@ -6,6 +6,9 @@ public class CameraManager : MonoBehaviour
     public float mouseSensitivity = 2.5f;
     [SerializeField] private Transform playerBody;
 
+    [HideInInspector]
+    public bool canRotate = true;
+
     // Tracks vertical rotation to clamp view angle
     private float xRotation = 0f;
 
@@ -18,7 +21,8 @@ public class CameraManager : MonoBehaviour
     private void Update()
     {
         // Handle camera rotation every frame
-        HandleCameraRotation();
+        if (canRotate)
+            HandleCameraRotation();
     }
 
     /// <summary>
