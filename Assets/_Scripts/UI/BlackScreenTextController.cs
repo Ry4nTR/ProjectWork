@@ -41,10 +41,10 @@ namespace ITSProjectWork
         private void Start()
         {
             blackBackground.enabled = false;
-            ShowText("Starting text");
+            ActivateBlackScreen("Starting text");
         }
 
-        public void ShowText(string text)
+        public void ActivateBlackScreen(string text)
         {
             StopAllCoroutines();
             StartCoroutine(FadeRoutine(text));
