@@ -40,8 +40,7 @@ namespace ITSProjectWork
         }
         private void Start()
         {
-            blackBackground.enabled = false;
-            ActivateBlackScreen("Starting text");
+            //ActivateBlackScreen("Starting text");
         }
 
         public void ActivateBlackScreen(string text)
