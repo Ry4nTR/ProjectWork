@@ -1,11 +1,10 @@
 using System;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace ITSProjectWork
 {
 
-    public class CharacterController : MonoBehaviour
+    public class MyCharacterController : MonoBehaviour
     {
         [Header("Character Movement Stats")]
         public float walkSpeed = 5f;
