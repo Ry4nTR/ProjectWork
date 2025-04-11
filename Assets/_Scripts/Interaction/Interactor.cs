@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Interactor : MonoBehaviour
+public class Interactor : BlackScreenEnabler
 {
     public float interactDistance = 3f;
     public GameObject interactionText;

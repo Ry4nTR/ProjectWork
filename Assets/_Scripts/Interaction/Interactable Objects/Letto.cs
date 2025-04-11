@@ -7,7 +7,7 @@ public class Letto : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        BlackScreenTextController.Instance.ActivateBlackScreen("TUA MADRE DORME");
+        BlackScreenTextController.Instance.ActivateBlackScreen("DORMI");
     }
 
 

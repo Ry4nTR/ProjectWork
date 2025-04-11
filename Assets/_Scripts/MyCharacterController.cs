@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ITSProjectWork
 {
 
-    public class MyCharacterController : MonoBehaviour
+    public class MyCharacterController : BlackScreenEnabler
     {
         [Header("Character Movement Stats")]
         public float walkSpeed = 5f;
@@ -134,8 +134,6 @@ namespace ITSProjectWork
 
             controller.Move(velocity * Time.deltaTime);
         }
-
-
 
         private void InputUpdate()
         {

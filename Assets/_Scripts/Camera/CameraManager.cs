@@ -1,6 +1,7 @@
+using ITSProjectWork;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : BlackScreenEnabler
 {
     // Camera rotation sensitivity and player reference
     public float mouseSensitivity = 2.5f;

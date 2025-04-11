@@ -79,8 +79,8 @@ namespace ITSProjectWork
                         else if (info.collider.TryGetComponent(out IInteractable interactable))
                         {
                             //Debug.Log($"{info.collider.name} is interactable");
-                            currentInteractable = interactable;
-                            currentInteractable.Interact(/*true*/);
+                            //currentInteractable = interactable;
+                            //currentInteractable.Interact(/*true*/);
                         }
                         else
                         {
@@ -88,7 +88,7 @@ namespace ITSProjectWork
                             if (currentInteractable != null)
                             {
                                 //Debug.Log($"Disabling outlines for {currentInteractable}");
-                                currentInteractable.Interact(/*false*/);
+                                //currentInteractable.Interact(/*false*/);
                             }
                             currentInteractable = null;
                             currentButtonSelected = null;
