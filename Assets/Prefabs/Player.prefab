@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 2.5
   playerBody: {fileID: 964427897386672498}
+  canRotate: 1
 --- !u!114 &901922864545272798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +269,8 @@ MonoBehaviour:
   mouseLookScript: {fileID: 2694833796273840380}
   interactionText: {fileID: 0}
   heldText: {fileID: 0}
+  hologram: {fileID: 0}
+  placementDistance: 0.5
 --- !u!1 &1870881738637334285
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +315,7 @@ GameObject:
   - component: {fileID: 1944126360884024129}
   - component: {fileID: 6087242579273423827}
   - component: {fileID: 8935027281040787277}
+  - component: {fileID: 7027479591544973211}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -419,3 +423,20 @@ MonoBehaviour:
   interactDistance: 3
   interactionText: {fileID: 0}
   camera: {fileID: 2694833796273840380}
+--- !u!114 &7027479591544973211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055781102602694057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0003205a14e85bb439b1954a1613e15f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastRate: 0.1
+  raycastMaxDistance: 3
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
