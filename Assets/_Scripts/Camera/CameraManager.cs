@@ -15,7 +15,7 @@ public class CameraManager : BlackScreenEnabler
 
     private void Start()
     {
-        // Lock cursor to center of screen
+        // Lock cursor to center of screenObject
         Cursor.lockState = CursorLockMode.Locked;
     }
 

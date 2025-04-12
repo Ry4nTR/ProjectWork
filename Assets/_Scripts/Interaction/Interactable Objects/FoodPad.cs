@@ -7,13 +7,31 @@ namespace ProjectWork
 {
     public class FoodPad : InteractableObject
     {
+        public enum PadState
+        {
+            Selection,
+            AfterSelection,
+            DisplayNumber
+        }
+
+        [Serializable]
+        public struct PadScreen
+        {
+            public PadState state;
+            public GameObject screenObject;
+        }
         public static event Action<FoodType> OnSelectedFood = delegate { };
-        
+
+        [SerializeField] private PadState _currentPadState = PadState.Selection;
+        [SerializeField] private List<PadScreen> screens = new List<PadScreen>();
+
         [Header("Emergency Number")]
         [SerializeField, Range(0,9)] private byte puzzleNumber;
         private TextMeshProUGUI numberText;
 
         private List<OrderFoodButton> orderFoodButtons;
+
+        public PadState CurrentPadState => _currentPadState;
 
         private void Awake()
         {
@@ -38,10 +56,22 @@ namespace ProjectWork
         {
             Debug.Log($"Ordering {foodType}");
             OnSelectedFood?.Invoke(foodType);
+            SetState(PadState.AfterSelection);
             //Block other orders
-            LockInteraction();
+        }
 
-            //Show screen to finish eating before ordering again
+        private void SetState(PadState newState)
+        {
+            _currentPadState = newState;
+            UpdateScreen();
+        }
+
+        private void UpdateScreen()
+        {
+            foreach (PadScreen screen in screens)
+            {
+                screen.screenObject.SetActive(screen.state == _currentPadState);
+            }
         }
     }
 }
