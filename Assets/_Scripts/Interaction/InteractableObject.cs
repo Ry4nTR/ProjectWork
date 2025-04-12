@@ -36,7 +36,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     private void InvokeEvent()
     {
-        if(isUsingBlackScreen)
+        if (isUsingBlackScreen)
             BlackScreenTextController.OnBlackScreenTextFinished -= InvokeEvent;
 
         OnInteractionFinished?.Invoke(this);
@@ -47,4 +47,3 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public void ResetInteraction() => _canInteract = canInteractAtStart;
 }
-

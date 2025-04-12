@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 261799477005971528}
   - component: {fileID: 6266560714428806559}
   - component: {fileID: 3569932855757800909}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: DigitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 5528689226549648288}
   - component: {fileID: 7028122686549205351}
   - component: {fileID: 5428786423791249132}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AfterOrderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
