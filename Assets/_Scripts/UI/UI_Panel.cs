@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ITSProjectWork.UI
+namespace ProjectWork.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
     public abstract class UI_Panel : MonoBehaviour

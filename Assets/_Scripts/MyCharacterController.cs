@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ITSProjectWork
+namespace ProjectWork
 {
 
     public class MyCharacterController : BlackScreenEnabler

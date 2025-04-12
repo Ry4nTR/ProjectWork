@@ -1,4 +1,4 @@
-using ITSProjectWork;
+using ProjectWork;
 using UnityEngine;
 
 public class CameraManager : BlackScreenEnabler

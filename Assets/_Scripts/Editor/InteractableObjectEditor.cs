@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ITSProjectWork
+namespace ProjectWork
 {
     [CustomEditor(typeof(InteractableObject), true)]
     public class InteractableObjectEditor : Editor

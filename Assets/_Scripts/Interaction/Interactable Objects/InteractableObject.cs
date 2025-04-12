@@ -1,5 +1,5 @@
 ﻿using System;
-using ITSProjectWork;
+using ProjectWork;
 using UnityEngine;
 
 public abstract class InteractableObject : MonoBehaviour, IInteractable

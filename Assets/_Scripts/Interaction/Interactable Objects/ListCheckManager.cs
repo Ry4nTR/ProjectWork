@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ITSProjectWork
+namespace ProjectWork
 {
     [Serializable]
     /// <summary>

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ITSProjectWork
+namespace ProjectWork
 {
     public class InteractableChecker : MonoBehaviour
     {

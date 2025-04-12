@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-namespace ITSProjectWork
+namespace ProjectWork
 {
     /// <summary>
     /// Displays black screen with text for transitions or narrative moments.

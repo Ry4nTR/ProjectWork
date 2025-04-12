@@ -1,4 +1,4 @@
-﻿namespace ITSProjectWork.UI
+﻿namespace ProjectWork.UI
 {
     public class SettingsPanel : UI_Panel
     {

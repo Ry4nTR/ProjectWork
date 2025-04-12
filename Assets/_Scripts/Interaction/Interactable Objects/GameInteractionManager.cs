@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ITSProjectWork
+namespace ProjectWork
 {
     public class GameInteractionManager : MonoBehaviour
     {
