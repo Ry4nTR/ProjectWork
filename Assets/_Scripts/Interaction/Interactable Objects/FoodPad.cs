@@ -39,6 +39,9 @@ namespace ProjectWork
             Debug.Log($"Ordering {foodType}");
             OnSelectedFood?.Invoke(foodType);
             //Block other orders
+            LockInteraction();
+
+            //Show screen to finish eating before ordering again
         }
     }
 }
