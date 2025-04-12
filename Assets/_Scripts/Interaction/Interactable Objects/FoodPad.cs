@@ -5,7 +5,7 @@ using TMPro;
 
 namespace ITSProjectWork
 {
-    public class FoodPad : MonoBehaviour, IInteractable
+    public class FoodPad : InteractableObject
     {
         public static event Action<FoodType> OnSelectedFood = delegate { };
         [SerializeField] private List<OrderFoodButton> orderFoodButtons;
@@ -37,11 +37,6 @@ namespace ITSProjectWork
             Debug.Log($"Ordering {foodType}");
             OnSelectedFood?.Invoke(foodType);
             //Block other orders
-        }
-
-        public void Interact()
-        {
-            Debug.Log("Interacting with FoodPad");
         }
     }
 }
