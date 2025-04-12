@@ -8,10 +8,12 @@ namespace ProjectWork
     public class FoodPad : InteractableObject
     {
         public static event Action<FoodType> OnSelectedFood = delegate { };
-        [SerializeField] private List<OrderFoodButton> orderFoodButtons;
+        
         [Header("Emergency Number")]
         [SerializeField, Range(0,9)] private byte puzzleNumber;
-        [SerializeField] private TextMeshProUGUI numberText;
+        private TextMeshProUGUI numberText;
+
+        private List<OrderFoodButton> orderFoodButtons;
 
         private void Awake()
         {
@@ -37,6 +39,9 @@ namespace ProjectWork
             Debug.Log($"Ordering {foodType}");
             OnSelectedFood?.Invoke(foodType);
             //Block other orders
+            LockInteraction();
+
+            //Show screen to finish eating before ordering again
         }
     }
 }
