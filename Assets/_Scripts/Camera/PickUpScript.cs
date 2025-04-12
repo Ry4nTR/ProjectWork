@@ -15,7 +15,7 @@ public class PickUpScript : MonoBehaviour
     private float originalSesitivityValue = 2.5f;
     public CameraManager mouseLookScript;
     [SerializeField] private GameObject interactionText;
-    [SerializeField] private GameObject heldText;
+    //[SerializeField] private GameObject heldText;
 
     [Header("Hologram Settings")]
     [SerializeField] private GameObject hologram;
@@ -89,7 +89,7 @@ public class PickUpScript : MonoBehaviour
 
     private void ShowHeldObjectPrompt()
     {
-        heldText.SetActive(true);
+        //heldText.SetActive(true);
     }
 
     private void HidePickUpPrompt()
@@ -132,7 +132,7 @@ public class PickUpScript : MonoBehaviour
         hologram.SetActive(false);
         heldObj = null;
         heldObjRb = null;
-        heldText.SetActive(false);
+        //heldText.SetActive(false);
     }
 
     void DropObject()
@@ -184,7 +184,7 @@ public class PickUpScript : MonoBehaviour
 
     void StopClipping()
     {
-        heldText.SetActive(false);
+        //heldText.SetActive(false);
         var clipRange = Vector3.Distance(heldObj.transform.position, transform.position);
         RaycastHit[] hits;
         hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward), clipRange);
