@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
+using ProjectWork;
 using UnityEngine;
 
-namespace ProjectWork
+namespace ITSProjectWork
 {
     public class FoodSpawner : MonoBehaviour
     {
@@ -14,9 +14,7 @@ namespace ProjectWork
         }
 
         [SerializeField] private List<FoodPrefab> foodPrefabs = new List<FoodPrefab>();
-        [SerializeField] private Transform spawnPoint; // Where the food will appear
-
-        private GameObject currentFoodInstance; // Currently spawned food
+        [SerializeField] private Transform spawnPoint;
 
         private void OnEnable()
         {
@@ -30,24 +28,10 @@ namespace ProjectWork
 
         private void SpawnFood(FoodType foodType)
         {
-            // Destroy current food if it exists
-            if (currentFoodInstance != null)
-            {
-                Destroy(currentFoodInstance);
-            }
-
-            // Find the correct prefab for the ordered food
             FoodPrefab foodPrefab = foodPrefabs.Find(x => x.foodType == foodType);
             if (foodPrefab != null && foodPrefab.prefab != null)
             {
-                // Instantiate the food at the spawn point
-                currentFoodInstance = Instantiate(foodPrefab.prefab, spawnPoint.position, spawnPoint.rotation);
-
-                Debug.Log($"Spawned {foodType} at {spawnPoint.position}");
-            }
-            else
-            {
-                Debug.LogWarning($"No prefab assigned for food type: {foodType}");
+                Instantiate(foodPrefab.prefab, spawnPoint.position, spawnPoint.rotation);
             }
         }
     }
