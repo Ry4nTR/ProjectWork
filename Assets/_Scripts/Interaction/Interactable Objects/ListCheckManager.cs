@@ -5,28 +5,37 @@ using UnityEngine;
 namespace ITSProjectWork
 {
     [Serializable]
+    /// <summary>
+    /// This class is used to manage a list of elements that need to be checked.
+    /// </
     public class ListCheckManager<ElementType>
     {
         [Serializable]
+        /// <summary>
+        /// Contains the generic element and a boolean to check if it is completed or not.
+        /// </summary>
         public struct ElementCheck
         {
             public ElementType element;
             public bool isCompleted;
         }
 
-        public static event Action OnListCompleted = delegate { };
+        public event Action OnListCompleted = delegate { };
 
         //TODO: Add a list of elements to be checked instead of using a number (letto action could be read accidentally)
         [Tooltip("The amount of elements that need to be approved before the list is considered complete. Set to 0 to disable this check.")]
         [SerializeField] private int itemAmountToApprove;
-        [SerializeField] protected List<ElementCheck> _items;
+        [SerializeField] protected List<ElementCheck> _allItems;
+        public IReadOnlyList<ElementCheck> Items => _allItems;
 
-        public IReadOnlyList<ElementCheck> Items => _items;
-
-        public bool IsListCompleted()
+        /// <summary>
+        /// Checks if the list is completed based on the amount of completed items that is equal or greater than the amount of items to approve.
+        /// </summary>
+        /// <returns>True if the minimum number of Completed task is reached</returns>
+        public bool AreMinimumNumberOfItemsCompleted()
         {
             int completedCount = 0;
-            foreach (var item in _items)
+            foreach (var item in _allItems)
             {
                 if (item.isCompleted)
                 {
@@ -40,22 +49,54 @@ namespace ITSProjectWork
             return false;
         }
 
+        /// <summary>
+        /// Checks if the list is fully completed. This is used to check if the player has completed all the items in the list.
+        /// </summary>
+        /// <returns>True if all items are marked as Completed</returns>
+        public bool IsListFullyCompleted()
+        {
+            foreach (var item in _allItems)
+            {
+                if (!item.isCompleted)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Sets the item as completed. Will be used when the player interacts with the item or completes an enigma.
+        /// </summary>
         public void SetItemCompleted(ElementType item)
         {
-            int itemIndex = _items.FindIndex(x => x.element.Equals(item));
+            int itemIndex = _allItems.FindIndex(x => x.element.Equals(item));
             if(itemIndex == -1)
             {
                 Debug.LogError($"Item {item} not found in the list.");
                 return;
             }
-            ElementCheck itemSelected = _items[itemIndex];
+            ElementCheck itemSelected = _allItems[itemIndex];
             itemSelected.isCompleted = true;
-            _items[itemIndex] = itemSelected;
+            _allItems[itemIndex] = itemSelected;
 
-            if (IsListCompleted())
+            if (AreMinimumNumberOfItemsCompleted())
             {
                 //TODO: Unlock the next part of the game
                 OnListCompleted?.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// Resets the list of items to be checked. This is used when the player needs to redo the list.
+        /// </summary>
+        public void ResetItemCompletedList()
+        {
+            for (int i = 0; i < _allItems.Count; i++)
+            {
+                ElementCheck item = _allItems[i];
+                item.isCompleted = false;
+                _allItems[i] = item;
             }
         }
     }

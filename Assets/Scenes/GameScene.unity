@@ -283,11 +283,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listCheckManager:
     itemAmountToApprove: 0
-    _items:
-    - element: {fileID: 1973938264}
-      isCompleted: 0
+    _allItems:
     - element: {fileID: 848197163}
       isCompleted: 0
+  bedInteraction: {fileID: 1973938264}
 --- !u!1 &659273492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
@@ -630,6 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b094c5c959803d4ba3501e9d183e94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInteractAtStart: 1
   isUsingBlackScreen: 1
   screenMessage: Docciati
 --- !u!224 &938664362 stripped
@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561c9bbed505014ca2a8ca5e98b3915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInteractAtStart: 0
   isUsingBlackScreen: 1
   screenMessage: Dormi
 --- !u!1001 &2302123761186808211

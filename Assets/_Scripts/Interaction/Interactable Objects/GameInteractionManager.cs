@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ITSProjectWork
@@ -7,6 +8,7 @@ namespace ITSProjectWork
         public static GameInteractionManager Instance { get; private set; }
 
         [SerializeField] private ListCheckManager<InteractableObject> listCheckManager;
+        [SerializeField] private Bed bedInteraction;
 
         private void Awake()
         {
@@ -14,6 +16,8 @@ namespace ITSProjectWork
             {
                 Instance = this;
                 SubscribeToAllInteractionEnds();
+                bedInteraction.OnInteractionFinished += ResetInteractions;
+                listCheckManager.OnListCompleted += UnlockBedInteraction;
             }
             else
             {
@@ -24,11 +28,28 @@ namespace ITSProjectWork
         private void OnDestroy()
         {
             UnsubscribeToAllInteractionEnds();
+            listCheckManager.OnListCompleted -= UnlockBedInteraction;
+        }
+
+        private void ResetInteractions(InteractableObject eventInvoker)
+        {
+            
+            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            {
+                item.element.ResetInteraction();
+            }
+            listCheckManager.ResetItemCompletedList();
+            bedInteraction.ResetInteraction();
+        }
+
+        private void UnlockBedInteraction()
+        {
+            bedInteraction.UnlockInteraction();
         }
 
         private void UnsubscribeToAllInteractionEnds()
         {
-            foreach (var item in listCheckManager.Items)
+            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
             {
                 item.element.OnInteractionFinished -= SetItemCompletedInList;
             }
@@ -36,7 +57,7 @@ namespace ITSProjectWork
 
         private void SubscribeToAllInteractionEnds()
         {
-            foreach (var item in listCheckManager.Items)
+            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
             {
                 item.element.OnInteractionFinished += SetItemCompletedInList;
             }
