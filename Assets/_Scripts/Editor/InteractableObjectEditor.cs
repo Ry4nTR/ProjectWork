@@ -6,6 +6,7 @@ namespace ProjectWork
     [CustomEditor(typeof(InteractableObject), true)]
     public class InteractableObjectEditor : Editor
     {
+        SerializedProperty scriptReference;
         SerializedProperty canInteractAtStart;
         SerializedProperty isUsingBlackScreen;
         SerializedProperty screenMessage;
@@ -15,6 +16,7 @@ namespace ProjectWork
 
         private void OnEnable()
         {
+            scriptReference = serializedObject.FindProperty("m_Script");
             canInteractAtStart = serializedObject.FindProperty("canInteractAtStart");
             isUsingBlackScreen = serializedObject.FindProperty("isUsingBlackScreen");
             screenMessage = serializedObject.FindProperty("screenMessage");
@@ -24,6 +26,7 @@ namespace ProjectWork
         {
             serializedObject.Update();
 
+            EditorGUILayout.PropertyField(scriptReference);
             EditorGUILayout.PropertyField(canInteractAtStart);
             EditorGUILayout.Space();
 
