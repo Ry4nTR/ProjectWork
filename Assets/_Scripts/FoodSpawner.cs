@@ -15,7 +15,6 @@ namespace ProjectWork
 
         [SerializeField] private List<FoodPrefab> foodPrefabs = new List<FoodPrefab>();
         [SerializeField] private Transform spawnPoint; // Where the food will appear
-        [SerializeField] private float destroyDelay = 10f; // Time before food is automatically destroyed
 
         private GameObject currentFoodInstance; // Currently spawned food
 
@@ -43,9 +42,6 @@ namespace ProjectWork
             {
                 // Instantiate the food at the spawn point
                 currentFoodInstance = Instantiate(foodPrefab.prefab, spawnPoint.position, spawnPoint.rotation);
-
-                // Set up automatic destruction
-                Destroy(currentFoodInstance, destroyDelay);
 
                 Debug.Log($"Spawned {foodType} at {spawnPoint.position}");
             }
