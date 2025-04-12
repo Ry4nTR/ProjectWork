@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder;
+using TMPro;
 
 namespace ITSProjectWork
 {
@@ -8,6 +10,9 @@ namespace ITSProjectWork
     {
         public static event System.Action<ShapeType> OnSelectedShape = delegate { };
         [SerializeField] private List<OrderFoodButton> orderFoodButtons;
+        [Header("Emergency Number")]
+        [SerializeField, Range(0,9)] private byte puzzleNumber;
+        [SerializeField] private TextMeshProUGUI numberText;
 
         private void Awake()
         {
@@ -16,6 +21,8 @@ namespace ITSProjectWork
             {
                 button.OnButtonClicked += OrderFood;
             }
+
+            //GameInteractionManager.OnPuzzleCompleted += OnPuzzleCompleted;
         }
 
         private void OnDestroy()
