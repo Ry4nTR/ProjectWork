@@ -7,7 +7,7 @@ using System;
 namespace ProjectWork
 {
     /// <summary>
-    /// Displays black screen with text for transitions or narrative moments.
+    /// Displays black screenObject with text for transitions or narrative moments.
     /// </summary>
     [RequireComponent(typeof(Image))]
     public class BlackScreenTextController : MonoBehaviour
