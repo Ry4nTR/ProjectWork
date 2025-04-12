@@ -30,6 +30,7 @@ namespace ProjectWork
                 if (currentButtonSelected != null)
                 {
                     currentButtonSelected.onClick.Invoke();
+                    currentButtonSelected = null;
                 }
                 //LOGIC FOR KEYPAD BUTTONS
                 //else
