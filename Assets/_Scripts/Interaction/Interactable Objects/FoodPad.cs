@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.ProBuilder;
 using TMPro;
 
 namespace ITSProjectWork
@@ -37,6 +36,7 @@ namespace ITSProjectWork
         {
             Debug.Log($"Ordering {foodType}");
             OnSelectedFood?.Invoke(foodType);
+            //Block other orders
         }
 
         public void Interact()
