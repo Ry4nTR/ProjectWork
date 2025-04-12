@@ -1,0 +1,2 @@
+public class Shower : InteractableObject
+{ }
