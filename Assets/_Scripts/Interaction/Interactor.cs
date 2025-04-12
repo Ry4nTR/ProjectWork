@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ITSProjectWork;
+using UnityEngine;
 
 public class Interactor : BlackScreenEnabler
 {
@@ -11,9 +12,9 @@ public class Interactor : BlackScreenEnabler
         RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, interactDistance))
         {
-            IInteractable interactable = hit.transform.GetComponent<IInteractable>();
+            InteractableObject interactable = hit.transform.GetComponent<InteractableObject>();
 
-            if (interactable != null)
+            if (interactable != null && !GameInteractionManager.Instance.IsItemCompleted(interactable))
             {
                 interactionText.SetActive(true);
 
