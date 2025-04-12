@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderFoodButtons: []
   puzzleNumber: 0
-  numberScreen: {fileID: 3569932855757800909}
+  numberText: {fileID: 3569932855757800909}
 --- !u!1 &1772799949703301872
 GameObject:
   m_ObjectHideFlags: 0

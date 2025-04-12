@@ -8,7 +8,7 @@ namespace ITSProjectWork
 {
     public class FoodPad : MonoBehaviour, IInteractable
     {
-        public static event System.Action<ShapeType> OnSelectedShape = delegate { };
+        public static event Action<FoodType> OnSelectedFood = delegate { };
         [SerializeField] private List<OrderFoodButton> orderFoodButtons;
         [Header("Emergency Number")]
         [SerializeField, Range(0,9)] private byte puzzleNumber;
@@ -36,6 +36,7 @@ namespace ITSProjectWork
         private void OrderFood(FoodType foodType)
         {
             Debug.Log($"Ordering {foodType}");
+            OnSelectedFood?.Invoke(foodType);
         }
 
         public void Interact()
