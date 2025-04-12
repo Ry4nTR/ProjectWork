@@ -6,11 +6,16 @@ namespace ITSProjectWork
     [CustomEditor(typeof(InteractableObject), true)]
     public class InteractableObjectEditor : Editor
     {
+        SerializedProperty canInteractAtStart;
         SerializedProperty isUsingBlackScreen;
         SerializedProperty screenMessage;
 
+        private bool showBlackScreenSettings = true;
+        private GUIStyle boldFoldoutStyle;
+
         private void OnEnable()
         {
+            canInteractAtStart = serializedObject.FindProperty("canInteractAtStart");
             isUsingBlackScreen = serializedObject.FindProperty("isUsingBlackScreen");
             screenMessage = serializedObject.FindProperty("screenMessage");
         }
@@ -19,15 +24,34 @@ namespace ITSProjectWork
         {
             serializedObject.Update();
 
-            EditorGUILayout.PropertyField(isUsingBlackScreen);
+            EditorGUILayout.PropertyField(canInteractAtStart);
+            EditorGUILayout.Space();
 
-            GUI.enabled = isUsingBlackScreen.boolValue;
-            EditorGUILayout.PropertyField(screenMessage);
-            GUI.enabled = true;
+            // Lazy init of bold foldout style
+            if (boldFoldoutStyle == null)
+            {
+                boldFoldoutStyle = new GUIStyle(EditorStyles.foldout)
+                {
+                    fontStyle = FontStyle.Bold
+                };
+            }
 
-            // Draw everything else (concrete class properties) excluding the handled base ones
-            DrawPropertiesExcluding(serializedObject, "isUsingBlackScreen", "screenMessage", "m_Script");
+            showBlackScreenSettings = EditorGUILayout.Foldout(showBlackScreenSettings, "Black Screen Settings", true, boldFoldoutStyle);
+
+            if (showBlackScreenSettings)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(isUsingBlackScreen);
+                if (isUsingBlackScreen.boolValue)
+                {
+                    EditorGUILayout.PropertyField(screenMessage);
+                }
+                EditorGUI.indentLevel--;
+            }
+            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isUsingBlackScreen", "screenMessage", "m_Script");
+
             serializedObject.ApplyModifiedProperties();
         }
     }
+
 }
