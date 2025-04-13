@@ -18,7 +18,7 @@ public class PickUpScript : MonoBehaviour
     //[SerializeField] private GameObject heldText;
 
     [Header("Hologram Settings")]
-    [SerializeField] private GameObject hologram;
+    private GameObject hologram;
     [SerializeField] private float placementDistance = 0.5f;
     private bool isInPlacementRange = false;
 
@@ -99,25 +99,32 @@ public class PickUpScript : MonoBehaviour
 
     void PickUpObject(GameObject pickUpObj)
     {
+        Debug.Log("Pickedup");
         if (pickUpObj.GetComponent<Rigidbody>())
         {
             heldObj = pickUpObj;
             heldObjRb = pickUpObj.GetComponent<Rigidbody>();
             heldObjRb.isKinematic = true;
             heldObjRb.transform.parent = holdPos.transform;
-
-            // Reset rotation to match hold position
             heldObj.transform.rotation = holdPos.rotation;
 
             heldObj.layer = LayerNumber;
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
 
-            if (hologram != null) hologram.SetActive(true);
+            // Otteniamo il suo ologramma (se ha il componente Food e un ologramma assegnato)
+            Food food = heldObj.GetComponent<Food>();
+            if (food != null && food.hologram != null)
+            {
+                hologram = food.hologram;
+                hologram.SetActive(true);
+            }
         }
     }
 
+
     void PlaceObject()
     {
+        Debug.Log("Placed");
         if (heldObj == null || hologram == null) return;
 
         heldObj.transform.position = hologram.transform.position;
@@ -129,14 +136,17 @@ public class PickUpScript : MonoBehaviour
         heldObj.transform.parent = null;
         heldObj.tag = "Untagged";
 
-        hologram.SetActive(false);
+        if (hologram != null) hologram.SetActive(false);
+        hologram = null;
+
         heldObj = null;
         heldObjRb = null;
-        //heldText.SetActive(false);
+
     }
 
     void DropObject()
     {
+        Debug.Log("Droped");
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         heldObj.layer = 0;
         heldObjRb.isKinematic = false;
@@ -144,6 +154,7 @@ public class PickUpScript : MonoBehaviour
         heldObj = null;
 
         if (hologram != null) hologram.SetActive(false);
+        hologram = null;
     }
 
     void MoveObject()
@@ -180,11 +191,11 @@ public class PickUpScript : MonoBehaviour
         heldObj = null;
 
         if (hologram != null) hologram.SetActive(false);
+        hologram = null;
     }
 
     void StopClipping()
     {
-        //heldText.SetActive(false);
         var clipRange = Vector3.Distance(heldObj.transform.position, transform.position);
         RaycastHit[] hits;
         hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward), clipRange);

@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 29883017034603739}
   - component: {fileID: 5993023632539612065}
   - component: {fileID: 1305166685667266059}
-  - component: {fileID: -6227097145303417846}
   m_Layer: 0
-  m_Name: Ordine pizza
+  m_Name: PizzaHologram
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &29883017034603739
 Transform:
   m_ObjectHideFlags: 0
@@ -87,21 +86,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6227097145303417846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8958154362519778877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9662936000af240b06ce23958059f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canInteractAtStart: 0
-  isUsingBlackScreen: 1
-  screenMessage: MAMMA MIA MARIO
 --- !u!1001 &3826382273963565816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vassoio
       objectReference: {fileID: 0}
+    - target: {fileID: 6504400292989772824, guid: 086d861d5bbc77046b1f3cc0e2d73a58, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -224,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bicchiere
       objectReference: {fileID: 0}
+    - target: {fileID: 7933407952960785753, guid: 42e3bfc2b5ab7554998586d8096d9904, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -242,6 +234,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 29883017034603739}
     m_Modifications:
+    - target: {fileID: 2392632323287260461, guid: ecf83261b6fe57541968a46d024aa41f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     - target: {fileID: 2406976561172771921, guid: ecf83261b6fe57541968a46d024aa41f, type: 3}
       propertyPath: m_Name
       value: Pizza
@@ -364,6 +360,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9104001303746273680, guid: 6ba691f37b6cfe34c8decf07b4fe0f0c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -426,6 +426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table Fork
       objectReference: {fileID: 0}
+    - target: {fileID: 6867642018857586948, guid: 1e1fad0e2f8373e4d9295d52bfcd4e2a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

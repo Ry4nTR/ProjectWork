@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1305166685667266059}
   - component: {fileID: 5442473647035247130}
   m_Layer: 0
-  m_Name: Ordine donut
+  m_Name: Donut
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isUsingBlackScreen: 1
   screenMessage: F*ck Donald Trump
+  hologram: {fileID: 8958154362519778877, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
 --- !u!1001 &1619808203209753155
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -336,68 +336,6 @@ MonoBehaviour:
     - element: {fileID: 848197163}
       isCompleted: 0
   bedInteraction: {fileID: 1973938264}
---- !u!1001 &500963081
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.993
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.042
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.928572
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071069
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.70710677
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 29883017034603739, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8958154362519778877, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-      propertyPath: m_Name
-      value: Ordine donut_Hologram
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
---- !u!1 &566419092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958154362519778877, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
-  m_PrefabInstance: {fileID: 500963081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697830006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1026,7 +964,7 @@ PrefabInstance:
     - target: {fileID: 901922864545272798, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: hologram
       value: 
-      objectReference: {fileID: 566419092}
+      objectReference: {fileID: 0}
     - target: {fileID: 901922864545272798, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: interactionText
       value: 
@@ -1647,4 +1585,3 @@ SceneRoots:
   - {fileID: 1535496397}
   - {fileID: 1853213884}
   - {fileID: 767730468}
-  - {fileID: 500963081}

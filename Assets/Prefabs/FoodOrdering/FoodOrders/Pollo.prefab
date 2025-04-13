@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1305166685667266059}
   - component: {fileID: -2352288711920500106}
   m_Layer: 0
-  m_Name: Ordine pollo
+  m_Name: Pollo
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isUsingBlackScreen: 1
   screenMessage: The wing is exquisite...
+  hologram: {fileID: 8958154362519778877, guid: 43c3b90678646e04287d294362eecdab, type: 3}
 --- !u!1001 &3826382273963565816
 PrefabInstance:
   m_ObjectHideFlags: 0
