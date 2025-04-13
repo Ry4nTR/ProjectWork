@@ -6,6 +6,9 @@ TagManager:
   tags:
   - canPickUp
   - Window
+  - Pollo
+  - Donut
+  - Pizza
   layers:
   - Default
   - TransparentFX

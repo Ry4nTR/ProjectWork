@@ -5,7 +5,6 @@ namespace ProjectWork
     public class Food : InteractableObject
     {
         [Header("Food Settings")]
-        [SerializeField] private FoodHologram hologram;
         [SerializeField] private FoodType foodType;
 
         public FoodType FoodType => foodType;

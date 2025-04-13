@@ -32,6 +32,7 @@ namespace ProjectWork
                 if (food.FoodType == _foodType)
                 {              
                     PlaceFoodHere(food);
+                    food.UnlockInteraction();
                     SetActive(false);
                     OnFoodPlaced?.Invoke();
                 }
