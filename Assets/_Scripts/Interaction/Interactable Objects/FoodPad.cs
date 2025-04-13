@@ -63,9 +63,20 @@ namespace ProjectWork
 
         private void OnDestroy()
         {
-            foreach (OrderFoodButton button in orderFoodButtons)
+            foreach (OrderFoodButton foodButton in orderFoodButtons)
             {
-                //button.OnButtonClicked -= OrderFood;
+                switch (foodButton.foodType)
+                {
+                    case FoodType.Pizza:
+                        foodButton.button.onClick.RemoveListener(OrderPizza);
+                        break;
+                    case FoodType.Chicken:
+                        foodButton.button.onClick.RemoveListener(OrderChicken);
+                        break;
+                    case FoodType.Donut:
+                        foodButton.button.onClick.RemoveListener(OrderDonut);
+                        break;
+                }
             }
         }
 
