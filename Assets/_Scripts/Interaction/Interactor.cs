@@ -23,6 +23,15 @@ public class Interactor : BlackScreenEnabler
             {
                 interactionText.SetActive(true);
 
+                //The issue for the buttons is here.
+                //You need to interact with the button BEFORE pressing the key
+                //Solution:
+                if (interactable is OrderFoodButton)
+                {
+                    OrderFoodButton orderFoodButton = (OrderFoodButton)interactable;
+                    orderFoodButton.Button.Select();
+                }
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactionText.SetActive(false);
