@@ -18,7 +18,7 @@ namespace ProjectWork
                 Instance = this;
                 SubscribeToAllInteractionEnds();
                 bedInteraction.OnInteractionFinished += ResetInteractions;
-                listCheckManager.OnListCompleted += UnlockBedInteraction;
+                listCheckManager.OnListCompleted += bedInteraction.UnlockInteraction;
             }
             else
             {
@@ -29,7 +29,7 @@ namespace ProjectWork
         private void OnDestroy()
         {
             UnsubscribeToAllInteractionEnds();
-            listCheckManager.OnListCompleted -= UnlockBedInteraction;
+            listCheckManager.OnListCompleted -= bedInteraction.UnlockInteraction;
         }
 
         private void ResetInteractions(InteractableObject eventInvoker)
@@ -43,16 +43,11 @@ namespace ProjectWork
             bedInteraction.ResetInteraction();
         }
 
-        private void UnlockBedInteraction()
-        {
-            bedInteraction.UnlockInteraction();
-        }
-
         private void UnsubscribeToAllInteractionEnds()
         {
             foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
-                item.element.OnInteractionFinished -= SetItemCompletedInList;
+                item.element.OnInteractionFinished -= listCheckManager.SetItemCompleted;
             }
         }
 
@@ -60,16 +55,8 @@ namespace ProjectWork
         {
             foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
             {
-                item.element.OnInteractionFinished += SetItemCompletedInList;
+                item.element.OnInteractionFinished += listCheckManager.SetItemCompleted;
             }
-        }
-
-        /// <summary>
-        /// Using this method to avoid losing track of lambdas
-        /// </summary>
-        private void SetItemCompletedInList(InteractableObject eventInvoker)
-        {
-            listCheckManager.SetItemCompleted(eventInvoker);
         }
 
         public bool IsItemCompleted(InteractableObject item)
