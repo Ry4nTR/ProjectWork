@@ -99,3 +99,14 @@ namespace ProjectWork
             }
         }
 
+        public void AddItemToCheckList(ItemType item)
+        {
+            ItemCheck newItem = new()
+            {
+                element = item,
+                isCompleted = false
+            };
+            _allItems.Add(newItem);
+        }
+    }
+}
