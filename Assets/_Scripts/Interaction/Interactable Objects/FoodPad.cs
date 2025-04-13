@@ -21,21 +21,24 @@ namespace ProjectWork
             public PadState state;
             public GameObject screenObject;
         }
-        public static event Action<FoodType> OnSelectedFood = delegate { };
 
-        [SerializeField] private PadState _currentPadState = PadState.Selection;
-        [SerializeField] private List<PadScreen> screens = new List<PadScreen>();
-
-        [Header("Emergency Number")]
-        [SerializeField, Range(0,9)] private byte puzzleNumber;
-
+        [Serializable]
         public struct OrderFoodButton
         {
             public Button button;
             public FoodType foodType;
         }
+        public static event Action<FoodType> OnSelectedFood = delegate { };
 
-        private List<OrderFoodButton> orderFoodButtons;
+        [Header("Food Pad Settings")]
+        [SerializeField] private PadState _currentPadState = PadState.Selection;
+        
+        [Header("References")]
+        [SerializeField] private List<PadScreen> screens = new();
+        [SerializeField] private List<OrderFoodButton> orderFoodButtons;
+
+        [Header("Emergency Number")]
+        [SerializeField, Range(0, 9)] private byte puzzleNumber;
 
         public PadState CurrentPadState => _currentPadState;
 
@@ -85,8 +88,6 @@ namespace ProjectWork
         private void OrderChicken() => OrderFood(FoodType.Chicken);
         private void OrderDonut() => OrderFood(FoodType.Donut);
 
-        private void ChangeToNumberScreen() => SetState(PadState.DisplayNumber);
-
         private void OrderFood(FoodType foodType)
         {
             Debug.Log($"Ordering {foodType}");
@@ -94,6 +95,8 @@ namespace ProjectWork
             SetState(PadState.AfterSelection);
             //Block other orders
         }
+
+        private void ChangeToNumberScreen() => SetState(PadState.DisplayNumber);  
 
         private void SetState(PadState newState)
         {

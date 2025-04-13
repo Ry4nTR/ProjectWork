@@ -27,6 +27,9 @@ namespace ProjectWork
 
         public override void OnInspectorGUI()
         {
+            if (serializedObject == null || target == null)
+                return;
+
             serializedObject.Update();
 
             EditorGUILayout.PropertyField(scriptReference);
