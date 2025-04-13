@@ -8,9 +8,11 @@ namespace ProjectWork
     {
         SerializedProperty scriptReference;
         SerializedProperty canInteractAtStart;
+        SerializedProperty isInteractionInstant;
         SerializedProperty isUsingBlackScreen;
         SerializedProperty screenMessage;
 
+        private bool showInteractionSettings = true;
         private bool showBlackScreenSettings = true;
         private GUIStyle boldFoldoutStyle;
 
@@ -18,6 +20,7 @@ namespace ProjectWork
         {
             scriptReference = serializedObject.FindProperty("m_Script");
             canInteractAtStart = serializedObject.FindProperty("canInteractAtStart");
+            isInteractionInstant = serializedObject.FindProperty("isInteractionInstant");
             isUsingBlackScreen = serializedObject.FindProperty("isUsingBlackScreen");
             screenMessage = serializedObject.FindProperty("screenMessage");
         }
@@ -27,9 +30,6 @@ namespace ProjectWork
             serializedObject.Update();
 
             EditorGUILayout.PropertyField(scriptReference);
-            EditorGUILayout.PropertyField(canInteractAtStart);
-            EditorGUILayout.Space();
-
             // Lazy init of bold foldout style
             if (boldFoldoutStyle == null)
             {
@@ -38,6 +38,17 @@ namespace ProjectWork
                     fontStyle = FontStyle.Bold
                 };
             }
+
+            showInteractionSettings = EditorGUILayout.Foldout(showInteractionSettings, "Interaction Settings", true, boldFoldoutStyle);
+            if(showInteractionSettings)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(canInteractAtStart);
+                EditorGUILayout.PropertyField(isInteractionInstant);
+                EditorGUI.indentLevel--;
+            }
+
+            EditorGUILayout.Space();
 
             showBlackScreenSettings = EditorGUILayout.Foldout(showBlackScreenSettings, "Black Screen Settings", true, boldFoldoutStyle);
 
@@ -51,7 +62,7 @@ namespace ProjectWork
                 }
                 EditorGUI.indentLevel--;
             }
-            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isUsingBlackScreen", "screenMessage", "m_Script");
+            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isInteractionInstant", "isUsingBlackScreen", "screenMessage", "m_Script");
 
             serializedObject.ApplyModifiedProperties();
         }
