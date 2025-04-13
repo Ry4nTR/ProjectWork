@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace ProjectWork
     {
         public static GameInteractionManager Instance { get; private set; }
 
-        [SerializeField] private ListCheckManager<InteractableObject> listCheckManager;
+        [SerializeField] private CheckListManager<InteractableObject> listCheckManager;
         [SerializeField] private Bed bedInteraction;
 
         private void Awake()
@@ -16,25 +17,39 @@ namespace ProjectWork
             {
                 Instance = this;
                 SubscribeToAllInteractionEnds();
+
+                TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
                 bedInteraction.OnInteractionFinished += ResetInteractions;
-                listCheckManager.OnListCompleted += UnlockBedInteraction;
+                listCheckManager.OnListCompleted += bedInteraction.UnlockInteraction;
             }
             else
             {
                 Destroy(gameObject);
             }   
-        }
+        }        
 
         private void OnDestroy()
         {
+            if (Instance != this)
+                return;
+
             UnsubscribeToAllInteractionEnds();
-            listCheckManager.OnListCompleted -= UnlockBedInteraction;
+
+            TrashManager.OnTrashSpawned -= AddToListAndSubscribeToTrashThrownEvent;
+            bedInteraction.OnInteractionFinished -= ResetInteractions;
+            listCheckManager.OnListCompleted -= bedInteraction.UnlockInteraction;
         }
 
+        private void AddToListAndSubscribeToTrashThrownEvent(Trash spawnedTrash)
+        {
+            listCheckManager.AddItemToCheckList(spawnedTrash);
+            //spawnedTrash.OnTrashThrown += ;
+        }
+        
         private void ResetInteractions(InteractableObject eventInvoker)
         {
             
-            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
                 item.element.ResetInteraction();
             }
@@ -42,33 +57,20 @@ namespace ProjectWork
             bedInteraction.ResetInteraction();
         }
 
-        private void UnlockBedInteraction()
-        {
-            bedInteraction.UnlockInteraction();
-        }
-
         private void UnsubscribeToAllInteractionEnds()
         {
-            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
-                item.element.OnInteractionFinished -= SetItemCompletedInList;
+                item.element.OnInteractionFinished -= listCheckManager.SetItemCompleted;
             }
         }
 
         private void SubscribeToAllInteractionEnds()
         {
-            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
-                item.element.OnInteractionFinished += SetItemCompletedInList;
+                item.element.OnInteractionFinished += listCheckManager.SetItemCompleted;
             }
-        }
-
-        /// <summary>
-        /// Using this method to avoid losing track of lambdas
-        /// </summary>
-        private void SetItemCompletedInList(InteractableObject eventInvoker)
-        {
-            listCheckManager.SetItemCompleted(eventInvoker);
         }
 
         public bool IsItemCompleted(InteractableObject item)

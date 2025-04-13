@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class TrashManager : MonoBehaviour
 {
     public static TrashManager Instance { get; private set; }
+    public static event Action<Trash> OnTrashSpawned = delegate { };
 
     [SerializeField] private GameObject trashPrefab;  // Assegna il prefab dall'Inspector
 
@@ -20,7 +22,8 @@ public class TrashManager : MonoBehaviour
     {
         if (trashPrefab != null)
         {
-            Instantiate(trashPrefab, transform.position, transform.rotation);
+            Trash trash = Instantiate(trashPrefab, transform.position, transform.rotation).GetComponent<Trash>();
+            OnTrashSpawned?.Invoke(trash);
         }
         else
         {
