@@ -19,17 +19,12 @@ public class Interactor : BlackScreenEnabler
 
             if (interactable != null 
                 && interactable.CanInteract)
-                //&& !GameInteractionManager.Instance.IsItemCompleted(interactable))
             {
                 interactionText.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactionText.SetActive(false);
-                    interactable.Interact();
-                }
-                else if(Input.GetMouseButtonDown(0))
-                {
                     interactable.Interact();
                 }
             }

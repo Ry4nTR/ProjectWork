@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 namespace ProjectWork
@@ -27,56 +26,29 @@ namespace ProjectWork
         [SerializeField] private List<PadScreen> screens = new List<PadScreen>();
 
         [Header("Emergency Number")]
-        [SerializeField, Range(0,9)] private byte puzzleNumber;
+        [SerializeField, Range(0, 9)] private byte puzzleNumber;
         private TextMeshProUGUI numberText;
 
-        public struct OrderFoodButton
-        {
-            public Button button;
-            public FoodType foodType;
-        }
-
-        private List<OrderFoodButton> orderFoodButtons;
+        [SerializeField] private List<OrderFoodButton> orderFoodButtons = new List<OrderFoodButton>();
 
         public PadState CurrentPadState => _currentPadState;
 
         private void Awake()
         {
-            foreach (OrderFoodButton foodButton in orderFoodButtons)
-            {
-                switch(foodButton.foodType)
-                {
-                    case FoodType.Pizza:
-                        foodButton.button.onClick.AddListener(OrderPizza);
-                        break;
-                    case FoodType.Chicken:
-                        foodButton.button.onClick.AddListener(OrderChicken);
-                        break;
-                    case FoodType.Donut:
-                        foodButton.button.onClick.AddListener(OrderDonut);
-                        break;
-                }
-            }
+            orderFoodButtons = new List<OrderFoodButton>(GetComponentsInChildren<OrderFoodButton>(true));
 
-            //GameInteractionManager.OnPuzzleCompleted += OnPuzzleCompleted;
+            foreach (var foodButton in orderFoodButtons)
+            {
+                FoodType currentFoodType = foodButton.foodType;
+                foodButton.Button.onClick.AddListener(() => OrderFood(currentFoodType));
+            }
         }
 
         private void OnDestroy()
         {
-            foreach (OrderFoodButton foodButton in orderFoodButtons)
+            foreach (var foodButton in orderFoodButtons)
             {
-                switch (foodButton.foodType)
-                {
-                    case FoodType.Pizza:
-                        foodButton.button.onClick.RemoveListener(OrderPizza);
-                        break;
-                    case FoodType.Chicken:
-                        foodButton.button.onClick.RemoveListener(OrderChicken);
-                        break;
-                    case FoodType.Donut:
-                        foodButton.button.onClick.RemoveListener(OrderDonut);
-                        break;
-                }
+                foodButton.Button.onClick.RemoveAllListeners();
             }
         }
 
