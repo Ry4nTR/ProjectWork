@@ -54,7 +54,7 @@ public class PickUpScript : MonoBehaviour
             HidePickUpPrompt();
             ShowHeldObjectPrompt();
 
-            if (hologram != null && hologram.activeSelf)
+            if (hologram != null && hologram.activeInHierarchy)
             {
                 float dist = Vector3.Distance(heldObj.transform.position, hologram.transform.position);
                 isInPlacementRange = dist <= placementDistance;
@@ -115,8 +115,13 @@ public class PickUpScript : MonoBehaviour
             Food food = heldObj.GetComponent<Food>();
             if (food != null && food.hologram != null)
             {
+                Debug.Log("Food & hologram are not null");
                 hologram = food.hologram;
                 hologram.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("Food or hologram is null");
             }
         }
     }
