@@ -22,31 +22,8 @@ namespace ProjectWork
 
         public event Action OnListCompleted = delegate { };
 
-        [Tooltip("The amount of elements that need to be approved before the list is considered complete. Set to 0 to disable this check.")]
-        [SerializeField] private int itemAmountToApprove;
         [SerializeField] protected List<ItemCheck> _allItems;
         public IReadOnlyList<ItemCheck> Items => _allItems;
-
-        /// <summary>
-        /// Checks if the list is completed based on the amount of completed items that is equal or greater than the amount of items to approve.
-        /// </summary>
-        /// <returns>True if the minimum number of Completed task is reached</returns>
-        public bool AreMinimumNumberOfItemsCompleted()
-        {
-            int completedCount = 0;
-            foreach (var item in _allItems)
-            {
-                if (item.isCompleted)
-                {
-                    completedCount++;
-                    if (completedCount >= itemAmountToApprove)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
 
         /// <summary>
         /// Checks if the list is fully completed. This is used to check if the player has completed all the items in the list.
@@ -79,7 +56,7 @@ namespace ProjectWork
             itemSelected.isCompleted = true;
             _allItems[itemIndex] = itemSelected;
 
-            if (AreMinimumNumberOfItemsCompleted())
+            if (IsListFullyCompleted())
             {
                 //TODO: Unlock the next part of the game
                 OnListCompleted?.Invoke();
