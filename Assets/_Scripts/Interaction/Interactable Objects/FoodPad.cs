@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace ProjectWork
@@ -29,16 +30,32 @@ namespace ProjectWork
         [SerializeField, Range(0,9)] private byte puzzleNumber;
         private TextMeshProUGUI numberText;
 
+        public struct OrderFoodButton
+        {
+            public Button button;
+            public FoodType foodType;
+        }
+
         private List<OrderFoodButton> orderFoodButtons;
 
         public PadState CurrentPadState => _currentPadState;
 
         private void Awake()
         {
-            orderFoodButtons = new List<OrderFoodButton>(GetComponentsInChildren<OrderFoodButton>());
-            foreach (OrderFoodButton button in orderFoodButtons)
+            foreach (OrderFoodButton foodButton in orderFoodButtons)
             {
-                button.OnButtonClicked += OrderFood;
+                switch(foodButton.foodType)
+                {
+                    case FoodType.Pizza:
+                        foodButton.button.onClick.AddListener(OrderPizza);
+                        break;
+                    case FoodType.Chicken:
+                        foodButton.button.onClick.AddListener(OrderChicken);
+                        break;
+                    case FoodType.Donut:
+                        foodButton.button.onClick.AddListener(OrderDonut);
+                        break;
+                }
             }
 
             //GameInteractionManager.OnPuzzleCompleted += OnPuzzleCompleted;
@@ -48,8 +65,23 @@ namespace ProjectWork
         {
             foreach (OrderFoodButton button in orderFoodButtons)
             {
-                button.OnButtonClicked -= OrderFood;
+                //button.OnButtonClicked -= OrderFood;
             }
+        }
+
+        private void OrderPizza()
+        {
+            OrderFood(FoodType.Pizza);
+        }
+
+        private void OrderChicken()
+        {
+            OrderFood(FoodType.Chicken);
+        }
+
+        private void OrderDonut()
+        {
+            OrderFood(FoodType.Donut);
         }
 
         private void OrderFood(FoodType foodType)

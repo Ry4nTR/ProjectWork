@@ -509,8 +509,6 @@ MonoBehaviour:
     _allItems:
     - element: {fileID: 848197163}
       isCompleted: 0
-    - element: {fileID: 848197163}
-      isCompleted: 0
   bedInteraction: {fileID: 1973938264}
 --- !u!1001 &697830006
 PrefabInstance:
@@ -1290,10 +1288,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7027479591544973211, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: raycastLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8935027281040787277, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: interactionText
       value: 
       objectReference: {fileID: 1802745941}
+    - target: {fileID: 8935027281040787277, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

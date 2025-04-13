@@ -1,5 +1,6 @@
-using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace ProjectWork
 {
@@ -9,15 +10,29 @@ namespace ProjectWork
         Chicken,
         Donut,
     }
-    public class OrderFoodButton : MonoBehaviour
+    public class OrderFoodButton : InteractableObject
     {
-        public event Action<FoodType> OnButtonClicked = delegate { };
+        private Button button;
         [SerializeField] private FoodType foodType;
 
-        public void OnClick()
+        private void Awake()
         {
-            OnButtonClicked?.Invoke(foodType);
-            Debug.Log($"Button clicked: {foodType}");
+            button = GetComponent<Button>();
+        }
+
+        private void Update()
+        {
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };
+            button.OnPointerEnter(pointerEventData);
+        }
+
+        public override void Interact()
+        {
+            button.onClick.Invoke();
+            
         }
     }
 }
