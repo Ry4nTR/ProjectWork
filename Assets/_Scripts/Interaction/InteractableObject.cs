@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using ProjectWork;
 using UnityEngine;
 
@@ -14,7 +13,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private bool isUsingBlackScreen = false;
     [SerializeField] private string screenMessage = "INTERACTING";
     private bool _canInteract;
-        private List<OrderFoodButton> orderFoodButtons;
 
     public bool CanInteract => _canInteract;
 
