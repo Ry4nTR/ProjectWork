@@ -17,6 +17,8 @@ namespace ProjectWork
             {
                 Instance = this;
                 SubscribeToAllInteractionEnds();
+
+                TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
                 bedInteraction.OnInteractionFinished += ResetInteractions;
                 listCheckManager.OnListCompleted += bedInteraction.UnlockInteraction;
             }
@@ -24,14 +26,26 @@ namespace ProjectWork
             {
                 Destroy(gameObject);
             }   
-        }
+        }        
 
         private void OnDestroy()
         {
+            if (Instance != this)
+                return;
+
             UnsubscribeToAllInteractionEnds();
+
+            TrashManager.OnTrashSpawned -= AddToListAndSubscribeToTrashThrownEvent;
+            bedInteraction.OnInteractionFinished -= ResetInteractions;
             listCheckManager.OnListCompleted -= bedInteraction.UnlockInteraction;
         }
 
+        private void AddToListAndSubscribeToTrashThrownEvent(Trash spawnedTrash)
+        {
+            listCheckManager.AddItemToCheckList(spawnedTrash);
+            //spawnedTrash.OnTrashThrown += ;
+        }
+        
         private void ResetInteractions(InteractableObject eventInvoker)
         {
             
@@ -53,7 +67,7 @@ namespace ProjectWork
 
         private void SubscribeToAllInteractionEnds()
         {
-            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
                 item.element.OnInteractionFinished += listCheckManager.SetItemCompleted;
             }
