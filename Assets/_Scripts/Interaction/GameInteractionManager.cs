@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace ProjectWork
     {
         public static GameInteractionManager Instance { get; private set; }
 
-        [SerializeField] private ListCheckManager<InteractableObject> listCheckManager;
+        [SerializeField] private CheckListManager<InteractableObject> listCheckManager;
         [SerializeField] private Bed bedInteraction;
 
         private void Awake()
@@ -34,7 +35,7 @@ namespace ProjectWork
         private void ResetInteractions(InteractableObject eventInvoker)
         {
             
-            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
                 item.element.ResetInteraction();
             }
@@ -49,7 +50,7 @@ namespace ProjectWork
 
         private void UnsubscribeToAllInteractionEnds()
         {
-            foreach (ListCheckManager<InteractableObject>.ElementCheck item in listCheckManager.Items)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
                 item.element.OnInteractionFinished -= SetItemCompletedInList;
             }

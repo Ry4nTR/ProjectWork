@@ -8,25 +8,24 @@ namespace ProjectWork
     /// <summary>
     /// This class is used to manage a list of elements that need to be checked.
     /// </
-    public class ListCheckManager<ElementType>
+    public class CheckListManager<ItemType>
     {
         [Serializable]
         /// <summary>
         /// Contains the generic element and a boolean to check if it is completed or not.
         /// </summary>
-        public struct ElementCheck
+        public struct ItemCheck
         {
-            public ElementType element;
+            public ItemType element;
             public bool isCompleted;
         }
 
         public event Action OnListCompleted = delegate { };
 
-        //TODO: Add a list of elements to be checked instead of using a number (letto action could be read accidentally)
         [Tooltip("The amount of elements that need to be approved before the list is considered complete. Set to 0 to disable this check.")]
         [SerializeField] private int itemAmountToApprove;
-        [SerializeField] protected List<ElementCheck> _allItems;
-        public IReadOnlyList<ElementCheck> Items => _allItems;
+        [SerializeField] protected List<ItemCheck> _allItems;
+        public IReadOnlyList<ItemCheck> Items => _allItems;
 
         /// <summary>
         /// Checks if the list is completed based on the amount of completed items that is equal or greater than the amount of items to approve.
@@ -68,7 +67,7 @@ namespace ProjectWork
         /// <summary>
         /// Sets the item as completed. Will be used when the player interacts with the item or completes an enigma.
         /// </summary>
-        public void SetItemCompleted(ElementType item)
+        public void SetItemCompleted(ItemType item)
         {
             int itemIndex = _allItems.FindIndex(x => x.element.Equals(item));
             if(itemIndex == -1)
@@ -76,7 +75,7 @@ namespace ProjectWork
                 Debug.LogError($"Item {item} not found in the list.");
                 return;
             }
-            ElementCheck itemSelected = _allItems[itemIndex];
+            ItemCheck itemSelected = _allItems[itemIndex];
             itemSelected.isCompleted = true;
             _allItems[itemIndex] = itemSelected;
 
@@ -94,10 +93,9 @@ namespace ProjectWork
         {
             for (int i = 0; i < _allItems.Count; i++)
             {
-                ElementCheck item = _allItems[i];
+                ItemCheck item = _allItems[i];
                 item.isCompleted = false;
                 _allItems[i] = item;
             }
         }
-    }
-}
+
