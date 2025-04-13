@@ -28,7 +28,6 @@ namespace ProjectWork
 
         [Header("Emergency Number")]
         [SerializeField, Range(0,9)] private byte puzzleNumber;
-        private TextMeshProUGUI numberText;
 
         public struct OrderFoodButton
         {
@@ -58,7 +57,7 @@ namespace ProjectWork
                 }
             }
 
-            //GameInteractionManager.OnPuzzleCompleted += OnPuzzleCompleted;
+            GameInteractionManager.OnTutorialFinished += ChangeToNumberScreen;
         }
 
         private void OnDestroy()
@@ -78,22 +77,15 @@ namespace ProjectWork
                         break;
                 }
             }
+
+            GameInteractionManager.OnTutorialFinished -= ChangeToNumberScreen;
         }
 
-        private void OrderPizza()
-        {
-            OrderFood(FoodType.Pizza);
-        }
+        private void OrderPizza() => OrderFood(FoodType.Pizza);
+        private void OrderChicken() => OrderFood(FoodType.Chicken);
+        private void OrderDonut() => OrderFood(FoodType.Donut);
 
-        private void OrderChicken()
-        {
-            OrderFood(FoodType.Chicken);
-        }
-
-        private void OrderDonut()
-        {
-            OrderFood(FoodType.Donut);
-        }
+        private void ChangeToNumberScreen() => SetState(PadState.DisplayNumber);
 
         private void OrderFood(FoodType foodType)
         {
