@@ -6,7 +6,7 @@ namespace ProjectWork
     public enum FoodType
     {
         Pizza,
-        Pollo,
+        Chicken,
         Donut,
     }
     public class OrderFoodButton : MonoBehaviour

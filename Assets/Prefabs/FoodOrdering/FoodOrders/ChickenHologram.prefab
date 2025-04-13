@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 29883017034603739}
   - component: {fileID: 5993023632539612065}
   - component: {fileID: 1305166685667266059}
-  - component: {fileID: -2352288711920500106}
+  - component: {fileID: -2040524748593281617}
   m_Layer: 0
-  m_Name: Pollo
-  m_TagString: canPickUp
+  m_Name: ChickenHologram
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &29883017034603739
 Transform:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -83,12 +83,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-2352288711920500106
+--- !u!114 &-2040524748593281617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,13 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8958154362519778877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9662936000af240b06ce23958059f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 316d4ea8ec55cff47a424187f736edd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteractAtStart: 0
-  isUsingBlackScreen: 1
-  screenMessage: The wing is exquisite...
-  hologram: {fileID: 8958154362519778877, guid: 43c3b90678646e04287d294362eecdab, type: 3}
+  _foodType: 1
 --- !u!1001 &3826382273963565816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vassoio
       objectReference: {fileID: 0}
+    - target: {fileID: 6504400292989772824, guid: 086d861d5bbc77046b1f3cc0e2d73a58, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -226,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bicchiere
       objectReference: {fileID: 0}
+    - target: {fileID: 7933407952960785753, guid: 42e3bfc2b5ab7554998586d8096d9904, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -248,6 +253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piatto
       objectReference: {fileID: 0}
+    - target: {fileID: 4681508601630761660, guid: deff23ad8ae42ee44b9c660a0ab8855c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     - target: {fileID: 4931060261435429358, guid: deff23ad8ae42ee44b9c660a0ab8855c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12529993
@@ -350,6 +359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9104001303746273680, guid: 6ba691f37b6cfe34c8decf07b4fe0f0c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -412,6 +425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2921134319590181064, guid: 16acbe5bed5d99944a567da1b7fcb438, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -474,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table Fork
       objectReference: {fileID: 0}
+    - target: {fileID: 6867642018857586948, guid: 1e1fad0e2f8373e4d9295d52bfcd4e2a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a7bcd041829aa408282e092962ba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

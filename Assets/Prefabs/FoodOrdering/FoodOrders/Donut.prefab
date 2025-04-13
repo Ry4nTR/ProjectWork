@@ -101,9 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteractAtStart: 0
+  isInteractionInstant: 0
   isUsingBlackScreen: 1
   screenMessage: F*ck Donald Trump
-  hologram: {fileID: 8958154362519778877, guid: 941ae71ea8bb9ef45bc8bcbdc8e33d6b, type: 3}
+  hologram: {fileID: 0}
+  foodType: 2
 --- !u!1001 &1619808203209753155
 PrefabInstance:
   m_ObjectHideFlags: 0

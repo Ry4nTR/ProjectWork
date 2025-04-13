@@ -62,6 +62,7 @@ namespace ProjectWork
                 }
                 EditorGUI.indentLevel--;
             }
+            EditorGUILayout.Space(10);
             DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isInteractionInstant", "isUsingBlackScreen", "screenMessage", "m_Script");
 
             serializedObject.ApplyModifiedProperties();

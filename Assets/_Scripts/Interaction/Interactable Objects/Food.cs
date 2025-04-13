@@ -1,10 +1,19 @@
 using UnityEngine;
 
-public class Food : InteractableObject
+namespace ProjectWork
 {
-    public override void Interact()
+    public class Food : InteractableObject
     {
-        base.Interact();  // Mantiene la logica base (eventi, black screen, ecc.)
-        TrashManager.Instance.SpawnTrash();  // Spawna nel punto del TrashManager
+        [Header("Food Settings")]
+        [SerializeField] private FoodHologram hologram;
+        [SerializeField] private FoodType foodType;
+
+        public FoodType FoodType => foodType;
+
+        public override void Interact()
+        {
+            base.Interact();  // Mantiene la logica base (eventi, black screen, ecc.)
+            TrashManager.Instance.SpawnTrash();  // Spawna nel punto del TrashManager
+        }
     }
 }
