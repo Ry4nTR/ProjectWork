@@ -29,18 +29,18 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (isUsingBlackScreen)
         {
             BlackScreenTextController.Instance.ActivateBlackScreen(screenMessage);
-            BlackScreenTextController.OnBlackScreenTextFinished += InvokeEvent;
+            BlackScreenTextController.OnBlackScreenTextFinished += InvokeInteractionFinishedEvent;
         }
         else
         {
-            InvokeEvent();
+            InvokeInteractionFinishedEvent();
         }
     }
 
-    private void InvokeEvent()
+    protected void InvokeInteractionFinishedEvent()
     {
         if (isUsingBlackScreen)
-            BlackScreenTextController.OnBlackScreenTextFinished -= InvokeEvent;
+            BlackScreenTextController.OnBlackScreenTextFinished -= InvokeInteractionFinishedEvent;
 
         OnInteractionFinished?.Invoke(this);
     }
