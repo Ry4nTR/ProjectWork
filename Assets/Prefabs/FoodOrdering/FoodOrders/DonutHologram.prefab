@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 1305166685667266059}
   m_Layer: 0
   m_Name: DonutHologram
-  m_TagString: canPickUp
+  m_TagString: Donut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &29883017034603739
 Transform:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1305166685667266059}
   m_Layer: 0
   m_Name: PolloHologram
-  m_TagString: canPickUp
+  m_TagString: Pollo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
