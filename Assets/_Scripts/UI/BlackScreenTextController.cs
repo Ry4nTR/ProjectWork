@@ -40,7 +40,8 @@ namespace ProjectWork
         }
         private void Start()
         {
-            //ActivateBlackScreen("Starting text");
+            //Togliere il fade in
+            ActivateBlackScreen("Giorno 1\nLa giornata comincia");
         }
 
         public void ActivateBlackScreen(string text)

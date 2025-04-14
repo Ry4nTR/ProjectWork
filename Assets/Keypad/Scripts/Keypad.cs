@@ -8,6 +8,8 @@ namespace NavKeypad
 {
     public class Keypad : MonoBehaviour
     {
+        private enum ScreenPhase { Normal = 0, Granted = 1, Denied = 2 }
+
         [Header("Events")]
         [SerializeField] private UnityEvent onAccessGranted;
         [SerializeField] private UnityEvent onAccessDenied;
@@ -23,12 +25,11 @@ namespace NavKeypad
 
         [Header("Visuals")]
         [SerializeField] private float displayResultTime = 1f;
-        [Range(0, 5)]
-        [SerializeField] private float screenIntensity = 2.5f;
         [Header("Colors")]
         [SerializeField] private Color screenNormalColor = new Color(0.98f, 0.50f, 0.032f, 1f); //orangy
         [SerializeField] private Color screenDeniedColor = new Color(1f, 0f, 0f, 1f); //red
         [SerializeField] private Color screenGrantedColor = new Color(0f, 0.62f, 0.07f); //greenish
+        [SerializeField] private string colorParameterName = "_EmissiveColorLDR";
         [Header("SoundFx")]
         [SerializeField] private AudioClip buttonClickedSfx;
         [SerializeField] private AudioClip accessDeniedSfx;
@@ -46,9 +47,20 @@ namespace NavKeypad
         private void Awake()
         {
             ClearInput();
-            panelMesh.material.SetVector("_EmissionColor", screenNormalColor * screenIntensity);
+            SetScreenColor(ScreenPhase.Normal);
         }
 
+        private void SetScreenColor(ScreenPhase screenPhase)
+        {
+            Color screenColor = screenPhase switch
+            {
+                ScreenPhase.Normal => screenNormalColor,
+                ScreenPhase.Granted => screenGrantedColor,
+                ScreenPhase.Denied => screenDeniedColor,
+                _ => screenNormalColor
+            };
+            panelMesh.material.SetColor(colorParameterName, screenColor);
+        }
 
         //Gets value from pressedbutton
         public void AddInput(string input)
@@ -61,7 +73,7 @@ namespace NavKeypad
                     CheckCombo();
                     break;
                 default:
-                    if (currentInput != null && currentInput.Length == 9) // 9 max passcode size 
+                    if (currentInput != null && currentInput.Length == 4) // 4 max passcode size 
                     {
                         return;
                     }
@@ -100,15 +112,14 @@ namespace NavKeypad
             displayingResult = false;
             if (granted) yield break;
             ClearInput();
-            panelMesh.material.SetVector("_EmissionColor", screenNormalColor * screenIntensity);
-
+            SetScreenColor(ScreenPhase.Normal);
         }
 
         private void AccessDenied()
         {
             keypadDisplayText.text = accessDeniedText;
             onAccessDenied?.Invoke();
-            panelMesh.material.SetVector("_EmissionColor", screenDeniedColor * screenIntensity);
+            SetScreenColor(ScreenPhase.Denied);
             audioSource.PlayOneShot(accessDeniedSfx);
         }
 
@@ -123,7 +134,7 @@ namespace NavKeypad
             accessWasGranted = true;
             keypadDisplayText.text = accessGrantedText;
             onAccessGranted?.Invoke();
-            panelMesh.material.SetVector("_EmissionColor", screenGrantedColor * screenIntensity);
+            SetScreenColor(ScreenPhase.Granted);
             audioSource.PlayOneShot(accessGrantedSfx);
         }
 
