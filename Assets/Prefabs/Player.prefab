@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4bb499931ec5c49abaf8d19f23906a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  walkSpeed: 10
   runSpeed: 10
   jumpSpeed: 5
   steeringAcceleration: 20
@@ -424,7 +424,8 @@ MonoBehaviour:
   maxPitch: 20
   rotationSpeed: 2
   transitionSpeed: 3
-  centerOnZAxis: 1
+  centerViewSpeed: 5
+  centerThreshold: 0.5
 --- !u!114 &5241758460402669443
 MonoBehaviour:
   m_ObjectHideFlags: 0
