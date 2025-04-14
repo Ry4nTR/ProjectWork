@@ -19,13 +19,9 @@ public class Interactor : BlackScreenEnabler
 
             if (interactable != null 
                 && interactable.CanInteract)
-                //&& !GameInteractionManager.Instance.IsItemCompleted(interactable))
             {
                 interactionText.SetActive(true);
 
-                //The issue for the buttons is here.
-                //You need to interact with the button BEFORE pressing the key
-                //Solution:
                 if (interactable is OrderFoodButton)
                 {
                     OrderFoodButton orderFoodButton = (OrderFoodButton)interactable;
@@ -35,10 +31,6 @@ public class Interactor : BlackScreenEnabler
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactionText.SetActive(false);
-                    interactable.Interact();
-                }
-                else if(Input.GetMouseButtonDown(0))
-                {
                     interactable.Interact();
                 }
             }
