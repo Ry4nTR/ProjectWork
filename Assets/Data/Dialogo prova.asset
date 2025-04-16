@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - character:
-      name: 
+      name: Prova
       icon: {fileID: 0}
     lines:
     - Ciao sono uno stronzo
