@@ -21,9 +21,13 @@ public class DialogueManager : MonoBehaviour
     private string currentLineFullText;
     private float interactionDistance = 5f;
 
+    [Header("NPC Interaction")]
+    [SerializeField] private DialogueInteractor dialogueInteractor;
+
     public GameObject questionBoxPrefab;
 
     private Dictionary<string, DialogueLine> responseLookup;
+
 
     private DialogueLine currentLine; // Store the current line being displayed
 
@@ -147,25 +151,15 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Check if we're not already in dialogue or if we can proceed
             if (!isDialogueActive)
             {
-                // Raycast to detect NPC
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, interactionDistance)) // Use your desired interaction distance
+                if (dialogueInteractor != null && dialogueInteractor.IsLookingAtNPC())
                 {
-                    DialogueTrigger trigger = hit.collider.GetComponent<DialogueTrigger>();
-                    if (trigger != null)
-                    {
-                        trigger.TriggerDialogue();
-                    }
+                    dialogueInteractor.GetCurrentNPCDialogueTrigger().TriggerDialogue();
                 }
             }
             else
             {
-                // This handles continuing dialogue when E is pressed
                 HandleTextBubbleClick();
             }
         }
