@@ -310,8 +310,6 @@ GameObject:
   - component: {fileID: 964427897386672498}
   - component: {fileID: 7874962158084416352}
   - component: {fileID: 1944126360884024129}
-  - component: {fileID: 6087242579273423827}
-  - component: {fileID: 648210777799982720}
   - component: {fileID: 5241758460402669443}
   - component: {fileID: 1798654236432070127}
   m_Layer: 0
@@ -385,48 +383,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6087242579273423827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6055781102602694057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4bb499931ec5c49abaf8d19f23906a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 10
-  runSpeed: 10
-  jumpSpeed: 5
-  steeringAcceleration: 20
-  groundHorizontalDrag: 10
-  airHorizontalDrag: 0
-  groundGravity: 2
-  gravity: 9.81
-  controller: {fileID: 1944126360884024129}
---- !u!114 &648210777799982720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6055781102602694057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afe62a4b9014dfc489808258da5e7aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 5576610537300616384}
-  movementScript: {fileID: 6087242579273423827}
-  cameraManager: {fileID: 2694833796273840380}
-  maxYaw: 30
-  maxPitch: 20
-  rotationSpeed: 2
-  transitionSpeed: 3
-  centerViewSpeed: 5
-  centerThreshold: 0.5
 --- !u!114 &5241758460402669443
 MonoBehaviour:
   m_ObjectHideFlags: 0
