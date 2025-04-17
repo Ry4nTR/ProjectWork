@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Window : InteractableObject
 {
@@ -6,13 +7,9 @@ public class Window : InteractableObject
     [SerializeField] private WindowPeekController peekController;
     private bool isPeeking = false;
 
-    private void Awake()
-    {
-        if (peekController == null)
-        {
-            Debug.LogError("WindowPeekController non trovato nella scena!");
-        }
-    }
+    // Events for spawning control
+    public static event Action OnPeekStarted;
+    public static event Action OnPeekEnded;
 
     public override void Interact()
     {
@@ -30,6 +27,7 @@ public class Window : InteractableObject
 
         isPeeking = true;
         peekController.StartPeek(this);
+        OnPeekStarted?.Invoke(); // Trigger spawn start
     }
 
     public void ForceEndPeek()
@@ -37,6 +35,7 @@ public class Window : InteractableObject
         if (isPeeking)
         {
             isPeeking = false;
+            OnPeekEnded?.Invoke(); // Trigger spawn stop
             InvokeInteractionFinishedEvent();
         }
     }

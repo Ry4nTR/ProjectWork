@@ -7,22 +7,24 @@ public class WindowPeekController : MonoBehaviour
     public Transform playerCamera;
     public MonoBehaviour movementScript;
     public CameraManager cameraManager;
+    public AsteroidSpawner asteroidSpawner;
+    public ProgressBar progressBar;
 
     [Header("Peek Settings")]
-    [Tooltip("Massima rotazione orizzontale (gradi)")]
+    [Tooltip("Max horizontal rotation (degrees)")]
     public float maxYaw = 30f;
-    [Tooltip("Massima rotazione verticale (gradi)")]
+    [Tooltip("Max vertical rotation (degrees)")]
     public float maxPitch = 20f;
-    [Tooltip("Velocità di rotazione con il mouse")]
+    [Tooltip("Mouse rotation speed")]
     public float rotationSpeed = 2f;
-    [Tooltip("Velocità transizione in/out peek")]
+    [Tooltip("Peek transition speed")]
     public float transitionSpeed = 3f;
-    [Tooltip("Velocità centraggio visuale")]
+    [Tooltip("View centering speed")]
     public float centerViewSpeed = 5f;
-    [Tooltip("Soglia per completamento centraggio")]
+    [Tooltip("Center completion threshold")]
     public float centerThreshold = 0.5f;
 
-    // Variabili private
+    // Private variables
     private Vector3 originalCamPos;
     private Quaternion originalCamRot;
     private Window currentWindow;
@@ -56,14 +58,14 @@ public class WindowPeekController : MonoBehaviour
         isTransitioning = true;
         IsPeeking = true;
 
-        // Salva stato iniziale
+        // Save initial state
         originalCamPos = playerCamera.position;
         originalCamRot = playerCamera.rotation;
 
-        // Disabilita controlli
+        // Disable controls
         TogglePlayerControls(false);
 
-        // Transizione alla posizione di peek
+        // Transition to peek position
         float t = 0;
         while (t < 1f && IsPeeking)
         {
@@ -73,7 +75,7 @@ public class WindowPeekController : MonoBehaviour
             yield return null;
         }
 
-        // Prepara centraggio visuale
+        // Prepare view centering
         if (IsPeeking)
         {
             shouldCenterView = true;
@@ -83,28 +85,12 @@ public class WindowPeekController : MonoBehaviour
         isTransitioning = false;
     }
 
-    private void CenterView()
-    {
-        playerCamera.rotation = Quaternion.Slerp(
-            playerCamera.rotation,
-            targetCenterRotation,
-            Time.deltaTime * centerViewSpeed
-        );
-
-        // Completa il centraggio se siamo abbastanza vicini
-        if (Quaternion.Angle(playerCamera.rotation, targetCenterRotation) < centerThreshold)
-        {
-            playerCamera.rotation = targetCenterRotation;
-            shouldCenterView = false;
-        }
-    }
-
     private IEnumerator EndPeekCoroutine()
     {
         isTransitioning = true;
         shouldCenterView = false;
 
-        // Transizione alla posizione originale
+        // Transition back to original position
         Vector3 startPos = playerCamera.position;
         Quaternion startRot = playerCamera.rotation;
 
@@ -117,23 +103,14 @@ public class WindowPeekController : MonoBehaviour
             yield return null;
         }
 
-        // Ripristina controlli
+        // Restore controls
         TogglePlayerControls(true);
 
-        // Reset stato
+        // Reset state
         IsPeeking = false;
         currentWindow?.ForceEndPeek();
         currentWindow = null;
         isTransitioning = false;
-    }
-
-    private void TogglePlayerControls(bool enable)
-    {
-        if (movementScript != null)
-            movementScript.enabled = enable;
-
-        if (cameraManager != null)
-            cameraManager.canRotate = enable;
     }
 
     private void Update()
@@ -149,43 +126,67 @@ public class WindowPeekController : MonoBehaviour
             HandlePeekRotation();
         }
 
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.E) && !isTransitioning)
         {
             EndPeek();
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)) // Shoot laser
+        {
             RaycastHit hit;
             if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 100f))
             {
                 if (hit.collider.CompareTag("Asteroid"))
                 {
-                    Destroy(hit.collider.gameObject);
-                    // Increase progress bar (see below)
+                    hit.collider.GetComponent<Asteroid>().DestroyByPlayer();
                 }
             }
         }
     }
 
+    private void CenterView()
+    {
+        playerCamera.rotation = Quaternion.Slerp(
+            playerCamera.rotation,
+            targetCenterRotation,
+            Time.deltaTime * centerViewSpeed
+        );
+
+        if (Quaternion.Angle(playerCamera.rotation, targetCenterRotation) < centerThreshold)
+        {
+            playerCamera.rotation = targetCenterRotation;
+            shouldCenterView = false;
+        }
+    }
+
     private void HandlePeekRotation()
     {
-        // Input mouse
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        // Calcola rotazione
         rotationInput.x += mouseX * rotationSpeed;
         rotationInput.y -= mouseY * rotationSpeed;
 
-        // Applica limiti
         rotationInput.x = Mathf.Clamp(rotationInput.x, -maxYaw, maxYaw);
         rotationInput.y = Mathf.Clamp(rotationInput.y, -maxPitch, maxPitch);
 
-        // Calcola rotazioni
         Quaternion yaw = Quaternion.AngleAxis(rotationInput.x, Vector3.up);
         Quaternion pitch = Quaternion.AngleAxis(rotationInput.y, Vector3.right);
 
-        // Applica rotazione mantenendo il target come centro
         playerCamera.rotation = targetCenterRotation * yaw * pitch;
+    }
+
+    private void TogglePlayerControls(bool enable)
+    {
+        if (movementScript != null)
+            movementScript.enabled = enable;
+
+        if (cameraManager != null)
+            cameraManager.canRotate = enable;
     }
 }
