@@ -153,6 +153,18 @@ public class WindowPeekController : MonoBehaviour
         {
             EndPeek();
         }
+
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit hit;
+            if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 100f))
+            {
+                if (hit.collider.CompareTag("Asteroid"))
+                {
+                    Destroy(hit.collider.gameObject);
+                    // Increase progress bar (see below)
+                }
+            }
+        }
     }
 
     private void HandlePeekRotation()
