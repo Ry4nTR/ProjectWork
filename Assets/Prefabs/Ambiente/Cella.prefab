@@ -215,7 +215,7 @@ MonoBehaviour:
   canInteractAtStart: 1
   isInteractionInstant: 0
   isUsingBlackScreen: 1
-  screenMessage: Docciati
+  blackScreenData: {fileID: 11400000, guid: 7e3d53efd8eb2aa4da54c21c646b7d97, type: 2}
 --- !u!65 &990129101835989908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isInteractionInstant: 0
   isUsingBlackScreen: 1
-  screenMessage: Dormi
+  blackScreenData: {fileID: 11400000, guid: 321717f2e3b05d447ab215df9b09a677, type: 2}
 --- !u!1001 &937411650176774169
 PrefabInstance:
   m_ObjectHideFlags: 0

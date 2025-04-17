@@ -11,7 +11,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private bool isInteractionInstant = false;
 
     [SerializeField] private bool isUsingBlackScreen = false;
-    [SerializeField] private string screenMessage = "INTERACTING";
+    [SerializeField] private BlackScreenData blackScreenData;
     private bool _canInteract;
 
     public bool CanInteract => _canInteract;
@@ -28,7 +28,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
         if (isUsingBlackScreen)
         {
-            BlackScreenTextController.Instance.ActivateBlackScreen(screenMessage);
+            BlackScreenTextController.Instance.ActivateBlackScreen(blackScreenData);
             BlackScreenTextController.OnBlackScreenTextFinished += InvokeInteractionFinishedEvent;
         }
         else

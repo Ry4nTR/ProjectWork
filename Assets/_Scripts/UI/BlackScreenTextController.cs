@@ -6,9 +6,6 @@ using System;
 
 namespace ProjectWork
 {
-    /// <summary>
-    /// Displays black screenObject with text for transitions or narrative moments.
-    /// </summary>
     [RequireComponent(typeof(Image))]
     public class BlackScreenTextController : MonoBehaviour
     {
@@ -19,8 +16,7 @@ namespace ProjectWork
 
         private Image blackBackground;
         private TextMeshProUGUI dialogueText;
-        [SerializeField] private float fadeDuration = 1f;
-        [SerializeField] private float textStayDuration = 2f;
+        [SerializeField] private BlackScreenData initialBlackScreenData = null;
 
         void Awake()
         {
@@ -40,33 +36,49 @@ namespace ProjectWork
         }
         private void Start()
         {
-            //Togliere il fade in
-            ActivateBlackScreen("Giorno 1\nLa giornata comincia");
+            ActivateBlackScreen(initialBlackScreenData);
         }
 
-        public void ActivateBlackScreen(string text)
+        public void ActivateBlackScreen(BlackScreenData blackScreenData)
         {
             StopAllCoroutines();
-            StartCoroutine(FadeRoutine(text));
+            StartCoroutine(FadeRoutine(blackScreenData));
         }
 
-        IEnumerator FadeRoutine(string message)
+        IEnumerator FadeRoutine(BlackScreenData blackScreenData)
         {
-            dialogueText.text = message;
+            dialogueText.text = blackScreenData.TextToShow;
             blackBackground.enabled = true;
 
             OnBlackScreenTextStarted?.Invoke();
-            yield return Fade(0f, 1f);
-            yield return new WaitForSeconds(textStayDuration);
-            yield return Fade(1f, 0f);
+
+            if (blackScreenData.FadeInSettings.UseFade)
+            {
+                yield return Fade(0f, 1f, blackScreenData.FadeInSettings.FadeDuration);
+            }
+            else
+            {
+                SetAlpha(1f, 1f);
+            }
+            yield return new WaitForSeconds(blackScreenData.TextStayDuration);
+
+            if(blackScreenData.FadeOutSettings.UseFade)
+            {
+                yield return Fade(1f, 0f, blackScreenData.FadeOutSettings.FadeDuration);
+            }
+            else
+            {
+                SetAlpha(0f, 0f);
+            }
             OnBlackScreenTextFinished?.Invoke();
 
             blackBackground.enabled = false;
         }
 
-        IEnumerator Fade(float from, float to)
+        IEnumerator Fade(float from, float to, float fadeDuration)
         {
             float elapsed = 0f;
+
             while (elapsed < fadeDuration)
             {
                 float alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);

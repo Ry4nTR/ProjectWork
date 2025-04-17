@@ -225,5 +225,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81593a32f241d140910b0dc92eb93d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
-  textStayDuration: 2
+  initialBlackScreenData: {fileID: 11400000, guid: dfe749f9b5dd9b74c8a88362003705ea, type: 2}

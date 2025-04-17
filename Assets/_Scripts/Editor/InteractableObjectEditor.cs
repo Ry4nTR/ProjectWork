@@ -10,7 +10,7 @@ namespace ProjectWork
         SerializedProperty canInteractAtStart;
         SerializedProperty isInteractionInstant;
         SerializedProperty isUsingBlackScreen;
-        SerializedProperty screenMessage;
+        SerializedProperty blackScreenData;
 
         private bool showInteractionSettings = true;
         private bool showBlackScreenSettings = true;
@@ -22,7 +22,7 @@ namespace ProjectWork
             canInteractAtStart = serializedObject.FindProperty("canInteractAtStart");
             isInteractionInstant = serializedObject.FindProperty("isInteractionInstant");
             isUsingBlackScreen = serializedObject.FindProperty("isUsingBlackScreen");
-            screenMessage = serializedObject.FindProperty("screenMessage");
+            blackScreenData = serializedObject.FindProperty("blackScreenData");
         }
 
         public override void OnInspectorGUI()
@@ -61,12 +61,12 @@ namespace ProjectWork
                 EditorGUILayout.PropertyField(isUsingBlackScreen);
                 if (isUsingBlackScreen.boolValue)
                 {
-                    EditorGUILayout.PropertyField(screenMessage);
+                    EditorGUILayout.PropertyField(blackScreenData);
                 }
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.Space(10);
-            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isInteractionInstant", "isUsingBlackScreen", "screenMessage", "m_Script");
+            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isInteractionInstant", "isUsingBlackScreen", "blackScreenData", "m_Script");
 
             serializedObject.ApplyModifiedProperties();
         }
