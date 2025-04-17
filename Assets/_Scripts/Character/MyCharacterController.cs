@@ -7,7 +7,7 @@ namespace ProjectWork
     public class MyCharacterController : BlackScreenEnabler
     {
         [Header("Character Movement Stats")]
-        public float walkSpeed = 5f;
+        public float walkSpeed = 10f;
         public float runSpeed = 10f; //runSpeed not implemented yet
 
         public float CurrMoveSpeed => wishRun ? runSpeed : walkSpeed; //implement "movement speed type" Status (MoveSpeed-Nerf/Buff-Flat/%) currently applied
