@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5993023632539612065}
   - component: {fileID: 1305166685667266059}
   - component: {fileID: -2352288711920500106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chicken
   m_TagString: canPickUp
   m_Icon: {fileID: 0}
@@ -165,6 +165,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vassoio
       objectReference: {fileID: 0}
+    - target: {fileID: 5073917243906770090, guid: 086d861d5bbc77046b1f3cc0e2d73a58, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -227,6 +231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bicchiere
       objectReference: {fileID: 0}
+    - target: {fileID: 2355946901985915705, guid: 42e3bfc2b5ab7554998586d8096d9904, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -248,6 +256,10 @@ PrefabInstance:
     - target: {fileID: 2920144338768818913, guid: deff23ad8ae42ee44b9c660a0ab8855c, type: 3}
       propertyPath: m_Name
       value: Piatto
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920144338768818913, guid: deff23ad8ae42ee44b9c660a0ab8855c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4931060261435429358, guid: deff23ad8ae42ee44b9c660a0ab8855c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knife
       objectReference: {fileID: 0}
+    - target: {fileID: 9081172841451835088, guid: 6ba691f37b6cfe34c8decf07b4fe0f0c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9083109521951391966, guid: 6ba691f37b6cfe34c8decf07b4fe0f0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.16583776
@@ -372,6 +388,10 @@ PrefabInstance:
     - target: {fileID: 2921134319588251144, guid: 16acbe5bed5d99944a567da1b7fcb438, type: 3}
       propertyPath: m_Name
       value: Pollo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921134319588251144, guid: 16acbe5bed5d99944a567da1b7fcb438, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2921134319588411944, guid: 16acbe5bed5d99944a567da1b7fcb438, type: 3}
       propertyPath: m_LocalPosition.x
@@ -474,6 +494,10 @@ PrefabInstance:
     - target: {fileID: 6852332232034085462, guid: 1e1fad0e2f8373e4d9295d52bfcd4e2a, type: 3}
       propertyPath: m_Name
       value: Table Fork
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852332232034085462, guid: 1e1fad0e2f8373e4d9295d52bfcd4e2a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

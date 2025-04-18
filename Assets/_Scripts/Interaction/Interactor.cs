@@ -1,5 +1,6 @@
 ﻿using ProjectWork;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Handles player interactions with objects in the game world.
@@ -12,17 +13,21 @@ public class Interactor : BlackScreenEnabler
     [Tooltip("Layer used by interactable objects")]
     [SerializeField] private LayerMask interactableObjsLayer;
 
+    private EventSystem eventSystem;    //Used to deselect the button when the interaction is finished
+
     protected override void Awake()
     {
         base.Awake();
         cam = GetComponentInChildren<CameraManager>();
+        eventSystem = EventSystem.current;
     }
 
     void Update()
     {
         Ray ray = new(cam.transform.position, cam.transform.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, interactDistance, interactableObjsLayer);
-        interactionText.SetActive(false);
+        
+        DeselectButton();
 
         foreach (RaycastHit hit in hits)
         {
@@ -35,16 +40,22 @@ public class Interactor : BlackScreenEnabler
                     orderFoodButton.Button.Select();
                 }
                 if (Input.GetKeyDown(KeyCode.E))
-                {
-                    interactionText.SetActive(false);
+                {                   
                     interactable.Interact();
+                    DeselectButton();
                 }
                 break;
             }
             else
             {
-                interactionText.SetActive(false);
+                DeselectButton();
             }
         }
+    }
+
+    private void DeselectButton()
+    {
+        interactionText.SetActive(false);
+        eventSystem.SetSelectedGameObject(null); // Deselect the button when the interaction is finished
     }
 }

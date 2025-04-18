@@ -13,10 +13,7 @@ namespace ProjectWork
             public GameObject prefab;
         }
 
-        //Let GameInteractionManager know the food is spawned
-        public static event Action<GameObject> OnFoodSpawned = delegate { };
-
-        [SerializeField] private List<FoodPrefab> foodPrefabs = new List<FoodPrefab>();
+        [SerializeField] private List<FoodPrefab> foodPrefabs;
         [SerializeField] private Transform spawnPoint;
 
         private void OnEnable()
@@ -35,7 +32,6 @@ namespace ProjectWork
             if (foodPrefab != null && foodPrefab.prefab != null)
             {
                 GameObject foodObj =  Instantiate(foodPrefab.prefab, spawnPoint.position, spawnPoint.rotation);
-                OnFoodSpawned?.Invoke(foodObj);
             }
         }
     }

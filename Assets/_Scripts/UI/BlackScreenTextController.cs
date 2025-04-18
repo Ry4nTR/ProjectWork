@@ -11,6 +11,7 @@ namespace ProjectWork
     {
         public static BlackScreenTextController Instance { get; private set; } = null;
 
+        public static event Action OnBlackScreenFullActivated = delegate { };
         public static event Action OnBlackScreenTextStarted = delegate { };
         public static event Action OnBlackScreenTextFinished = delegate { };
 
@@ -98,6 +99,11 @@ namespace ProjectWork
             Color txtColor = dialogueText.color;
             txtColor.a = textAlpha;
             dialogueText.color = txtColor;
+
+            if(bgAlpha == 1f)
+            {
+                OnBlackScreenFullActivated?.Invoke();
+            }
         }
     }
 }

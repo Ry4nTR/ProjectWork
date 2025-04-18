@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406ed888643358747b5783bf6787b15e, type: 3}
   m_Name: BedBlackScreen
   m_EditorClassIdentifier: 
-  TextToShow: 
+  TextToShow: You wake up...
   TextStayDuration: 0.5
   FadeInSettings:
-    UseFade: 0
-    FadeDuration: 0
+    UseFade: 1
+    FadeDuration: 0.5
   FadeOutSettings:
-    UseFade: 0
-    FadeDuration: 0
+    UseFade: 1
+    FadeDuration: 0.5

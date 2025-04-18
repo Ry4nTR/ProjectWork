@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using ProjectWork.UI;
 
 namespace ProjectWork
 {
@@ -13,13 +13,6 @@ namespace ProjectWork
             Selection,
             AfterSelection,
             DisplayNumber
-        }
-
-        [Serializable]
-        public struct PadScreen
-        {
-            public PadState state;
-            public GameObject screenObject;
         }
 
         [Serializable]
@@ -108,7 +101,8 @@ namespace ProjectWork
         {
             foreach (PadScreen screen in screens)
             {
-                screen.screenObject.SetActive(screen.state == _currentPadState);
+                screen.SetCanvasGroup(screen.ScreenType == _currentPadState);
+                screen.gameObject.SetActive(screen.ScreenType == _currentPadState);
             }
         }
     }

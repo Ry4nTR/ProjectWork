@@ -41,7 +41,7 @@ namespace ProjectWork
 
         private void PlaceFoodHere(Food food)
         {
-            food.gameObject.layer = 0;
+            food.gameObject.layer = LayerMask.NameToLayer("Interactable");
             food.transform.parent = transform;
             food.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             //food.transform.SetPositionAndRotation(transform.position, transform.rotation);

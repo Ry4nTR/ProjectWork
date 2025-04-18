@@ -18,6 +18,7 @@ namespace ProjectWork
         private Rigidbody heldObjRb;
         private bool canDrop = true;
         private int LayerNumber;
+        private int originalLayerNumber; //Used to store the original layer number of the picked up object
         private float originalSesitivityValue = 2.5f;
         public CameraManager mouseLookScript;
         [SerializeField] private GameObject interactionText;
@@ -109,6 +110,7 @@ namespace ProjectWork
                 // Reset rotation to match hold position
                 heldObj.transform.rotation = holdPos.rotation;
 
+                originalLayerNumber = heldObj.layer; // Store the original layer number
                 heldObj.layer = LayerNumber;
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
 
@@ -125,7 +127,7 @@ namespace ProjectWork
             Collider heldObjCollider = heldObj.GetComponent<Collider>();
             Collider playerCollider = player.GetComponent<Collider>();
             Physics.IgnoreCollision(heldObjCollider, playerCollider, false);
-            heldObj.layer = 0;
+            heldObj.layer = originalLayerNumber; // Restore the original layer number
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
             heldObjRb = null;
@@ -160,7 +162,7 @@ namespace ProjectWork
         void ThrowObject()
         {
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-            heldObj.layer = 0;
+            heldObj.layer = originalLayerNumber;
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
             heldObjRb.AddForce(transform.forward * throwForce);

@@ -402,7 +402,7 @@ MonoBehaviour:
   cam: {fileID: 2694833796273840380}
   interactableObjsLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
 --- !u!114 &1798654236432070127
 MonoBehaviour:
   m_ObjectHideFlags: 0

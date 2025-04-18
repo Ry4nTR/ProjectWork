@@ -8,10 +8,9 @@ namespace ProjectWork
     {
         public static GameInteractionManager Instance { get; private set; }
 
-        public static event Action OnTutorialFinished = delegate { };
+        public static event Action<bool> OnTasksCompleted = delegate { };
 
         [SerializeField] private CheckListManager<InteractableObject> listCheckManager;
-        [SerializeField] private Bed bedInteraction;
         [SerializeField] private int maxDays = 3;
         private int currentDay = 1;
 
@@ -23,8 +22,8 @@ namespace ProjectWork
                 SubscribeToAllInteractionEnds();
 
                 TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
-                bedInteraction.OnInteractionFinished += ResetInteractions;
-                listCheckManager.OnListCompleted += UnlockBedInteraction;
+                Bed.OnBedInteracted += ResetInteractions;
+                listCheckManager.OnListCompleted += InvokeTasksCompletedEvent;
             }
             else
             {
@@ -45,22 +44,20 @@ namespace ProjectWork
             UnsubscribeToAllInteractionEnds();
 
             TrashManager.OnTrashSpawned -= AddToListAndSubscribeToTrashThrownEvent;
-            bedInteraction.OnInteractionFinished -= ResetInteractions;
-            listCheckManager.OnListCompleted -= UnlockBedInteraction;
+            listCheckManager.OnListCompleted -= InvokeTasksCompletedEvent;
         }
 
-        private void UnlockBedInteraction()
+        private void InvokeTasksCompletedEvent()
         {
             currentDay++;
+            OnTasksCompleted?.Invoke(currentDay > maxDays);
             if(currentDay > maxDays)
             {
                 Debug.Log("Tutorial finished.");
-                OnTutorialFinished?.Invoke();
             }
             else
             {
                 Debug.Log($"Day {currentDay} completed. Unlocking bed interaction.");
-                bedInteraction.UnlockInteraction();
             }    
         }
 
@@ -76,7 +73,7 @@ namespace ProjectWork
             Trash.OnTrashThrown -= SetTrashInteractionCompleted;
         }
         
-        private void ResetInteractions(InteractableObject eventInvoker)
+        private void ResetInteractions()
         {          
             foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
