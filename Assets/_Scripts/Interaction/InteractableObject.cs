@@ -42,7 +42,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (isUsingBlackScreen)
             BlackScreenTextController.OnBlackScreenTextFinished -= InvokeInteractionFinishedEvent;
 
-        Debug.Log($"Interaction finished");
         OnInteractionFinished?.Invoke(this);
     }
 

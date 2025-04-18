@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 2215973644794860280}
   - component: {fileID: 6426463230230958658}
   - component: {fileID: 990129101835989908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteractAtStart: 1
-  isInteractionInstant: 0
   isUsingBlackScreen: 1
   blackScreenData: {fileID: 11400000, guid: 7e3d53efd8eb2aa4da54c21c646b7d97, type: 2}
 --- !u!65 &990129101835989908
@@ -1243,7 +1242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteractAtStart: 0
-  isInteractionInstant: 0
   isUsingBlackScreen: 1
   blackScreenData: {fileID: 11400000, guid: 321717f2e3b05d447ab215df9b09a677, type: 2}
 --- !u!1001 &937411650176774169

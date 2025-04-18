@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class Interactor : BlackScreenEnabler
 {
     public float interactDistance = 3f;
-    public GameObject interactionText;
+    public InteractionText interactionText;
     [SerializeField] private CameraManager cam;
     [Tooltip("Layer used by interactable objects")]
     [SerializeField] private LayerMask interactableObjsLayer;
@@ -19,6 +19,7 @@ public class Interactor : BlackScreenEnabler
     {
         base.Awake();
         cam = GetComponentInChildren<CameraManager>();
+        interactionText = FindFirstObjectByType<InteractionText>(FindObjectsInactive.Include);
         eventSystem = EventSystem.current;
     }
 

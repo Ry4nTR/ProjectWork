@@ -6,10 +6,18 @@ public class Window : InteractableObject
     public Transform peekTarget;
     [SerializeField] private WindowPeekController peekController;
     private bool isPeeking = false;
+    private Collider windowCollider;
 
     // Events for spawning control
     public static event Action OnPeekStarted;
     public static event Action OnPeekEnded;
+
+
+    private void Awake()
+    {
+        windowCollider = GetComponent<Collider>();
+    }
+
 
     public override void Interact()
     {
@@ -25,6 +33,8 @@ public class Window : InteractableObject
     {
         if (peekController == null) return;
 
+        windowCollider.enabled = false;
+
         isPeeking = true;
         peekController.StartPeek(this);
         OnPeekStarted?.Invoke(); // Trigger spawn start
@@ -35,6 +45,7 @@ public class Window : InteractableObject
         if (isPeeking)
         {
             isPeeking = false;
+            windowCollider.enabled = true;
             OnPeekEnded?.Invoke(); // Trigger spawn stop
             InvokeInteractionFinishedEvent();
         }
