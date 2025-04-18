@@ -1,14 +1,15 @@
 using System.Collections;
+using ProjectWork;
 using UnityEngine;
 
 public class WindowPeekController : MonoBehaviour
 {
     [Header("References")]
     public Transform playerCamera;
-    public MonoBehaviour movementScript;
+    public MyCharacterController movementScript;
     public CameraManager cameraManager;
-    public AsteroidSpawner asteroidSpawner;
-    public ProgressBar progressBar;
+    public DialogueInteractor dialogueInteractor;
+    [HideInInspector] public DialogueManager dialogueManager;
 
     [Header("Peek Settings")]
     [Tooltip("Max horizontal rotation (degrees)")]
@@ -32,8 +33,18 @@ public class WindowPeekController : MonoBehaviour
     private bool isTransitioning = false;
     private bool shouldCenterView = false;
     private Quaternion targetCenterRotation;
+    [SerializeField] private Collider npcCollider;
 
     public bool IsPeeking { get; private set; }
+
+    private void Awake()
+    {
+        npcCollider.enabled = false;
+        cameraManager = GetComponentInChildren<CameraManager>();
+        movementScript = GetComponent<MyCharacterController>();
+        dialogueInteractor = GetComponent<DialogueInteractor>();
+        dialogueManager = DialogueManager.Instance;
+    }
 
     public void StartPeek(Window window)
     {
@@ -43,14 +54,6 @@ public class WindowPeekController : MonoBehaviour
         currentWindow = window;
         targetCenterRotation = window.peekTarget.rotation;
         StartCoroutine(PeekCoroutine());
-    }
-
-    public void EndPeek()
-    {
-        if (!IsPeeking || isTransitioning)
-            return;
-
-        StartCoroutine(EndPeekCoroutine());
     }
 
     private IEnumerator PeekCoroutine()
@@ -83,10 +86,13 @@ public class WindowPeekController : MonoBehaviour
         }
 
         isTransitioning = false;
+        npcCollider.enabled = true;
     }
 
     private IEnumerator EndPeekCoroutine()
     {
+        npcCollider.enabled = false;
+
         isTransitioning = true;
         shouldCenterView = false;
 
@@ -131,22 +137,61 @@ public class WindowPeekController : MonoBehaviour
 
     private void HandleInput()
     {
+        // Prevent any input if dialogue is active
+        if (dialogueManager != null && dialogueManager.IsDialogueActive())
+            return;
+
         if (Input.GetKeyDown(KeyCode.E) && !isTransitioning)
         {
-            EndPeek();
-        }
-
-        if (Input.GetMouseButtonDown(0)) // Shoot laser
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 100f))
+            if (TryInteractWithNPC())
             {
-                if (hit.collider.CompareTag("Asteroid"))
+                return;
+            }
+            else
+            {
+                EndPeek();
+            }
+
+            if (Input.GetMouseButtonDown(0)) // Shoot laser
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 100f))
                 {
-                    hit.collider.GetComponent<Asteroid>().DestroyByPlayer();
+                    if (hit.collider.CompareTag("Asteroid"))
+                    {
+                        hit.collider.GetComponent<Asteroid>().DestroyByPlayer();
+                    }
                 }
             }
         }
+    }
+
+    private bool TryInteractWithNPC()
+    {
+        if (dialogueInteractor == null || !dialogueInteractor.IsLookingAtNPC())
+            return false;
+
+        DialogueTrigger npc = dialogueInteractor.GetCurrentNPCDialogueTrigger();
+        if (npc == null || npc.dialogue == null || npc.dialogueText == null)
+            return false;
+
+        npc.TriggerDialogue();
+        return true;
+    }
+
+    // Add this new method to check if we can end peek
+    public bool CanExitPeek()
+    {
+        return dialogueManager == null || !dialogueManager.IsDialogueActive();
+    }
+
+    // Modify EndPeek to check dialogue state
+    public void EndPeek()
+    {
+        if (!IsPeeking || isTransitioning || !CanExitPeek())
+            return;
+
+        StartCoroutine(EndPeekCoroutine());
     }
 
     private void CenterView()

@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 6454770827588201404}
   - component: {fileID: 6489544247470046082}
   - component: {fileID: 7956365528228825393}
+  - component: {fileID: 8915762140232348923}
   m_Layer: 5
   m_Name: Interaction Text
   m_TagString: Untagged
@@ -675,6 +676,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8915762140232348923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967736611605215949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a055cba7c22b5894a883c59c68d45c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4020001210279844410
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +699,7 @@ GameObject:
   - component: {fileID: 5822016017274444242}
   - component: {fileID: 5960526022733895089}
   - component: {fileID: 7847455615474257546}
+  - component: {fileID: 6938447604671888011}
   m_Layer: 5
   m_Name: PickUp Text
   m_TagString: Untagged
@@ -812,6 +826,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6938447604671888011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4020001210279844410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df3f737ba3d66b4ba2af0c0197312df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4609019691359991268
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,8 +1000,9 @@ GameObject:
   - component: {fileID: 8340576641053177637}
   - component: {fileID: 6735421475497158308}
   - component: {fileID: 7298312034359877555}
+  - component: {fileID: 8526141252740091706}
   m_Layer: 5
-  m_Name: Talk Text
+  m_Name: Dialogue Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1100,6 +1127,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8526141252740091706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8880033396600502225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d747298a0b724eaf7e4d1fad1243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8225077600273510222
 PrefabInstance:
   m_ObjectHideFlags: 0

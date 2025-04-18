@@ -26,9 +26,5 @@ public class TrashManager : MonoBehaviour
             trash.gameObject.SetActive(true);
             OnTrashSpawned?.Invoke(trash);
         }
-        else
-        {
-            Debug.LogError("Trash prefab not assigned in TrashManager!", this);
-        }
     }
 }

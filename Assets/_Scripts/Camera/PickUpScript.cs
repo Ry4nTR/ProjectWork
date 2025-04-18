@@ -21,7 +21,7 @@ namespace ProjectWork
         private int originalLayerNumber; //Used to store the original layer number of the picked up object
         private float originalSensitivityValue = 2.5f;
         public CameraManager mouseLookScript;
-        [SerializeField] private GameObject interactionText;
+        private PickupText PicUpText;
         //[SerializeField] private GameObject heldText;
 
         private bool isInPlacementRange = false;
@@ -29,6 +29,7 @@ namespace ProjectWork
         private void Awake()
         {
             FoodHologram.OnFoodPlaced += DropObject;
+            PicUpText = FindFirstObjectByType<PickupText>(FindObjectsInactive.Include);
         }
 
         void Start()
@@ -85,7 +86,7 @@ namespace ProjectWork
 
         private void ShowPickUpPrompt()
         {
-            interactionText.SetActive(true);
+            PicUpText.SetActive(true);
         }
 
         private void ShowHeldObjectPrompt()
@@ -95,7 +96,7 @@ namespace ProjectWork
 
         private void HidePickUpPrompt()
         {
-            interactionText.SetActive(false);
+            PicUpText.SetActive(false);
         }
 
         void PickUpObject(GameObject pickUpObj)

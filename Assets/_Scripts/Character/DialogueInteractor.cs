@@ -3,7 +3,7 @@ using UnityEngine;
 public class DialogueInteractor : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private GameObject interactionPrompt;
+    private TalkText interactionPrompt;
 
     [Header("Detection Settings")]
     [SerializeField] private float interactionRange = 5f;
@@ -11,6 +11,11 @@ public class DialogueInteractor : MonoBehaviour
 
     private Camera playerCamera;
     private DialogueTrigger currentNPC;
+
+    private void Awake()
+    {
+        interactionPrompt = FindFirstObjectByType<TalkText>(FindObjectsInactive.Include);
+    }
 
     private void Start()
     {
@@ -34,21 +39,15 @@ public class DialogueInteractor : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, npcLayerMask))
         {
-            if (hit.collider.TryGetComponent<DialogueTrigger>(out var newNPC) && hit.collider.CompareTag("NPC"))
+            if (hit.collider.TryGetComponent<DialogueTrigger>(out var newNPC))
             {
                 if (currentNPC != newNPC)
                 {
                     currentNPC = newNPC;
                     SetPromptVisibility(true);
-                    Debug.Log($"Started looking at NPC: {currentNPC.name}");
                 }
                 return;
             }
-        }
-
-        if (wasLookingAtNPC)
-        {
-            Debug.Log("Stopped looking at NPC");
         }
         ClearCurrentNPC();
     }

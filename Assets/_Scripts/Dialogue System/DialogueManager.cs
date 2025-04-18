@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueActive = false;
 
-    public float typingSpeed = 0.75f;
+    public float typingSpeed = 0.2f;
     public float lineDelay = 1f; // Delay after a line is fully displayed before proceeding to the next line
 
     private DialogueText dialogueText;
@@ -32,6 +32,8 @@ public class DialogueManager : MonoBehaviour
 
     // Add an AudioSource for the typing sound
     public AudioSource typingSound;
+
+    public bool IsDialogueActive() => isDialogueActive;
 
     private void Awake()
     {
