@@ -7,13 +7,32 @@ namespace ProjectWork
     public class GameInteractionManager : MonoBehaviour
     {
         public static GameInteractionManager Instance { get; private set; }
-
-        public static event Action<bool> OnTasksCompleted = delegate { };
+        
+        public static event Action OnTasksCompleted = delegate { };
+        public static event Action<bool> OnDayPassed = delegate { };    //True = days finished, false = days not finished
 
         [SerializeField] private CheckListManager<InteractableObject> listCheckManager;
         [SerializeField] private int maxDays = 3;
-        private int currentDay = 1;
-
+        private int _currentDay = 1;
+        
+        public int CurrentDay 
+        { 
+            get => _currentDay;
+            private set
+            {
+                _currentDay = value;
+                if(_currentDay > maxDays)
+                {
+                    LockInteractions();
+                }
+                else
+                {
+                    ResetInteractions();
+                }    
+                OnDayPassed?.Invoke(_currentDay > maxDays);
+            }
+        }
+        
         private void Awake()
         {
             if (Instance == null)
@@ -22,7 +41,7 @@ namespace ProjectWork
                 SubscribeToAllInteractionEnds();
 
                 TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
-                Bed.OnBedInteracted += ResetInteractions;
+                Bed.OnBedInteracted += IncreaseDay;
                 listCheckManager.OnListCompleted += InvokeTasksCompletedEvent;
             }
             else
@@ -33,7 +52,7 @@ namespace ProjectWork
 
         private void Start()
         {
-            currentDay = 1;
+            _currentDay = 1;
         }
 
         private void OnDestroy()
@@ -44,27 +63,17 @@ namespace ProjectWork
             UnsubscribeToAllInteractionEnds();
 
             TrashManager.OnTrashSpawned -= AddToListAndSubscribeToTrashThrownEvent;
-            Bed.OnBedInteracted -= ResetInteractions;
+            Bed.OnBedInteracted -= IncreaseDay;
             listCheckManager.OnListCompleted -= InvokeTasksCompletedEvent;
         }
 
-        private void InvokeTasksCompletedEvent()
-        {
-            currentDay++;
-            OnTasksCompleted?.Invoke(currentDay > maxDays);
-            if(currentDay > maxDays)
-            {
-                Debug.Log("Tutorial finished.");
-            }
-            else
-            {
-                Debug.Log($"Day {currentDay} completed. Unlocking bed interaction.");
-            }    
-        }
+        private void IncreaseDay() => CurrentDay++;
+
+        private void InvokeTasksCompletedEvent() => OnTasksCompleted?.Invoke();
 
         private void AddToListAndSubscribeToTrashThrownEvent(Trash spawnedTrash)
         {
-            listCheckManager.AddItemToCheckList(spawnedTrash);
+            listCheckManager.AddItemToCheckList(spawnedTrash, false);
             Trash.OnTrashThrown += SetTrashInteractionCompleted;
         }
 
@@ -75,12 +84,20 @@ namespace ProjectWork
         }
         
         private void ResetInteractions()
-        {          
+        {
             foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
                 item.element.ResetInteraction();
             }
             listCheckManager.ResetItemCompletedList();
+        }
+
+        private void LockInteractions()
+        {
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
+            {
+                item.element.LockInteraction();
+            }
         }
 
         private void UnsubscribeToAllInteractionEnds()

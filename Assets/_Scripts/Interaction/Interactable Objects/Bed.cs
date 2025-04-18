@@ -14,21 +14,10 @@ public class Bed : InteractableObject
         GameInteractionManager.OnTasksCompleted -= UnlockInteraction;
     }
 
-    private void UnlockInteraction(bool isCompleted)
-    {
-        if (isCompleted)
-        {
-            UnlockInteraction();
-        }
-        else
-        {
-            LockInteraction();
-        }
-    }
-
     public override void Interact()
     {
         base.Interact();
         OnBedInteracted?.Invoke();
+        LockInteraction();
     }
 }

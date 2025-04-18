@@ -8,7 +8,6 @@ namespace ProjectWork
     {
         SerializedProperty scriptReference;
         SerializedProperty canInteractAtStart;
-        SerializedProperty isInteractionInstant;
         SerializedProperty isUsingBlackScreen;
         SerializedProperty blackScreenData;
 
@@ -20,7 +19,6 @@ namespace ProjectWork
         {
             scriptReference = serializedObject.FindProperty("m_Script");
             canInteractAtStart = serializedObject.FindProperty("canInteractAtStart");
-            isInteractionInstant = serializedObject.FindProperty("isInteractionInstant");
             isUsingBlackScreen = serializedObject.FindProperty("isUsingBlackScreen");
             blackScreenData = serializedObject.FindProperty("blackScreenData");
         }
@@ -47,7 +45,6 @@ namespace ProjectWork
             {
                 EditorGUI.indentLevel++;
                 EditorGUILayout.PropertyField(canInteractAtStart);
-                EditorGUILayout.PropertyField(isInteractionInstant);
                 EditorGUI.indentLevel--;
             }
 
@@ -66,7 +63,7 @@ namespace ProjectWork
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.Space(10);
-            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isInteractionInstant", "isUsingBlackScreen", "blackScreenData", "m_Script");
+            DrawPropertiesExcluding(serializedObject, "canInteractAtStart", "isUsingBlackScreen", "blackScreenData", "m_Script");
 
             serializedObject.ApplyModifiedProperties();
         }

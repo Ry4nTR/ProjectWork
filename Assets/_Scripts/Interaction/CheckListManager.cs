@@ -76,13 +76,16 @@ namespace ProjectWork
             }
         }
 
-        public void AddItemToCheckList(ItemType item)
+        public void AddItemToCheckList(ItemType item, bool canAddDuplicates)
         {
             ItemCheck newItem = new()
             {
                 element = item,
                 isCompleted = false
             };
+            if (_allItems.Contains(newItem))
+                return;
+
             _allItems.Add(newItem);
         }
     }

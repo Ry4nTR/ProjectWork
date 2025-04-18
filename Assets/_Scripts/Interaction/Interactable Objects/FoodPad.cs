@@ -53,7 +53,7 @@ namespace ProjectWork
                 }
             }
 
-            GameInteractionManager.OnTasksCompleted += ChangeToNumberScreen;
+            GameInteractionManager.OnDayPassed += ChangeToNumberScreen;
         }
 
         private void OnDestroy()
@@ -74,7 +74,7 @@ namespace ProjectWork
                 }
             }
 
-            GameInteractionManager.OnTasksCompleted -= ChangeToNumberScreen;
+            GameInteractionManager.OnDayPassed -= ChangeToNumberScreen;
         }
 
         private void OrderPizza() => OrderFood(FoodType.Pizza);
@@ -89,10 +89,12 @@ namespace ProjectWork
             //Block other orders
         }
 
-        private void ChangeToNumberScreen(bool isFinished)
+        private void ChangeToNumberScreen(bool areDaysFinished)
         {
-            if (isFinished)
+            if (areDaysFinished)
                 SetState(PadState.DisplayNumber);
+            else
+                SetState(PadState.Selection);
         }
 
         private void SetState(PadState newState)
@@ -105,8 +107,7 @@ namespace ProjectWork
         {
             foreach (PadScreen screen in screens)
             {
-                screen.SetCanvasGroup(screen.ScreenType == _currentPadState);
-                screen.gameObject.SetActive(screen.ScreenType == _currentPadState);
+                screen.SetScreenVisibility(screen.ScreenType == _currentPadState);
             }
         }
     }
