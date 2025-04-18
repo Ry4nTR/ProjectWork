@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &210579329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14aa54b4b1372b34cbc8108b5a14eccc, type: 3}
   m_Resource: {fileID: 8300000, guid: 14aa54b4b1372b34cbc8108b5a14eccc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -824,7 +824,7 @@ MonoBehaviour:
   canInteractAtStart: 1
   isInteractionInstant: 0
   isUsingBlackScreen: 0
-  screenMessage: INTERACTING
+  blackScreenData: {fileID: 0}
   crank: {fileID: 7432276087175494870}
 --- !u!65 &1149191738
 BoxCollider:
@@ -1371,6 +1371,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1798654236432070127, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798654236432070127, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: interactionPrompt
       value: 
       objectReference: {fileID: 1191735051}
@@ -1378,6 +1382,10 @@ PrefabInstance:
       propertyPath: interactionText
       value: 
       objectReference: {fileID: 176440117}
+    - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1740748868}
     - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: playerCamera
       value: 
@@ -1390,6 +1398,10 @@ PrefabInstance:
       propertyPath: movementScript
       value: 
       objectReference: {fileID: 2015528565}
+    - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: asteroidSpawner
+      value: 
+      objectReference: {fileID: 1387162989}
     - target: {fileID: 6055781102602694057, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1773,7 +1785,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1441194038}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8177b207e0590464fbca01af90a4f827, type: 3}
   m_Name: 
@@ -2188,10 +2200,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8125816253978907020, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5138195366031052482, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
 --- !u!4 &1465906305448122258 stripped
 Transform:
