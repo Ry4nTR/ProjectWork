@@ -65,6 +65,7 @@ namespace ProjectWork
         private void AddToListAndSubscribeToTrashThrownEvent(Trash spawnedTrash)
         {
             listCheckManager.AddItemToCheckList(spawnedTrash);
+            //spawnedTrash.OnTrashThrown +=
         }
         
         private void ResetInteractions(InteractableObject eventInvoker)
