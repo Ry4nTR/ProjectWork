@@ -7,13 +7,14 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class Interactor : BlackScreenEnabler
 {
-    public float interactDistance = 3f;
-    public InteractionText interactionText;
+    private InteractionText interactionText;
+    private EventSystem eventSystem;    //Used to deselect the button when the interaction is finished
+
     [SerializeField] private CameraManager cam;
+    [SerializeField] private float interactDistance = 3f;
+    
     [Tooltip("Layer used by interactable objects")]
     [SerializeField] private LayerMask interactableObjsLayer;
-
-    private EventSystem eventSystem;    //Used to deselect the button when the interaction is finished
 
     protected override void Awake()
     {
@@ -35,7 +36,9 @@ public class Interactor : BlackScreenEnabler
             if (hit.collider.TryGetComponent(out InteractableObject interactable)
                 && interactable.CanInteract)
             {
+
                 interactionText.SetActive(true);
+                Debug.Log("Interactor: Hit: " + hit.collider.name);
                 if (interactable is OrderFoodButton orderFoodButton)
                 {
                     orderFoodButton.Button.Select();

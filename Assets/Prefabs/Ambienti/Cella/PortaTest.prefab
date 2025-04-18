@@ -236,6 +236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 3393885321614539509, guid: c6496703c74080b4c9d1e3735223aab1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
