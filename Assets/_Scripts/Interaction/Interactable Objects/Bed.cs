@@ -20,6 +20,10 @@ public class Bed : InteractableObject
         {
             UnlockInteraction();
         }
+        else
+        {
+            LockInteraction();
+        }
     }
 
     public override void Interact()

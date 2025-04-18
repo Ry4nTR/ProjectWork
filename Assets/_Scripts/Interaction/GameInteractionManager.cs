@@ -44,6 +44,7 @@ namespace ProjectWork
             UnsubscribeToAllInteractionEnds();
 
             TrashManager.OnTrashSpawned -= AddToListAndSubscribeToTrashThrownEvent;
+            Bed.OnBedInteracted -= ResetInteractions;
             listCheckManager.OnListCompleted -= InvokeTasksCompletedEvent;
         }
 
@@ -80,7 +81,6 @@ namespace ProjectWork
                 item.element.ResetInteraction();
             }
             listCheckManager.ResetItemCompletedList();
-            bedInteraction.ResetInteraction();
         }
 
         private void UnsubscribeToAllInteractionEnds()

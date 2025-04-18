@@ -53,7 +53,7 @@ namespace ProjectWork
                 }
             }
 
-            GameInteractionManager.OnTutorialFinished += ChangeToNumberScreen;
+            GameInteractionManager.OnTasksCompleted += ChangeToNumberScreen;
         }
 
         private void OnDestroy()
@@ -74,7 +74,7 @@ namespace ProjectWork
                 }
             }
 
-            GameInteractionManager.OnTutorialFinished -= ChangeToNumberScreen;
+            GameInteractionManager.OnTasksCompleted -= ChangeToNumberScreen;
         }
 
         private void OrderPizza() => OrderFood(FoodType.Pizza);
@@ -89,7 +89,11 @@ namespace ProjectWork
             //Block other orders
         }
 
-        private void ChangeToNumberScreen() => SetState(PadState.DisplayNumber);  
+        private void ChangeToNumberScreen(bool isFinished)
+        {
+            if (isFinished)
+                SetState(PadState.DisplayNumber);
+        }
 
         private void SetState(PadState newState)
         {
