@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using ProjectWork;
 using UnityEngine;
 
 public class WindowPeekController : MonoBehaviour
 {
+    public static event Action<float> OnPeekStarted = delegate { };
+    public static event Action OnPeekEnded = delegate { };
+
     [Header("References")]
     public Transform playerCamera;
     public MyCharacterController movementScript;
@@ -87,6 +91,7 @@ public class WindowPeekController : MonoBehaviour
 
         isTransitioning = false;
         npcCollider.enabled = true;
+        OnPeekStarted?.Invoke(currentWindow.PeekDistance);
     }
 
     private IEnumerator EndPeekCoroutine()
@@ -117,6 +122,7 @@ public class WindowPeekController : MonoBehaviour
         currentWindow?.ForceEndPeek();
         currentWindow = null;
         isTransitioning = false;
+        OnPeekEnded?.Invoke();
     }
 
     private void Update()

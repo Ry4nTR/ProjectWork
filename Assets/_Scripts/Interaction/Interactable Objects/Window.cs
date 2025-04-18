@@ -5,19 +5,20 @@ public class Window : InteractableObject
 {
     public Transform peekTarget;
     [SerializeField] private WindowPeekController peekController;
+    [SerializeField] private float _peekDistance = 15f;
     private bool isPeeking = false;
     private Collider windowCollider;
+
+    public float PeekDistance => _peekDistance;
 
     // Events for spawning control
     public static event Action OnPeekStarted;
     public static event Action OnPeekEnded;
 
-
     private void Awake()
     {
         windowCollider = GetComponent<Collider>();
     }
-
 
     public override void Interact()
     {

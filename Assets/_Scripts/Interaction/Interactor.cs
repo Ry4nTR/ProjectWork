@@ -11,8 +11,9 @@ public class Interactor : BlackScreenEnabler
     private EventSystem eventSystem;    //Used to deselect the button when the interaction is finished
 
     [SerializeField] private CameraManager cam;
-    [SerializeField] private float interactDistance = 3f;
-    
+    [SerializeField] private float normalInteractDistance = 3f;
+    private float currentInteractDistance;
+
     [Tooltip("Layer used by interactable objects")]
     [SerializeField] private LayerMask interactableObjsLayer;
 
@@ -22,12 +23,17 @@ public class Interactor : BlackScreenEnabler
         cam = GetComponentInChildren<CameraManager>();
         interactionText = FindFirstObjectByType<InteractionText>(FindObjectsInactive.Include);
         eventSystem = EventSystem.current;
+
+        WindowPeekController.OnPeekStarted += SetWindowInteractionDistance;
+        WindowPeekController.OnPeekEnded += ResetInteractionDistance;
     }
 
-    void Update()
+    private void Start() => currentInteractDistance = normalInteractDistance;
+
+    private void Update()
     {
         Ray ray = new(cam.transform.position, cam.transform.forward);
-        RaycastHit[] hits = Physics.RaycastAll(ray, interactDistance, interactableObjsLayer);
+        RaycastHit[] hits = Physics.RaycastAll(ray, currentInteractDistance, interactableObjsLayer);
         
         DeselectButton();
 
@@ -56,6 +62,17 @@ public class Interactor : BlackScreenEnabler
             }
         }
     }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        WindowPeekController.OnPeekStarted -= SetWindowInteractionDistance;
+        WindowPeekController.OnPeekEnded -= ResetInteractionDistance;
+    }
+
+    private void SetWindowInteractionDistance(float windowInteractionDistance) => currentInteractDistance = windowInteractionDistance;
+
+    private void ResetInteractionDistance() => currentInteractDistance = normalInteractDistance;
 
     private void DeselectButton()
     {
