@@ -103,8 +103,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isInteractionInstant: 0
   isUsingBlackScreen: 1
-  screenMessage: F*ck Donald Trump
-  hologram: {fileID: 0}
+  blackScreenData: {fileID: 11400000, guid: fe43562e2f4cd2c4facfce2700930317, type: 2}
   foodType: 2
 --- !u!1001 &1619808203209753155
 PrefabInstance:

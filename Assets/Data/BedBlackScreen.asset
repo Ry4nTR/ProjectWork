@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BedBlackScreen
   m_EditorClassIdentifier: 
   TextToShow: 
-  TextStayDuration: 2
+  TextStayDuration: 0.5
   FadeInSettings:
     UseFade: 0
     FadeDuration: 0

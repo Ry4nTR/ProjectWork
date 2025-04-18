@@ -103,8 +103,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isInteractionInstant: 0
   isUsingBlackScreen: 1
-  screenMessage: The wing is exquisite...
-  hologram: {fileID: 0}
+  blackScreenData: {fileID: 11400000, guid: e93b4b7cee4029840aa2432efe8607a3, type: 2}
   foodType: 1
 --- !u!1001 &3826382273963565816
 PrefabInstance:

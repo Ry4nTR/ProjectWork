@@ -102,8 +102,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isInteractionInstant: 0
   isUsingBlackScreen: 1
-  screenMessage: MAMMA MIA MARIO
-  hologram: {fileID: 0}
+  blackScreenData: {fileID: 11400000, guid: 25d9a3a6ebb95a246bb93a0b18193945, type: 2}
   foodType: 0
 --- !u!1001 &3826382273963565816
 PrefabInstance:

@@ -10,12 +10,14 @@ public class Trash : InteractableObject
         if(collision.gameObject.CompareTag("TrashCan"))
         {
             Interact();
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+
         }
     }
 
     public override void Interact()
     {
+        OnTrashThrown?.Invoke();
         InvokeInteractionFinishedEvent();
     }
 }

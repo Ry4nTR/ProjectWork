@@ -122,7 +122,9 @@ namespace ProjectWork
 
         void DropObject()
         {
-            Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+            Collider heldObjCollider = heldObj.GetComponent<Collider>();
+            Collider playerCollider = player.GetComponent<Collider>();
+            Physics.IgnoreCollision(heldObjCollider, playerCollider, false);
             heldObj.layer = 0;
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
