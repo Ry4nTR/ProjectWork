@@ -84,7 +84,6 @@ public class CrankInteractable : MonoBehaviour
                 isBlocked = true;
                 unlockObject.UnlockInteraction();
                 Debug.Log("Porta bloccata! Serve interazione.");
-                BlackScreenTextController.Instance.ActivateBlackScreen("Qualcosa blocca la porta...");
             }
 
             // Update door position based on completion
