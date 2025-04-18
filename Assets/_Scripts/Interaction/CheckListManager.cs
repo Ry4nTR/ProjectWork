@@ -83,7 +83,7 @@ namespace ProjectWork
                 element = item,
                 isCompleted = false
             };
-            if (_allItems.Contains(newItem))
+            if (!canAddDuplicates && _allItems.Contains(newItem))
                 return;
 
             _allItems.Add(newItem);
