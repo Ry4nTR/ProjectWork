@@ -3,21 +3,20 @@ using UnityEngine;
 
 public class Trash : InteractableObject
 {
-    public event Action OnTrashThrown = delegate { };
+    public static event Action<Trash> OnTrashThrown = delegate { };
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("TrashCan"))
         {
             Interact();
-            Destroy(gameObject);
-
+            gameObject.SetActive(false);
         }
     }
 
     public override void Interact()
     {
-        OnTrashThrown?.Invoke();
+        OnTrashThrown?.Invoke(this);
         InvokeInteractionFinishedEvent();
     }
 }

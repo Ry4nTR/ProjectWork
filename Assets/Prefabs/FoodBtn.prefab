@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 456465928508864086}
   - component: {fileID: 3592124313708545504}
   - component: {fileID: 4951837690305289545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FoodBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   canInteractAtStart: 1
   isInteractionInstant: 0
   isUsingBlackScreen: 0
-  screenMessage: INTERACTING
+  blackScreenData: {fileID: 0}
   button: {fileID: 4442519578389707513}
   foodType: 0
   hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4951217656452497505}
   - component: {fileID: 8956325203180217405}
   - component: {fileID: 2467500918235685485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TextBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1767024845765703177}
   - component: {fileID: 1532899689818130409}
   - component: {fileID: 6523334263383403412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FoodVisualBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 4000566287557400120}
   - component: {fileID: 8936943725857058281}
   - component: {fileID: 7793125044816348314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FoodIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

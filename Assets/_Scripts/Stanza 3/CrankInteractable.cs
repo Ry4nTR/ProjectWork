@@ -13,7 +13,7 @@ public class CrankInteractable : MonoBehaviour
 
     private bool isBlocked = false;            // Whether the crank is currently blocked
     private bool hasBeenUnlocked = false;      // Whether the crank has been unlocked at least once
-    private Camera cam;                        // Main camera reference
+    private Camera cam;                        // Main cam reference
     private bool isInteracting = false;        // Whether the player is currently interacting with the crank
     private float totalRotation = 0f;          // Total accumulated rotation of the crank
     private Vector3 previousMouseDirection;    // Previous mouse direction for rotation calculation

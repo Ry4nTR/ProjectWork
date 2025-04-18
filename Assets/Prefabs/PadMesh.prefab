@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2551182280530996298}
   - component: {fileID: 3932608627564220019}
   - component: {fileID: 7031314026474864350}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 761516172574326403}
   - component: {fileID: 1211249786419374210}
   - component: {fileID: 1971018762006725736}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PadMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
   canInteractAtStart: 0
   isInteractionInstant: 0
   isUsingBlackScreen: 0
-  screenMessage: INTERACTING
+  blackScreenData: {fileID: 0}
   _currentPadState: 0
   screens:
   - state: 0
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 394393744309342093}
   - component: {fileID: 2116786704661822940}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: SelectionMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 5183564198614370689}
   - component: {fileID: 3735469641004469759}
   - component: {fileID: 7441952787592128073}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: SelectionMenuBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 261799477005971528}
   - component: {fileID: 6266560714428806559}
   - component: {fileID: 3569932855757800909}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: DigitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 5528689226549648288}
   - component: {fileID: 7028122686549205351}
   - component: {fileID: 5428786423791249132}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: AfterOrderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 2289893006623814028}
   - component: {fileID: 2754997078467073638}
   - component: {fileID: 4728072716920779942}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PadCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,15 +725,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816744195258473725, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 974013356046722368, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2364551204542063808, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4951837690305289545, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: foodType
@@ -821,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7693302025054457360, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7793125044816348314, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Sprite
@@ -862,15 +862,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816744195258473725, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 974013356046722368, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2364551204542063808, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4951837690305289545, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: foodType
@@ -958,7 +958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7693302025054457360, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7793125044816348314, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Sprite
@@ -1015,15 +1015,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816744195258473725, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 974013356046722368, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2364551204542063808, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5352218488302766714, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Pivot.x
@@ -1107,7 +1107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7693302025054457360, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7793125044816348314, guid: a855293de6cd1ec419f63f40716ca2cb, type: 3}
       propertyPath: m_Sprite

@@ -8,40 +8,43 @@ public class Interactor : BlackScreenEnabler
 {
     public float interactDistance = 3f;
     public GameObject interactionText;
-    [SerializeField] private new CameraManager camera;
+    [SerializeField] private CameraManager cam;
+    [Tooltip("Layer used by interactable objects")]
+    [SerializeField] private LayerMask interactableObjsLayer;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        cam = GetComponentInChildren<CameraManager>();
+    }
 
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, interactDistance))
-        {
-            InteractableObject interactable = hit.transform.GetComponent<InteractableObject>();
+        Ray ray = new(cam.transform.position, cam.transform.forward);
+        RaycastHit[] hits = Physics.RaycastAll(ray, interactDistance, interactableObjsLayer);
+        interactionText.SetActive(false);
 
-            if (interactable != null 
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.TryGetComponent(out InteractableObject interactable)
                 && interactable.CanInteract)
             {
                 interactionText.SetActive(true);
-
-                if (interactable is OrderFoodButton)
+                if (interactable is OrderFoodButton orderFoodButton)
                 {
-                    OrderFoodButton orderFoodButton = (OrderFoodButton)interactable;
                     orderFoodButton.Button.Select();
                 }
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactionText.SetActive(false);
                     interactable.Interact();
                 }
+                break;
             }
             else
             {
                 interactionText.SetActive(false);
             }
-        }
-        else
-        {
-            interactionText.SetActive(false);
         }
     }
 }

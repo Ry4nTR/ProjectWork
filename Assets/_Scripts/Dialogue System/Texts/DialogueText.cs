@@ -7,7 +7,7 @@ public class DialogueText : MonoBehaviour
     [SerializeField] private SpriteRenderer background; // Background sprite
     [SerializeField] private TextMeshPro message; // Text component
 
-    private Transform cam; // Main camera
+    private Transform cam; // Main cam
     private BoxCollider boxCollider; // Interaction collider
 
     private void Awake()
@@ -30,7 +30,7 @@ public class DialogueText : MonoBehaviour
 
     private void LateUpdate()
     {
-        // Face camera while maintaining upright position
+        // Face cam while maintaining upright position
         if (cam != null)
             transform.LookAt(transform.position + cam.forward);
     }

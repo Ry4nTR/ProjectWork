@@ -21,13 +21,13 @@ public class CameraManager : BlackScreenEnabler
 
     private void Update()
     {
-        // Handle camera rotation every frame
+        // Handle cam rotation every frame
         if (canRotate)
             HandleCameraRotation();
     }
 
     /// <summary>
-    /// Handles both horizontal and vertical camera rotation
+    /// Handles both horizontal and vertical cam rotation
     /// </summary>
     private void HandleCameraRotation()
     {
@@ -40,7 +40,7 @@ public class CameraManager : BlackScreenEnabler
         xRotation = Mathf.Clamp(xRotation, -50f, 50f);
 
         // Apply rotations
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // Vertical (camera)
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // Vertical (cam)
         playerBody.Rotate(Vector3.up * mouseX); // Horizontal (player body)
     }
 }

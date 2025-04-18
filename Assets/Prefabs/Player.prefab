@@ -399,7 +399,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactDistance: 3
   interactionText: {fileID: 0}
-  camera: {fileID: 2694833796273840380}
+  cam: {fileID: 2694833796273840380}
+  interactableObjsLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1798654236432070127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +456,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   movementScript: {fileID: 0}
   cameraManager: {fileID: 0}
+  asteroidSpawner: {fileID: 0}
+  progressBar: {fileID: 0}
   maxYaw: 30
   maxPitch: 20
   rotationSpeed: 2

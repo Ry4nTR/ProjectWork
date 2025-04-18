@@ -24,8 +24,10 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public virtual void Interact()
     {
         if (!_canInteract)
+        {
+            Debug.LogWarning("Cannot interact with this object!");
             return;
-
+        }
         if (isUsingBlackScreen)
         {
             BlackScreenTextController.Instance.ActivateBlackScreen(blackScreenData);
@@ -42,6 +44,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (isUsingBlackScreen)
             BlackScreenTextController.OnBlackScreenTextFinished -= InvokeInteractionFinishedEvent;
 
+        Debug.Log($"Interaction finished");
         OnInteractionFinished?.Invoke(this);
     }
 

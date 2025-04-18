@@ -54,10 +54,12 @@ namespace ProjectWork
             currentDay++;
             if(currentDay > maxDays)
             {
+                Debug.Log("Tutorial finished.");
                 OnTutorialFinished?.Invoke();
             }
             else
             {
+                Debug.Log($"Day {currentDay} completed. Unlocking bed interaction.");
                 bedInteraction.UnlockInteraction();
             }    
         }
@@ -65,7 +67,13 @@ namespace ProjectWork
         private void AddToListAndSubscribeToTrashThrownEvent(Trash spawnedTrash)
         {
             listCheckManager.AddItemToCheckList(spawnedTrash);
-            //spawnedTrash.OnTrashThrown +=
+            Trash.OnTrashThrown += SetTrashInteractionCompleted;
+        }
+
+        private void SetTrashInteractionCompleted(Trash spawnedTrash)
+        {
+            listCheckManager.SetItemCompleted(spawnedTrash);
+            Trash.OnTrashThrown -= SetTrashInteractionCompleted;
         }
         
         private void ResetInteractions(InteractableObject eventInvoker)

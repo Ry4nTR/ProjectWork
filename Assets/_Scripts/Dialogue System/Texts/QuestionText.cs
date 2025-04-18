@@ -10,7 +10,7 @@ public class QuestionText : MonoBehaviour
     // References
     private BoxCollider boxCollider; // Collider for mouse interaction
     private Color defaultColor; // Original text color
-    private Transform cam; // Main camera reference
+    private Transform cam; // Main cam reference
     private SpriteRenderer background; // Background sprite
 
     private void Awake()
@@ -24,7 +24,7 @@ public class QuestionText : MonoBehaviour
 
     private void LateUpdate()
     {
-        // Keep UI element facing camera
+        // Keep UI element facing cam
         transform.LookAt(transform.position + cam.forward);
     }
 

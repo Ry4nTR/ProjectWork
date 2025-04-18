@@ -6,7 +6,7 @@ public class TrashManager : MonoBehaviour
     public static TrashManager Instance { get; private set; }
     public static event Action<Trash> OnTrashSpawned = delegate { };
 
-    [SerializeField] private GameObject trashPrefab;  // Assegna il prefab dall'Inspector
+    [SerializeField] private Trash trash;
 
     private void Awake()
     {
@@ -20,9 +20,10 @@ public class TrashManager : MonoBehaviour
 
     public void SpawnTrash()
     {
-        if (trashPrefab != null)
+        if (trash != null)
         {
-            Trash trash = Instantiate(trashPrefab, transform.position, transform.rotation).GetComponent<Trash>();
+            trash.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            trash.gameObject.SetActive(true);
             OnTrashSpawned?.Invoke(trash);
         }
         else
