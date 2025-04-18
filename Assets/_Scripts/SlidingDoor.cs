@@ -3,14 +3,14 @@ using DG.Tweening;
 
 namespace ProjectWork
 {
-    public class Code_SlidingDoor : MonoBehaviour
+    public class SlidingDoor : MonoBehaviour
     {
         [SerializeField] private Vector3 closedPosition;
         [SerializeField] private Vector3 openedPosition;
         [SerializeField] private float timeToMove;
         [SerializeField] private bool isStartedClosed;
 
-        private void Start()
+        protected void Start()
         {
             if(isStartedClosed)
             {
