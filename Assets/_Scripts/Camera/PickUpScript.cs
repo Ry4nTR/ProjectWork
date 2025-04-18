@@ -19,7 +19,7 @@ namespace ProjectWork
         private bool canDrop = true;
         private int LayerNumber;
         private int originalLayerNumber; //Used to store the original layer number of the picked up object
-        private float originalSesitivityValue = 2.5f;
+        private float originalSensitivityValue = 2.5f;
         public CameraManager mouseLookScript;
         [SerializeField] private GameObject interactionText;
         //[SerializeField] private GameObject heldText;
@@ -154,7 +154,7 @@ namespace ProjectWork
             }
             else
             {
-                mouseLookScript.mouseSensitivity = originalSesitivityValue;
+                mouseLookScript.mouseSensitivity = originalSensitivityValue;
                 canDrop = true;
             }
         }

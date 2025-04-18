@@ -7,8 +7,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public event Action<InteractableObject> OnInteractionFinished = delegate { };
 
     [SerializeField] private bool canInteractAtStart = true;
-    [Tooltip("Is \"OnInteractionFinished\" event called instantly after the interaction?")]
-    [SerializeField] private bool isInteractionInstant = false;
 
     [SerializeField] private bool isUsingBlackScreen = false;
     [SerializeField] private BlackScreenData blackScreenData;

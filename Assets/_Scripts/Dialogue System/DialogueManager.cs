@@ -19,7 +19,6 @@ public class DialogueManager : MonoBehaviour
     private Transform currentQuestionBoxContainer; // Store the current question box container
     private bool isTyping = false;
     private string currentLineFullText;
-    private float interactionDistance = 5f;
 
     [Header("NPC Interaction")]
     [SerializeField] private DialogueInteractor dialogueInteractor;
