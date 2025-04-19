@@ -44,7 +44,6 @@ public class Interactor : BlackScreenEnabler
             {
 
                 interactionText.SetActive(true);
-                Debug.Log("Interactor: Hit: " + hit.collider.name);
                 if (interactable is OrderFoodButton orderFoodButton)
                 {
                     orderFoodButton.Button.Select();

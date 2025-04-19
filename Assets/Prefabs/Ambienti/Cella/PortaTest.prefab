@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3373203768947759219}
-  - component: {fileID: 4386778110924747557}
   m_Layer: 0
   m_Name: PortaTest
   m_TagString: Untagged
@@ -33,22 +32,6 @@ Transform:
   - {fileID: 1292881778885191221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &4386778110924747557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2709995274936484553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 375009329a6daf34fb1349f6d39169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closedPosition: {x: 0, y: 0, z: 0}
-  openedPosition: {x: 0, y: 0, z: 0}
-  timeToMove: 1
-  isStartedClosed: 1
 --- !u!1 &5876295979581964168
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +214,10 @@ PrefabInstance:
     - target: {fileID: 2287459521560121034, guid: c6496703c74080b4c9d1e3735223aab1, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905886392005212005, guid: c6496703c74080b4c9d1e3735223aab1, type: 3}
+      propertyPath: _peekDistance
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3393885321614539509, guid: c6496703c74080b4c9d1e3735223aab1, type: 3}
       propertyPath: m_Name

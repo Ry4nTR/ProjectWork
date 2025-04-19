@@ -83,7 +83,6 @@ namespace ProjectWork
 
         private void OrderFood(FoodType foodType)
         {
-            Debug.Log($"Ordering {foodType}");
             OnSelectedFood?.Invoke(foodType);
             SetState(PadState.AfterSelection);
             //Block other orders
