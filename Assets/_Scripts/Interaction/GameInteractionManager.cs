@@ -13,6 +13,7 @@ namespace ProjectWork
 
         [SerializeField] private CheckListManager<InteractableObject> listCheckManager;
         [SerializeField] private int maxDays = 3;
+        [SerializeField] private DialogueInteractable npcToTalkTo;
         private int _currentDay = 1;
         
         public int CurrentDay 
@@ -42,6 +43,7 @@ namespace ProjectWork
 
                 TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
                 Bed.OnBedInteracted += IncreaseDay;
+                listCheckManager.AddItemToCheckList(npcToTalkTo, false);
                 listCheckManager.OnListCompleted += InvokeTasksCompletedEvent;
             }
             else

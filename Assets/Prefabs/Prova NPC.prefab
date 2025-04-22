@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7158230656045066409}
   - component: {fileID: 8448565282792349486}
   - component: {fileID: 7251505516807183365}
+  - component: {fileID: 8555800777474617998}
   m_Layer: 6
   m_Name: Prova NPC
   m_TagString: Untagged
@@ -128,6 +129,22 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: cdb828d2e9cc98844ad8e67b48b0c2b9, type: 2}
   dialogueText: {fileID: 61730557196757589}
   questionBoxContainer: {fileID: 7523351226052673780}
+--- !u!114 &8555800777474617998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509670078084900757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cec0ae2a9f8c14399d37416c230e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteractAtStart: 1
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  dialogueTrigger: {fileID: 7251505516807183365}
 --- !u!1 &5489430938194698090
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 5489430938194698090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.5, z: 0}
+  m_LocalPosition: {x: -2, y: 0.5, z: -1.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168,32 +185,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 50464391206518221}
     m_Modifications:
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.634
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99739724
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.07210278
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -201,11 +230,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 8.27
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4551069283422304902, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_Layer

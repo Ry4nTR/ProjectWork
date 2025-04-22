@@ -48,5 +48,5 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public void UnlockInteraction() => _canInteract = true;
     public void LockInteraction() => _canInteract = false;
 
-    public void ResetInteraction() => _canInteract = canInteractAtStart;
+    public virtual void ResetInteraction() => _canInteract = canInteractAtStart;
 }

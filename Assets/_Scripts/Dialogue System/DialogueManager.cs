@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class DialogueManager : MonoBehaviour
     public AudioSource typingSound;
 
     public bool IsDialogueActive() => isDialogueActive;
+    private DialogueTrigger currentTrigger;
+    public static event Action<DialogueTrigger> OnDialogueEnded = delegate { };
+
+
 
     private void Awake()
     {
@@ -43,13 +48,13 @@ public class DialogueManager : MonoBehaviour
         lines = new Queue<DialogueLine>();
     }
 
-    public void StartDialogue(Dialogue dialogue, DialogueText textBubble, Transform questionBoxContainer)
+    public void StartDialogue(Dialogue dialogue, DialogueText textBubble, Transform questionBoxContainer, DialogueTrigger sourceTrigger)
     {
         isDialogueActive = true;
 
         dialogueText = textBubble;
-        currentQuestionBoxContainer = questionBoxContainer; // Set the current question box container
-        dialogueText.gameObject.SetActive(true);
+        currentQuestionBoxContainer = questionBoxContainer;
+        currentTrigger = sourceTrigger;
 
         lines.Clear();
 
@@ -131,22 +136,22 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        if (!isDialogueActive) return; // Prevent multiple calls to EndDialogue
+        if (!isDialogueActive) return;
 
         isDialogueActive = false;
 
-        // Check if currentTextBubble is not null before accessing it
         if (dialogueText != null)
         {
-            dialogueText.gameObject.SetActive(false); // Hide the text bubble
-            dialogueText = null; // Clear the reference
+            dialogueText.gameObject.SetActive(false);
+            dialogueText = null;
         }
 
-        currentQuestionBoxContainer = null; // Clear the question box container reference
-
-        // Clear all question boxes
+        currentQuestionBoxContainer = null;
         ClearQuestions();
+
+        OnDialogueEnded?.Invoke(currentTrigger);
     }
+
 
     private void Update()
     {

@@ -83,8 +83,9 @@ namespace ProjectWork
                 element = item,
                 isCompleted = false
             };
-            if (!canAddDuplicates && _allItems.Contains(newItem))
+            if (!canAddDuplicates && _allItems.Exists(x => ReferenceEquals(x.element, item)))
                 return;
+
 
             _allItems.Add(newItem);
         }
