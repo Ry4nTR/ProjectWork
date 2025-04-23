@@ -17,6 +17,6 @@ MonoBehaviour:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Ciao sono uno stronzo
+    - Non so quante linee ci stanno quindi va provato
     lineId: 
     questions: []
