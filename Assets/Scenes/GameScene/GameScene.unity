@@ -233,19 +233,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 61730557196757589, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: colliderSizeScale.x
-      value: -2.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 61730557196757589, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: colliderSizeScale.y
-      value: -1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 61730557196757589, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: colliderSizeScale.z
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 61730557196757589, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: colliderCenterOffset.x
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1023592439507718718, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: m_Mesh
