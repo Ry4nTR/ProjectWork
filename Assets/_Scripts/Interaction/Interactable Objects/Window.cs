@@ -3,14 +3,13 @@ using System;
 
 namespace ProjectWork
 {
-
     public class Window : InteractableObject
-{
-    public Transform peekTarget;
-    [SerializeField] private WindowPeekController peekController;
-    [SerializeField] private float _peekDistance = 15f;
-    private bool isPeeking = false;
-    private Collider windowCollider;
+    {
+        public Transform peekTarget;
+        [SerializeField] private WindowPeekController peekController;
+        [SerializeField] private float _peekDistance = 15f;
+        private bool isPeeking = false;
+        private Collider windowCollider;
 
         public float PeekDistance => _peekDistance;
 
@@ -18,10 +17,11 @@ namespace ProjectWork
         public static event Action OnPeekStarted;
         public static event Action OnPeekEnded;
 
-    private void Awake()
-    {
-        windowCollider = GetComponent<Collider>();
-    }
+        private void Awake()
+        {
+            windowCollider = GetComponent<Collider>();
+            peekController = FindFirstObjectByType<WindowPeekController>();
+        }
 
         public override void Interact()
         {
