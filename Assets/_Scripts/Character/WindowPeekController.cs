@@ -18,7 +18,6 @@ namespace ProjectWork
         private CameraManager cameraManager;
         private DialogueInteractor dialogueInteractor;
         private DialogueManager dialogueManager;
-        
 
         // Peek Settings
         [Header("Peek Settings")]
@@ -37,7 +36,6 @@ namespace ProjectWork
         private bool isTransitioning = false;
         private bool shouldCenterView = false;
         private Quaternion targetCenterRotation;
-        
 
         // Public properties
         public bool IsPeeking { get; private set; }

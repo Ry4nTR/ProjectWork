@@ -149,5 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24508dc256b665e4e8e8aa1a3d2e2646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  progressBar: {fileID: 0}
+  speed: 10
+  hitReward: 20
+  collisionPenalty: 5

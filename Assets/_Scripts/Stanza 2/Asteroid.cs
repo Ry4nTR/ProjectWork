@@ -5,40 +5,56 @@ namespace ProjectWork
     public class Asteroid : MonoBehaviour
     {
         // Configuration
-        public float minSpeed = 1f;
-        public float maxSpeed = 3f;
-        public float hitReward = 10f;
-        public float missPenalty = 5f;
+        public float speed = 3f;
+        private float hitReward = 25f;
+        private float collisionPenalty = 10f;
 
-        // Runtime data
-        private float speed;
-        [SerializeField] private ProgressBar progressBar;
+        // References
+        private ProgressBar progressBar;
+        [HideInInspector] public AsteroidSpawner spawner; // Added spawner reference
         private bool wasDestroyedByPlayer = false;
 
         void Start()
         {
-            speed = Random.Range(minSpeed, maxSpeed);
+            progressBar = FindFirstObjectByType<ProgressBar>();
         }
 
         void Update()
         {
-            transform.Translate(-Vector3.forward * speed * Time.deltaTime);
+            // Movement forward (toward target)
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+
+        void OnDestroy()
+        {
+            // More robust cleanup
+            if (spawner != null)
+            {
+                spawner.activeAsteroids.Remove(this);
+                // Immediate null check
+                spawner = null;
+            }
         }
 
         public void DestroyByPlayer()
         {
             wasDestroyedByPlayer = true;
-            if (progressBar != null) progressBar.AddProgress(hitReward);
+            if (progressBar != null)
+            {
+                progressBar.AddProgress(hitReward);
+            }
             Destroy(gameObject);
         }
 
-        void OnBecameInvisible()
+        void OnCollisionEnter(Collision collision)
         {
-            if (!wasDestroyedByPlayer && progressBar != null)
+            if (wasDestroyedByPlayer) return;
+
+            if (progressBar != null)
             {
-                progressBar.AddProgress(-missPenalty);
+                progressBar.AddProgress(-collisionPenalty);
             }
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 }
