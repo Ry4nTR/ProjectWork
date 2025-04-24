@@ -1,30 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : MonoBehaviour
+namespace ProjectWork
 {
-    [Header("Settings")]
-    public Slider progressSlider;
-    public float successThreshold = 100f;
-    public float hitReward = 10f;
-    public float missPenalty = 5f;
-
-    [Header("References")]
-    public WindowPeekController peekController;
-
-    public void AddProgress(float amount)
+    public class ProgressBar : MonoBehaviour
     {
-        progressSlider.value = Mathf.Clamp(progressSlider.value + amount, 0, successThreshold);
+        [Header("Settings")]
+        public Slider progressSlider;
+        public float successThreshold = 100f;
 
-        if (progressSlider.value >= successThreshold)
+        [Header("References")]
+        public WindowPeekController peekController;
+
+        public void AddProgress(float amount)
         {
-            PuzzleComplete();
-        }
-    }
+            progressSlider.value = Mathf.Clamp(progressSlider.value + amount, 0, successThreshold);
 
-    void PuzzleComplete()
-    {
-        peekController.EndPeek();
-        progressSlider.value = 0f;
+            if (progressSlider.value >= successThreshold)
+            {
+                PuzzleComplete();
+            }
+        }
+
+        private void PuzzleComplete()
+        {
+            peekController.EndPeek();
+            progressSlider.value = 0f;
+        }
     }
 }

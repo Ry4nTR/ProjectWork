@@ -1,84 +1,54 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
-public class AsteroidSpawner : MonoBehaviour
+namespace ProjectWork
 {
-    public GameObject asteroidPrefab;
-    public Transform[] spawnPoints;
-    public float spawnInterval = 2f;
-    [Range(0.1f, 5f)] public float minSpeed = 1f;
-    [Range(1f, 10f)] public float maxSpeed = 3f;
-    [Range(0f, 1f)] public float spawnChance = 0.7f; // 70% chance to spawn
-
-    private List<GameObject> activeAsteroids = new List<GameObject>();
-    private bool isSpawning = false;
-
-    public void StopAndClearAsteroids()
+    public class AsteroidSpawner : MonoBehaviour
     {
-        StopAllCoroutines();
-        isSpawning = false;
+        // Configuration
+        public GameObject asteroidPrefab;
+        public Transform[] spawnPoints;
+        public float spawnInterval = 2f;
+        [Range(0f, 1f)] public float spawnChance = 0.7f;
 
-        foreach (var asteroid in activeAsteroids)
+        private bool isSpawning = false;
+
+        private void OnEnable()
         {
-            if (asteroid != null)
-            {
-                Destroy(asteroid);
-            }
+            Window.OnPeekStarted += StartSpawning;
+            Window.OnPeekEnded += StopSpawning;
         }
-        activeAsteroids.Clear();
-    }
 
-    private void StartSpawning()
-    {
-        isSpawning = true;
-        StartCoroutine(SpawnAsteroids());
-    }
-
-    IEnumerator SpawnAsteroids()
-    {
-        while (isSpawning)
+        private void OnDisable()
         {
-            // Random chance to spawn (optional)
-            if (Random.value <= spawnChance)
+            Window.OnPeekStarted -= StartSpawning;
+            Window.OnPeekEnded -= StopSpawning;
+        }
+
+        private void StartSpawning()
+        {
+            if (isSpawning) return;
+            isSpawning = true;
+            StartCoroutine(SpawnAsteroids());
+        }
+
+        private void StopSpawning()
+        {
+            isSpawning = false;
+            StopAllCoroutines();
+        }
+
+        private IEnumerator SpawnAsteroids()
+        {
+            while (isSpawning)
             {
-                // Select random spawn point
-                Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-                GameObject asteroid = Instantiate(asteroidPrefab, randomPoint.position, randomPoint.rotation);
-
-                // Set random speed
-                Asteroid asteroidScript = asteroid.GetComponent<Asteroid>();
-                if (asteroidScript != null)
+                if (Random.value <= spawnChance)
                 {
-                    asteroidScript.speed = Random.Range(minSpeed, maxSpeed);
+                    Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                    Instantiate(asteroidPrefab, randomPoint.position, randomPoint.rotation);
                 }
-
-                activeAsteroids.Add(asteroid);
+                yield return new WaitForSeconds(spawnInterval);
             }
-
-            yield return new WaitForSeconds(spawnInterval);
-        }
-    }
-
-    private void OnEnable()
-    {
-        Window.OnPeekStarted += StartSpawning;
-        Window.OnPeekEnded += StopAndClearAsteroids;
-    }
-
-    private void OnDisable()
-    {
-        Window.OnPeekStarted -= StartSpawning;
-        Window.OnPeekEnded -= StopAndClearAsteroids;
-    }
-
-    // Cleanup asteroids when they're destroyed elsewhere
-    public void RemoveAsteroidFromList(GameObject asteroid)
-    {
-        if (activeAsteroids.Contains(asteroid))
-        {
-            activeAsteroids.Remove(asteroid);
         }
     }
 }

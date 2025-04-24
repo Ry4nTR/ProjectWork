@@ -1,41 +1,44 @@
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+namespace ProjectWork
 {
-    public float speed = 3f;
-    [HideInInspector] public ProgressBar progressBar;
-    [HideInInspector] public AsteroidSpawner spawner;
-    private bool wasDestroyedByPlayer = false;
-
-    void Update()
+    public class Asteroid : MonoBehaviour
     {
-        transform.Translate(-Vector3.forward * speed * Time.deltaTime);
-    }
+        // Configuration
+        public float minSpeed = 1f;
+        public float maxSpeed = 3f;
+        public float hitReward = 10f;
+        public float missPenalty = 5f;
 
-    public void DestroyByPlayer()
-    {
-        wasDestroyedByPlayer = true;
-        if (progressBar != null)
-        {
-            progressBar.AddProgress(progressBar.hitReward);
-        }
-        if (spawner != null)
-        {
-            spawner.RemoveAsteroidFromList(gameObject);
-        }
-        Destroy(gameObject);
-    }
+        // Runtime data
+        private float speed;
+        [SerializeField] private ProgressBar progressBar;
+        private bool wasDestroyedByPlayer = false;
 
-    void OnBecameInvisible()
-    {
-        if (!wasDestroyedByPlayer && progressBar != null)
+        void Start()
         {
-            progressBar.AddProgress(-progressBar.missPenalty);
+            speed = Random.Range(minSpeed, maxSpeed);
         }
-        if (spawner != null)
+
+        void Update()
         {
-            spawner.RemoveAsteroidFromList(gameObject);
+            transform.Translate(-Vector3.forward * speed * Time.deltaTime);
         }
-        Destroy(gameObject, 1f);
+
+        public void DestroyByPlayer()
+        {
+            wasDestroyedByPlayer = true;
+            if (progressBar != null) progressBar.AddProgress(hitReward);
+            Destroy(gameObject);
+        }
+
+        void OnBecameInvisible()
+        {
+            if (!wasDestroyedByPlayer && progressBar != null)
+            {
+                progressBar.AddProgress(-missPenalty);
+            }
+            Destroy(gameObject, 1f);
+        }
     }
 }
