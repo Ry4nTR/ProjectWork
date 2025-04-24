@@ -21,7 +21,12 @@ public abstract class UITextBase : MonoBehaviour
 
     public virtual void SetActive(bool state)
     {
+        if(textComponent == null)
+            textComponent = GetComponent<TextMeshProUGUI>();
         textComponent.enabled = state;
+
+        if (imageComponent == null)
+            imageComponent = GetComponentInChildren<Image>();
         imageComponent.enabled = state;
     }
 }
