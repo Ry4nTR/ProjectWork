@@ -18,7 +18,7 @@ MonoBehaviour:
       icon: {fileID: 0}
     lines:
     - Non so quante linee ci stanno quindi va provato
-    - "QUesta \xE8 la seocnda linea di prova vediamo come si comporta"
+    - "Questa \xE8 la seocnda linea di prova vediamo come si comporta"
     - "Questa \xE8 la terza perch\xE8 sono strozno"
     lineId: Line 1
     questions:
