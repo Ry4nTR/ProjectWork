@@ -40,6 +40,7 @@ namespace ProjectWork
                 Instance = this;
                 SubscribeToAllInteractionEnds();
 
+                //DialogueManager.OnDialogueFinished += ResetInteractions;
                 TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
                 Bed.OnBedInteracted += IncreaseDay;
                 listCheckManager.OnListCompleted += InvokeTasksCompletedEvent;

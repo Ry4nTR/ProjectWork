@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ namespace ProjectWork
 {
     public class DialogueManager : MonoBehaviour
     {
+        public static event Action OnDialogueFinished = delegate { };
+
         public static DialogueManager Instance;
 
         private Queue<DialogueLine> lines;
@@ -19,7 +22,6 @@ namespace ProjectWork
         private bool isTyping = false;
         private string currentLineFullText;
         private int lineIndexInCurrentDialogueLine = 0;
-
 
         [Header("NPC Interaction")]
         [SerializeField] private DialogueInteractor dialogueInteractor;
@@ -121,6 +123,7 @@ namespace ProjectWork
             if (dialogueText != null)
             {
                 dialogueText.gameObject.SetActive(false);
+                OnDialogueFinished?.Invoke();
             }
         }
 
