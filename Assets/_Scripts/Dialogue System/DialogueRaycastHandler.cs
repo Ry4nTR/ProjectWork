@@ -1,38 +1,41 @@
 using UnityEngine;
 
-public class DialogueRaycastHandler : MonoBehaviour
+namespace ProjectWork
 {
-    [SerializeField] private DialogueManager dialogueManager;
-    [SerializeField] private DialogueInteractor dialogueInteractor;
-    [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float raycastDistance = 100f;
-
-    private void Awake()
+    public class DialogueRaycastHandler : MonoBehaviour
     {
-        dialogueManager = GetComponent<DialogueManager>();
-    }
+        private DialogueManager dialogueManager;
+        [SerializeField] private DialogueInteractor dialogueInteractor;
+        [SerializeField] private Transform cameraTransform;
+        [SerializeField] private float raycastDistance = 100f;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        private void Awake()
         {
-            RaycastHit hit;
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, raycastDistance))
-            {
-                // Se stai guardando il DialogueText
-                DialogueText dialogueText = hit.collider.GetComponent<DialogueText>();
-                if (dialogueText != null && dialogueManager.IsDialogueActive())
-                {
-                    dialogueManager.HandleExternalClick();
-                    return;
-                }
+            dialogueManager = GetComponent<DialogueManager>();
+        }
 
-                // Se stai guardando un NPC
-                if (!dialogueManager.IsDialogueActive() && dialogueInteractor != null && dialogueInteractor.IsLookingAtNPC())
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, raycastDistance))
                 {
-                    var trigger = dialogueInteractor.GetCurrentNPCDialogueTrigger();
-                    if (trigger != null)
-                        trigger.TriggerDialogue();
+                    // Se stai guardando il DialogueText
+                    DialogueText dialogueText = hit.collider.GetComponent<DialogueText>();
+                    if (dialogueText != null && dialogueManager.IsDialogueActive())
+                    {
+                        dialogueManager.HandleExternalClick();
+                        return;
+                    }
+
+                    // Se stai guardando un NPC
+                    if (!dialogueManager.IsDialogueActive() && dialogueInteractor != null && dialogueInteractor.IsLookingAtNPC())
+                    {
+                        var trigger = dialogueInteractor.GetCurrentNPCDialogueTrigger();
+                        if (trigger != null)
+                            trigger.TriggerDialogue();
+                    }
                 }
             }
         }
