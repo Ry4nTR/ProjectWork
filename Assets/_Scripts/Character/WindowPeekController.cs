@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using ProjectWork;
 using UnityEngine;
 
 namespace ProjectWork
@@ -13,11 +12,13 @@ namespace ProjectWork
 
         // References
         [Header("References")]
-        public Transform playerCamera;
-        public MyCharacterController movementScript;
-        public CameraManager cameraManager;
-        public DialogueInteractor dialogueInteractor;
-        [HideInInspector] public DialogueManager dialogueManager;
+        [SerializeField] private Collider npcCollider;
+        private Transform playerCamera;
+        private MyCharacterController movementScript;
+        private CameraManager cameraManager;
+        private DialogueInteractor dialogueInteractor;
+        private DialogueManager dialogueManager;
+        
 
         // Peek Settings
         [Header("Peek Settings")]
@@ -36,7 +37,7 @@ namespace ProjectWork
         private bool isTransitioning = false;
         private bool shouldCenterView = false;
         private Quaternion targetCenterRotation;
-        [SerializeField] private Collider npcCollider;
+        
 
         // Public properties
         public bool IsPeeking { get; private set; }
@@ -45,6 +46,8 @@ namespace ProjectWork
         {
             npcCollider.enabled = false;
             cameraManager = GetComponentInChildren<CameraManager>();
+            playerCamera = cameraManager.transform;
+
             movementScript = GetComponent<MyCharacterController>();
             dialogueInteractor = GetComponent<DialogueInteractor>();
             dialogueManager = DialogueManager.Instance;
