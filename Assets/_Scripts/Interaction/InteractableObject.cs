@@ -14,7 +14,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public bool CanInteract => _canInteract;
 
-    private void Start()
+    protected virtual void Start()
     {
         _canInteract = canInteractAtStart;
     }
