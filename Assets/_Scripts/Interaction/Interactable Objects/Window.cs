@@ -4,7 +4,7 @@ using System;
 public class Window : InteractableObject
 {
     public Transform peekTarget;
-    [SerializeField] private WindowPeekController peekController;
+    private WindowPeekController peekController;
     [SerializeField] private float _peekDistance = 15f;
     private bool isPeeking = false;
     private Collider windowCollider;
@@ -18,6 +18,7 @@ public class Window : InteractableObject
     private void Awake()
     {
         windowCollider = GetComponent<Collider>();
+        peekController = FindFirstObjectByType<WindowPeekController>(FindObjectsInactive.Include);
     }
 
     public override void Interact()
