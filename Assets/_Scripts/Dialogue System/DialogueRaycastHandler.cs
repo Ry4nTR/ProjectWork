@@ -22,8 +22,7 @@ namespace ProjectWork
                 if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, raycastDistance))
                 {
                     // Se stai guardando il DialogueText
-                    DialogueText dialogueText = hit.collider.GetComponent<DialogueText>();
-                    if (dialogueText != null && dialogueManager.IsDialogueActive())
+                    if (hit.collider.TryGetComponent(out DialogueText dialogueText) && dialogueManager.IsDialogueActive())
                     {
                         dialogueManager.HandleExternalClick();
                         return;
