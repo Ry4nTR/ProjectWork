@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlackScreenEnabler : MonoBehaviour
+namespace ProjectWork
 {
     public class BlackScreenEnabler : ComponentEnabler
     {
