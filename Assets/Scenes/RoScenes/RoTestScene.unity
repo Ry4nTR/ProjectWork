@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 210579330}
   - component: {fileID: 210579329}
   - component: {fileID: 210579331}
+  - component: {fileID: 210579332}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -230,7 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDialogueActive: 0
   typingSpeed: 0.2
-  lineDelay: 2
   dialogueInteractor: {fileID: 2015528563}
   questionBoxPrefab: {fileID: 1893347016282945050, guid: 1501bf0b8fcc74c4f8fad0939e5c0913, type: 3}
   typingSound: {fileID: 210579331}
@@ -346,6 +346,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &210579332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210579328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415f3ae50fc10894bb4183ec93aa8f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 210579329}
+  dialogueInteractor: {fileID: 2015528563}
+  cameraTransform: {fileID: 259094239}
+  raycastDistance: 100
 --- !u!114 &259094234 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2694833796273840380, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
@@ -1252,6 +1268,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 176440119}
     - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: npcCollider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 1740748868}
@@ -1271,6 +1291,10 @@ PrefabInstance:
       propertyPath: asteroidSpawner
       value: 
       objectReference: {fileID: 1387162989}
+    - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: dialogueInteractor
+      value: 
+      objectReference: {fileID: 2015528563}
     - target: {fileID: 6055781102602694057, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1978,66 +2002,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1000495977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2980334712153658128
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3509670078084900757, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      propertyPath: m_Name
-      value: Prova NPC
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2090683717527929691, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-  m_SourcePrefab: {fileID: 100100000, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
 --- !u!1 &3847946216102972621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2191,6 @@ SceneRoots:
   - {fileID: 2004322168}
   - {fileID: 1441194038}
   - {fileID: 1191735050}
-  - {fileID: 2980334712153658128}
   - {fileID: 4480367078327457399}
   - {fileID: 1384074732}
   - {fileID: 1149191741}

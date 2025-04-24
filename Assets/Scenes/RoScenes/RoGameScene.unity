@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7523351226052673780, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.874
+      value: -1.64
       objectReference: {fileID: 0}
     - target: {fileID: 7914742292495570621, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: m_Size.x
@@ -342,7 +342,6 @@ GameObject:
   - component: {fileID: 269463670}
   - component: {fileID: 269463669}
   - component: {fileID: 269463668}
-  - component: {fileID: 269463671}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -479,22 +478,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &269463671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269463667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415f3ae50fc10894bb4183ec93aa8f78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 269463669}
-  dialogueInteractor: {fileID: 1397563735}
-  cameraTransform: {fileID: 853862955}
-  raycastDistance: 100
 --- !u!114 &311573138 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4941685125006830340, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}

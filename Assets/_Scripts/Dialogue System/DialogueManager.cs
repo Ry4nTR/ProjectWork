@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
     private string currentLineFullText;
     private bool isShowingCompletedDialogue = false;
+    private int lineIndexInCurrentDialogueLine = 0;
+
 
     [Header("NPC Interaction")]
     [SerializeField] private DialogueInteractor dialogueInteractor;
@@ -75,45 +77,39 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentLine = lines.Dequeue();
-        currentLineFullText = currentLine.lines.Count > 0 ? currentLine.lines[0] : "";
-
+        lineIndexInCurrentDialogueLine = 0;
+        currentLineFullText = currentLine.lines[lineIndexInCurrentDialogueLine];
         dialogueText.PrepareLayout(currentLineFullText);
+
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentLine));
+        StartCoroutine(TypeSentence(currentLine.lines[lineIndexInCurrentDialogueLine]));
     }
 
-    IEnumerator TypeSentence(DialogueLine dialogueLine)
+
+    IEnumerator TypeSentence(string line)
     {
         isTyping = true;
+        string currentText = "";
 
-        foreach (string line in dialogueLine.lines)
+        dialogueText.PrepareLayout(line);
+
+        foreach (char letter in line.ToCharArray())
         {
-            string currentText = "";
-            dialogueText.PrepareLayout(line);
+            currentText += letter;
+            dialogueText.UpdateText(currentText);
 
-            foreach (char letter in line.ToCharArray())
-            {
-                currentText += letter;
-                dialogueText.UpdateText(currentText);
+            if (typingSound != null && !typingSound.isPlaying)
+                typingSound.Play();
 
-                if (typingSound != null && !typingSound.isPlaying)
-                {
-                    typingSound.Play();
-                }
-
-                yield return new WaitForSeconds(typingSpeed);
-            }
+            yield return new WaitForSeconds(typingSpeed);
         }
 
         isTyping = false;
 
         if (typingSound != null && typingSound.isPlaying)
-        {
             typingSound.Stop();
-        }
-
-        ShowQuestionsIfAny();
     }
+
 
     void EndDialogue()
     {
@@ -129,39 +125,8 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!isDialogueActive)
-            {
-                if (dialogueInteractor != null && dialogueInteractor.IsLookingAtNPC())
-                {
-                    dialogueInteractor.GetCurrentNPCDialogueTrigger().TriggerDialogue();
-                }
-            }
-            else
-            {
-                HandleTextBubbleClick();
-            }
-        }
-    }
-
     private void HandleTextBubbleClick()
     {
-        // If we're at the end of dialogue (no more lines and not typing)
-        if (!isTyping && lines.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
-
-        // Rest of the existing click handling
-        if (currentLine != null && currentLine.questions != null && currentLine.questions.Count > 0)
-        {
-            return;
-        }
-
         if (isTyping)
         {
             StopAllCoroutines();
@@ -170,23 +135,50 @@ public class DialogueManager : MonoBehaviour
             isTyping = false;
 
             if (typingSound != null && typingSound.isPlaying)
-            {
                 typingSound.Stop();
-            }
 
-            ShowQuestionsIfAny();
-
-            // If there are no more lines after skipping, end dialogue
-            if (lines.Count == 0)
-            {
-                EndDialogue();
-            }
+            return;
         }
-        else if (lines.Count > 0)
+
+        // Vai alla prossima riga della stessa DialogueLine
+        lineIndexInCurrentDialogueLine++;
+
+        if (currentLine != null && lineIndexInCurrentDialogueLine < currentLine.lines.Count)
+        {
+            currentLineFullText = currentLine.lines[lineIndexInCurrentDialogueLine];
+            dialogueText.PrepareLayout(currentLineFullText);
+
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(currentLine.lines[lineIndexInCurrentDialogueLine]));
+            return;
+        }
+
+        // Se ci sono domande dopo l'ultima linea della DialogueLine, mostrale
+        if (currentLine != null && currentLine.questions != null && currentLine.questions.Count > 0)
+        {
+            ShowQuestions(currentLine.questions);
+            return;
+        }
+
+        // Se ci sono altre DialogueLine
+        if (lines.Count > 0)
         {
             DisplayNextLine();
+            return;
         }
+
+        // Altrimenti fine dialogo
+        EndDialogue();
     }
+
+
+
+
+    public void HandleExternalClick()
+    {
+        HandleTextBubbleClick();
+    }
+
 
     private void ShowQuestionsIfAny()
     {
