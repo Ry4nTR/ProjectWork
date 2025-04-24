@@ -7,16 +7,14 @@ namespace ProjectWork
     public class WindowPeekController : MonoBehaviour
     {
         // Events
-        public static event Action<float> OnPeekStarted = delegate { };
+        public static event Action<Window, float> OnPeekStarted = delegate { };
         public static event Action OnPeekEnded = delegate { };
 
         // References
         [Header("References")]
-        [SerializeField] private Collider npcCollider;
         private Transform playerCamera;
         private MyCharacterController movementScript;
         private CameraManager cameraManager;
-        private DialogueInteractor dialogueInteractor;
         private DialogueManager dialogueManager;
 
         // Peek Settings
@@ -42,12 +40,10 @@ namespace ProjectWork
 
         private void Awake()
         {
-            npcCollider.enabled = false;
             cameraManager = GetComponentInChildren<CameraManager>();
             playerCamera = cameraManager.transform;
 
             movementScript = GetComponent<MyCharacterController>();
-            dialogueInteractor = GetComponent<DialogueInteractor>();
             dialogueManager = DialogueManager.Instance;
         }
 
@@ -118,13 +114,12 @@ namespace ProjectWork
             }
 
             isTransitioning = false;
-            npcCollider.enabled = true;
-            OnPeekStarted?.Invoke(currentWindow.PeekDistance);
+
+            OnPeekStarted?.Invoke(currentWindow, currentWindow.PeekDistance);
         }
 
         private IEnumerator EndPeekCoroutine()
         {
-            npcCollider.enabled = false;
             isTransitioning = true;
             shouldCenterView = false;
 
@@ -157,7 +152,6 @@ namespace ProjectWork
 
             if (Input.GetKeyDown(KeyCode.E) && !isTransitioning)
             {
-                if (TryInteractWithNPC()) return;
                 EndPeek();
             }
 
@@ -172,17 +166,6 @@ namespace ProjectWork
                     }
                 }
             }
-        }
-
-        private bool TryInteractWithNPC()
-        {
-            if (dialogueInteractor == null || !dialogueInteractor.IsLookingAtNPC()) return false;
-
-            DialogueTrigger npc = dialogueInteractor.GetCurrentNPCDialogueTrigger();
-            if (npc == null || npc.dialogue == null || npc.dialogueText == null) return false;
-
-            npc.TriggerDialogue();
-            return true;
         }
 
         private void CenterView()

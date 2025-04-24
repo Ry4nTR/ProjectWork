@@ -69,7 +69,7 @@ public class Interactor : BlackScreenEnabler
         WindowPeekController.OnPeekEnded -= ResetInteractionDistance;
     }
 
-    private void SetWindowInteractionDistance(float windowInteractionDistance) => currentInteractDistance = windowInteractionDistance;
+    private void SetWindowInteractionDistance(Window _, float windowInteractionDistance) => currentInteractDistance = windowInteractionDistance;
 
     private void ResetInteractionDistance() => currentInteractDistance = normalInteractDistance;
 

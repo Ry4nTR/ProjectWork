@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7158230656045066409}
   - component: {fileID: 8448565282792349486}
   - component: {fileID: 7251505516807183365}
+  - component: {fileID: 7964700357627709157}
   m_Layer: 6
   m_Name: Prova NPC
   m_TagString: Untagged
@@ -128,6 +129,19 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: cdb828d2e9cc98844ad8e67b48b0c2b9, type: 2}
   dialogueText: {fileID: 61730557196757589}
   questionBoxContainer: {fileID: 7523351226052673780}
+--- !u!114 &7964700357627709157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509670078084900757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931c2c02c4007ec4794a64d503e27fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowPeekController: {fileID: 0}
 --- !u!1 &5489430938194698090
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,10 +230,6 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6527509338399647692, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
-      propertyPath: message
-      value: 
-      objectReference: {fileID: 7480766333296390171}
-    - target: {fileID: 6527509338399647692, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 7914742292495570621}
@@ -256,17 +266,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
   m_PrefabInstance: {fileID: 6506875410123640217}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7480766333296390171 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4439447442713345410, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
-  m_PrefabInstance: {fileID: 6506875410123640217}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &7914742292495570621 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4007008068562934564, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
