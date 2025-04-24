@@ -6,7 +6,7 @@ namespace ProjectWork
     public class Window : InteractableObject
     {
         public Transform peekTarget;
-        [SerializeField] private WindowPeekController peekController;
+        private WindowPeekController peekController;
         [SerializeField] private float _peekDistance = 15f;
         private bool isPeeking = false;
         private Collider windowCollider;
