@@ -73,7 +73,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -113,7 +113,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2147483649
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 2
   SMAAQuality: 2
@@ -408,12 +408,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6055781102602694057}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8177b207e0590464fbca01af90a4f827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 5
+  interactionRange: 10
   npcLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -450,15 +450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe62a4b9014dfc489808258da5e7aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 5576610537300616384}
-  movementScript: {fileID: 0}
-  cameraManager: {fileID: 0}
-  dialogueInteractor: {fileID: 0}
-  dialogueManager: {fileID: 0}
   maxYaw: 30
   maxPitch: 20
   rotationSpeed: 2
-  transitionSpeed: 3
+  transitionSpeed: 2
   centerViewSpeed: 5
   centerThreshold: 0.5
-  npcCollider: {fileID: 0}
