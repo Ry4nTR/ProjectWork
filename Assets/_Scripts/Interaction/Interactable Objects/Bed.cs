@@ -6,12 +6,12 @@ public class Bed : InteractableObject
 
     private void Awake()
     {
-        GameInteractionManager.OnTasksCompleted += UnlockInteraction;
+        TutorialTaskChecker.OnTasksCompleted += UnlockInteraction;
     }
 
     private void OnDestroy()
     {
-        GameInteractionManager.OnTasksCompleted -= UnlockInteraction;
+        TutorialTaskChecker.OnTasksCompleted -= UnlockInteraction;
     }
 
     public override void Interact()

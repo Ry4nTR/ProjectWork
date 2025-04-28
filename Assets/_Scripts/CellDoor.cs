@@ -4,12 +4,12 @@
     {
         private void Awake()
         {
-            GameInteractionManager.OnDayPassed += HandleDoorOpening;
+            TutorialTaskChecker.OnDayPassed += HandleDoorOpening;
         }
 
         private void OnDestroy()
         {
-            GameInteractionManager.OnDayPassed -= HandleDoorOpening;
+            TutorialTaskChecker.OnDayPassed -= HandleDoorOpening;
         }
 
         private void HandleDoorOpening(bool areDaysPassed)

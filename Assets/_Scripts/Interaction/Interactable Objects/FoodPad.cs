@@ -53,7 +53,7 @@ namespace ProjectWork
                 }
             }
 
-            GameInteractionManager.OnDayPassed += ChangeToNumberScreen;
+            TutorialTaskChecker.OnDayPassed += ChangeToNumberScreen;
         }
 
         private void OnDestroy()
@@ -74,7 +74,7 @@ namespace ProjectWork
                 }
             }
 
-            GameInteractionManager.OnDayPassed -= ChangeToNumberScreen;
+            TutorialTaskChecker.OnDayPassed -= ChangeToNumberScreen;
         }
 
         private void OrderPizza() => OrderFood(FoodType.Pizza);

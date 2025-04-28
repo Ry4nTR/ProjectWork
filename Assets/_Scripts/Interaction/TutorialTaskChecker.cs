@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ProjectWork
 {
-    public class GameInteractionManager : MonoBehaviour
+    public class TutorialTaskChecker : MonoBehaviour
     {
-        public static GameInteractionManager Instance { get; private set; }
+        public static TutorialTaskChecker Instance { get; private set; }
         
         public static event Action OnTasksCompleted = delegate { };
         public static event Action<bool> OnDayPassed = delegate { };    //True = days finished, false = days not finished
