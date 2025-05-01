@@ -52,7 +52,10 @@ namespace ProjectWork
 
                 FoodPad.OnSelectedFood += SetOrderTaskCompleted;
                 Prisoner.OnDialogueFinished += SetDialogueTaskCompleted;
-                Trash.OnTrashThrown += SetTrashInteractionCompleted;
+                
+                Food.OnFoodSpawned += AddFoodToChecklistAndSubscribe;
+                TrashManager.OnTrashSpawned += AddTrashToChecklistAndSubscribe;
+                
                 Bed.OnBedInteracted += IncreaseDay;
                 currentChecklist.OnListCompleted += InvokeTasksCompletedEvent;
             }
@@ -85,7 +88,10 @@ namespace ProjectWork
 
             FoodPad.OnSelectedFood -= SetOrderTaskCompleted;
             Prisoner.OnDialogueFinished -= SetDialogueTaskCompleted;
-            Trash.OnTrashThrown -= SetTrashInteractionCompleted;
+
+            Food.OnFoodSpawned -= AddFoodToChecklistAndSubscribe;
+            TrashManager.OnTrashSpawned -= AddTrashToChecklistAndSubscribe;
+
             Bed.OnBedInteracted -= IncreaseDay;
             currentChecklist.OnListCompleted -= InvokeTasksCompletedEvent;
         }
@@ -117,10 +123,36 @@ namespace ProjectWork
         }
 
         private void InvokeTasksCompletedEvent() => OnTasksCompleted?.Invoke();
-        
+
+        private void AddFoodToChecklistAndSubscribe(Food food)
+        {
+            currentChecklist.AddItemToCheckList(food, false, false);
+            food.OnInteractionFinished += SetFoodInteractionCompleted;
+        }
+
+        private void SetFoodInteractionCompleted(InteractableObject foodInteractable)
+        {
+            currentChecklist.SetItemCompleted(foodInteractable);
+            foodInteractable.OnInteractionFinished -= SetFoodInteractionCompleted;
+
+            // Forza l'aggiornamento dell'HUD
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.ForceUpdateObjectives();
+            }
+        }
+
+        private void AddTrashToChecklistAndSubscribe(Trash trash)
+        {
+            currentChecklist.AddItemToCheckList(trash, false, false);
+            Trash.OnTrashThrown += SetTrashInteractionCompleted;
+        }
+
         private void SetTrashInteractionCompleted(Trash spawnedTrash)
         {
             currentChecklist.SetItemCompleted(spawnedTrash);
+
+            Trash.OnTrashThrown -= SetTrashInteractionCompleted;
             // Forza l'aggiornamento dell'HUD
             if (ObjectiveManager.Instance != null)
             {
