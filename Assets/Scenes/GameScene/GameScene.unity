@@ -1937,6 +1937,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2303535002487815191, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
   m_PrefabInstance: {fileID: 1309975432}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1326281693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7964700357627709157, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
+  m_PrefabInstance: {fileID: 206159953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931c2c02c4007ec4794a64d503e27fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1335553910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2021,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2303535002487815191, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
   m_PrefabInstance: {fileID: 697830006}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1362281331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3732566868594511033, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+  m_PrefabInstance: {fileID: 697830006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d42e9e389a26e48ab9e605d1607e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1397563735 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1798654236432070127, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
@@ -2817,6 +2839,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
+      propertyPath: permanentTasks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
+      propertyPath: 'permanentTasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 175281311}
+    - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
+      propertyPath: 'permanentTasks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1326281693}
+    - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
+      propertyPath: 'permanentTasks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1362281331}
+    - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
+      propertyPath: currentChecklist._allItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
       propertyPath: listCheckManager._allItems.Array.size
       value: 1

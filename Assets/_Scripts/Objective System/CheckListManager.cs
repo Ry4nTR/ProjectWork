@@ -18,6 +18,7 @@ namespace ProjectWork
         {
             public ItemType element;
             public bool isCompleted;
+            public bool isPermanent; // If true, the item will not be removed from the list when completed
         }
 
         public event Action OnListCompleted = delegate { };
@@ -64,24 +65,28 @@ namespace ProjectWork
         }
 
         /// <summary>
-        /// Resets the list of items to be checked. This is used when the player needs to redo the list.
+        /// Resets the list of items. This is used to reset the list when the player starts a new day.
         /// </summary>
         public void ResetItemCompletedList()
         {
+            _allItems.RemoveAll(x => !x.isPermanent); // Remove all items that are not permanent
+
             for (int i = 0; i < _allItems.Count; i++)
             {
                 var item = _allItems[i];
                 item.isCompleted = false;
                 _allItems[i] = item;
             }
+
         }
 
-        public void AddItemToCheckList(ItemType item, bool canAddDuplicates)
+        public void AddItemToCheckList(ItemType item, bool isPermanent, bool canAddDuplicates)
         {
             ItemCheck newItem = new()
             {
                 element = item,
-                isCompleted = false
+                isCompleted = false,
+                isPermanent = isPermanent
             };
             if (!canAddDuplicates && _allItems.Contains(newItem))
                 return;
