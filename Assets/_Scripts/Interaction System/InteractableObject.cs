@@ -8,12 +8,14 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public event Action<InteractableObject> OnInteractionFinished = delegate { };
 
     [SerializeField] private bool canInteractAtStart = true;
+    [SerializeField] private string interactionPrompt = "Interact"; // Default prompt text
 
     [SerializeField] private bool isUsingBlackScreen = false;
     [SerializeField] private BlackScreenData blackScreenData;
     private bool _canInteract;
 
     public bool CanInteract => _canInteract;
+    public string InteractionPrompt => interactionPrompt; // Public getter for the prompt
 
     protected virtual void Start()
     {
@@ -48,6 +50,5 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public void UnlockInteraction() => _canInteract = true;
     public void LockInteraction() => _canInteract = false;
-
     public void ResetInteraction() => _canInteract = canInteractAtStart;
 }
