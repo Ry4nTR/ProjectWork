@@ -70,7 +70,7 @@ namespace ProjectWork
         {
             for (int i = 0; i < _allItems.Count; i++)
             {
-                ItemCheck item = _allItems[i];
+                var item = _allItems[i];
                 item.isCompleted = false;
                 _allItems[i] = item;
             }

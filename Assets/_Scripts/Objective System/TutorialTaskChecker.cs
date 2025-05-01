@@ -32,12 +32,14 @@ namespace ProjectWork
                 OnDayPassed?.Invoke(_currentDay > maxDays);
             }
         }
+
         
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
+                ObjectiveManager.Instance.RegisterChecklist(listCheckManager);
                 SubscribeToAllInteractionEnds();
 
                 DialogueManager.OnDialogueFinished += ResetInteractions;
@@ -54,12 +56,21 @@ namespace ProjectWork
         private void Start()
         {
             _currentDay = 1;
+
+            // Forza l'aggiornamento degli obiettivi all'avvio
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.ForceUpdateObjectives();
+            }
         }
 
         private void OnDestroy()
         {
             if (Instance != this)
+            {
+                ObjectiveManager.Instance.UnregisterChecklist(listCheckManager);
                 return;
+            }
 
             UnsubscribeToAllInteractionEnds();
 
@@ -68,7 +79,31 @@ namespace ProjectWork
             listCheckManager.OnListCompleted -= InvokeTasksCompletedEvent;
         }
 
-        private void IncreaseDay() => CurrentDay++;
+        private void IncreaseDay()
+        {
+            CurrentDay++;
+            ResetObjectivesForNewDay(); // Add this line
+        }
+
+        private void ResetObjectivesForNewDay()
+        {
+            // Reset all objectives in the checklist
+            listCheckManager.ResetItemCompletedList();
+
+            // Reset interactions for all objects
+            foreach (var item in listCheckManager.Items)
+            {
+                item.element.ResetInteraction();
+            }
+
+            // Force the HUD to update
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.ForceUpdateObjectives();
+            }
+
+            Debug.Log("Objectives reset for new day");
+        }
 
         private void InvokeTasksCompletedEvent() => OnTasksCompleted?.Invoke();
 
@@ -76,14 +111,29 @@ namespace ProjectWork
         {
             listCheckManager.AddItemToCheckList(spawnedTrash, false);
             Trash.OnTrashThrown += SetTrashInteractionCompleted;
+
+            // Force immediate update of objectives
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.ForceUpdateObjectives();
+            }
         }
 
         private void SetTrashInteractionCompleted(Trash spawnedTrash)
         {
+            // Segna come completato
             listCheckManager.SetItemCompleted(spawnedTrash);
+
+            // Rimuovi solo l'event handler, non l'oggetto dalla lista
             Trash.OnTrashThrown -= SetTrashInteractionCompleted;
+
+            // Forza l'aggiornamento dell'HUD
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.ForceUpdateObjectives();
+            }
         }
-        
+
         private void ResetInteractions()
         {
             foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
