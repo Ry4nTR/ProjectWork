@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ProjectWork
@@ -39,11 +40,12 @@ namespace ProjectWork
             if (Instance == null)
             {
                 Instance = this;
-                ObjectiveManager.Instance.RegisterChecklist(listCheckManager);
+                
                 SubscribeToAllInteractionEnds();
 
-                DialogueManager.OnDialogueFinished += ResetInteractions;
-                TrashManager.OnTrashSpawned += AddToListAndSubscribeToTrashThrownEvent;
+                FoodPad.OnSelectedFood += SetOrderTaskCompleted;
+                Prisoner.OnDialogueFinished += SetDialogueTaskCompleted;
+                Trash.OnTrashThrown += SetTrashInteractionCompleted;
                 Bed.OnBedInteracted += IncreaseDay;
                 listCheckManager.OnListCompleted += InvokeTasksCompletedEvent;
             }
@@ -51,6 +53,11 @@ namespace ProjectWork
             {
                 Destroy(gameObject);
             }   
+        }
+
+        private void OnEnable()
+        {
+            ObjectiveManager.Instance.RegisterChecklist(listCheckManager);
         }
 
         private void Start()
@@ -74,7 +81,9 @@ namespace ProjectWork
 
             UnsubscribeToAllInteractionEnds();
 
-            TrashManager.OnTrashSpawned -= AddToListAndSubscribeToTrashThrownEvent;
+            FoodPad.OnSelectedFood -= SetOrderTaskCompleted;
+            Prisoner.OnDialogueFinished -= SetDialogueTaskCompleted;
+            Trash.OnTrashThrown -= SetTrashInteractionCompleted;
             Bed.OnBedInteracted -= IncreaseDay;
             listCheckManager.OnListCompleted -= InvokeTasksCompletedEvent;
         }
@@ -106,31 +115,28 @@ namespace ProjectWork
         }
 
         private void InvokeTasksCompletedEvent() => OnTasksCompleted?.Invoke();
-
-        private void AddToListAndSubscribeToTrashThrownEvent(Trash spawnedTrash)
+        
+        private void SetTrashInteractionCompleted(Trash spawnedTrash)
         {
-            listCheckManager.AddItemToCheckList(spawnedTrash, false);
-            Trash.OnTrashThrown += SetTrashInteractionCompleted;
-
-            // Force immediate update of objectives
+            listCheckManager.SetItemCompleted(spawnedTrash);
+            // Forza l'aggiornamento dell'HUD
             if (ObjectiveManager.Instance != null)
             {
                 ObjectiveManager.Instance.ForceUpdateObjectives();
             }
         }
 
-        private void SetTrashInteractionCompleted(Trash spawnedTrash)
+        private void SetDialogueTaskCompleted(Prisoner prisoner) => listCheckManager.SetItemCompleted(prisoner);
+        
+        private void SetOrderTaskCompleted(FoodType _)
         {
-            // Segna come completato
-            listCheckManager.SetItemCompleted(spawnedTrash);
-
-            // Rimuovi solo l'event handler, non l'oggetto dalla lista
-            Trash.OnTrashThrown -= SetTrashInteractionCompleted;
-
-            // Forza l'aggiornamento dell'HUD
-            if (ObjectiveManager.Instance != null)
+            foreach (CheckListManager<InteractableObject>.ItemCheck item in listCheckManager.Items)
             {
-                ObjectiveManager.Instance.ForceUpdateObjectives();
+                if (item.element is FoodPad foodPad)
+                {
+                    listCheckManager.SetItemCompleted(foodPad);
+                    break;
+                }
             }
         }
 
