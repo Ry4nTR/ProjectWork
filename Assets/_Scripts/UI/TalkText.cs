@@ -1,4 +1,4 @@
-public class TalkText : UITextBase
+public class TalkText : UITextManager
 {
     protected override void Awake()
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using ProjectWork;
+using System.Collections;
 
 namespace ProjectWork.UI
 {
@@ -14,25 +15,27 @@ namespace ProjectWork.UI
         private float _updateTimer;
         private string _currentObjectives = "";
 
-        private void Start()
-        {
-            // Forza un aggiornamento all'avvio per catturare gli obiettivi iniziali
-            ForceUpdateDisplay();
-        }
-
         protected override void Awake()
         {
             base.Awake();
 
-            // Initialize with current objectives if available
+            // Initialize with empty text
             if (_objectivesText != null)
             {
-                UpdateObjectivesText(ObjectiveManager.Instance.GetCurrentObjectives());
+                _objectivesText.text = "Loading objectives...";
             }
-            else if (_objectivesText != null)
+        }
+
+        private IEnumerator Start()
+        {
+            // Wait until ObjectiveManager is ready
+            while (ObjectiveManager.Instance == null)
             {
-                _objectivesText.text = "No current objectives";
+                yield return null;
             }
+
+            // Now force an update
+            ForceUpdateDisplay();
         }
 
         private void OnEnable()

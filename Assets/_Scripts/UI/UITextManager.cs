@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Base class for all interaction UI prompts
 /// </summary>
-public abstract class UITextBase : MonoBehaviour
+public abstract class UITextManager : MonoBehaviour
 {
     protected TextMeshProUGUI textComponent;
     protected Image imageComponent;

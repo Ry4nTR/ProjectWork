@@ -2,19 +2,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// Handles player interactions with objects in the game world.
-/// </summary>
 public class Interactor : BlackScreenEnabler
 {
     private InteractionText interactionText;
-    private EventSystem eventSystem;    //Used to deselect the button when the interaction is finished
+    private EventSystem eventSystem;
 
     [SerializeField] private CameraManager cam;
     [SerializeField] private float normalInteractDistance = 3f;
     private float currentInteractDistance;
 
-    [Tooltip("Layer used by interactable objects")]
     [SerializeField] private LayerMask interactableObjsLayer;
 
     protected override void Awake()
@@ -34,31 +30,36 @@ public class Interactor : BlackScreenEnabler
     {
         Ray ray = new(cam.transform.position, cam.transform.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, currentInteractDistance, interactableObjsLayer);
-        
-        DeselectButton();
+
+        bool foundInteractable = false;
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.TryGetComponent(out InteractableObject interactable)
-                && interactable.CanInteract)
+            if (hit.collider.TryGetComponent(out InteractableObject interactable) && interactable.CanInteract)
             {
-
+                // Set the interaction text from the interactable object
+                interactionText.SetInteractionText(interactable.InteractionPrompt);
                 interactionText.SetActive(true);
+
                 if (interactable is OrderFoodButton orderFoodButton)
                 {
                     orderFoodButton.Button.Select();
                 }
+
                 if (Input.GetKeyDown(KeyCode.E))
-                {                   
+                {
                     interactable.Interact();
                     DeselectButton();
                 }
+
+                foundInteractable = true;
                 break;
             }
-            else
-            {
-                DeselectButton();
-            }
+        }
+
+        if (!foundInteractable)
+        {
+            DeselectButton();
         }
     }
 
@@ -76,6 +77,6 @@ public class Interactor : BlackScreenEnabler
     private void DeselectButton()
     {
         interactionText.SetActive(false);
-        eventSystem.SetSelectedGameObject(null); // Deselect the button when the interaction is finished
+        eventSystem.SetSelectedGameObject(null);
     }
 }

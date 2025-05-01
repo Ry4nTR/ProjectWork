@@ -24,8 +24,10 @@ public class ObjectiveManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            // Ensure this initializes before other scripts
+            DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }

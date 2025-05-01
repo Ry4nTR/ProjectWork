@@ -1,4 +1,4 @@
-public class PickupText : UITextBase
+public class PickupText : UITextManager
 {
     protected override void Awake()
     {
