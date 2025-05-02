@@ -11,6 +11,7 @@ TagManager:
   - Pizza
   - Asteroid
   - TrashCan
+  - Pipe_Normal
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - NPC
   - UI_World
   - Interactable
-  - 
+  - PipeTrigger
   - 
   - 
   - 
