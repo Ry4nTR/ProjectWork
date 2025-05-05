@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4aaf7ed58d6a546a19203bfb928549, type: 3}
+  m_Name: Dialogo 2
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Non so quante linee ci stanno quindi va provato
+    - "Questa \xE8 la seocnda linea di prova vediamo come si comporta"
+    - "Questa \xE8 la terza perch\xE8 sono strozno"
+    lineId: Line 1
+    questions:
+    - question: vediamo come sono le domande
+      responseId: domanda 1
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Non so quante linee ci stanno quindi va provato
+    lineId: domanda 1
+    questions: []
