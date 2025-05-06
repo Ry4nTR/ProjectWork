@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4aaf7ed58d6a546a19203bfb928549, type: 3}
+  m_Name: AIDialogue_Awakening
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Mi senti?
+    lineId: Line 1
+    questions:
+    - question: "\u2026 Dove mi trovo? Come sono arrivato qui? \u2026"
+      responseId: Domanda 1
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Ti trovi sulla nave spaziale (NOME),
+    - "hai aderito all\u2019esperimento Cross-Over per integrare un\u2019intelligenza
+      artificiale nell\u2019intelletto umano."
+    - "Io sono Eco, la tua AI personale che ti aiuter\xE0 ad ambientarti a questa
+      nuova realt\xE0."
+    lineId: Domanda 1
+    questions:
+    - question: " \u2026 Esperimento? AI? \xE8 uno scherzo? \u2026 No \xE8 tutto
+        troppo reale per essere un sogno, ma perch\xE8 mi sarei proposto per una
+        cosa cos\xEC complessa?  "
+      responseId: Domanda 2
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Dalle informazioni caricate nel mio database,
+    - "il capo scienziato Bob ti avrebbe convinto a sottoporti all\u2019esperimento
+      per aiutarlo a migliorare l\u2019esistenza umana,"
+    - 'cercando una perfetta coesistenza tra uomo e macchina '
+    lineId: Domanda 2
+    questions:
+    - question: " Quel pazzo del mio migliore amico vuole veramente provarci? Mi
+        ricordo ancora quando ne parlava mentre studiavamo all\u2019universit\xE0,
+        ma non avrei mai creduto che ci avrebbe provato.  Eco, dimmi cosa devo fare
+        per aiutarlo a completare questo esperimento "
+      responseId: Domanda 3
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - ' Perfetto, iniziamo.'
+    lineId: Domanda 3
+    questions: []
