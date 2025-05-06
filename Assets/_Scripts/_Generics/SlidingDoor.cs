@@ -14,7 +14,7 @@ namespace ProjectWork
         {
             if(isStartedClosed)
             {
-                transform.position = closedPosition;
+                transform.localPosition = closedPosition;
             }
         }
 
