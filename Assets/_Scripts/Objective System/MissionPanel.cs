@@ -71,15 +71,19 @@ namespace ProjectWork.UI
 
             foreach (var item in checklist.Items)
             {
-                if (item.element.objectiveDefinition == null) continue;
+                var objectiveDef = item.element.objectiveDefinition;
+                if (objectiveDef == null || !objectiveDef.isMandatory) continue;
+
+                // Skip if this objective should be hidden when completed
+                if (objectiveDef.hideWhenCompleted && item.isCompleted) continue;
 
                 if (item.isCompleted)
                 {
-                    formattedText.AppendLine($"<color=yellow>- {item.element.objectiveDefinition.displayText}</color>");
+                    formattedText.AppendLine($"<color=yellow>- {objectiveDef.displayText}</color>");
                 }
                 else
                 {
-                    formattedText.AppendLine($"- {item.element.objectiveDefinition.displayText}");
+                    formattedText.AppendLine($"- {objectiveDef.displayText}");
                 }
             }
 

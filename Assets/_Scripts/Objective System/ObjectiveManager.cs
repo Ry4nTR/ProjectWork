@@ -67,21 +67,15 @@ public class ObjectiveManager : MonoBehaviour
             foreach (var item in checklist.Items)
             {
                 var objectiveDef = item.element.objectiveDefinition;
-                if (objectiveDef != null && objectiveDef.isMandatory)
-                {
-                    // DEBUG: Log each objective's status
-                    Debug.Log($"Checking objective: {objectiveDef.displayText} " +
-                             $"(Completed: {item.isCompleted}, " +
-                             $"HideWhenCompleted: {objectiveDef.hideWhenCompleted})");
+                if (objectiveDef == null || !objectiveDef.isMandatory) continue;
 
-                    if (!(objectiveDef.hideWhenCompleted && item.isCompleted))
+                if (!(objectiveDef.hideWhenCompleted && item.isCompleted))
+                {
+                    displayData.Add(new ObjectiveDisplayData
                     {
-                        displayData.Add(new ObjectiveDisplayData
-                        {
-                            Text = objectiveDef.displayText,
-                            IsCompleted = item.isCompleted
-                        });
-                    }
+                        Text = objectiveDef.displayText,
+                        IsCompleted = item.isCompleted
+                    });
                 }
             }
         }
