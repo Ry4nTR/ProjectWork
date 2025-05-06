@@ -43,12 +43,35 @@ namespace ProjectWork
         }
 
         /// <summary>
+        /// Try to set the item as completed if it is found.
+        /// </summary>
+        public bool TrySetItemCompleted(ItemType item)
+        {
+            int itemIndex = _allItems.FindIndex(x => x.element.Equals(item));
+            if(itemIndex == -1)
+            {
+                Debug.LogError($"Item {item} not found in the list.");
+                return false;
+            }
+            ItemCheck itemSelected = _allItems[itemIndex];
+            itemSelected.isCompleted = true;
+            _allItems[itemIndex] = itemSelected;
+
+            if (IsListFullyCompleted())
+            {
+                //TODO: Unlock the next part of the game
+                OnListCompleted?.Invoke();
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Sets the item as completed. Will be used when the player interacts with the item or completes an enigma.
         /// </summary>
         public void SetItemCompleted(ItemType item)
         {
             int itemIndex = _allItems.FindIndex(x => x.element.Equals(item));
-            if(itemIndex == -1)
+            if (itemIndex == -1)
             {
                 Debug.LogError($"Item {item} not found in the list.");
                 return;
@@ -80,7 +103,7 @@ namespace ProjectWork
 
         }
 
-        public void AddItemToCheckList(ItemType item, bool isPermanent, bool canAddDuplicates)
+        public bool TryAddItemToCheckList(ItemType item, bool isPermanent, bool canAddDuplicates)
         {
             ItemCheck newItem = new()
             {
@@ -89,9 +112,10 @@ namespace ProjectWork
                 isPermanent = isPermanent
             };
             if (!canAddDuplicates && _allItems.Contains(newItem))
-                return;
+                return false;
 
             _allItems.Add(newItem);
+            return true;
         }
     }
 }

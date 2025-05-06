@@ -46,14 +46,14 @@ namespace ProjectWork
 
                 foreach (var task in permanentTasks)
                 {
-                    currentChecklist.AddItemToCheckList(task, true, false);
+                    currentChecklist.TryAddItemToCheckList(task, true, false);
                 }
                 SubscribeToAllInteractionEnds();
 
                 FoodPad.OnSelectedFood += SetOrderTaskCompleted;
                 Prisoner.OnDialogueFinished += SetDialogueTaskCompleted;
                 
-                Food.OnFoodSpawned += AddFoodToChecklistAndSubscribe;
+                Food.OnFoodSpawned += TryAddFoodToChecklistAndSubscribe;
                 TrashManager.OnTrashSpawned += AddTrashToChecklistAndSubscribe;
                 
                 Bed.OnBedInteracted += IncreaseDay;
@@ -89,7 +89,7 @@ namespace ProjectWork
             FoodPad.OnSelectedFood -= SetOrderTaskCompleted;
             Prisoner.OnDialogueFinished -= SetDialogueTaskCompleted;
 
-            Food.OnFoodSpawned -= AddFoodToChecklistAndSubscribe;
+            Food.OnFoodSpawned -= TryAddFoodToChecklistAndSubscribe;
             TrashManager.OnTrashSpawned -= AddTrashToChecklistAndSubscribe;
 
             Bed.OnBedInteracted -= IncreaseDay;
@@ -124,43 +124,50 @@ namespace ProjectWork
 
         private void InvokeTasksCompletedEvent() => OnTasksCompleted?.Invoke();
 
-        private void AddFoodToChecklistAndSubscribe(Food food)
+        private void TryAddFoodToChecklistAndSubscribe(Food food)
         {
-            currentChecklist.AddItemToCheckList(food, false, false);
-            food.OnInteractionFinished += SetFoodInteractionCompleted;
+            if (currentChecklist.TryAddItemToCheckList(food, false, false))
+            {
+                food.OnInteractionFinished += TrySetFoodInteractionCompleted;
+            }
         }
 
-        private void SetFoodInteractionCompleted(InteractableObject foodInteractable)
+        private void TrySetFoodInteractionCompleted(InteractableObject foodInteractable)
         {
-            currentChecklist.SetItemCompleted(foodInteractable);
-            foodInteractable.OnInteractionFinished -= SetFoodInteractionCompleted;
-
-            // Forza l'aggiornamento dell'HUD
-            if (ObjectiveManager.Instance != null)
+            if (currentChecklist.TrySetItemCompleted(foodInteractable))
             {
-                ObjectiveManager.Instance.ForceUpdateObjectives();
+                foodInteractable.OnInteractionFinished -= TrySetFoodInteractionCompleted;
+
+                // Forza l'aggiornamento dell'HUD
+                if (ObjectiveManager.Instance != null)
+                {
+                    ObjectiveManager.Instance.ForceUpdateObjectives();
+                }
             }
         }
 
         private void AddTrashToChecklistAndSubscribe(Trash trash)
         {
-            currentChecklist.AddItemToCheckList(trash, false, false);
-            Trash.OnTrashThrown += SetTrashInteractionCompleted;
+            if (currentChecklist.TryAddItemToCheckList(trash, false, false))
+            {
+                Trash.OnTrashThrown += SetTrashInteractionCompleted;
+            }
         }
 
         private void SetTrashInteractionCompleted(Trash spawnedTrash)
         {
-            currentChecklist.SetItemCompleted(spawnedTrash);
-
-            Trash.OnTrashThrown -= SetTrashInteractionCompleted;
-            // Forza l'aggiornamento dell'HUD
-            if (ObjectiveManager.Instance != null)
+            if (currentChecklist.TrySetItemCompleted(spawnedTrash))
             {
-                ObjectiveManager.Instance.ForceUpdateObjectives();
+                Trash.OnTrashThrown -= SetTrashInteractionCompleted;
+                // Forza l'aggiornamento dell'HUD
+                if (ObjectiveManager.Instance != null)
+                {
+                    ObjectiveManager.Instance.ForceUpdateObjectives();
+                }
             }
         }
 
-        private void SetDialogueTaskCompleted(Prisoner prisoner) => currentChecklist.SetItemCompleted(prisoner);
+        private void SetDialogueTaskCompleted(Prisoner prisoner) => currentChecklist.TrySetItemCompleted(prisoner);
         
         private void SetOrderTaskCompleted(FoodType _)
         {
@@ -168,7 +175,7 @@ namespace ProjectWork
             {
                 if (item.element is FoodPad foodPad)
                 {
-                    currentChecklist.SetItemCompleted(foodPad);
+                    currentChecklist.TrySetItemCompleted(foodPad);
                     break;
                 }
             }
