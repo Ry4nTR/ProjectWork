@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931c2c02c4007ec4794a64d503e27fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveDefinition: {fileID: 0}
+  objectiveDefinition: {fileID: 11400000, guid: 027c058b69dc52941b59280b5bb5863b, type: 2}
   canInteractAtStart: 1
   interactionPrompt: Interact
   isUsingBlackScreen: 0
@@ -172,7 +172,7 @@ Transform:
   m_GameObject: {fileID: 5489430938194698090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.5, z: 0}
+  m_LocalPosition: {x: -2, y: 0.5, z: -1.874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -188,31 +188,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 1.955
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.984
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.021
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.97975856
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.200183
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -220,11 +220,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 23.095
       objectReference: {fileID: 0}
     - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992342838233843468, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4551069283422304902, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_Layer
@@ -238,6 +242,10 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 7914742292495570621}
+    - target: {fileID: 6527509338399647692, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
+      propertyPath: colliderCenterOffset.x
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 8125816253978907020, guid: efc7b0375a4730449a2037aa3eececfa, type: 3}
       propertyPath: m_Name
       value: Dialogue Text

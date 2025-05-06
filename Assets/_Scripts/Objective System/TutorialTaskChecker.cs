@@ -167,15 +167,21 @@ namespace ProjectWork
             }
         }
 
-        private void SetDialogueTaskCompleted(Prisoner prisoner) => currentChecklist.TrySetItemCompleted(prisoner);
-        
+        private void SetDialogueTaskCompleted(Prisoner prisoner)
+        {
+            currentChecklist.SetItemCompleted(prisoner);
+            // Force immediate HUD update
+            ObjectiveManager.Instance?.ForceUpdateObjectives();
+        }
+
         private void SetOrderTaskCompleted(FoodType _)
         {
-            foreach (CheckListManager<InteractableObject>.ItemCheck item in currentChecklist.Items)
+            foreach (var item in currentChecklist.Items)
             {
-                if (item.element is FoodPad foodPad)
+                if (item.element is FoodPad)
                 {
-                    currentChecklist.TrySetItemCompleted(foodPad);
+                    currentChecklist.SetItemCompleted(item.element);
+                    ObjectiveManager.Instance?.ForceUpdateObjectives();
                     break;
                 }
             }

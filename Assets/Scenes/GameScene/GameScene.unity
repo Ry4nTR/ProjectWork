@@ -921,6 +921,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3732566868594511033, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: objectiveDefinition
+      value: 
+      objectReference: {fileID: 11400000, guid: 2289a2e9b9d5ca4488ba2e4cd8250008, type: 2}
     - target: {fileID: 4288484139906911988, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_Intensity
       value: 63.661976

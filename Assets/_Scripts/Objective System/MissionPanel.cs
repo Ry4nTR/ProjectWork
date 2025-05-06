@@ -82,6 +82,16 @@ namespace ProjectWork.UI
             _updateTimer = _updateInterval;
             _currentObjectives = FormatObjectives(objectives);
             _objectivesText.text = _currentObjectives;
+
+            // Debug logging
+            Debug.Log($"Updating objectives display. Count: {objectives?.Count}");
+            if (objectives != null)
+            {
+                foreach (var obj in objectives)
+                {
+                    Debug.Log($"- {obj.Text} (Completed: {obj.IsCompleted})");
+                }
+            }
         }
 
         private string FormatObjectives(List<ObjectiveDisplayData> objectives)
