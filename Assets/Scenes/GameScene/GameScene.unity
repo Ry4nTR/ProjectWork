@@ -3154,7 +3154,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
       propertyPath: maxDays
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2209673961519958439, guid: 75f3e71138d494642bf1aa1d78ae8d87, type: 3}
       propertyPath: permanentTasks.Array.size
@@ -3241,6 +3241,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2945989736344950297, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: completedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945989736344950297, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: completedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945989736344950297, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: completedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945989736344950297, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: completedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3600281856208635604, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_Name
       value: Canvas

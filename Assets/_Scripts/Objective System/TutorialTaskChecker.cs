@@ -216,10 +216,11 @@ namespace ProjectWork
 
         public bool IsItemCompleted(InteractableObject item)
         {
-            foreach(var listItem in currentChecklist.Items)
+            foreach (var listItem in currentChecklist.Items)
             {
                 if (listItem.element == item)
                 {
+                    Debug.Log($"Task '{item.name}' completion status: {listItem.isCompleted}");
                     return listItem.isCompleted;
                 }
             }

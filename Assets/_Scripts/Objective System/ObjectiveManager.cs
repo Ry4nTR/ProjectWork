@@ -17,7 +17,7 @@ public class ObjectiveManager : MonoBehaviour
 
     public event Action<List<ObjectiveDisplayData>> OnObjectivesUpdated = delegate { };
 
-    private List<CheckListManager<InteractableObject>> activeChecklists = new();
+    public List<CheckListManager<InteractableObject>> activeChecklists = new();
 
     private void Awake()
     {
@@ -66,13 +66,22 @@ public class ObjectiveManager : MonoBehaviour
         {
             foreach (var item in checklist.Items)
             {
-                if (item.element.objectiveDefinition != null && item.element.objectiveDefinition.isMandatory)
+                var objectiveDef = item.element.objectiveDefinition;
+                if (objectiveDef != null && objectiveDef.isMandatory)
                 {
-                    displayData.Add(new ObjectiveDisplayData
+                    // DEBUG: Log each objective's status
+                    Debug.Log($"Checking objective: {objectiveDef.displayText} " +
+                             $"(Completed: {item.isCompleted}, " +
+                             $"HideWhenCompleted: {objectiveDef.hideWhenCompleted})");
+
+                    if (!(objectiveDef.hideWhenCompleted && item.isCompleted))
                     {
-                        Text = item.element.objectiveDefinition.displayText,
-                        IsCompleted = item.isCompleted
-                    });
+                        displayData.Add(new ObjectiveDisplayData
+                        {
+                            Text = objectiveDef.displayText,
+                            IsCompleted = item.isCompleted
+                        });
+                    }
                 }
             }
         }
