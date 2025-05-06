@@ -39,7 +39,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             activeChecklists.Add(checklist);
             checklist.OnListCompleted += HandleChecklistCompletion;
-            UpdateObjectives();
+            UpdateObjectiveDisplay();
         }
     }
 
@@ -48,13 +48,17 @@ public class ObjectiveManager : MonoBehaviour
         if (activeChecklists.Remove(checklist))
         {
             checklist.OnListCompleted -= HandleChecklistCompletion;
-            UpdateObjectives();
+            UpdateObjectiveDisplay();
         }
     }
 
-    private void HandleChecklistCompletion() => UpdateObjectives();
+    private void HandleChecklistCompletion()
+    {
+        // Renamed from UpdateObjectives to be more clear
+        UpdateObjectiveDisplay();
+    }
 
-    private void UpdateObjectives()
+    private void UpdateObjectiveDisplay()
     {
         var displayData = new List<ObjectiveDisplayData>();
 

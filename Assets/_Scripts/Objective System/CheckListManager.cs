@@ -48,7 +48,7 @@ namespace ProjectWork
         public void SetItemCompleted(ItemType item)
         {
             int itemIndex = _allItems.FindIndex(x => x.element.Equals(item));
-            if(itemIndex == -1)
+            if (itemIndex == -1)
             {
                 Debug.LogError($"Item {item} not found in the list.");
                 return;
@@ -57,10 +57,13 @@ namespace ProjectWork
             itemSelected.isCompleted = true;
             _allItems[itemIndex] = itemSelected;
 
+            // Trigger update immediately when any item completes
+            OnListCompleted?.Invoke();
+
+            // Optional: Still keep the full completion check
             if (IsListFullyCompleted())
             {
-                //TODO: Unlock the next part of the game
-                OnListCompleted?.Invoke();
+                Debug.Log("All objectives completed!");
             }
         }
 

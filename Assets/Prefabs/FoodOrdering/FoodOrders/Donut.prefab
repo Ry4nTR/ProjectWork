@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9662936000af240b06ce23958059f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 11400000, guid: 66d9c47de7624ae498f7d2a310cadc04, type: 2}
   canInteractAtStart: 0
-  isInteractionInstant: 0
+  interactionPrompt: Interact
   isUsingBlackScreen: 1
   blackScreenData: {fileID: 11400000, guid: fe43562e2f4cd2c4facfce2700930317, type: 2}
   foodType: 2
