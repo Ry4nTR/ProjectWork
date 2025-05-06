@@ -76,16 +76,18 @@ namespace ProjectWork
                 Debug.LogError($"Item {item} not found in the list.");
                 return;
             }
-
-            var itemSelected = _allItems[itemIndex];
+            ItemCheck itemSelected = _allItems[itemIndex];
             itemSelected.isCompleted = true;
             _allItems[itemIndex] = itemSelected;
 
-            // Always trigger update
+            // Trigger update immediately when any item completes
             OnListCompleted?.Invoke();
 
-            // Debug log to verify completion
-            Debug.Log($"Completed: {item}. Now triggering update.");
+            // Optional: Still keep the full completion check
+            if (IsListFullyCompleted())
+            {
+                Debug.Log("All objectives completed!");
+            }
         }
 
         /// <summary>
