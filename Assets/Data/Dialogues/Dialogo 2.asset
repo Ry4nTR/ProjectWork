@@ -37,7 +37,7 @@ MonoBehaviour:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Terzo
+    - Risposta alla domanda
     - liena del terzop
     - cvsadno2w3q
     lineId: domanda 1
