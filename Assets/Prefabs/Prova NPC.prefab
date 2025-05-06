@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32298d0549a1ec42b397b472ff56da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: cdb828d2e9cc98844ad8e67b48b0c2b9, type: 2}
+  dialogue: {fileID: 11400000, guid: dbd6c20cc6c57fc4eaffb52c5865e385, type: 2}
   dialogueText: {fileID: 61730557196757589}
   questionBoxContainer: {fileID: 7523351226052673780}
 --- !u!114 &7964700357627709157
@@ -141,7 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931c2c02c4007ec4794a64d503e27fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowPeekController: {fileID: 0}
+  objectiveDefinition: {fileID: 0}
+  canInteractAtStart: 1
+  interactionPrompt: Interact
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  connectedWindow: {fileID: 0}
 --- !u!1 &5489430938194698090
 GameObject:
   m_ObjectHideFlags: 0
