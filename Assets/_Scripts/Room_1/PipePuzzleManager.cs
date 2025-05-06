@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectWork
 {
-    public class PipePuzzleManager : MonoBehaviour
+    public class PipePuzzleManager : PuzzleManager
     {
-        public static event Action OnPuzzleCompleted;
-
         [SerializeField] private List<PipeConnectionsHandler> pipeConnectionsHandlers;
 
         private void Awake()
@@ -55,8 +52,7 @@ namespace ProjectWork
             if (allPipesConnected)
             {
                 Debug.Log("All pipes are connected!");
-                // Trigger the puzzle completion event or logic here
-                OnPuzzleCompleted?.Invoke();
+                InvokeCompletedEvent();
             }
         }
     }
