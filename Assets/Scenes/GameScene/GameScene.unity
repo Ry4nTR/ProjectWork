@@ -304,6 +304,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7251505516807183365, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: dbd6c20cc6c57fc4eaffb52c5865e385, type: 2}
+    - target: {fileID: 7251505516807183365, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
       propertyPath: isUsingBlackScreen
       value: 0
       objectReference: {fileID: 0}

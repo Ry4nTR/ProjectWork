@@ -19,15 +19,26 @@ MonoBehaviour:
     lines:
     - Non so quante linee ci stanno quindi va provato
     - "Questa \xE8 la seocnda linea di prova vediamo come si comporta"
-    - "Questa \xE8 la terza perch\xE8 sono strozno"
     lineId: Line 1
     questions:
-    - question: vediamo come sono le domande
+    - question: Domanda 1
       responseId: domanda 1
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Non so quante linee ci stanno quindi va provato
+    - Secondo dialogo
+    - Con un'altra liena
+    - asdhjkahkjdesad
+    - dsajklmvkol
+    lineId: Line 2
+    questions: []
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Terzo
+    - liena del terzop
+    - cvsadno2w3q
     lineId: domanda 1
     questions: []
