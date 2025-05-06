@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4aaf7ed58d6a546a19203bfb928549, type: 3}
+  m_Name: PrisonerDialogueDayTwo
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - ........................................................
+    lineId: Line 1
+    questions:
+    - question: Ehi Steve, posso farti qualche domanda?
+      responseId: Domanda 1
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Cosa vuoi sapere?
+    lineId: Domanda 1
+    questions:
+    - question: "Perch\xE9 hai scelto di sottoporti a questo esperimento?"
+      responseId: Domanda 2
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Mi servivano dei soldi,
+    - avevo dei debiti con dei poco di buono per aiutare mia moglie e mia figlia,
+    - "cos\xEC ho deciso di fare da cavia per ripagarli e tenere al sicuro la mia
+      famiglia "
+    lineId: Domanda 2
+    questions:
+    - question: "Mi dispiace, hai pi\xF9 notizie di loro? "
+      responseId: Domanda 3
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - No, qui non arriva nessun messaggio,
+    - 'ma il capo scienziato mi ha assicurato che le avrebbe tenute al sicuro  '
+    lineId: Domanda 3
+    questions:
+    - question: "Puoi fidarti di Bob, \xE8 un tipo strano ma ha sempre mantenuto
+        le sue promesse "
+      responseId: Domanda 4
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Non mi fido pi\xF9 di nessuno ormai,"
+    - ora lasciami in pace che devo finire delle cose
+    lineId: Domanda 3
+    questions: []
