@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7251505516807183365}
   - component: {fileID: 7964700357627709157}
   m_Layer: 6
-  m_Name: Prova NPC
+  m_Name: Prisoner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
