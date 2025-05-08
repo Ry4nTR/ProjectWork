@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4aaf7ed58d6a546a19203bfb928549, type: 3}
+  m_Name: AIDialogue_Allarm
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Sve\u2026glia\u2026TI!!!!"
+    lineId: Line 1
+    questions:
+    - question: Cosa sono questi suoni? Allarmi? Eco rispondimi cosa sta succedendo?
+      responseId: Domanda 1
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Allarme!!! Sistema Fuori Uso!!! Danneggiamento nave!!!
+    lineId: Domanda 1
+    questions:
+    - question: ECO! Riprenditi e dimmi esattamente cosa sta succedendo, ORA!
+      responseId: Domanda 2
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "La nave \xE8 stata colpita da qualcosa,"
+    - "il sistema centrale \xE8 completamente fuori uso"
+    - tutto il personale sta scappando sulle scialuppe di salvataggio!
+    lineId: Domanda 2
+    questions:
+    - question: "Come \xE8 possibile una cosa del genere? E perch\xE8 stanno scappando
+        senza di me?"
+      responseId: Domanda 3
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Non sono riusciti ad aprire la porta della cella,
+    - " sono dovuta entrare nel sistema di backup e hackerare il sistema di blocco
+      dall\u2019interno per riuscire ad aprirla"
+    lineId: Domanda 3
+    questions:
+    - question: E ora? Come posso fare a scappare?
+      responseId: Domanda 4
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "All\u2019inizio del corridoio c\u2019\xE8 un keypad che blocca l\u2019accesso
+      alla sala di controllo,"
+    - 'devi riuscire ad aprirlo per poter arrivare alla zona principale della nave '
+    lineId: Domanda 4
+    questions:
+    - question: " Ok \xE8 un inizio, almeno ho ancora te Eco. Riuscirai a seguirmi
+        anche fuori dalla cella? "
+      responseId: Domanda 5
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - " Fortunatamente il mio intero sistema \xE8 stato caricato nel chip che ti
+      hanno impiantato,"
+    - "quindi posso seguirti all\u2019interno dell\u2019intera nave."
+    lineId: Domanda 5
+    questions:
+    - question: Tempo di andare allora, augurami buona fortuna
+      responseId: Domanda 6
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Sono sicura che non servir\xE0, mi fido di te "
+    lineId: Domanda 6
+    questions:
+    - question: Grazie Eco
+      responseId: 
