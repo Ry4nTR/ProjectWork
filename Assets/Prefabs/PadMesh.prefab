@@ -200,7 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d42e9e389a26e48ab9e605d1607e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 0}
   canInteractAtStart: 0
+  interactionPrompt: Interact
   isUsingBlackScreen: 0
   blackScreenData: {fileID: 0}
   _currentPadState: 0

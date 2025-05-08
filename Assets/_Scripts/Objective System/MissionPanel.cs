@@ -10,16 +10,13 @@ namespace ProjectWork.UI
     {
         [Header("Objective Display")]
         [SerializeField] private TMP_Text _objectivesText;
-        [SerializeField] private float _updateInterval = 0.2f; // Prevents too frequent updates
+        [SerializeField] private float _updateInterval = 0.2f;
 
         private float _updateTimer;
-        private string _currentObjectives = "";
 
         protected override void Awake()
         {
             base.Awake();
-
-            // Initialize with empty text
             if (_objectivesText != null)
             {
                 _objectivesText.text = "Loading objectives...";
@@ -28,92 +25,76 @@ namespace ProjectWork.UI
 
         private IEnumerator Start()
         {
-            // Wait until ObjectiveManager is ready
             while (ObjectiveManager.Instance == null)
             {
                 yield return null;
             }
-
-            // Now force an update
             ForceUpdateDisplay();
         }
 
         private void OnEnable()
         {
-            if (ObjectiveManager.Instance != null)
-            {
-                ObjectiveManager.Instance.OnObjectivesUpdated += UpdateObjectivesText;
-            }
-
-            // Add subscription to day change event
-            TutorialTaskChecker.OnDayPassed += HandleNewDay;
+            StartCoroutine(MonitorObjectives());
         }
 
         private void OnDisable()
         {
-            if (ObjectiveManager.Instance != null)
-            {
-                ObjectiveManager.Instance.OnObjectivesUpdated -= UpdateObjectivesText;
-            }
-
-            // Remove subscription
-            TutorialTaskChecker.OnDayPassed -= HandleNewDay;
+            StopAllCoroutines();
         }
 
-        private void HandleNewDay(bool dayFinished)
+        private IEnumerator MonitorObjectives()
         {
-            // Force immediate update when day changes
-            ForceUpdateDisplay();
-        }
+            var lastUpdateTime = Time.time;
 
-        private void Update()
-        {
-            // Throttle updates to prevent performance issues
-            if (_updateTimer > 0)
+            while (true)
             {
-                _updateTimer -= Time.deltaTime;
-            }
-        }
-
-        private void UpdateObjectivesText(List<ObjectiveDisplayData> objectives)
-        {
-            if (_objectivesText == null || _updateTimer > 0) return;
-
-            _updateTimer = _updateInterval;
-            _currentObjectives = FormatObjectives(objectives);
-            _objectivesText.text = _currentObjectives;
-        }
-
-        private string FormatObjectives(List<ObjectiveDisplayData> objectives)
-        {
-            if (objectives == null || objectives.Count == 0)
-            {
-                return "No objectives for today";
-            }
-
-            var formattedText = new System.Text.StringBuilder();
-            foreach (var objective in objectives)
-            {
-                if (objective.IsCompleted)
+                if (ShouldUpdate())
                 {
-                    formattedText.AppendLine($"- <s>{objective.Text}</s>");
+                    UpdateDisplay();
+                    lastUpdateTime = Time.time;
+                }
+                yield return new WaitForSeconds(_updateInterval);
+            }
+        }
+
+        private bool ShouldUpdate()
+        {
+            return ObjectiveManager.Instance != null &&
+                   ObjectiveManager.Instance.activeChecklists.Count > 0 &&
+                   (Time.time - _updateTimer) >= _updateInterval;
+        }
+
+        private void UpdateDisplay()
+        {
+            var checklist = ObjectiveManager.Instance.activeChecklists[0];
+            var formattedText = new System.Text.StringBuilder();
+
+            foreach (var item in checklist.Items)
+            {
+                var objectiveDef = item.element.objectiveDefinition;
+                if (objectiveDef == null || !objectiveDef.isMandatory) continue;
+
+                // Skip if this objective should be hidden when completed
+                if (objectiveDef.hideWhenCompleted && item.isCompleted) continue;
+
+                if (item.isCompleted)
+                {
+                    formattedText.AppendLine($"<color=yellow>- {objectiveDef.displayText}</color>");
                 }
                 else
                 {
-                    formattedText.AppendLine($"- {objective.Text}");
+                    formattedText.AppendLine($"- {objectiveDef.displayText}");
                 }
             }
-            return formattedText.ToString();
+
+            _objectivesText.text = formattedText.Length > 0 ? formattedText.ToString() : "No objectives";
+            _updateTimer = Time.time;
         }
 
-        // Optional: Call this to force immediate update
         public void ForceUpdateDisplay()
         {
-            if (ObjectiveManager.Instance != null)
-            {
-                _updateTimer = 0;
-                UpdateObjectivesText(ObjectiveManager.Instance.GetCurrentObjectives());
-            }
+            _updateTimer = 0f;
+            UpdateDisplay();
         }
     }
 }

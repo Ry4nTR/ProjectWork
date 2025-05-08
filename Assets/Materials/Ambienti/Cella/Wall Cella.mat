@@ -52,7 +52,7 @@ Material:
   - _NORMALMAP_TANGENT_SPACE1
   - _NORMALMAP_TANGENT_SPACE2
   - _NORMALMAP_TANGENT_SPACE3
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2225
@@ -502,7 +502,7 @@ Material:
     - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
-    - _MetallicRemapMax: 0.99999994
+    - _MetallicRemapMax: 1
     - _MetallicRemapMax0: 1
     - _MetallicRemapMax1: 1
     - _MetallicRemapMax2: 1
@@ -517,7 +517,7 @@ Material:
     - _NormalMapSpace1: 0
     - _NormalMapSpace2: 0
     - _NormalMapSpace3: 0
-    - _NormalScale: 1
+    - _NormalScale: 0.5
     - _NormalScale0: 1
     - _NormalScale1: 1
     - _NormalScale2: 1
@@ -545,7 +545,7 @@ Material:
     - _Smoothness1: 0.5
     - _Smoothness2: 0.5
     - _Smoothness3: 0.5
-    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMax: 0.66773164
     - _SmoothnessRemapMax0: 1
     - _SmoothnessRemapMax1: 1
     - _SmoothnessRemapMax2: 1
