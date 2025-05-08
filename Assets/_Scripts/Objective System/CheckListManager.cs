@@ -80,13 +80,11 @@ namespace ProjectWork
             itemSelected.isCompleted = true;
             _allItems[itemIndex] = itemSelected;
 
-            // Trigger update immediately when any item completes
-            OnListCompleted?.Invoke();
-
             // Optional: Still keep the full completion check
             if (IsListFullyCompleted())
             {
                 Debug.Log("All objectives completed!");
+                OnListCompleted?.Invoke();
             }
         }
 
@@ -103,7 +101,6 @@ namespace ProjectWork
                 item.isCompleted = false;
                 _allItems[i] = item;
             }
-
         }
 
         public bool TryAddItemToCheckList(ItemType item, bool isPermanent, bool canAddDuplicates)

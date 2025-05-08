@@ -23,6 +23,17 @@ namespace ProjectWork
             peekController = FindFirstObjectByType<WindowPeekController>();
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            TutorialTaskChecker.OnDayPassed += HandleInteraction;
+        }
+
+        private void OnDestroy()
+        {
+            TutorialTaskChecker.OnDayPassed -= HandleInteraction;
+        }
+
         public override void Interact()
         {
             if (!CanInteract) return;
@@ -30,6 +41,23 @@ namespace ProjectWork
             if (!isPeeking)
             {
                 StartPeek();
+            }
+        }
+
+        private void HandleInteraction(bool areDaysFinished)
+        {
+            if (!areDaysFinished)
+            {
+                return;
+            }
+            // If the player has finished the tutorial, we can unlock the interaction
+            if (canInteractAtStart)
+            {
+                LockInteraction();
+            }
+            else
+            {
+                UnlockInteraction();
             }
         }
 

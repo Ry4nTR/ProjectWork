@@ -18,7 +18,8 @@ namespace ProjectWork
         {
             npcCollider = GetComponent<Collider>();
 
-            DialogueManager.OnDialogueFinished += InvokeDialogueFinishedEvent;  //Instead of subscribing directly TutorialTaskChecker to DialogueManager event, we can use this event to trigger the task completion
+            DialogueManager.OnDialogueStarted += DisableCollider;  //Disable the collider when the dialogue starts, so the player can't interact with the NPC while peeking
+            DialogueManager.OnDialogueFinished += EnableColliderAndInvokeEvent;  //Instead of subscribing directly TutorialTaskChecker to DialogueManager event, we can use this event to trigger the task completion
             WindowPeekController.OnPeekStarted += EnableCollider;
             WindowPeekController.OnPeekEnded += DisableCollider;
         }
@@ -30,7 +31,8 @@ namespace ProjectWork
 
         private void OnDestroy()
         {
-            DialogueManager.OnDialogueFinished -= InvokeDialogueFinishedEvent;
+            DialogueManager.OnDialogueStarted -= DisableCollider;
+            DialogueManager.OnDialogueFinished -= EnableColliderAndInvokeEvent;
             WindowPeekController.OnPeekStarted -= EnableCollider;
             WindowPeekController.OnPeekEnded -= DisableCollider;
         }
@@ -39,6 +41,10 @@ namespace ProjectWork
 
         private void DisableCollider() => npcCollider.enabled = false;
 
-        private void InvokeDialogueFinishedEvent() => OnDialogueFinished?.Invoke(this);
+        private void EnableColliderAndInvokeEvent()
+        {
+            npcCollider.enabled = true;
+            OnDialogueFinished?.Invoke(this);
+        }
     }
 }

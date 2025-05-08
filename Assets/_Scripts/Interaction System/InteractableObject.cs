@@ -7,7 +7,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public ObjectiveDefinition objectiveDefinition;
     public event Action<InteractableObject> OnInteractionFinished = delegate { };
 
-    [SerializeField] private bool canInteractAtStart = true;
+    [SerializeField] protected bool canInteractAtStart = true;
     [SerializeField] private string interactionPrompt = "Interact"; // Default prompt text
 
     [SerializeField] private bool isUsingBlackScreen = false;

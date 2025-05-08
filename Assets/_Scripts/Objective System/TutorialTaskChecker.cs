@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace ProjectWork
@@ -10,7 +9,10 @@ namespace ProjectWork
         public static TutorialTaskChecker Instance { get; private set; }
         
         public static event Action OnTasksCompleted = delegate { };
-        public static event Action<bool> OnDayPassed = delegate { };    //True = days finished, false = days not finished
+        /// <summary>
+        /// True = days finished, false = days not finished
+        /// </summary>
+        public static event Action<bool> OnDayPassed = delegate { };
 
         [SerializeField] private int maxDays = 3;
         [Tooltip("This list contains all the tasks that are always present in the tutorial phase for each day. They will be added to the checklist at the start of the game.")]
@@ -122,7 +124,16 @@ namespace ProjectWork
             Debug.Log("Objectives reset for new day");
         }
 
-        private void InvokeTasksCompletedEvent() => OnTasksCompleted?.Invoke();
+        private void InvokeTasksCompletedEvent()
+        {
+            if(currentChecklist.Items.Count < 5)
+            {
+                Debug.Log("Not all tasks completed yet!");
+                return;
+            }
+            Debug.Log("All tasks completed!");
+            OnTasksCompleted?.Invoke();
+        }
 
         private void TryAddFoodToChecklistAndSubscribe(Food food)
         {

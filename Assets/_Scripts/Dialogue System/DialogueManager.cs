@@ -7,6 +7,7 @@ namespace ProjectWork
 {
     public class DialogueManager : MonoBehaviour
     {
+        public static event Action OnDialogueStarted = delegate { };
         public static event Action OnDialogueFinished = delegate { };
 
         public static DialogueManager Instance;
@@ -50,6 +51,8 @@ namespace ProjectWork
                 return;
             }
 
+            OnDialogueStarted?.Invoke();
+            
             isDialogueActive = true;
             dialogueText = textBubble;
             currentQuestionBoxContainer = questionBoxContainer;
