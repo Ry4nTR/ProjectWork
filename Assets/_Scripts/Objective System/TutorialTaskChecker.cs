@@ -74,8 +74,7 @@ namespace ProjectWork
 
         private void Start()
         {
-            _currentDay = 1;
-            
+            _currentDay = 1;         
         }
 
         private void OnDestroy()

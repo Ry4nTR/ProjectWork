@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4133086259066587516}
   - component: {fileID: 7158230656045066409}
   - component: {fileID: 8448565282792349486}
-  - component: {fileID: 7251505516807183365}
   - component: {fileID: 7964700357627709157}
+  - component: {fileID: 6308812407041239060}
   m_Layer: 6
   m_Name: Prisoner
   m_TagString: Untagged
@@ -114,21 +114,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7251505516807183365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3509670078084900757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32298d0549a1ec42b397b472ff56da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: dbd6c20cc6c57fc4eaffb52c5865e385, type: 2}
-  dialogueText: {fileID: 61730557196757589}
-  questionBoxContainer: {fileID: 7523351226052673780}
 --- !u!114 &7964700357627709157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +132,24 @@ MonoBehaviour:
   isUsingBlackScreen: 0
   blackScreenData: {fileID: 0}
   connectedWindow: {fileID: 0}
+--- !u!114 &6308812407041239060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509670078084900757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078da5fb1329a0646a59cba5193b852a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: dbd6c20cc6c57fc4eaffb52c5865e385, type: 2}
+  - {fileID: 11400000, guid: 81237226b8d3ab64083a2c40655845ec, type: 2}
+  - {fileID: 11400000, guid: ee9d0abdc9191204a8854c851515126e, type: 2}
+  dialogueText: {fileID: 61730557196757589}
+  questionBoxContainer: {fileID: 7523351226052673780}
 --- !u!1 &5489430938194698090
 GameObject:
   m_ObjectHideFlags: 0
