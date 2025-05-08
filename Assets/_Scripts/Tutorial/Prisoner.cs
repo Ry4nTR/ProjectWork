@@ -20,8 +20,11 @@ namespace ProjectWork
 
             DialogueManager.OnDialogueStarted += DisableCollider;  //Disable the collider when the dialogue starts, so the player can't interact with the NPC while peeking
             DialogueManager.OnDialogueFinished += EnableColliderAndInvokeEvent;  //Instead of subscribing directly TutorialTaskChecker to DialogueManager event, we can use this event to trigger the task completion
+            
             WindowPeekController.OnPeekStarted += EnableCollider;
             WindowPeekController.OnPeekEnded += DisableCollider;
+
+            TutorialTaskChecker.OnDayPassed += HandleDeactivation;
         }
 
         protected override void Start()
@@ -33,8 +36,20 @@ namespace ProjectWork
         {
             DialogueManager.OnDialogueStarted -= DisableCollider;
             DialogueManager.OnDialogueFinished -= EnableColliderAndInvokeEvent;
+            
             WindowPeekController.OnPeekStarted -= EnableCollider;
             WindowPeekController.OnPeekEnded -= DisableCollider;
+
+            TutorialTaskChecker.OnDayPassed -= HandleDeactivation;
+        }
+
+        private void HandleDeactivation(bool areDaysPassed)
+        {
+            if(!areDaysPassed)
+            {
+                return;
+            }
+            gameObject.SetActive(false);
         }
 
         private void EnableCollider(Window peekingWindow, float peekingDistance) => npcCollider.enabled = peekingWindow == connectedWindow;
