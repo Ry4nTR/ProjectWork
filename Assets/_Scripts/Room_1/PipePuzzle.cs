@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectWork
 {
-    public class PipePuzzleManager : PuzzleManager
+    public class PipePuzzle : Puzzle
     {
         [SerializeField] private List<PipeConnectionsHandler> pipeConnectionsHandlers;
 

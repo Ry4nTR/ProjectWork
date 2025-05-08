@@ -39,12 +39,12 @@ namespace ProjectWork
         {
             meshCollider = GetComponent<Collider>();
 
-            PipePuzzleManager.OnPuzzleCompleted += LockInteraction;
+            PipePuzzle.OnPuzzleCompleted += LockInteraction;
         }
 
         private void OnDestroy()
         {
-            PipePuzzleManager.OnPuzzleCompleted -= LockInteraction;
+            PipePuzzle.OnPuzzleCompleted -= LockInteraction;
         }
 
         public override void Interact()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectWork
 {
-    public abstract class PuzzleManager : MonoBehaviour
+    public abstract class Puzzle : MonoBehaviour
     {
         public static event Action OnPuzzleCompleted;
 
