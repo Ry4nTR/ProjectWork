@@ -12277,6 +12277,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.083802
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0838017
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.083802
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.368
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.5091
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.742
+      objectReference: {fileID: 0}
     - target: {fileID: 8879607568143319999, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
       propertyPath: m_Name
       value: KeypadDoor
