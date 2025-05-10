@@ -49,7 +49,6 @@ MonoBehaviour:
   pipeNotConnectedColor: {r: 1, g: 0, b: 0, a: 1}
   pipeConnectionTriggers:
   - {fileID: 7018882089249283510}
-  _isPipeFullyConnected: 0
 --- !u!1001 &2171851710337763826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,7 +138,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2422230953702324436, guid: 573ef1f633878a64f8caef594c1c31d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6795053337590365748}
+      addedObject: {fileID: 3351632976705049754}
   m_SourcePrefab: {fileID: 100100000, guid: 573ef1f633878a64f8caef594c1c31d5, type: 3}
 --- !u!4 &713205361153590069 stripped
 Transform:
@@ -151,7 +150,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2422230953702324436, guid: 573ef1f633878a64f8caef594c1c31d5, type: 3}
   m_PrefabInstance: {fileID: 2171851710337763826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6795053337590365748
+--- !u!114 &3351632976705049754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 4994566862947674529, guid: 7260df126f3bb414080b0eefb4091459, type: 3}
       propertyPath: m_Size.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994566862947674529, guid: 7260df126f3bb414080b0eefb4091459, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9055915267732314736, guid: 7260df126f3bb414080b0eefb4091459, type: 3}
       propertyPath: m_LocalScale.x

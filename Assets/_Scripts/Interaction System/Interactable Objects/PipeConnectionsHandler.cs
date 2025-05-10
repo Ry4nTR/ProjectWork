@@ -13,9 +13,12 @@ namespace ProjectWork
         [Header("Visual")]
         [SerializeField] private Color pipeConnectedColor;
         [SerializeField] private Color pipeNotConnectedColor;
+
         [Header("Logic")]
         [SerializeField] private List<PipeConnectionTrigger> pipeConnectionTriggers;
-        [SerializeField] private bool _isPipeFullyConnected;
+        
+        private PipeRotator pipeRotator;
+        private bool _isPipeFullyConnected;
 
         private MeshRenderer pipeRenderer;
 
@@ -25,7 +28,6 @@ namespace ProjectWork
             private set
             {
                 _isPipeFullyConnected = value;
-                Debug.Log("Setting color...");
                 pipeRenderer.material.SetColor("_BaseColor", _isPipeFullyConnected ? pipeConnectedColor : pipeNotConnectedColor);
                 OnPipeConnectionChanged?.Invoke(_isPipeFullyConnected);
             }
@@ -33,41 +35,25 @@ namespace ProjectWork
 
         private void Awake()
         {
-            pipeRenderer = GetComponentInChildren<MeshRenderer>();
-            SubscribeToAllTriggersEvents();
+            pipeRotator = GetComponentInChildren<PipeRotator>();
+            pipeRenderer = GetComponentInChildren<MeshRenderer>();      
+
+            pipeRotator.OnPipeEndRotation += CheckPipeStatus;
         }
 
         private void OnDestroy()
         {
-            UnsubscribeFromAllTriggersEvents();
+            pipeRotator.OnPipeEndRotation -= CheckPipeStatus;
         }
 
-        public void SubscribeToAllTriggersEvents()
+        private void CheckPipeStatus()
         {
-            foreach (var pipeConnectionTrigger in pipeConnectionTriggers)
-            {
-                pipeConnectionTrigger.OnTriggerStatusChanged += CheckPipeStatus;
-            }
-        }
-        public void UnsubscribeFromAllTriggersEvents()
-        {
-            foreach (var pipeConnectionTrigger in pipeConnectionTriggers)
-            {
-                pipeConnectionTrigger.OnTriggerStatusChanged -= CheckPipeStatus;
-            }
-        }
-        private void CheckPipeStatus(bool isConnected)
-        {
-            if (!isConnected)
-            {
-                IsPipeFullyConnected = false;
-                return;
-            }
+            Debug.Log($"{gameObject.name}: Calling Pipe connection status check");
 
-            // Check if all pipe connection triggers are connected
             bool allConnected = true;
             foreach (var pipeConnectionTrigger in pipeConnectionTriggers)
             {
+                Debug.Log($"{gameObject.name}: Pipe connection trigger status: {pipeConnectionTrigger.IsConnected}");
                 if (!pipeConnectionTrigger.IsConnected)
                 {
                     allConnected = false;

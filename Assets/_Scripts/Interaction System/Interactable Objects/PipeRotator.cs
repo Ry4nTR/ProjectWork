@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace ProjectWork
     /// </summary>
     public class PipeRotator : InteractableObject
     {
+        public event Action OnPipeStartRotation = delegate { };
+        public event Action OnPipeEndRotation = delegate { };
+
         [Header("Rotation settings")]
         [SerializeField] private GameObject objToRotate;
 
@@ -31,7 +35,16 @@ namespace ProjectWork
             set
             {
                 _isRotating = value;
-                SetColliderActivation(!_isRotating);
+                if(_isRotating)
+                {
+                    OnPipeStartRotation?.Invoke();
+                    SetColliderActivation(false);
+                }
+                else
+                {
+                    OnPipeEndRotation?.Invoke();
+                    SetColliderActivation(true);
+                }                
             }
         }
 

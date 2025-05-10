@@ -6,13 +6,9 @@ namespace ProjectWork
     /// <summary>
     /// This represents a single pipe connection trigger.
     /// </summary>
+    [RequireComponent(typeof(Collider))]
     public class PipeConnectionTrigger : MonoBehaviour
     {
-        /// <summary>
-        /// Event triggered when the trigger is connected
-        /// </summary>
-        public event Action<bool> OnTriggerStatusChanged;
-
         [Header("Enigma stats")]
         [SerializeField] private bool _isConnected;
 
@@ -22,22 +18,33 @@ namespace ProjectWork
             private set
             {
                 _isConnected = value;
-                OnTriggerStatusChanged?.Invoke(_isConnected);
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Pipe_Normal"))
+            if(transform.IsChildOf(other.transform))
             {
+                return;
+            }
+            Debug.Log($"{gameObject.name}: OnTriggerStay called");
+            if (other.gameObject.CompareTag("Pipe_Normal"))
+            {
+                Debug.Log($"{gameObject.name}: Pipe connection trigger entered by {other.gameObject.name}");
                 IsConnected = true;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Pipe_Normal"))
+            if (transform.IsChildOf(other.transform))
             {
+                return;
+            }
+            Debug.Log($"{gameObject.name}: OnTriggerExit called");
+            if (other.gameObject.CompareTag("Pipe_Normal"))
+            {
+                Debug.Log($"{gameObject.name}: Pipe connection trigger exited by {other.gameObject.name}");
                 IsConnected = false;
             }
         }
