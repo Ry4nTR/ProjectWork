@@ -10,9 +10,14 @@ namespace ProjectWork
     public class PipeConnectionsHandler : MonoBehaviour
     {
         public event Action<bool> OnPipeConnectionChanged;
-
+        [Header("Visual")]
+        [SerializeField] private Color pipeConnectedColor;
+        [SerializeField] private Color pipeNotConnectedColor;
+        [Header("Logic")]
         [SerializeField] private List<PipeConnectionTrigger> pipeConnectionTriggers;
         [SerializeField] private bool _isPipeFullyConnected;
+
+        private MeshRenderer pipeRenderer;
 
         public bool IsPipeFullyConnected
         {
@@ -20,12 +25,15 @@ namespace ProjectWork
             private set
             {
                 _isPipeFullyConnected = value;
+                Debug.Log("Setting color...");
+                pipeRenderer.material.SetColor("_BaseColor", _isPipeFullyConnected ? pipeConnectedColor : pipeNotConnectedColor);
                 OnPipeConnectionChanged?.Invoke(_isPipeFullyConnected);
             }
         }
 
         private void Awake()
         {
+            pipeRenderer = GetComponentInChildren<MeshRenderer>();
             SubscribeToAllTriggersEvents();
         }
 

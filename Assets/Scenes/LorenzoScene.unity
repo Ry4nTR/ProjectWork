@@ -10915,6 +10915,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Duct Elbow 02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 555181138824525211, guid: 3f8fbe2b2e0fcda49bdf4860e8efd375, type: 3}
+      propertyPath: m_TagString
+      value: Pipe_Normal
+      objectReference: {fileID: 0}
     - target: {fileID: 3598164536646371208, guid: 3f8fbe2b2e0fcda49bdf4860e8efd375, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75000006

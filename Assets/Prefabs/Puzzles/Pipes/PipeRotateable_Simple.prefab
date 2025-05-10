@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a68737521b3ae644b7f4eb5eb9ae737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipeConnectedColor: {r: 0, g: 1, b: 0, a: 1}
+  pipeNotConnectedColor: {r: 1, g: 0, b: 0, a: 1}
   pipeConnectionTriggers:
   - {fileID: 7018882089249283510}
   _isPipeFullyConnected: 0
@@ -120,6 +122,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2422230953702324436, guid: 573ef1f633878a64f8caef594c1c31d5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152785275706395656, guid: 573ef1f633878a64f8caef594c1c31d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f60342efc4cf59f408a537b72db7659b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -172,7 +182,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 524429838255894368, guid: 7260df126f3bb414080b0eefb4091459, type: 3}
       propertyPath: m_Name
-      value: PipeTrigger (1)
+      value: PipeTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 4994566862947674529, guid: 7260df126f3bb414080b0eefb4091459, type: 3}
       propertyPath: m_Size.x

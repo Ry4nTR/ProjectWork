@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a68737521b3ae644b7f4eb5eb9ae737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipeConnectedColor: {r: 0, g: 1, b: 0, a: 1}
+  pipeNotConnectedColor: {r: 1, g: 0, b: 0, a: 1}
   pipeConnectionTriggers:
   - {fileID: 9025180811924173104}
   - {fileID: 7773819779230958606}
@@ -321,6 +323,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5490853240051046055, guid: fd91a45b9242d2a49b339262053519ef, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057266605901587067, guid: fd91a45b9242d2a49b339262053519ef, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f60342efc4cf59f408a537b72db7659b, type: 2}
     - target: {fileID: 8820357280909059252, guid: fd91a45b9242d2a49b339262053519ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
