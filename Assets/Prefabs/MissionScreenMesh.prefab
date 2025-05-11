@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.23921569}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 3444793715746739867}
   - component: {fileID: 4375671505838426286}
   m_Layer: 0
-  m_Name: MissionScreen
+  m_Name: MissionScreen_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,7 +578,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
-      value: MissionSection
+      value: Engine_MissionSection
       objectReference: {fileID: 0}
     - target: {fileID: 8556096234369015547, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Pivot.x
@@ -688,7 +688,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
-      value: MissionSection (3)
+      value: Fire_MissionSection
       objectReference: {fileID: 0}
     - target: {fileID: 8556096234369015547, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Pivot.x
@@ -798,7 +798,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
-      value: MissionSection (1)
+      value: Radar_MissionSection
       objectReference: {fileID: 0}
     - target: {fileID: 8556096234369015547, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Pivot.x
@@ -920,7 +920,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
-      value: MissionSection (2)
+      value: Hangar_MissionSection
       objectReference: {fileID: 0}
     - target: {fileID: 8556096234369015547, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Pivot.x
