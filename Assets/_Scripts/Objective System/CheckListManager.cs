@@ -93,7 +93,11 @@ namespace ProjectWork
         }
 
         /// <summary>
-        /// Resets the list of items. This is used to reset the list when the player starts a new day.
+        /// <para>Removes all items that are not permanent and sets to false every isCompleted field.</para>
+        /// This is used to:
+        /// <list type="bullet">
+        /// <item>reset the list when the player starts a new day.</item>
+        /// </list> 
         /// </summary>
         public void ResetItemCompletedList()
         {
@@ -107,6 +111,13 @@ namespace ProjectWork
             }
         }
 
+        /// <summary>
+        /// Attempts to add a new item to the checklist.
+        /// </summary>
+        /// <param name="item">The item to add to the checklist.</param>
+        /// <param name="isPermanent">Indicates whether the item should remain in the list after being completed.</param>
+        /// <param name="canAddDuplicates">Specifies whether duplicate items are allowed in the checklist.</param>
+        /// <returns>True if the item was successfully added; false if duplicates are not allowed and the item already exists.</returns>
         public bool TryAddItemToCheckList(ItemType item, bool isPermanent, bool canAddDuplicates)
         {
             ItemCheck newItem = new()
@@ -121,6 +132,12 @@ namespace ProjectWork
             _allItems.Add(newItem);
             return true;
         }
+
+        /// <summary>
+        /// Initializes the checklist with a given list of items.
+        /// </summary>
+        /// <param name="items">The list of items to initialize the checklist with.</param>
+        /// <param name="isPermanent">Indicates whether the items should remain in the list after being completed.</param>
         public void InitializeCheckList(List<ItemType> items, bool isPermanent)
         {
             _allItems.Clear();
