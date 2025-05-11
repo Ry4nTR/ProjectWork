@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6706272840143843803}
-  - component: {fileID: 2606249348799233421}
+  - component: {fileID: 4664793634619537895}
   m_Layer: 0
   m_Name: PipesPuzzle_Environment
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 2542195012466079610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2606249348799233421
+--- !u!114 &4664793634619537895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

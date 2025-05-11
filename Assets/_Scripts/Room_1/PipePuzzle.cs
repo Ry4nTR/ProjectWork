@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ namespace ProjectWork
 {
     public class PipePuzzle : Puzzle
     {
+        [Header("Logic")]
         [SerializeField] private List<PipeConnectionsHandler> pipeConnectionsHandlers;
 
         private void Awake()

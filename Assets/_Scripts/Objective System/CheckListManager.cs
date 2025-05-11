@@ -18,6 +18,7 @@ namespace ProjectWork
         {
             public ItemType element;
             public bool isCompleted;
+            [Tooltip("If true, the item will not be removed from the list when completed")]
             public bool isPermanent; // If true, the item will not be removed from the list when completed
         }
 
@@ -25,6 +26,9 @@ namespace ProjectWork
 
         [SerializeField] protected List<ItemCheck> _allItems;
         public IReadOnlyList<ItemCheck> Items => _allItems;
+
+
+
 
         /// <summary>
         /// Checks if the list is fully completed. This is used to check if the player has completed all the items in the list.
@@ -116,6 +120,19 @@ namespace ProjectWork
 
             _allItems.Add(newItem);
             return true;
+        }
+        public void InitializeCheckList(List<ItemType> items, bool isPermanent)
+        {
+            _allItems.Clear();
+            foreach (var item in items)
+            {
+                _allItems.Add(new ItemCheck
+                {
+                    element = item,
+                    isCompleted = false,
+                    isPermanent = isPermanent
+                });
+            }
         }
     }
 }

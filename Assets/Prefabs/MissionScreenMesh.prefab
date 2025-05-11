@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6821245157816335897}
   - component: {fileID: 8225916606482639585}
   - component: {fileID: 3506329212259419629}
+  - component: {fileID: 3873770352406235737}
   m_Layer: 0
   m_Name: MissionScreenMesh
   m_TagString: Untagged
@@ -113,6 +114,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3873770352406235737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470768275197310871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cfc3e1e3731d64bb51e318d70864d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleChecklistManager:
+    _allItems: []
+  UIChecklist: []
 --- !u!1 &2960631966641458733
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +549,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7694463689282249519}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.50999933}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
   m_LocalScale: {x: 0.117122084, y: 0.18220246, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -576,6 +592,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626703329635842905}
     m_Modifications:
+    - target: {fileID: 1096477803302520548, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
+      propertyPath: m_TagString
+      value: Checkmark_Engine
+      objectReference: {fileID: 0}
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
       value: Engine_MissionSection
@@ -686,6 +706,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626703329635842905}
     m_Modifications:
+    - target: {fileID: 1096477803302520548, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
+      propertyPath: m_TagString
+      value: Checkmark_Fire
+      objectReference: {fileID: 0}
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
       value: Fire_MissionSection
@@ -796,6 +820,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626703329635842905}
     m_Modifications:
+    - target: {fileID: 1096477803302520548, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
+      propertyPath: m_TagString
+      value: Checkmark_Radar
+      objectReference: {fileID: 0}
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
       value: Radar_MissionSection
@@ -918,6 +946,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626703329635842905}
     m_Modifications:
+    - target: {fileID: 1096477803302520548, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
+      propertyPath: m_TagString
+      value: Checkmark_Hangar
+      objectReference: {fileID: 0}
     - target: {fileID: 4739139443814945912, guid: 491d39883d3bb2c4c84ccf80d3d1342c, type: 3}
       propertyPath: m_Name
       value: Hangar_MissionSection

@@ -2363,6 +2363,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 50464391206518221, guid: fd2fe3830dcf03a408fc9c4906754c78, type: 3}
   m_PrefabInstance: {fileID: 206159953}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &222476630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5653660035119276572, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+  m_PrefabInstance: {fileID: 3912494860257271525}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &263226514
 GameObject:
   m_ObjectHideFlags: 0
@@ -14361,6 +14372,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6706272840143843803, guid: 3dfa7c9bce9801b4387ba30aff91adbc, type: 3}
   m_PrefabInstance: {fileID: 8286549088193488265}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1974668965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4664793634619537895, guid: 3dfa7c9bce9801b4387ba30aff91adbc, type: 3}
+  m_PrefabInstance: {fileID: 8286549088193488265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f2fcb209598c740985c2f115586bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1982189050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8250113047921840432, guid: b76f846b3379607468a593969b575654, type: 3}
@@ -18735,6 +18757,54 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: UIChecklist.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: checkmarkIcons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: 'checkmarkIcons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 222476630}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: UIChecklist.Array.data[0].image
+      value: 
+      objectReference: {fileID: 222476630}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: UIChecklist.Array.data[0].puzzle
+      value: 
+      objectReference: {fileID: 1974668965}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[0].element
+      value: 
+      objectReference: {fileID: 1974668965}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[1].element
+      value: 
+      objectReference: {fileID: 1974668965}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[2].element
+      value: 
+      objectReference: {fileID: 1974668965}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[0].isPermanent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[1].isPermanent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873770352406235737, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[2].isPermanent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3950681168392553222, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -18758,6 +18828,18 @@ PrefabInstance:
     - target: {fileID: 3950681168392553222, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451739102329661097, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451739102329661097, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[0].element
+      value: 
+      objectReference: {fileID: 1974668965}
+    - target: {fileID: 5451739102329661097, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: puzzleChecklistManager._allItems.Array.data[0].isPermanent
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8016441572380503576, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
       propertyPath: m_Pivot.x
@@ -18792,6 +18874,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8016441572380503576, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15481
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016441572380503576, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -18821,7 +18907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8016441572380503576, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.82
+      value: -9.8242
       objectReference: {fileID: 0}
     - target: {fileID: 8016441572380503576, guid: f18480e373c8acc499f855537b6fa55d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20883,6 +20969,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipesPuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 2886226605640922596, guid: 3dfa7c9bce9801b4387ba30aff91adbc, type: 3}
+      propertyPath: m_TagString
+      value: Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664793634619537895, guid: 3dfa7c9bce9801b4387ba30aff91adbc, type: 3}
+      propertyPath: checkmarkIcon
+      value: 
+      objectReference: {fileID: 222476630}
     - target: {fileID: 6706272840143843803, guid: 3dfa7c9bce9801b4387ba30aff91adbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

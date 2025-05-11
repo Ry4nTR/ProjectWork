@@ -12,6 +12,14 @@ TagManager:
   - Asteroid
   - TrashCan
   - Pipe_Normal
+  - Checkmark_Fire
+  - Checkmark_Engine
+  - Checkmark_Radar
+  - Checkmark_Hangar
+  - Engine
+  - Radar
+  - Fire
+  - Hangar
   layers:
   - Default
   - TransparentFX
