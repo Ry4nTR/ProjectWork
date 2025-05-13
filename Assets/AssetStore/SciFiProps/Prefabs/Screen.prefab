@@ -86,6 +86,8 @@ GameObject:
   - component: {fileID: 4478888722079222}
   - component: {fileID: 33480704728187384}
   - component: {fileID: 23152303397532990}
+  - component: {fileID: 8630686073673978333}
+  - component: {fileID: 7979407126536433313}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -164,6 +166,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8630686073673978333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369523805379490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119a9061645910c4cb5a412dda52188f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 0}
+  canInteractAtStart: 1
+  interactionPrompt: Interact
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  crank: {fileID: 0}
+--- !u!65 &7979407126536433313
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369523805379490}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.4171381, z: 0.48286426}
+  m_Center: {x: 0, y: 0.70856893, z: 0.038567893}
 --- !u!1 &1628482991261182
 GameObject:
   m_ObjectHideFlags: 0
