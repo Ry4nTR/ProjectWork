@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ProjectWork
 {
-    public class ProgressBar : MonoBehaviour
+    public class ProgressBar : Puzzle
     {
         [Header("Settings")]
         public Slider progressSlider;
@@ -93,6 +93,8 @@ namespace ProjectWork
 
             peekController.EndPeek();
             progressSlider.value = 0f;
+
+            InvokeCompletedEvent();
         }
     }
 }

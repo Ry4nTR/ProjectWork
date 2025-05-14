@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using ProjectWork;
 
-public class DoorStatusUI : MonoBehaviour
+public class DoorStatusUI : Puzzle
 {
     [Header("UI References")]
     [SerializeField] private Image backgroundImage;
@@ -33,6 +34,8 @@ public class DoorStatusUI : MonoBehaviour
     {
         backgroundImage.color = completedColor;
         statusText.text = completedMessage;
+
+        InvokeCompletedEvent();
     }
 
     public void ResetToNormal()
