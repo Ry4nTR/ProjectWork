@@ -1,3 +1,4 @@
+// ProgressBar.cs modifications
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,16 +15,62 @@ namespace ProjectWork
         public WindowPeekController peekController;
 
         private AsteroidSpawner asteroidSpawner;
+        private CanvasGroup canvasGroup;
 
         void Start()
         {
-            // Automatically find the spawner if not assigned
             asteroidSpawner = FindAnyObjectByType<AsteroidSpawner>();
+            canvasGroup = GetComponent<CanvasGroup>();
+
+            if (canvasGroup == null)
+            {
+                canvasGroup = gameObject.AddComponent<CanvasGroup>();
+            }
+
+            // Start hidden
+            SetVisibility(false);
 
             // Safety check
             if (asteroidSpawner == null)
             {
                 Debug.LogError("AsteroidSpawner reference is missing!");
+            }
+        }
+
+        private void OnEnable()
+        {
+            WindowTrigger.OnPeekStarted += HandlePeekStarted;
+            WindowTrigger.OnPeekEnded += HandlePeekEnded;
+        }
+
+        private void OnDisable()
+        {
+            WindowTrigger.OnPeekStarted -= HandlePeekStarted;
+            WindowTrigger.OnPeekEnded -= HandlePeekEnded;
+        }
+
+        private void HandlePeekStarted(WindowTrigger window)
+        {
+            // Only show if this window has a progress bar
+            SetVisibility(window.hasProgressBar);
+            if (window.hasProgressBar)
+            {
+                progressSlider.value = 0f;
+            }
+        }
+
+        private void HandlePeekEnded()
+        {
+            SetVisibility(false);
+        }
+
+        private void SetVisibility(bool visible)
+        {
+            if (canvasGroup != null)
+            {
+                canvasGroup.alpha = visible ? 1 : 0;
+                canvasGroup.interactable = visible;
+                canvasGroup.blocksRaycasts = visible;
             }
         }
 
@@ -39,10 +86,6 @@ namespace ProjectWork
 
         private void PuzzleComplete()
         {
-            // Disable first to prevent multiple triggers
-            this.enabled = false;
-
-            // Force immediate destruction
             if (asteroidSpawner != null)
             {
                 asteroidSpawner.DestroyAllActiveAsteroids();
@@ -50,16 +93,6 @@ namespace ProjectWork
 
             peekController.EndPeek();
             progressSlider.value = 0f;
-
-            // Re-enable after delay
-            StartCoroutine(ReenableAfterDelay(1f));
-        }
-
-
-        private IEnumerator ReenableAfterDelay(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            this.enabled = true;
         }
     }
 }

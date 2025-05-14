@@ -1,8 +1,18 @@
-using ProjectWork;
 using UnityEngine;
+using ProjectWork;
 
-public class CrankInteractable : MonoBehaviour
+public class CrankInteractable : InteractableObject
 {
+
+    [Header("UI Settings")]
+    [SerializeField] private DoorStatusUI doorStatusUI;
+
+    [Header("Button Settings")]
+    [SerializeField] private UnlockCrankButton unlockButton;
+
+    [Header("Stuck Object")]
+    [SerializeField] private GameObject stuckObject; // Reference to the object that appears when blocked
+
     public Transform hangarDoor;
     public float maxDoorMove = 5f;
     public Vector3 doorClosedPosition;
@@ -12,13 +22,17 @@ public class CrankInteractable : MonoBehaviour
     public InteractableObject unlockObject;
     public float returnSpeed = 50f;
 
+
+
     private bool isBlocked = false;
     private bool hasBeenUnlocked = false;
+    private bool isFullyClosed = false; // New flag for closed position
     private Camera cam;
     private bool isInteracting = false;
     private float totalRotation = 0f;
     private Vector3 previousMouseDirection;
     private Quaternion originalRotation;
+    [SerializeField] private BlackScreenData doorBlockedBlackScreenData;
 
     void Start()
     {
@@ -31,18 +45,15 @@ public class CrankInteractable : MonoBehaviour
     {
         HandleInput();
 
-        // Return to original position when not interacting
-        if (!isInteracting && totalRotation > 0f && !isBlocked)
+        // Return to original position when not interacting and not fully closed
+        if (!isInteracting && totalRotation > 0f && !isBlocked && !isFullyClosed)
         {
             float returnAmount = returnSpeed * Time.deltaTime;
             float newRotation = Mathf.Max(0f, totalRotation - returnAmount);
             float rotationDelta = totalRotation - newRotation;
             totalRotation = newRotation;
 
-            // Rotate the crank back to original position (clockwise - door opening direction)
             transform.Rotate(Vector3.up, rotationDelta, Space.Self);
-
-            // Update door position (opening)
             UpdateDoorPosition();
         }
     }
@@ -67,27 +78,54 @@ public class CrankInteractable : MonoBehaviour
             isInteracting = false;
         }
 
-        if (isInteracting && !isBlocked)
+        if (isInteracting && !isBlocked && !isFullyClosed)
         {
             Vector3 currentMouseDirection = GetMouseDirection();
             float angleDelta = Vector3.SignedAngle(previousMouseDirection, currentMouseDirection, transform.up);
-            previousMouseDirection = currentMouseDirection;
 
+            // Only process movement if rotating in correct direction (closing) or if trying to open but have progress
             if (angleDelta > 0 || totalRotation > 0)
             {
-                // Rotate the crank counter-clockwise (door closing direction)
-                transform.Rotate(Vector3.up, -angleDelta, Space.Self);
+                // Only allow rotation in the correct direction (closing)
+                if (angleDelta > 0)
+                {
+                    // Rotate the crank counter-clockwise (door closing direction)
+                    transform.Rotate(Vector3.up, -angleDelta, Space.Self);
+                    totalRotation += angleDelta;
+                    totalRotation = Mathf.Clamp(totalRotation, 0, rotationToCloseRatio * maxDoorMove);
+                    UpdateDoorPosition();
+                }
 
-                totalRotation += angleDelta;
-                totalRotation = Mathf.Clamp(totalRotation, 0, rotationToCloseRatio * maxDoorMove);
-
-                UpdateDoorPosition();
+                previousMouseDirection = currentMouseDirection;
 
                 if (!isBlocked && !hasBeenUnlocked && GetCompletion() >= blockAtCompletion)
                 {
                     isBlocked = true;
-                    unlockObject.UnlockInteraction();
+
+                    // Enable the stuck object
+                    if (stuckObject != null)
+                    {
+                        stuckObject.SetActive(true);
+                    }
+
+                    // Enable the button interaction
+                    if (unlockButton != null)
+                    {
+                        unlockButton.EnableInteraction();
+                    }
+
+                    // Update UI
+                    if (doorStatusUI != null)
+                    {
+                        doorStatusUI.SetBlockedStatus();
+                    }
+
                     Debug.Log("Door blocked! Needs interaction.");
+
+                    if (BlackScreenTextController.Instance != null && doorBlockedBlackScreenData != null)
+                    {
+                        BlackScreenTextController.Instance.ActivateBlackScreen(doorBlockedBlackScreenData);
+                    }
                 }
             }
         }
@@ -96,8 +134,15 @@ public class CrankInteractable : MonoBehaviour
     void UpdateDoorPosition()
     {
         float completion = GetCompletion();
-        // This lerp direction works for both closing and opening
         hangarDoor.localPosition = Vector3.Lerp(doorOpenPosition, doorClosedPosition, completion);
+
+        // Check if we've reached the closed position
+        isFullyClosed = completion >= 0.99f;
+
+        if (isFullyClosed && doorStatusUI != null)
+        {
+            doorStatusUI.SetCompletedStatus();
+        }
     }
 
     float GetCompletion()
@@ -116,6 +161,27 @@ public class CrankInteractable : MonoBehaviour
     {
         isBlocked = false;
         hasBeenUnlocked = true;
-        Debug.Log("Door unlocked!");
+
+        // Disable the stuck object
+        if (stuckObject != null)
+        {
+            stuckObject.SetActive(false);
+        }
+
+        // Return UI to normal after unlocking
+        if (doorStatusUI != null)
+        {
+            doorStatusUI.ResetToNormal();
+        }
+    }
+
+    public void ResetDoor()
+    {
+        isFullyClosed = false;
+        isBlocked = false;
+        hasBeenUnlocked = false;
+        totalRotation = 0f;
+        transform.rotation = originalRotation;
+        UpdateDoorPosition();
     }
 }

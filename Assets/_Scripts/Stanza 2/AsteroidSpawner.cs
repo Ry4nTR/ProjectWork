@@ -32,16 +32,27 @@ namespace ProjectWork
         }
 
 
+        // AsteroidSpawner.cs modifications (only the event handler parts)
         private void OnEnable()
         {
-            Window.OnPeekStarted += StartSpawning;
-            Window.OnPeekEnded += StopSpawning;
+            WindowTrigger.OnPeekStarted += HandlePeekStarted;
+            WindowTrigger.OnPeekEnded += StopSpawning;
         }
 
         private void OnDisable()
         {
-            Window.OnPeekStarted -= StartSpawning;
-            Window.OnPeekEnded -= StopSpawning;
+            WindowTrigger.OnPeekStarted -= HandlePeekStarted;
+            WindowTrigger.OnPeekEnded -= StopSpawning;
+        }
+
+        private void HandlePeekStarted(WindowTrigger window)
+        {
+            // Only start spawning if this is the window with progress bar
+            if (window.hasProgressBar && !isSpawning)
+            {
+                isSpawning = true;
+                StartCoroutine(SpawnAsteroids());
+            }
         }
 
         private void StartSpawning()

@@ -7,7 +7,7 @@ namespace ProjectWork
     public class WindowPeekController : MonoBehaviour
     {
         // Events
-        public static event Action<Window, float> OnPeekStarted = delegate { };
+        public static event Action<WindowTrigger, float> OnPeekStarted = delegate { };
         public static event Action OnPeekEnded = delegate { };
 
         // References
@@ -29,7 +29,7 @@ namespace ProjectWork
         // Private variables
         private Vector3 originalCamPos;
         private Quaternion originalCamRot;
-        private Window currentWindow;
+        private WindowTrigger currentWindow;
         private Vector2 rotationInput;
         private bool isTransitioning = false;
         private bool shouldCenterView = false;
@@ -64,7 +64,7 @@ namespace ProjectWork
         }
 
         // Public methods
-        public void StartPeek(Window window)
+        public void StartPeek(WindowTrigger window)
         {
             if (IsPeeking || isTransitioning || window == null || window.peekTarget == null) return;
 

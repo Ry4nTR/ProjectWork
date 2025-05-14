@@ -12,7 +12,7 @@ namespace ProjectWork
         public static event Action<Prisoner> OnDialogueFinished = delegate { };
 
         private Collider npcCollider;
-        [SerializeField] private Window connectedWindow;
+        [SerializeField] private WindowTrigger connectedWindow;
 
         private void Awake()
         {
@@ -52,7 +52,7 @@ namespace ProjectWork
             gameObject.SetActive(false);
         }
 
-        private void EnableCollider(Window peekingWindow, float peekingDistance) => npcCollider.enabled = peekingWindow == connectedWindow;
+        private void EnableCollider(WindowTrigger peekingWindow, float peekingDistance) => npcCollider.enabled = peekingWindow == connectedWindow;
 
         private void DisableCollider() => npcCollider.enabled = false;
 

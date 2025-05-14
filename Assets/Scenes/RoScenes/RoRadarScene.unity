@@ -6833,6 +6833,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776760683}
   m_Mesh: {fileID: -1887368452905059617, guid: 41201aa748c547a43803606538ab6800, type: 3}
+--- !u!114 &777976345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+  m_PrefabInstance: {fileID: 261662922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe62a4b9014dfc489808258da5e7aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &799523310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12760,9 +12771,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 762253740756389683, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: peekController
+      value: 
+      objectReference: {fileID: 777976345}
     - target: {fileID: 3600281856208635604, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176142238947531648, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7180992883976158500, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_Pivot.x
@@ -12842,6 +12861,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7180992883976158500, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971483239642440379, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974332038975574818, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21798,16 +21825,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3145435906976591403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b76634f7ae2524a851e029ac4efc28, type: 3}
+  m_Script: {fileID: 11500000, guid: f54f7ef876d12904097e79b9517aee5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveDefinition: {fileID: 0}
   canInteractAtStart: 1
-  interactionPrompt: Interact
+  interactionPrompt: Control the cannon
   isUsingBlackScreen: 0
   blackScreenData: {fileID: 0}
   peekTarget: {fileID: 2139334297}
   _peekDistance: 15
+  hasProgressBar: 1
 --- !u!33 &3373738164489046539
 MeshFilter:
   m_ObjectHideFlags: 0

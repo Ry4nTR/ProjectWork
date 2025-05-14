@@ -1,20 +1,22 @@
+// WindowTrigger.cs modifications
 using UnityEngine;
 using System;
 
 namespace ProjectWork
 {
-    public class Window : InteractableObject
+    public class WindowTrigger : InteractableObject
     {
         public Transform peekTarget;
         private WindowPeekController peekController;
         [SerializeField] private float _peekDistance = 15f;
         private bool isPeeking = false;
         private Collider windowCollider;
+        public bool hasProgressBar = false; // Add this to identify windows with progress bars
 
         public float PeekDistance => _peekDistance;
 
         // Events for spawning control
-        public static event Action OnPeekStarted;
+        public static event Action<WindowTrigger> OnPeekStarted; // Modified to pass window reference
         public static event Action OnPeekEnded;
 
         private void Awake()
@@ -50,7 +52,6 @@ namespace ProjectWork
             {
                 return;
             }
-            // If the player has finished the tutorial, we can unlock the interaction
             if (canInteractAtStart)
             {
                 LockInteraction();
@@ -69,7 +70,7 @@ namespace ProjectWork
 
             isPeeking = true;
             peekController.StartPeek(this);
-            OnPeekStarted?.Invoke(); // Trigger spawn start
+            OnPeekStarted?.Invoke(this); // Pass this window reference
         }
 
         public void ForceEndPeek()
@@ -78,7 +79,7 @@ namespace ProjectWork
             {
                 isPeeking = false;
                 windowCollider.enabled = true;
-                OnPeekEnded?.Invoke(); // Trigger spawn stop
+                OnPeekEnded?.Invoke();
                 InvokeInteractionFinishedEvent();
             }
         }
