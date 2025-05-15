@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5e45c3fbc52a148afed2f82961e827, type: 3}
   m_Name: FoodPad
   m_EditorClassIdentifier: 
-  displayText: Ordina del cibo
+  displayText: Order some food
   isMandatory: 1
   hideWhenCompleted: 1

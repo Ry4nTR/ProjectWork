@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f5e45c3fbc52a148afed2f82961e827, type: 3}
-  m_Name: Trash
+  m_Name: Chicken
   m_EditorClassIdentifier: 
-  displayText: Butta la spazzatura barbaro
+  displayText: Eat Chicken
   isMandatory: 1
+  hideWhenCompleted: 1

@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f5e45c3fbc52a148afed2f82961e827, type: 3}
-  m_Name: Shower
+  m_Name: Trash
   m_EditorClassIdentifier: 
-  displayText: Fatti la doccia che puzzi
+  displayText: Clean your room
   isMandatory: 1
+  hideWhenCompleted: 0

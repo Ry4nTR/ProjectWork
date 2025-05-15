@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5e45c3fbc52a148afed2f82961e827, type: 3}
   m_Name: Donut
   m_EditorClassIdentifier: 
-  displayText: Mangia i donut
+  displayText: Eat Donuts
   isMandatory: 1
   hideWhenCompleted: 1
