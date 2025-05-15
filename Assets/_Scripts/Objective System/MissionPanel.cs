@@ -19,7 +19,7 @@ namespace ProjectWork.UI
             base.Awake();
             if (_objectivesText != null)
             {
-                _objectivesText.text = "Loading objectives...";
+                _objectivesText.text = "Arriva alla sala di comando";
             }
         }
 

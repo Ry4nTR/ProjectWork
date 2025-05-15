@@ -467,6 +467,10 @@ PrefabInstance:
       value: Glass Plane
       objectReference: {fileID: 0}
     - target: {fileID: 7921654409691219709, guid: c6496703c74080b4c9d1e3735223aab1, type: 3}
+      propertyPath: aIDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: e6795c742e284f44daf883606d3c5f06, type: 2}
+    - target: {fileID: 7921654409691219709, guid: c6496703c74080b4c9d1e3735223aab1, type: 3}
       propertyPath: myDialogue
       value: 
       objectReference: {fileID: 11400000, guid: e6795c742e284f44daf883606d3c5f06, type: 2}
@@ -1312,6 +1316,7 @@ GameObject:
   - component: {fileID: 1946800395}
   - component: {fileID: 1946800394}
   - component: {fileID: 1946800393}
+  - component: {fileID: 1946800396}
   m_Layer: 5
   m_Name: AIDialgouePanel
   m_TagString: Untagged
@@ -1352,11 +1357,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f9cc8496cad414a8956c556bd17af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setInitialVisibility: 0
+  isVisibleAtStart: 0
   dialogueText: {fileID: 1502123455}
   speakerIcon: {fileID: 1079238316}
   aiIcon: {fileID: 21300000, guid: 9af5e1354f51b3d40a157b8e06c18afc, type: 3}
   playerIcon: {fileID: 21300000, guid: 66c683fda6de812488febcb9513c1f7c, type: 3}
-  fadeOutDuration: 0.5
+  fadeDuration: 0.5
 --- !u!114 &1946800394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1402,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946800391}
   m_CullTransparentMesh: 1
+--- !u!225 &1946800396
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946800391}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2004322164
 GameObject:
   m_ObjectHideFlags: 0

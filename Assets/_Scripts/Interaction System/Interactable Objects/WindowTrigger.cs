@@ -19,10 +19,6 @@ namespace ProjectWork
         public static event Action<WindowTrigger> OnPeekStarted; // Modified to pass window reference
         public static event Action OnPeekEnded;
 
-
-        public AIDialogue aIDialogue;
-
-
         private void Awake()
         {
             windowCollider = GetComponent<Collider>();
@@ -31,7 +27,6 @@ namespace ProjectWork
 
         protected override void Start()
         {
-            AIDialogueManager.Instance.StartDialogue(aIDialogue);
             base.Start();
             TutorialTaskChecker.OnDayPassed += HandleInteraction;
         }
