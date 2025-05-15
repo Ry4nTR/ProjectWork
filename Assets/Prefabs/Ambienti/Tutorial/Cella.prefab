@@ -4774,11 +4774,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 991953809738383201, guid: 4200942e9fee342499357097a90d0126, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 760660058893628145, guid: 4200942e9fee342499357097a90d0126, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8263730974312754848}
   m_SourcePrefab: {fileID: 100100000, guid: 4200942e9fee342499357097a90d0126, type: 3}
+--- !u!1 &5906129060496650911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760660058893628145, guid: 4200942e9fee342499357097a90d0126, type: 3}
+  m_PrefabInstance: {fileID: 6591195478508765294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8263730974312754848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906129060496650911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54f7ef876d12904097e79b9517aee5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 0}
+  canInteractAtStart: 1
+  interactionPrompt: Interact
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  peekTarget: {fileID: 9176084817069009281}
+  _peekDistance: 15
+  hasProgressBar: 0
 --- !u!4 &8478210642926295069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
