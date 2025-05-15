@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 23519455467612818}
   - component: {fileID: 1117438186727603481}
   m_Layer: 0
-  m_Name: Screen
+  m_Name: MainScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 7557131358065033850}
   - {fileID: 4929106383201578075}
   - {fileID: 934782161878248648}
-  m_Father: {fileID: 5698098482386256766}
+  m_Father: {fileID: 6589355556574685012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4841409228694588991
 MeshFilter:
@@ -425,10 +425,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6643688326708828224}
-  - {fileID: 2869933142587726089}
   - {fileID: 2995967132630814424}
+  - {fileID: 2869933142587726089}
   - {fileID: 1910508795084302780}
-  - {fileID: 3062160625289444537}
+  - {fileID: 623297119686508200}
+  - {fileID: 8105226621786903862}
+  - {fileID: 7631735480788625073}
   m_Father: {fileID: 5698098482386256766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3918063522773123829
@@ -852,11 +854,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3062160625289444537}
   - {fileID: 6589355556574685012}
   - {fileID: 5078070836188725182}
-  - {fileID: 623297119686508200}
-  - {fileID: 8105226621786903862}
-  - {fileID: 7631735480788625073}
   - {fileID: 8424576004937396960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2039,7 +2039,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5698098482386256766}
+    m_TransformParent: {fileID: 6589355556574685012}
     m_Modifications:
     - target: {fileID: 2495864853442425283, guid: fcdf86f8782a82f4b928d2bad99e75aa, type: 3}
       propertyPath: hangarDoor
@@ -2099,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1c8a9c179e868fd42a812f26377e351b, type: 2}
     - target: {fileID: 4473635824154625673, guid: fcdf86f8782a82f4b928d2bad99e75aa, type: 3}
       propertyPath: m_Name
-      value: Manovella
+      value: Crank
       objectReference: {fileID: 0}
     - target: {fileID: 7813750712762814152, guid: fcdf86f8782a82f4b928d2bad99e75aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5674,7 +5674,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6589355556574685012}
+    m_TransformParent: {fileID: 5698098482386256766}
     m_Modifications:
     - target: {fileID: 1805686786, guid: 9ce165dd222504a7dada2f13901e2cbd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12779,11 +12779,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5698098482386256766}
+    m_TransformParent: {fileID: 6589355556574685012}
     m_Modifications:
     - target: {fileID: 1595642941937860, guid: 8eef3c8e909159d469252f6c27e6d176, type: 3}
       propertyPath: m_Name
-      value: Screen2
+      value: HangerDoorScreen
       objectReference: {fileID: 0}
     - target: {fileID: 4975217991851524, guid: 8eef3c8e909159d469252f6c27e6d176, type: 3}
       propertyPath: m_LocalScale.x

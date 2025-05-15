@@ -121,6 +121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16364ef951a21c04dbdaa3872953d1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 0}
+  canInteractAtStart: 1
+  interactionPrompt: Interact
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  doorStatusUI: {fileID: 0}
+  unlockButton: {fileID: 0}
+  stuckObject: {fileID: 0}
   hangarDoor: {fileID: 0}
   maxDoorMove: 5
   doorClosedPosition: {x: -2.73, y: 1, z: 8.92}
@@ -128,6 +136,8 @@ MonoBehaviour:
   rotationToCloseRatio: 1000
   blockAtCompletion: 0.6
   unlockObject: {fileID: 0}
+  returnSpeed: 50
+  doorBlockedBlackScreenData: {fileID: 0}
 --- !u!1 &1031572807199383832
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7813750712762814152}
   m_Layer: 0
-  m_Name: Manovella
+  m_Name: Crank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
