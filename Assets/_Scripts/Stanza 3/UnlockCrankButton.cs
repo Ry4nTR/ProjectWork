@@ -6,7 +6,7 @@ public class UnlockCrankButton : InteractableObject
     [SerializeField] private CrankInteractable crank;
     [SerializeField] private BlackScreenData doorUnlockedBlackScreenData;
 
-    private void Start()
+    protected override void Start()
     {
         // Make button non-interactable at start
         LockInteraction();

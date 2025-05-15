@@ -34,7 +34,7 @@ public class CrankInteractable : InteractableObject
     private Quaternion originalRotation;
     [SerializeField] private BlackScreenData doorBlockedBlackScreenData;
 
-    void Start()
+    protected override void Start()
     {
         cam = Camera.main;
         doorOpenPosition = hangarDoor.localPosition;

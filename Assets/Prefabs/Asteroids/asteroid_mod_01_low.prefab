@@ -151,3 +151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   spawner: {fileID: 0}
+  smokeEffectPrefab: {fileID: 100000, guid: 6a3cb4ac8fa12944ba1233cbec0e9c69, type: 3}
+  explosionEffectPrefab: {fileID: 100010, guid: e0609132424a24844b1d53ad3d704fd9, type: 3}
+  smokePositionOffset: {x: 0, y: -0.5, z: -0.5}
+  smokeSizeMultiplier: 10
+  smokeDensity: 1.5
+  smokeTrailLength: 1
+  useWorldSpace: 1
