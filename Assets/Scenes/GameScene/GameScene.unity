@@ -17396,7 +17396,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeypadDoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6575698106403439609, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+    - {fileID: 1141592175732008063, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

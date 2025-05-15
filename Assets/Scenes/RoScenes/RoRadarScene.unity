@@ -506,14 +506,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1194074624701894651, guid: 72b87d9887dc76940a53915680ffa7bf, type: 3}
-      propertyPath: openOffset.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1194074624701894651, guid: 72b87d9887dc76940a53915680ffa7bf, type: 3}
-      propertyPath: openOffset.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2755564539621313041, guid: 72b87d9887dc76940a53915680ffa7bf, type: 3}
       propertyPath: m_Name
       value: EnigmaRadar
@@ -558,8 +550,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2481473144114248616, guid: 72b87d9887dc76940a53915680ffa7bf, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
