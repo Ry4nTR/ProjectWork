@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5885579455903748988}
   - component: {fileID: 8693701768958236289}
   - component: {fileID: 732865378336090713}
-  - component: {fileID: 2905886392005212005}
+  - component: {fileID: 7921654409691219709}
   m_Layer: 0
   m_Name: Glass Plane
   m_TagString: Untagged
@@ -111,7 +111,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2918171, y: 2.438477, z: 0.019717643}
   m_Center: {x: 1.2639902, y: 1.2192383, z: 0.014988427}
---- !u!114 &2905886392005212005
+--- !u!114 &7921654409691219709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,9 +120,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3393885321614539509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b76634f7ae2524a851e029ac4efc28, type: 3}
+  m_Script: {fileID: 11500000, guid: f54f7ef876d12904097e79b9517aee5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 0}
+  canInteractAtStart: 0
+  interactionPrompt: Look
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  peekTarget: {fileID: 123647948473786859}
+  _peekDistance: 15
+  hasProgressBar: 0
 --- !u!1 &6330238295042211426
 GameObject:
   m_ObjectHideFlags: 0
