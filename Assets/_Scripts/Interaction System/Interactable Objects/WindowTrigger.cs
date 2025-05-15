@@ -64,6 +64,7 @@ namespace ProjectWork
 
         private void StartPeek()
         {
+
             if (peekController == null) return;
 
             windowCollider.enabled = false;
