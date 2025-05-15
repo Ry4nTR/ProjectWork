@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - isAISpeaking: 1
-    text: "Mi serve un messaggio pi\xF9 grande per capire se scrive effettivamtne
-      ocme voglio"
+    text: AI 1
+  - isAISpeaking: 1
+    text: Ai 2
   - isAISpeaking: 0
-    text: Ciao sono umano
+    text: Persona 1
+  - isAISpeaking: 1
+    text: AI 3
+  - isAISpeaking: 0
+    text: Perosna 2
+  - isAISpeaking: 0
+    text: Perosna 3

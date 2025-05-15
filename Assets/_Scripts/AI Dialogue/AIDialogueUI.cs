@@ -1,41 +1,40 @@
-// AIDialogueUI.cs
+// AIDialogueUI.cs modificato
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections;
+using ProjectWork.UI;
+using System.Collections; // Aggiungi questo namespace
 
-public class AIDialogueUI : MonoBehaviour
+public class AIDialogueUI : UI_Panel // Ora eredita da UI_Panel
 {
-    [Header("Riferimenti UI")]
+    [Header("UI References")]
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private Image speakerIcon; // Componente Image per l'icona
+    [SerializeField] private Image speakerIcon;
+    [SerializeField] private Sprite aiIcon;
+    [SerializeField] private Sprite playerIcon;
 
-    [Header("Sprites")]
-    [SerializeField] private Sprite aiIcon; // Sprite per l'AI
-    [SerializeField] private Sprite playerIcon; // Sprite per il player
+    [Header("Fade Settings")]
+    [SerializeField] private float fadeDuration = 0.5f;
 
-    [Header("Impostazioni Scomparsa")]
-    [SerializeField] private float fadeOutDuration = 0.5f;
-
-    private CanvasGroup canvasGroup;
-
-    private void Start()
+    protected override void Awake()
     {
+        // Non chiamare base.Awake() per evitare l'inizializzazione automatica
         canvasGroup = GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        }
 
         AIDialogueManager.Instance.OnNewMessage.AddListener(UpdateDialogue);
         AIDialogueManager.Instance.OnDialogueStart.AddListener(ShowDialogue);
         AIDialogueManager.Instance.OnDialogueEnd.AddListener(HideDialogue);
     }
 
+    private void UpdateDialogue(string text, bool isAISpeaking)
+    {
+        dialogueText.text = text;
+        speakerIcon.sprite = isAISpeaking ? aiIcon : playerIcon;
+    }
+
     private void ShowDialogue()
     {
-        canvasGroup.alpha = 1;
-        canvasGroup.blocksRaycasts = true;
+        StartCoroutine(FadeIn());
     }
 
     private void HideDialogue()
@@ -43,24 +42,27 @@ public class AIDialogueUI : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator FadeIn()
     {
         float elapsed = 0f;
-        while (elapsed < fadeOutDuration)
+        while (elapsed < fadeDuration)
         {
-            canvasGroup.alpha = Mathf.Lerp(1, 0, elapsed / fadeOutDuration);
+            canvasGroup.alpha = Mathf.Lerp(0, 1, elapsed / fadeDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
-        canvasGroup.alpha = 0;
-        canvasGroup.blocksRaycasts = false;
+        SetCanvasGroup(true); // Usa il metodo della classe base
     }
 
-    private void UpdateDialogue(string text, bool isAISpeaking)
+    private IEnumerator FadeOut()
     {
-        dialogueText.text = text;
-        speakerIcon.CrossFadeAlpha(0, 0.1f, false); // Fade out
-        speakerIcon.sprite = isAISpeaking ? aiIcon : playerIcon;
-        speakerIcon.CrossFadeAlpha(1, 0.3f, false); // Fade in
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            canvasGroup.alpha = Mathf.Lerp(1, 0, elapsed / fadeDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        SetCanvasGroup(false); // Usa il metodo della classe base
     }
 }
