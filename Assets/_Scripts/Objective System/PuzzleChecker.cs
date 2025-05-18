@@ -18,14 +18,10 @@ namespace ProjectWork
         public static event Action OnAllPuzzlesCompleted = delegate { };
         [SerializeField] private string checkmarkTagPrefix = "Checkmark_";
         [SerializeField] private CheckListManager<ChecklistItem_UI> puzzleChecklistManager;
-        
-        private void Awake()
-        {
-            InitializePuzzleChecklist();            
-        } 
 
         private void Start()
         {
+            InitializePuzzleChecklist();
             Puzzle.OnSpecificPuzzleCompleted += UpdateChecklist;
         }
 
