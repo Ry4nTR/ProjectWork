@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveDefinition: {fileID: 11400000, guid: 505d9c6c17ea61f47b544b15730c3e7f, type: 2}
   canInteractAtStart: 0
-  interactionPrompt: Interact
+  interactionPrompt: Eat
   isUsingBlackScreen: 1
   blackScreenData: {fileID: 11400000, guid: 25d9a3a6ebb95a246bb93a0b18193945, type: 2}
   foodType: 0
