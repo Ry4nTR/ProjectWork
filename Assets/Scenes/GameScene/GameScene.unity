@@ -6886,7 +6886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556640980742784995, guid: 2661905601037b242aaaf3c3bd569081, type: 3}
       propertyPath: m_Name
-      value: Cella
+      value: Cell_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8667,9 +8667,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4249478600123109343, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5018668865037297700, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687540634474001054, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716549592218229176, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6652172820103477347, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_Name
-      value: Cella protagonista
+      value: MainCell
       objectReference: {fileID: 0}
     - target: {fileID: 7136655420490902977, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8689,6 +8705,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136655420490902977, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242156097459944564, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -11097,7 +11117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556640980742784995, guid: 2661905601037b242aaaf3c3bd569081, type: 3}
       propertyPath: m_Name
-      value: Cella (1)
+      value: Cell_6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14239,7 +14259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556640980742784995, guid: 2661905601037b242aaaf3c3bd569081, type: 3}
       propertyPath: m_Name
-      value: Cella 4
+      value: Cell_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16564,7 +16584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408882452}
   m_Layer: 0
-  m_Name: Schermi
+  m_Name: Screens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21367,7 +21387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525731073163452975, guid: 9e4706486a7c7ed499c85877e6b1c50d, type: 3}
       propertyPath: m_Name
-      value: corridoio
+      value: Corridor
       objectReference: {fileID: 0}
     - target: {fileID: 3525731073163452975, guid: 9e4706486a7c7ed499c85877e6b1c50d, type: 3}
       propertyPath: m_IsActive
@@ -27263,7 +27283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556640980742784995, guid: 2661905601037b242aaaf3c3bd569081, type: 3}
       propertyPath: m_Name
-      value: Cella 3
+      value: Cell_3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 138328911939507540, guid: 2661905601037b242aaaf3c3bd569081, type: 3}
@@ -28567,7 +28587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2303535001597336951}
   m_Layer: 0
-  m_Name: Cella prigioniero
+  m_Name: PrisonerCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28970,35 +28990,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2709995274936484553, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_Name
-      value: PortaCelle
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.0137444
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0110798
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.470796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29006,7 +29026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
