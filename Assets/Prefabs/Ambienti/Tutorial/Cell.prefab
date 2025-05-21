@@ -757,7 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2738227686357321743}
   m_Layer: 0
-  m_Name: Cella
+  m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4732,35 +4732,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2709995274936484553, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_Name
-      value: PortaCella
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.0137444
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0110798
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.470796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4768,11 +4760,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 991953809738383201, guid: 4200942e9fee342499357097a90d0126, type: 3}

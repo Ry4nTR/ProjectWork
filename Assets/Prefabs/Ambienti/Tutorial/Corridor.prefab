@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2258885046000716266}
   m_Layer: 0
-  m_Name: Muri
+  m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7588777784343683087}
   m_Layer: 0
-  m_Name: corridoio
+  m_Name: Corridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7338348927060678216}
   m_Layer: 0
-  m_Name: Soffitto
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (23)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (16)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (13)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -605,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (24)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -671,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (18)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -737,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (27)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -803,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (25)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1055,7 +1055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (29)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1245,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (17)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (12)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1501,7 +1501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (28)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1691,7 +1691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (22)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1819,7 +1819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (19)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1885,7 +1885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (21)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1951,7 +1951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (14)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2017,7 +2017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (15)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2083,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (26)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2596,7 +2596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534814228208052359, guid: fbe879c517cd34441a56256ee7bd42dc, type: 3}
       propertyPath: m_Name
-      value: Muro (20)
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
