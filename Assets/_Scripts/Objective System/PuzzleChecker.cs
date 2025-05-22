@@ -12,7 +12,7 @@ namespace ProjectWork
         private struct ChecklistItem_UI
         {
             public Puzzle puzzle;
-            public Image image;
+            public Image checkmarkImage;
         }
 
         public static event Action OnAllPuzzlesCompleted = delegate { };
@@ -43,12 +43,13 @@ namespace ProjectWork
         {
             List<Puzzle> puzzles = FindObjectsByType<Puzzle>(FindObjectsSortMode.None).ToList();
             List<ChecklistItem_UI> checklistItems = new List<ChecklistItem_UI>();
+            Image[] childrenImages = transform.GetComponentsInChildren<Image>();
             foreach (var puzzle in puzzles)
             {
                 ChecklistItem_UI checklistItem = new ChecklistItem_UI
                 {
                     puzzle = puzzle,
-                    image = GameObject.FindGameObjectWithTag(tag: checkmarkTagPrefix + puzzle.tag).GetComponent<Image>()
+                    checkmarkImage = childrenImages.First(x => x.CompareTag(checkmarkTagPrefix + puzzle.tag))
                 };
                 checklistItems.Add(checklistItem);
             }
@@ -69,7 +70,7 @@ namespace ProjectWork
                 return;
             }
 
-            checklistItem.image.enabled = true;
+            checklistItem.checkmarkImage.enabled = true;
             puzzleChecklistManager.SetItemCompleted(checklistItem);
 
             if (puzzleChecklistManager.IsListFullyCompleted())
