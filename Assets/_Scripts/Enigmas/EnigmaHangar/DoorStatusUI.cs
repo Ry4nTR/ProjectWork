@@ -35,7 +35,7 @@ public class DoorStatusUI : Puzzle
         backgroundImage.color = completedColor;
         statusText.text = completedMessage;
 
-        InvokeCompletedEvent();
+        InvokePuzzleCompletedEvent();
     }
 
     public void ResetToNormal()

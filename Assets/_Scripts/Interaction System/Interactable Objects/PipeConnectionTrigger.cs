@@ -27,10 +27,8 @@ namespace ProjectWork
             {
                 return;
             }
-            Debug.Log($"{gameObject.name}: OnTriggerStay called");
             if (other.gameObject.CompareTag("Pipe_Normal"))
             {
-                Debug.Log($"{gameObject.name}: Pipe connection trigger entered by {other.gameObject.name}");
                 IsConnected = true;
             }
         }
@@ -41,10 +39,8 @@ namespace ProjectWork
             {
                 return;
             }
-            Debug.Log($"{gameObject.name}: OnTriggerExit called");
             if (other.gameObject.CompareTag("Pipe_Normal"))
             {
-                Debug.Log($"{gameObject.name}: Pipe connection trigger exited by {other.gameObject.name}");
                 IsConnected = false;
             }
         }

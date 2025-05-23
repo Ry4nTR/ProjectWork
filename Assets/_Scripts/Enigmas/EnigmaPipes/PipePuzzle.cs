@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,7 +53,7 @@ namespace ProjectWork
             if (allPipesConnected)
             {
                 Debug.Log("All pipes are connected!");
-                InvokeCompletedEvent();
+                InvokePuzzleCompletedEvent();
             }
         }
     }

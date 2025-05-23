@@ -94,7 +94,7 @@ namespace ProjectWork
             peekController.EndPeek();
             progressSlider.value = 0f;
 
-            InvokeCompletedEvent();
+            InvokePuzzleCompletedEvent();
         }
     }
 }

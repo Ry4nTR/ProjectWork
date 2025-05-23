@@ -15,7 +15,7 @@ namespace ProjectWork
         /// </summary>
         public static event Action OnPuzzleCompleted;
 
-        protected void InvokeCompletedEvent()
+        protected void InvokePuzzleCompletedEvent()
         {
             OnSpecificPuzzleCompleted?.Invoke(this);
             OnPuzzleCompleted?.Invoke();
