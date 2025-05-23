@@ -44,7 +44,7 @@ public class FootstepAudio : MonoBehaviour
         if (footstepClips.Length > 0)
         {
             AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-            Debug.Log("Suono passo: " + clip.name); // Verifica che parta
+            //Debug.Log("Suono passo: " + clip.name); // Verifica che parta
             footstepSource.PlayOneShot(clip);
         }
     }
