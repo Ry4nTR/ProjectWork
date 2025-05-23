@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6706272840143843803}
   - component: {fileID: 4664793634619537895}
   m_Layer: 0
-  m_Name: PipesPuzzle_Environment
+  m_Name: EnigmaPipes_Environment
   m_TagString: Engine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
