@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 511159734943942567}
   - component: {fileID: 9079809505913275557}
   - component: {fileID: 6182564015543521030}
+  - component: {fileID: 4179530751640060381}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -600,6 +601,18 @@ MonoBehaviour:
   footstepClips:
   - {fileID: 8300000, guid: 36175893da5769441a54a8c7a7c57ee5, type: 3}
   stepInterval: 0.5
+--- !u!114 &4179530751640060381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055781102602694057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d12b6cfc87c2f047865c65388b154a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1424127820685268411
 PrefabInstance:
   m_ObjectHideFlags: 0
