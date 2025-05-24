@@ -1342,10 +1342,10 @@ MonoBehaviour:
   accessGrantedText: Granted
   accessDeniedText: Denied
   displayResultTime: 1
-  screenIntensity: 2.2
   screenNormalColor: {r: 0.25490198, g: 0.7490196, b: 0.52156866, a: 1}
   screenDeniedColor: {r: 1, g: 0, b: 0.08235294, a: 1}
   screenGrantedColor: {r: 0, g: 1, b: 0, a: 1}
+  colorParameterName: _EmissiveColorLDR
   buttonClickedSfx: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
   accessDeniedSfx: {fileID: 8300000, guid: 6badc82930e38c34891f46e1f01f63d3, type: 3}
   accessGrantedSfx: {fileID: 8300000, guid: 54ccf978c7886364c980d9f84ff32bd3, type: 3}
@@ -1601,8 +1601,8 @@ RectTransform:
   m_GameObject: {fileID: 6675682122975912569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0033}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1935207320235687574}
   m_Father: {fileID: 7180739741132971336}
@@ -1610,7 +1610,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.0141, y: 0.0633}
-  m_SizeDelta: {x: 0.075, y: 0.024}
+  m_SizeDelta: {x: 7.5, y: 2.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6885043655535526747
 Canvas:
@@ -1853,12 +1853,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.0175
+  m_fontSize: 2.4
   m_fontSizeBase: 0.0175
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 0.01
-  m_fontSizeMax: 0.0175
+  m_fontSizeMin: 1
+  m_fontSizeMax: 60
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
