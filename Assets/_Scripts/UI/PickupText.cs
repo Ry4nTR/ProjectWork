@@ -1,10 +1,7 @@
-public class PickupText : UITextManager
+namespace ProjectWork
 {
-    protected override void Awake()
+    public class PickupText : UITextManager
     {
-        base.Awake();
-        // Any specific initialization for pickup interactions
-    }
 
-    // Add any specific methods for pickup interactions
+    }
 }

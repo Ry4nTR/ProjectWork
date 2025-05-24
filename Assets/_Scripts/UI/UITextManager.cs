@@ -2,31 +2,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Base class for all interaction UI prompts
-/// </summary>
-public abstract class UITextManager : MonoBehaviour
+namespace ProjectWork
 {
-    protected TextMeshProUGUI textComponent;
-    protected Image imageComponent;
-
-    protected virtual void Awake()
+    /// <summary>
+    /// Base class for all interaction UI prompts
+    /// </summary>
+    public abstract class UITextManager : MonoBehaviour
     {
-        // Find components on the same GameObject
-        textComponent = GetComponent<TextMeshProUGUI>();
-        imageComponent = GetComponentInChildren<Image>();
+        [SerializeField] protected Image imageComponent;
+        [SerializeField] protected TextMeshProUGUI textComponent;   
 
-        SetActive(false);
-    }
+        protected void Start()
+        {
+            SetActive(false);
+        }
 
-    public virtual void SetActive(bool state)
-    {
-        if(textComponent == null)
-            textComponent = GetComponent<TextMeshProUGUI>();
-        textComponent.enabled = state;
+        public void SetActive(bool state)
+        {
+            if(textComponent == null)
+            {
+                textComponent = GetComponentInChildren<TextMeshProUGUI>(true);
+            }
+            textComponent.enabled = state;
 
-        if (imageComponent == null)
-            imageComponent = GetComponentInChildren<Image>();
-        imageComponent.enabled = state;
+            if (imageComponent == null)
+            {
+                imageComponent = GetComponentInChildren<Image>(true);
+            }
+            imageComponent.enabled = state;
+        }
     }
 }

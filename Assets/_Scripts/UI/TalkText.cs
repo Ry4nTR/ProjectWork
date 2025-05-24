@@ -1,10 +1,7 @@
-public class TalkText : UITextManager
+namespace ProjectWork
 {
-    protected override void Awake()
+    public class TalkText : UITextManager
     {
-        base.Awake();
-        // Any specific initialization for talk interactions
-    }
 
-    // Add any specific methods for talk interactions
+    }
 }

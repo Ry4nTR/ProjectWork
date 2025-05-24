@@ -23668,6 +23668,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.344
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.5087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683871503514959926, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7414
+      objectReference: {fileID: 0}
     - target: {fileID: 8879607568143319999, guid: af67d937618b46f438e311dbb4e813c0, type: 3}
       propertyPath: m_Name
       value: KeypadDoor
