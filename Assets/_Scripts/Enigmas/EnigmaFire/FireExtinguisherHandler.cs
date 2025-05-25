@@ -84,7 +84,6 @@ namespace ProjectWork
 
         private void SetFireExtinguisherObject(bool isActive)
         {
-            Debug.Log("Setting fire extinguisher object to " + isActive);
             fireExtinguisherObj.SetActive(isActive);
             CurrentCharge = INITIAL_CHARGE;
         }
