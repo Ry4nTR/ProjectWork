@@ -396,85 +396,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1899942902
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1899942903}
-  - component: {fileID: 1899942904}
-  m_Layer: 5
-  m_Name: Blurring_Custom_Pass
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1899942903
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899942902}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1978199328}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1899942904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899942902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 0
-  fadeRadius: 0
-  priority: 0
-  customPasses:
-  - rid: 4505779411359629404
-  injectionPoint: 2
-  m_TargetCamera: {fileID: 1942306195}
-  useTargetCamera: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 4505779411359629404
-      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
-      data:
-        m_Name: UI_Blur
-        enabled: 1
-        targetColorBuffer: 0
-        targetDepthBuffer: 0
-        clearFlags: 0
-        passFoldout: 0
-        m_Version: 0
-        fullscreenPassMaterial: {fileID: 2100000, guid: 11d955040e3a74a4c9c6789407312840, type: 2}
-        materialPassIndex: 0
-        materialPassName: DrawProcedural
-        fetchColorBuffer: 0
---- !u!20 &1942306195 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2089004334294939606, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-  m_PrefabInstance: {fileID: 1241991537}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1978199328 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7180992883976158500, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
-  m_PrefabInstance: {fileID: 2302123761186808211}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2302123761186808211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1122,10 +1043,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5744449167066960549, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7180992883976158500, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1899942903}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
 --- !u!1001 &7432678373764927264
