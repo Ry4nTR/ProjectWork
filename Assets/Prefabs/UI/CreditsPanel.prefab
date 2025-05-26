@@ -689,6 +689,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6695188672566751146, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695188672566751146, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695188672566751146, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8826425236133486408, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_Name
       value: CreditsPanel
