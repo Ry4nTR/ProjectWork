@@ -1640,6 +1640,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671758688276852048, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: m_text
+      value: Default text
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671758688276852048, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_margin.w
       value: 0.14235926
       objectReference: {fileID: 0}
