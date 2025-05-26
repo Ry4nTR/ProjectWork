@@ -10,7 +10,12 @@ namespace ProjectWork
     {
         [SerializeField] private GameObject previousScreenContainer;
         [SerializeField] private UI_Panel loadingScreen;
-        [SerializeField] private Slider loadingBarFill;
+        private Slider loadingBarFill;
+
+        private void Awake()
+        {
+            loadingBarFill = loadingScreen.GetComponentInChildren<Slider>();
+        }
 
         public void LoadScene(string sceneName)
         {
