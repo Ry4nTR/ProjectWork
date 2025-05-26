@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - isAISpeaking: 1
-    text: AI 1
+    text: Ciao come va?
   - isAISpeaking: 1
-    text: Ai 2
+    text: Tutto bene la giornata??????????????????????? ashdbaoshdbasohfboauhsbfaouhsfbaso
   - isAISpeaking: 0
-    text: Persona 1
+    text: Chi sei?saodjnaisfhbaouhfbsdhfbsdhfb
   - isAISpeaking: 1
-    text: AI 3
+    text: Il tuo amante
   - isAISpeaking: 0
-    text: Perosna 2
+    text: Oh sh*t
   - isAISpeaking: 0
-    text: Perosna 3
+    text: Scappoooooooooooooooooooooooooooooooooooooooooooo
