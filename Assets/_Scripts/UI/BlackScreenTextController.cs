@@ -1,8 +1,9 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using System.Collections;
 using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace ProjectWork
 {
@@ -29,13 +30,20 @@ namespace ProjectWork
             else
             {
                 Instance = this;
+                SceneManager.sceneLoaded += StartBlackScreen;
                 blackBackground = GetComponent<Image>();
                 dialogueText = GetComponentInChildren<TextMeshProUGUI>();
 
                 SetAlpha(0f, 0f);
             }       
         }
-        private void Start()
+
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= StartBlackScreen;
+        }
+
+        private void StartBlackScreen(Scene arg0, LoadSceneMode arg1)
         {
             ActivateBlackScreen(initialBlackScreenData);
         }

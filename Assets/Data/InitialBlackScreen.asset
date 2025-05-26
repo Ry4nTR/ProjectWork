@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: InitialBlackScreen
   m_EditorClassIdentifier: 
   TextToShow: A new day has come...
-  TextStayDuration: 0.5
+  TextStayDuration: 2
   FadeInSettings:
-    UseFade: 0
-    FadeDuration: 0
+    UseFade: 1
+    FadeDuration: 0.5
   FadeOutSettings:
     UseFade: 1
     FadeDuration: 0.5
