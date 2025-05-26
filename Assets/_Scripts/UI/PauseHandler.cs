@@ -45,9 +45,11 @@ namespace ProjectWork
             Debug.Log("Game Paused");
             pauseMenu.SetActive(true);
             gameUI.SetActive(false);
+            Cursor.visible = true; // Show the cursor when paused
+            Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         }
 
-        private void ResumeGame()
+        public void ResumeGame()
         {
             // Set the time scale back to 1 to resume the game
             Time.timeScale = 1f;
@@ -55,6 +57,8 @@ namespace ProjectWork
             Debug.Log("Game Resumed");
             pauseMenu.SetActive(false);
             gameUI.SetActive(true);
+            Cursor.visible = false; // Hide the cursor when resuming
+            Cursor.lockState = CursorLockMode.Locked; // Lock the cursor back to the center
         }
     }
 }
