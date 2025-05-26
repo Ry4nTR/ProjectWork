@@ -5,85 +5,61 @@ using UnityEngine;
 namespace ProjectWork
 {
     public class TutorialTaskChecker : MonoBehaviour
-    {
-        public static TutorialTaskChecker Instance { get; private set; }
-        
+    {      
         public static event Action OnTasksCompleted = delegate { };
         /// <summary>
         /// True = days finished, false = days not finished
         /// </summary>
         public static event Action<bool> OnDayPassed = delegate { };
 
-        [SerializeField] private int maxDays = 3;
         [Tooltip("This list contains all the tasks that are always present in the tutorial phase for each day. They will be added to the checklist at the start of the game.")]
         [SerializeField] private List<InteractableObject> permanentTasks;
         [SerializeField] private CheckListManager<InteractableObject> currentChecklist;
         
-        private int _currentDay = 1;
-        
-        public int CurrentDay 
+        private static int _currentDay = 1;
+        private const int MAX_DAYS = 3;
+
+        public static int CurrentDay 
         { 
             get => _currentDay;
             private set
             {
-                _currentDay = value;
-                if(_currentDay > maxDays)
-                {
-                    LockInteractions();
-                }
-                else
-                {
-                    ResetInteractions();
-                }    
-                OnDayPassed?.Invoke(_currentDay > maxDays);
+                _currentDay = value;    
+                OnDayPassed?.Invoke(_currentDay > MAX_DAYS);
             }
         }
-
         
         private void Awake()
         {
-            if (Instance == null)
+            foreach (var task in permanentTasks)
             {
-                Instance = this;
-
-                foreach (var task in permanentTasks)
-                {
-                    currentChecklist.TryAddItemToCheckList(task, true, false);
-                }
-                SubscribeToAllInteractionEnds();
-
-                FoodPad.OnSelectedFood += SetOrderTaskCompleted;
-                Prisoner.OnDialogueFinished += SetDialogueTaskCompleted;
-                
-                Food.OnFoodSpawned += TryAddFoodToChecklistAndSubscribe;
-                TrashManager.OnTrashSpawned += AddTrashToChecklistAndSubscribe;
-                
-                Bed.OnBedInteracted += IncreaseDay;
-                currentChecklist.OnListCompleted += InvokeTasksCompletedEvent;
+                currentChecklist.TryAddItemToCheckList(task, true, false);
             }
-            else
-            {
-                Destroy(gameObject);
-            }   
-        }
+            SubscribeToAllInteractionEnds();
 
-        private void OnEnable()
-        {
+            FoodPad.OnSelectedFood += SetOrderTaskCompleted;
+            Prisoner.OnDialogueFinished += SetDialogueTaskCompleted;
+                
+            Food.OnFoodSpawned += TryAddFoodToChecklistAndSubscribe;
+            TrashManager.OnTrashSpawned += AddTrashToChecklistAndSubscribe;
+                
+            Bed.OnBedInteracted += IncreaseDay;
+
+            OnDayPassed += HandleInteractions;
+
+            currentChecklist.OnListCompleted += InvokeTasksCompletedEvent;
+
             ObjectiveManager.Instance.RegisterChecklist(currentChecklist);
         }
 
         private void Start()
         {
-            _currentDay = 1;         
+            _currentDay = 1; 
         }
 
         private void OnDestroy()
         {
-            if (Instance != this)
-            {
-                ObjectiveManager.Instance.UnregisterChecklist(currentChecklist);
-                return;
-            }
+            ObjectiveManager.Instance.UnregisterChecklist(currentChecklist);
 
             UnsubscribeToAllInteractionEnds();
 
@@ -94,7 +70,22 @@ namespace ProjectWork
             TrashManager.OnTrashSpawned -= AddTrashToChecklistAndSubscribe;
 
             Bed.OnBedInteracted -= IncreaseDay;
+
+            OnDayPassed -= HandleInteractions;
+
             currentChecklist.OnListCompleted -= InvokeTasksCompletedEvent;
+        }
+
+        private void HandleInteractions(bool areDaysPassed)
+        {
+            if (areDaysPassed)
+            {
+                LockInteractions();
+            }
+            else
+            {
+                ResetInteractions();
+            }
         }
 
         private void IncreaseDay()

@@ -4,7 +4,7 @@
     {
         public override void TriggerDialogue()
         {
-            DialogueManager.Instance.StartDialogue(dialogues[TutorialTaskChecker.Instance.CurrentDay - 1], dialogueText, questionBoxContainer); // Start the dialogues
+            DialogueManager.Instance.StartDialogue(dialogues[TutorialTaskChecker.CurrentDay - 1], dialogueText, questionBoxContainer); // Start the dialogues
         }
     }
 }
