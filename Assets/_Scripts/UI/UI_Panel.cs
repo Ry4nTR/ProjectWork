@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ProjectWork.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public abstract class UI_Panel : MonoBehaviour
+    public class UI_Panel : MonoBehaviour
     {
         protected CanvasGroup canvasGroup;
 

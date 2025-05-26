@@ -1,0 +1,33 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using ProjectWork.UI;
+
+namespace ProjectWork
+{
+    public class SceneLoader : MonoBehaviour
+    {
+        [SerializeField] private GameObject previousScreenContainer;
+        [SerializeField] private UI_Panel loadingScreen;
+        [SerializeField] private Slider loadingBarFill;
+
+        public void LoadScene(string sceneName)
+        {
+            previousScreenContainer.SetActive(false);
+            StartCoroutine(LoadSceneAsync(sceneName));
+        }
+
+        IEnumerator LoadSceneAsync(string sceneName)
+        {
+            loadingScreen.SetCanvasGroup(true);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            while (!operation.isDone)
+            {
+                float progress = Mathf.Clamp01(operation.progress / 0.9f);
+                loadingBarFill.value = progress;
+                yield return null;
+            }
+        }
+    }
+}
