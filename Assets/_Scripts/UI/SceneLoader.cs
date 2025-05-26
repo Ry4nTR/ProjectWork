@@ -23,6 +23,11 @@ namespace ProjectWork
             StartCoroutine(LoadSceneAsync(sceneName));
         }
 
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+
         IEnumerator LoadSceneAsync(string sceneName)
         {
             loadingScreen.SetCanvasGroup(true);
