@@ -7,8 +7,9 @@ using System.Collections;
 namespace ProjectWork.UI
 {
     public class MissionPanel : UI_Panel
-    {
+    {     
         [Header("Objective Display")]
+        [SerializeField] private string defaultObjectiveText = "Reach the Central Room";
         [SerializeField] private TMP_Text _objectivesText;
         [SerializeField] private float _updateInterval = 0.2f;
 
@@ -19,7 +20,7 @@ namespace ProjectWork.UI
             base.Awake();
             if (_objectivesText != null)
             {
-                _objectivesText.text = "Arriva alla sala di comando";
+                _objectivesText.text = defaultObjectiveText;
             }
         }
 
