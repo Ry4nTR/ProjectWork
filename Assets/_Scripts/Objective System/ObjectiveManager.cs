@@ -25,8 +25,6 @@ namespace ProjectWork
             if (Instance == null)
             {
                 Instance = this;
-                // Ensure this initializes before other scripts
-                DontDestroyOnLoad(gameObject);
             }
             else if (Instance != this)
             {
