@@ -22,9 +22,9 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         _canInteract = canInteractAtStart;
     }
 
-    public virtual void Interact()
+    public void Interact()
     {
-        if (!_canInteract)
+        if (!_canInteract || PauseHandler.IsPaused)
         {
             Debug.LogWarning("Cannot interact with this object!");
             return;
@@ -32,18 +32,32 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         if (isUsingBlackScreen)
         {
             BlackScreenTextController.Instance.ActivateBlackScreen(blackScreenData);
-            BlackScreenTextController.OnBlackScreenTextFinished += InvokeInteractionFinishedEvent;
+            BlackScreenTextController.OnBlackScreenTextFinished += TriggerFinalPhase;
         }
         else
         {
-            InvokeInteractionFinishedEvent();
+            TriggerFinalPhase();
         }
+    }
+
+    /// <summary>
+    /// Called at the end when the interaction is triggered.
+    /// </summary>
+    protected virtual void InteractChild()
+    {
+
+    }
+
+    private void TriggerFinalPhase()
+    {       
+        InvokeInteractionFinishedEvent();
+        InteractChild();
     }
 
     protected void InvokeInteractionFinishedEvent()
     {
         if (isUsingBlackScreen)
-            BlackScreenTextController.OnBlackScreenTextFinished -= InvokeInteractionFinishedEvent;
+            BlackScreenTextController.OnBlackScreenTextFinished -= TriggerFinalPhase;
 
         OnInteractionFinished?.Invoke(this);
     }

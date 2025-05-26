@@ -27,9 +27,8 @@ public class Trash : InteractableObject
         rb.linearVelocity = Vector3.zero;
     }
 
-    public override void Interact()
+    protected override void InteractChild()
     {
         OnTrashThrown?.Invoke(this);
-        InvokeInteractionFinishedEvent();
     }
 }

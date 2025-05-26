@@ -60,11 +60,8 @@ namespace ProjectWork
             PipePuzzle.OnPuzzleCompleted -= LockInteraction;
         }
 
-        public override void Interact()
+        protected override void InteractChild()
         {
-            if (!CanInteract)
-                return;
-
             if (!IsRotating)
                 StartCoroutine(RotatePipe(objToRotate));
         }

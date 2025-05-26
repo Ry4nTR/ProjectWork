@@ -12,10 +12,8 @@ public class UnlockCrankButton : InteractableObject
         LockInteraction();
     }
 
-    public override void Interact()
+    protected override void InteractChild()
     {
-        base.Interact();
-
         // Unlock the crank
         crank.UnlockCrank();
 

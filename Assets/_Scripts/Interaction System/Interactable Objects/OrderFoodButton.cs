@@ -24,7 +24,7 @@ namespace ProjectWork
                 button = GetComponent<Button>();
         }
 
-        public override void Interact()
+        protected override void InteractChild()
         {
             button.onClick.Invoke();
         }

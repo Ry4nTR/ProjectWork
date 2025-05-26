@@ -107,6 +107,12 @@ namespace ProjectWork
 
         void Update()
         {
+            if(PauseHandler.IsPaused)
+            {
+                //if game is paused, do not update character controller
+                return;
+            }
+
             InputUpdate();
             MoveUpdate();
             JumpUpdate();

@@ -1,0 +1,60 @@
+using UnityEngine;
+
+namespace ProjectWork
+{ 
+    public class PauseHandler : MonoBehaviour
+    {
+        public static bool IsPaused => Time.timeScale == 0f;
+
+        [SerializeField] private GameObject pauseMenu;
+        [SerializeField] private GameObject gameUI;
+
+        private void Awake()
+        {
+            // Ensure the pause menu is hidden at the start
+            ResumeGame();
+        }
+
+        private void Update()
+        {
+            // Check for the pause key (Escape key by default)
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                TogglePause();
+            }
+        }
+
+        private void TogglePause()
+        {
+            // Toggle the pause state
+            if (Time.timeScale == 0f)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
+        private void PauseGame()
+        {
+            // Set the time scale to 0 to pause the game
+            Time.timeScale = 0f;
+            // Optionally, you can show a pause menu here
+            Debug.Log("Game Paused");
+            pauseMenu.SetActive(true);
+            gameUI.SetActive(false);
+        }
+
+        private void ResumeGame()
+        {
+            // Set the time scale back to 1 to resume the game
+            Time.timeScale = 1f;
+            // Optionally, you can hide the pause menu here
+            Debug.Log("Game Resumed");
+            pauseMenu.SetActive(false);
+            gameUI.SetActive(true);
+        }
+    }
+}

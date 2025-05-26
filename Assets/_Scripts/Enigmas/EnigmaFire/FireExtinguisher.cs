@@ -56,9 +56,8 @@ namespace ProjectWork
             FirePuzzle.OnPuzzleCompleted -= AbortOperations;
         }
 
-        public override void Interact()
+        protected override void InteractChild()
         {
-            base.Interact();
             OnFireExtinguisherPickedUp?.Invoke();
             StartCoroutine(StartRefilling());
         }

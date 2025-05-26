@@ -18,10 +18,8 @@ namespace ProjectWork
             OnFoodSpawned?.Invoke(this);
         }
 
-        public override void Interact()
-        {
-            base.Interact();  // Mantiene la logica base (eventi, black screen, ecc.)
-            
+        protected override void InteractChild()
+        {           
             TrashManager.Instance.SpawnTrash();  // Spawna nel punto del TrashManager
             BlackScreenTextController.OnBlackScreenFullActivated += DestroyObject; // Si iscrive all'evento per distruggere l'oggetto
         }

@@ -22,7 +22,7 @@ public class CameraManager : BlackScreenEnabler
     private void Update()
     {
         // Handle cam rotation every frame
-        if (canRotate)
+        if (canRotate && !PauseHandler.IsPaused)
             HandleCameraRotation();
     }
 

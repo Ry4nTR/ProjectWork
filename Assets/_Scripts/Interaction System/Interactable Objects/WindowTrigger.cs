@@ -36,10 +36,8 @@ namespace ProjectWork
             TutorialTaskChecker.OnDayPassed -= HandleInteraction;
         }
 
-        public override void Interact()
+        protected override void InteractChild()
         {
-            if (!CanInteract) return;
-
             if (!isPeeking)
             {
                 StartPeek();

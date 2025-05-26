@@ -14,9 +14,8 @@ public class Bed : InteractableObject
         TutorialTaskChecker.OnTasksCompleted -= UnlockInteraction;
     }
 
-    public override void Interact()
+    protected override void InteractChild()
     {
-        base.Interact();
         OnBedInteracted?.Invoke();
         LockInteraction();
     }
