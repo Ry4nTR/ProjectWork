@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6440406600563233549}
   - component: {fileID: 2209673961519958439}
   - component: {fileID: 7471604448725573672}
+  - component: {fileID: 2409969187960069947}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7850d918ff04245ad8e549eb70a368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listCheckManager:
-    _allItems: []
   maxDays: 3
+  permanentTasks: []
+  currentChecklist:
+    _allItems: []
 --- !u!114 &7471604448725573672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +62,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f3add3644ab1a45bd136ab821b68f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeChecklists: []
+--- !u!114 &2409969187960069947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8987534868465173090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb393f2f29ec9d94c88658f56e4866ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUI: {fileID: 0}
