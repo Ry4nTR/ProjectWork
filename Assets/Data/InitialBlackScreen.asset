@@ -16,7 +16,9 @@ MonoBehaviour:
   TextStayDuration: 2
   FadeInSettings:
     UseFade: 1
+    FadeOnlyText: 1
     FadeDuration: 0.5
   FadeOutSettings:
     UseFade: 1
+    FadeOnlyText: 0
     FadeDuration: 0.5

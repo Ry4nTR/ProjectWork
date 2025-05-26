@@ -13,6 +13,7 @@ namespace ProjectWork
         public struct FadeSettings
         {
             public bool UseFade;
+            public bool FadeOnlyText;
             [Min(0.01f)] public float FadeDuration;
         }
 

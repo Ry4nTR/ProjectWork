@@ -63,7 +63,7 @@ namespace ProjectWork
 
             if (blackScreenData.FadeInSettings.UseFade)
             {
-                yield return Fade(0f, 1f, blackScreenData.FadeInSettings.FadeDuration);
+                yield return Fade(0f, 1f, blackScreenData.FadeInSettings.FadeDuration, blackScreenData.FadeInSettings.FadeOnlyText);
             }
             else
             {
@@ -73,7 +73,7 @@ namespace ProjectWork
 
             if(blackScreenData.FadeOutSettings.UseFade)
             {
-                yield return Fade(1f, 0f, blackScreenData.FadeOutSettings.FadeDuration);
+                yield return Fade(1f, 0f, blackScreenData.FadeOutSettings.FadeDuration, blackScreenData.FadeOutSettings.FadeOnlyText);
             }
             else
             {
@@ -84,14 +84,14 @@ namespace ProjectWork
             blackBackground.enabled = false;
         }
 
-        IEnumerator Fade(float from, float to, float fadeDuration)
+        IEnumerator Fade(float from, float to, float fadeDuration, bool fadeOnlyText)
         {
             float elapsed = 0f;
 
             while (elapsed < fadeDuration)
             {
                 float alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
-                SetAlpha(alpha, alpha);
+                SetAlpha(fadeOnlyText ? 1 : alpha, alpha);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
@@ -108,7 +108,7 @@ namespace ProjectWork
             txtColor.a = textAlpha;
             dialogueText.color = txtColor;
 
-            if(bgAlpha == 1f)
+            if(textAlpha == 1f)
             {
                 OnBlackScreenFullActivated?.Invoke();
             }
