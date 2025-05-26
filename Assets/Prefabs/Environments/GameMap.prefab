@@ -1491,6 +1491,7 @@ GameObject:
   - component: {fileID: 8685005967375177696}
   - component: {fileID: 3214759036046944947}
   - component: {fileID: 5511303705331347325}
+  - component: {fileID: 1975969362974813851}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1642,6 +1643,21 @@ MonoBehaviour:
   dialogueInteractor: {fileID: 0}
   cameraTransform: {fileID: 0}
   raycastDistance: 100
+--- !u!114 &1975969362974813851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809615065191288614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3395d7e27ec4843a3c3682c104cd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typingSpeed: 0.05
+  endDelay: 2
+  testDialogoIniziale: {fileID: 11400000, guid: e6795c742e284f44daf883606d3c5f06, type: 2}
 --- !u!1 &814741854334402339
 GameObject:
   m_ObjectHideFlags: 0
@@ -25807,6 +25823,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 928874378542903485, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 928874378542903485, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -25887,6 +25907,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3618653191162968495, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618653191162968495, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -25924,6 +25948,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136655420490902977, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136655420490902977, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7136655420490902977, guid: 1ea81065cbcc0a14b853b49ffa38b56e, type: 3}
