@@ -28,6 +28,7 @@ namespace ProjectWork.UI
         {
             while (ObjectiveManager.Instance == null)
             {
+                Debug.LogWarning("MissionPanel: ObjectiveManager not found, waiting for it to initialize.");
                 yield return null;
             }
             ForceUpdateDisplay();

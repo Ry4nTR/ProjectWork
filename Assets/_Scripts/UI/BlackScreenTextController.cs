@@ -34,7 +34,7 @@ namespace ProjectWork
                 blackBackground = GetComponent<Image>();
                 dialogueText = GetComponentInChildren<TextMeshProUGUI>();
 
-                SetAlpha(0f, 0f);
+                SetAlpha(0f, 0f, false);
             }       
         }
 
@@ -67,7 +67,7 @@ namespace ProjectWork
             }
             else
             {
-                SetAlpha(1f, 1f);
+                SetAlpha(1f, 1f, true);
             }
             yield return new WaitForSeconds(blackScreenData.TextStayDuration);
 
@@ -77,7 +77,7 @@ namespace ProjectWork
             }
             else
             {
-                SetAlpha(0f, 0f);
+                SetAlpha(0f, 0f, false);
             }
             OnBlackScreenTextFinished?.Invoke();
 
@@ -91,14 +91,14 @@ namespace ProjectWork
             while (elapsed < fadeDuration)
             {
                 float alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
-                SetAlpha(fadeOnlyText ? 1 : alpha, alpha);
+                SetAlpha(fadeOnlyText ? 1 : alpha, alpha, false);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
-            SetAlpha(to, to);
+            SetAlpha(to, to, true);
         }
 
-        void SetAlpha(float bgAlpha, float textAlpha)
+        void SetAlpha(float bgAlpha, float textAlpha, bool canInvokeEvent)
         {
             Color bgColor = blackBackground.color;
             bgColor.a = bgAlpha;
@@ -108,8 +108,9 @@ namespace ProjectWork
             txtColor.a = textAlpha;
             dialogueText.color = txtColor;
 
-            if(textAlpha == 1f)
+            if(canInvokeEvent && textAlpha == 1f)
             {
+                Debug.Log("Black screen activated with text fully visible: " + dialogueText.text);
                 OnBlackScreenFullActivated?.Invoke();
             }
         }

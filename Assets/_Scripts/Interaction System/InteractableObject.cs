@@ -29,14 +29,15 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             Debug.LogWarning("Cannot interact with this object!");
             return;
         }
+        InteractChild();
         if (isUsingBlackScreen)
         {
             BlackScreenTextController.Instance.ActivateBlackScreen(blackScreenData);
-            BlackScreenTextController.OnBlackScreenTextFinished += TriggerFinalPhase;
+            BlackScreenTextController.OnBlackScreenTextFinished += InvokeInteractionFinishedEvent;
         }
         else
         {
-            TriggerFinalPhase();
+            InvokeInteractionFinishedEvent();
         }
     }
 
@@ -45,19 +46,14 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     /// </summary>
     protected virtual void InteractChild()
     {
-
-    }
-
-    private void TriggerFinalPhase()
-    {       
-        InvokeInteractionFinishedEvent();
-        InteractChild();
+        Debug.Log("InteractChild method not implemented for: " + gameObject.name);
+        // This method should be overridden in derived classes to implement specific interaction logic
     }
 
     protected void InvokeInteractionFinishedEvent()
     {
         if (isUsingBlackScreen)
-            BlackScreenTextController.OnBlackScreenTextFinished -= TriggerFinalPhase;
+            BlackScreenTextController.OnBlackScreenTextFinished -= InvokeInteractionFinishedEvent;
 
         OnInteractionFinished?.Invoke(this);
     }

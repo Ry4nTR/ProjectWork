@@ -16,7 +16,7 @@ public class Trash : InteractableObject
     {
         if(collision.gameObject.CompareTag("TrashCan"))
         {
-            Interact();
+            InteractChild();
             gameObject.SetActive(false);
         }
     }

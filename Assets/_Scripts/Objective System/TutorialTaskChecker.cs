@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProjectWork
 {
@@ -37,6 +38,8 @@ namespace ProjectWork
             }
             SubscribeToAllInteractionEnds();
 
+            SceneManager.sceneLoaded += RegisterCheckList;
+
             FoodPad.OnSelectedFood += SetOrderTaskCompleted;
             Prisoner.OnDialogueFinished += SetDialogueTaskCompleted;
                 
@@ -47,9 +50,7 @@ namespace ProjectWork
 
             OnDayPassed += HandleInteractions;
 
-            currentChecklist.OnListCompleted += InvokeTasksCompletedEvent;
-
-            ObjectiveManager.Instance.RegisterChecklist(currentChecklist);
+            currentChecklist.OnListCompleted += InvokeTasksCompletedEvent; 
         }
 
         private void Start()
@@ -59,7 +60,7 @@ namespace ProjectWork
 
         private void OnDestroy()
         {
-            ObjectiveManager.Instance.UnregisterChecklist(currentChecklist);
+            UnregisterChecklist();
 
             UnsubscribeToAllInteractionEnds();
 
@@ -74,6 +75,17 @@ namespace ProjectWork
             OnDayPassed -= HandleInteractions;
 
             currentChecklist.OnListCompleted -= InvokeTasksCompletedEvent;
+        }
+
+        private void RegisterCheckList(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            ObjectiveManager.Instance.RegisterChecklist(currentChecklist);
+        }
+
+        private void UnregisterChecklist()
+        {
+            ObjectiveManager.Instance.UnregisterChecklist(currentChecklist);
+            SceneManager.sceneLoaded -= RegisterCheckList;
         }
 
         private void HandleInteractions(bool areDaysPassed)

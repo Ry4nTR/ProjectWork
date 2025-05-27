@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using ProjectWork;
 using UnityEngine;
 
 namespace ProjectWork
@@ -10,7 +9,6 @@ namespace ProjectWork
         public string Text;
         public bool IsCompleted;
     }
-
 
     public class ObjectiveManager : MonoBehaviour
     {
@@ -37,7 +35,7 @@ namespace ProjectWork
             if (!activeChecklists.Contains(checklist))
             {
                 activeChecklists.Add(checklist);
-                checklist.OnListCompleted += HandleChecklistCompletion;
+                checklist.OnListCompleted += UpdateObjectiveDisplay;
                 UpdateObjectiveDisplay();
             }
         }
@@ -46,15 +44,9 @@ namespace ProjectWork
         {
             if (activeChecklists.Remove(checklist))
             {
-                checklist.OnListCompleted -= HandleChecklistCompletion;
+                checklist.OnListCompleted -= UpdateObjectiveDisplay;
                 UpdateObjectiveDisplay();
             }
-        }
-
-        private void HandleChecklistCompletion()
-        {
-            // Renamed from UpdateObjectives to be more clear
-            UpdateObjectiveDisplay();
         }
 
         private void UpdateObjectiveDisplay()
