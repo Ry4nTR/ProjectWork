@@ -31,6 +31,7 @@ namespace ProjectWork
         private Quaternion originalCamRot;
         private WindowTrigger currentWindow;
         private Vector2 rotationInput;
+        private bool canListenInput = true;
         private bool isTransitioning = false;
         private bool shouldCenterView = false;
         private Quaternion targetCenterRotation;
@@ -44,12 +45,20 @@ namespace ProjectWork
             playerCamera = cameraManager.transform;
 
             movementScript = GetComponent<MyCharacterController>();
+
+            DialogueManager.OnDialogueStarted += LockInput;
+            DialogueManager.OnDialogueFinished += UnlockInput;
+        }
+
+        private void Start()
+        {
             dialogueManager = DialogueManager.Instance;
+            UnlockInput();
         }
 
         private void Update()
-        {
-            if (!IsPeeking) return;
+        { 
+            if (!IsPeeking || PauseHandler.IsPaused) return;
 
             if (shouldCenterView)
             {
@@ -58,9 +67,29 @@ namespace ProjectWork
             else
             {
                 HandlePeekRotation();
-            }
+            }      
+        }
 
+        private void LateUpdate()
+        {
+            if (PauseHandler.IsPaused) return;
             HandleInput();
+        }
+
+        private void OnDestroy()
+        {
+            DialogueManager.OnDialogueStarted -= LockInput;
+            DialogueManager.OnDialogueFinished -= UnlockInput;
+        }
+
+        private void LockInput()
+        {
+            canListenInput = false;
+        }
+
+        private void UnlockInput()
+        {
+            canListenInput = true;
         }
 
         // Public methods
@@ -148,9 +177,9 @@ namespace ProjectWork
         // Private methods
         private void HandleInput()
         {
-            if (dialogueManager != null && dialogueManager.IsDialogueActive()) return;
+            if (!CanExitPeek()) return;
 
-            if (Input.GetKeyDown(KeyCode.E) && !isTransitioning)
+            if (canListenInput && Input.GetKeyDown(KeyCode.E) && !isTransitioning)
             {
                 EndPeek();
             }

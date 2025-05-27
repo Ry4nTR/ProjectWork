@@ -41,8 +41,7 @@ namespace ProjectWork
         {
             // Set the time scale to 0 to pause the game
             Time.timeScale = 0f;
-            // Optionally, you can show a pause menu here
-            Debug.Log("Game Paused");
+
             pauseMenu.SetActive(true);
             gameUI.SetActive(false);
             Cursor.visible = true; // Show the cursor when paused
@@ -53,8 +52,7 @@ namespace ProjectWork
         {
             // Set the time scale back to 1 to resume the game
             Time.timeScale = 1f;
-            // Optionally, you can hide the pause menu here
-            Debug.Log("Game Resumed");
+
             pauseMenu.SetActive(false);
             gameUI.SetActive(true);
             Cursor.visible = false; // Hide the cursor when resuming
