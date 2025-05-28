@@ -9,6 +9,7 @@ public class Interactor : BlackScreenEnabler
 
     [SerializeField] private CameraManager cam;
     [SerializeField] private float normalInteractDistance = 3f;
+    [SerializeField] private float planetInteractionDistance = 15f; // Extended range for planets
     private float currentInteractDistance;
 
     [SerializeField] private LayerMask interactableObjsLayer;
@@ -70,9 +71,26 @@ public class Interactor : BlackScreenEnabler
         WindowPeekController.OnPeekEnded -= ResetInteractionDistance;
     }
 
-    private void SetWindowInteractionDistance(WindowTrigger _, float windowInteractionDistance) => currentInteractDistance = windowInteractionDistance;
+    private void SetWindowInteractionDistance(WindowTrigger windowTrigger, float windowInteractionDistance)
+    {
+        // Check if this is the final decision window that needs extended range for planets
+        if (windowTrigger.isFinalDecisionWindow)
+        {
+            currentInteractDistance = planetInteractionDistance;
+            Debug.Log($"Extended interaction distance to {planetInteractionDistance} for final decision window");
+        }
+        else
+        {
+            // Use the window's specified interaction distance for other windows
+            currentInteractDistance = windowInteractionDistance;
+        }
+    }
 
-    private void ResetInteractionDistance() => currentInteractDistance = normalInteractDistance;
+    private void ResetInteractionDistance()
+    {
+        currentInteractDistance = normalInteractDistance;
+        Debug.Log($"Reset interaction distance to {normalInteractDistance}");
+    }
 
     private void DeselectButton()
     {

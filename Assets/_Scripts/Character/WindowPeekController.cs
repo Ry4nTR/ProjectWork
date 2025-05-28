@@ -6,27 +6,49 @@ namespace ProjectWork
 {
     public class WindowPeekController : MonoBehaviour
     {
-        // Events
+        // ------------------------- Events -------------------------
+        [Tooltip("Triggered when peek starts, passing window and distance")]
         public static event Action<WindowTrigger, float> OnPeekStarted = delegate { };
+
+        [Tooltip("Triggered when peek ends")]
         public static event Action OnPeekEnded = delegate { };
 
-        // References
+        // ----------------------- References -----------------------
         [Header("References")]
+        [Tooltip("Player camera transform reference")]
         private Transform playerCamera;
+
+        [Tooltip("Character controller for movement")]
         private MyCharacterController movementScript;
+
+        [Tooltip("Camera manager component")]
         private CameraManager cameraManager;
+
+        [Tooltip("Dialogue manager reference")]
         private DialogueManager dialogueManager;
 
-        // Peek Settings
-        [Header("Peek Settings")]
-        [Tooltip("Max horizontal rotation (degrees)")] public float maxYaw = 30f;
-        [Tooltip("Max vertical rotation (degrees)")] public float maxPitch = 20f;
-        [Tooltip("Mouse rotation speed")] public float rotationSpeed = 2f;
-        [Tooltip("Peek transition speed")] public float transitionSpeed = 3f;
-        [Tooltip("View centering speed")] public float centerViewSpeed = 5f;
-        [Tooltip("Center completion threshold")] public float centerThreshold = 0.5f;
+        // --------------------- Peek Settings ----------------------
+        [Header("Default Peek Settings")]
+        [Tooltip("Default max horizontal rotation when window doesn't specify")]
+        [SerializeField] private float defaultMaxYaw = 30f;
 
-        // Private variables
+        [Tooltip("Default max vertical rotation when window doesn't specify")]
+        [SerializeField] private float defaultMaxPitch = 20f;
+
+        [Space(5)]
+        [Tooltip("Mouse rotation sensitivity")]
+        [SerializeField] private float rotationSpeed = 2f;
+
+        [Tooltip("Transition speed when entering/exiting peek mode")]
+        [SerializeField] private float transitionSpeed = 3f;
+
+        [Tooltip("Speed when centering view to window")]
+        [SerializeField] private float centerViewSpeed = 5f;
+
+        [Tooltip("Threshold angle (degrees) to complete centering")]
+        [SerializeField] private float centerThreshold = 0.5f;
+
+        // ------------------- Runtime Variables --------------------
         private Vector3 originalCamPos;
         private Quaternion originalCamRot;
         private WindowTrigger currentWindow;
@@ -35,15 +57,18 @@ namespace ProjectWork
         private bool isTransitioning = false;
         private bool shouldCenterView = false;
         private Quaternion targetCenterRotation;
+        private bool exitLocked = false;
 
-        // Public properties
-        public bool IsPeeking { get; private set; }
+        // ------------------- Public Properties --------------------
+        [Header("Status")]
+        [Tooltip("Is the player currently peeking through a window?")]
+        [SerializeField] private bool isPeeking;
+        public bool IsPeeking { get => isPeeking; private set => isPeeking = value; }
 
         private void Awake()
         {
             cameraManager = GetComponentInChildren<CameraManager>();
             playerCamera = cameraManager.transform;
-
             movementScript = GetComponent<MyCharacterController>();
 
             DialogueManager.OnDialogueStarted += LockInput;
@@ -57,7 +82,7 @@ namespace ProjectWork
         }
 
         private void Update()
-        { 
+        {
             if (!IsPeeking || PauseHandler.IsPaused) return;
 
             if (shouldCenterView)
@@ -67,7 +92,7 @@ namespace ProjectWork
             else
             {
                 HandlePeekRotation();
-            }      
+            }
         }
 
         private void LateUpdate()
@@ -82,17 +107,28 @@ namespace ProjectWork
             DialogueManager.OnDialogueFinished -= UnlockInput;
         }
 
+        /// <summary>
+        /// Disables input listening (e.g., during dialogue)
+        /// </summary>
         private void LockInput()
         {
             canListenInput = false;
         }
 
+        /// <summary>
+        /// Enables input listening
+        /// </summary>
         private void UnlockInput()
         {
             canListenInput = true;
         }
 
-        // Public methods
+        // -------------------- Public Methods ----------------------
+
+        /// <summary>
+        /// Starts the peek interaction at specified window
+        /// </summary>
+        /// <param name="window">Window to peek through</param>
         public void StartPeek(WindowTrigger window)
         {
             if (IsPeeking || isTransitioning || window == null || window.peekTarget == null) return;
@@ -102,18 +138,38 @@ namespace ProjectWork
             StartCoroutine(PeekCoroutine());
         }
 
+        /// <summary>
+        /// Ends the current peek interaction
+        /// </summary>
         public void EndPeek()
         {
             if (!IsPeeking || isTransitioning || !CanExitPeek()) return;
             StartCoroutine(EndPeekCoroutine());
         }
 
+        /// <summary>
+        /// Checks if peek can be exited (not during dialogue)
+        /// </summary>
         public bool CanExitPeek()
         {
-            return dialogueManager == null || !dialogueManager.IsDialogueActive();
+            return (dialogueManager == null || !dialogueManager.IsDialogueActive()) && !exitLocked;
         }
 
-        // Coroutines
+        public void LockExit()
+        {
+            exitLocked = true;
+        }
+
+        public void UnlockExit()
+        {
+            exitLocked = false;
+        }
+
+        // --------------------- Coroutines -------------------------
+
+        /// <summary>
+        /// Handles the transition into peek mode
+        /// </summary>
         private IEnumerator PeekCoroutine()
         {
             isTransitioning = true;
@@ -143,10 +199,12 @@ namespace ProjectWork
             }
 
             isTransitioning = false;
-
             OnPeekStarted?.Invoke(currentWindow, currentWindow.PeekDistance);
         }
 
+        /// <summary>
+        /// Handles the transition out of peek mode
+        /// </summary>
         private IEnumerator EndPeekCoroutine()
         {
             isTransitioning = true;
@@ -174,7 +232,11 @@ namespace ProjectWork
             OnPeekEnded?.Invoke();
         }
 
-        // Private methods
+        // -------------------- Private Methods --------------------
+
+        /// <summary>
+        /// Handles input for exiting peek and shooting
+        /// </summary>
         private void HandleInput()
         {
             if (!CanExitPeek()) return;
@@ -196,6 +258,9 @@ namespace ProjectWork
             }
         }
 
+        /// <summary>
+        /// Smoothly centers the view to the window's target rotation
+        /// </summary>
         private void CenterView()
         {
             playerCamera.rotation = Quaternion.Slerp(
@@ -211,6 +276,9 @@ namespace ProjectWork
             }
         }
 
+        /// <summary>
+        /// Handles camera rotation during peek with window-specific limits
+        /// </summary>
         private void HandlePeekRotation()
         {
             float mouseX = Input.GetAxis("Mouse X");
@@ -219,8 +287,12 @@ namespace ProjectWork
             rotationInput.x += mouseX * rotationSpeed;
             rotationInput.y -= mouseY * rotationSpeed;
 
-            rotationInput.x = Mathf.Clamp(rotationInput.x, -maxYaw, maxYaw);
-            rotationInput.y = Mathf.Clamp(rotationInput.y, -maxPitch, maxPitch);
+            // Use window-specific limits if available, otherwise use defaults
+            float yawLimit = currentWindow != null ? currentWindow.maxYaw : defaultMaxYaw;
+            float pitchLimit = currentWindow != null ? currentWindow.maxPitch : defaultMaxPitch;
+
+            rotationInput.x = Mathf.Clamp(rotationInput.x, -yawLimit, yawLimit);
+            rotationInput.y = Mathf.Clamp(rotationInput.y, -pitchLimit, pitchLimit);
 
             Quaternion yaw = Quaternion.AngleAxis(rotationInput.x, Vector3.up);
             Quaternion pitch = Quaternion.AngleAxis(rotationInput.y, Vector3.right);
@@ -228,6 +300,10 @@ namespace ProjectWork
             playerCamera.rotation = targetCenterRotation * yaw * pitch;
         }
 
+        /// <summary>
+        /// Toggles player controls on/off during peek transitions
+        /// </summary>
+        /// <param name="enable">Whether to enable controls</param>
         private void TogglePlayerControls(bool enable)
         {
             if (movementScript != null) movementScript.enabled = enable;

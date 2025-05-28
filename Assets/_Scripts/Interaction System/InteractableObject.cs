@@ -8,7 +8,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public event Action<InteractableObject> OnInteractionFinished = delegate { };
 
     [SerializeField] protected bool canInteractAtStart = true;
-    [SerializeField] private string interactionPrompt = "Interact"; // Default prompt text
+    [SerializeField] protected string interactionPrompt = "Interact"; // Made protected so derived classes can modify it
 
     [SerializeField] private bool isUsingBlackScreen = false;
     [SerializeField] private BlackScreenData blackScreenData;
@@ -56,6 +56,14 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             BlackScreenTextController.OnBlackScreenTextFinished -= InvokeInteractionFinishedEvent;
 
         OnInteractionFinished?.Invoke(this);
+    }
+
+    /// <summary>
+    /// Protected method to allow derived classes to set custom interaction prompts
+    /// </summary>
+    protected void SetInteractionPrompt(string newPrompt)
+    {
+        interactionPrompt = newPrompt;
     }
 
     public void UnlockInteraction() => _canInteract = true;
