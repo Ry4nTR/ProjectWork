@@ -2200,9 +2200,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8d56fe40abd284886a87990f025fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenManager: {fileID: 0}
   progressSlider: {fileID: 5233931877732261146}
   successThreshold: 100
+  asteroidHitValue: 5
+  asteroidMissPenalty: 15
+  difficultySpeedMultiplier: 1
+  difficultySpawnMultiplier: 1
+  progressScalingFactor: 0.3
   peekController: {fileID: 0}
+  asteroidSpawner: {fileID: 0}
 --- !u!1001 &3427513962936975799
 PrefabInstance:
   m_ObjectHideFlags: 0

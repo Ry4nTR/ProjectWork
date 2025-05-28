@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24508dc256b665e4e8e8aa1a3d2e2646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitReward: 5
+  collisionPenalty: 15
   speed: 20
   spawner: {fileID: 0}
   smokeEffectPrefab: {fileID: 100000, guid: 6a3cb4ac8fa12944ba1233cbec0e9c69, type: 3}

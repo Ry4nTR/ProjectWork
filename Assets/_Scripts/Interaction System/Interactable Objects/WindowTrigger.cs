@@ -1,4 +1,3 @@
-// WindowTrigger.cs modifications
 using UnityEngine;
 using System;
 
@@ -11,12 +10,13 @@ namespace ProjectWork
         [SerializeField] private float _peekDistance = 15f;
         private bool isPeeking = false;
         private Collider windowCollider;
-        public bool hasProgressBar = false; // Add this to identify windows with progress bars
+        public bool hasProgressBar = false;
+        private bool puzzleCompleted = false; // New flag to track completion
 
         public float PeekDistance => _peekDistance;
 
         // Events for spawning control
-        public static event Action<WindowTrigger> OnPeekStarted; // Modified to pass window reference
+        public static event Action<WindowTrigger> OnPeekStarted;
         public static event Action OnPeekEnded;
 
         private void Awake()
@@ -29,16 +29,35 @@ namespace ProjectWork
         {
             base.Start();
             TutorialTaskChecker.OnDayPassed += HandleInteraction;
+
+            // Subscribe to puzzle completion event
+            if (hasProgressBar)
+            {
+                ProgressBar.OnPuzzleCompleted += HandlePuzzleCompleted;
+            }
         }
 
         private void OnDestroy()
         {
             TutorialTaskChecker.OnDayPassed -= HandleInteraction;
+
+            // Unsubscribe from puzzle completion event
+            if (hasProgressBar)
+            {
+                ProgressBar.OnPuzzleCompleted -= HandlePuzzleCompleted;
+            }
+        }
+
+        // New method to handle puzzle completion
+        private void HandlePuzzleCompleted()
+        {
+            puzzleCompleted = true;
+            LockInteraction(); // Permanently disable interaction
         }
 
         protected override void InteractChild()
         {
-            if (!isPeeking)
+            if (!isPeeking && !puzzleCompleted) // Check puzzleCompleted flag
             {
                 StartPeek();
             }
@@ -62,14 +81,12 @@ namespace ProjectWork
 
         private void StartPeek()
         {
-
-            if (peekController == null) return;
+            if (peekController == null || puzzleCompleted) return; // Additional check
 
             windowCollider.enabled = false;
-
             isPeeking = true;
             peekController.StartPeek(this);
-            OnPeekStarted?.Invoke(this); // Pass this window reference
+            OnPeekStarted?.Invoke(this);
         }
 
         public void ForceEndPeek()

@@ -188,7 +188,6 @@ namespace ProjectWork
             {
                 if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, 100f))
                 {
-                    Debug.Log("Window peek, Hit: " + hit.collider.name);
                     if (hit.collider.CompareTag("Asteroid"))
                     {
                         hit.collider.GetComponent<Asteroid>().DestroyByPlayer();
