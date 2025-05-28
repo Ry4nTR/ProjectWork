@@ -736,6 +736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 156856, guid: 530f5ce44fdac4197a29f5bec8818d85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 450040, guid: 530f5ce44fdac4197a29f5bec8818d85, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.51
@@ -1158,6 +1162,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 276872476727350057, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943975726188110059, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943975726188337579, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
