@@ -110,7 +110,6 @@ namespace ProjectWork
 
             if(canInvokeEvent && textAlpha == 1f)
             {
-                Debug.Log("Black screen activated with text fully visible: " + dialogueText.text);
                 OnBlackScreenFullActivated?.Invoke();
             }
         }
