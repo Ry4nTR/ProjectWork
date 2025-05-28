@@ -45,8 +45,6 @@ namespace ProjectWork
         [Tooltip("Reference to asteroid spawner (auto-assigned)")]
         [SerializeField] private AsteroidSpawner asteroidSpawner;
 
-        public static event Action OnPuzzleCompleted;
-
         private CanvasGroup canvasGroup;
 
 
@@ -172,9 +170,6 @@ namespace ProjectWork
             progressSlider.value = 0f;
 
             InvokePuzzleCompletedEvent();
-
-            // Invoke the static completion event
-            OnPuzzleCompleted?.Invoke();
         }
     }
 }
