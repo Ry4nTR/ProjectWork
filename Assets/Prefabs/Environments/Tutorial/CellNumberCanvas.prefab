@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4716033455040521287}
   - component: {fileID: 4711765519716524282}
+  - component: {fileID: 1573725689178191162}
   m_Layer: 5
   m_Name: CellNumberCanvas
   m_TagString: Untagged
@@ -60,6 +61,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1573725689178191162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843532342386929543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1312006d49a147aaedf33d3859120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColors:
+    normalColor: {r: 1, g: 1, b: 1, a: 1}
+    emergencyColor: {r: 1, g: 0, b: 0, a: 1}
+  textColors:
+    normalColor: {r: 0, g: 0.4392157, b: 0.9098039, a: 1}
+    emergencyColor: {r: 1, g: 0, b: 0, a: 1}
+  backgroundImage: {fileID: 7947702540300479428}
+  cellNumberText: {fileID: 5675109187018296620}
 --- !u!1 &3465858612546316058
 GameObject:
   m_ObjectHideFlags: 0
