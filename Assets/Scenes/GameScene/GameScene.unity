@@ -284,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4179530751640060381, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4179530751640060381, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: startPosition
@@ -992,6 +992,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6279094422706920490, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6298058573019129487, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1080,6 +1084,10 @@ PrefabInstance:
       propertyPath: dialogueInteractor
       value: 
       objectReference: {fileID: 1397563735}
+    - target: {fileID: 8763285332156346288, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8771165696738470207, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
