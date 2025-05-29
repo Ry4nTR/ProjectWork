@@ -42,11 +42,11 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _DISABLE_DECALS
+  - _DISABLE_SSR
   - _DISABLE_SSR_TRANSPARENT
   - _EMISSIVE_COLOR_MAP
   - _MASKMAP
-  - _NORMALMAP
-  - _NORMALMAP_TANGENT_SPACE
   m_InvalidKeywords:
   - _NORMALMAP_TANGENT_SPACE0
   - _NORMALMAP_TANGENT_SPACE1
@@ -55,7 +55,7 @@ Material:
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2225
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses:
   - TransparentDepthPrepass
@@ -354,7 +354,7 @@ Material:
     - _AORemapMax1: 1
     - _AORemapMax2: 1
     - _AORemapMax3: 1
-    - _AORemapMin: 0
+    - _AORemapMin: 0.8336315
     - _AORemapMin0: 0
     - _AORemapMin1: 0
     - _AORemapMin2: 0
@@ -507,12 +507,12 @@ Material:
     - _MetallicRemapMax1: 1
     - _MetallicRemapMax2: 1
     - _MetallicRemapMax3: 1
-    - _MetallicRemapMin: 0
+    - _MetallicRemapMin: 1
     - _MetallicRemapMin0: 0
     - _MetallicRemapMin1: 0
     - _MetallicRemapMin2: 0
     - _MetallicRemapMin3: 0
-    - _NormalMapSpace: 0
+    - _NormalMapSpace: 1
     - _NormalMapSpace0: 0
     - _NormalMapSpace1: 0
     - _NormalMapSpace2: 0
@@ -537,7 +537,7 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _PerPixelSorting: 0
     - _RayTracing: 0
-    - _ReceivesSSR: 1
+    - _ReceivesSSR: 0
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _Smoothness: 0.5
@@ -545,12 +545,12 @@ Material:
     - _Smoothness1: 0.5
     - _Smoothness2: 0.5
     - _Smoothness3: 0.5
-    - _SmoothnessRemapMax: 0.66773164
+    - _SmoothnessRemapMax: 0.708408
     - _SmoothnessRemapMax0: 1
     - _SmoothnessRemapMax1: 1
     - _SmoothnessRemapMax2: 1
     - _SmoothnessRemapMax3: 1
-    - _SmoothnessRemapMin: 0
+    - _SmoothnessRemapMin: 0.6654743
     - _SmoothnessRemapMin0: 0
     - _SmoothnessRemapMin1: 0
     - _SmoothnessRemapMin2: 0
@@ -560,9 +560,9 @@ Material:
     - _SpecularOcclusionMode: 1
     - _SrcBlend: 1
     - _StencilRef: 0
-    - _StencilRefDepth: 8
-    - _StencilRefGBuffer: 10
-    - _StencilRefMV: 40
+    - _StencilRefDepth: 0
+    - _StencilRefGBuffer: 2
+    - _StencilRefMV: 32
     - _StencilWriteMask: 6
     - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskGBuffer: 15
@@ -572,7 +572,7 @@ Material:
     - _SubsurfaceMask1: 1
     - _SubsurfaceMask2: 1
     - _SubsurfaceMask3: 1
-    - _SupportDecals: 1
+    - _SupportDecals: 0
     - _SurfaceType: 0
     - _TexWorldScale: 1
     - _TexWorldScale0: 1
