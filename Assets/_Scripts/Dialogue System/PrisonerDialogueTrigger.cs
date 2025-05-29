@@ -1,6 +1,6 @@
 ﻿namespace ProjectWork
 {
-    public class HangarPrisonerDialogueTrigger : DialogueTrigger
+    public class PrisonerDialogueTrigger : DialogueTrigger
     {
         public override void TriggerDialogue()
         {
