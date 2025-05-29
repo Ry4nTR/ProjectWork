@@ -107,7 +107,6 @@ public class CrankInteractable : InteractableObject
                     // Check if player has the card before allowing interaction
                     if (!Card.HasCard)
                     {
-                        Debug.Log("You need an access card to operate this mechanism!");
 
                         // Show "no card" message
                         if (BlackScreenTextController.Instance != null && noCardBlackScreenData != null)
@@ -185,8 +184,6 @@ public class CrankInteractable : InteractableObject
                         doorStatusUI.SetBlockedStatus();
                     }
 
-                    Debug.Log("Door blocked! Needs interaction.");
-
                     if (BlackScreenTextController.Instance != null && doorBlockedBlackScreenData != null)
                     {
                         BlackScreenTextController.Instance.ActivateBlackScreen(doorBlockedBlackScreenData);
@@ -245,7 +242,6 @@ public class CrankInteractable : InteractableObject
     {
         isSystemActivated = true;
         UpdateInteractionPrompt();
-        Debug.Log("Crank system activated! You can now operate the door mechanism.");
     }
 
     public void ResetDoor()

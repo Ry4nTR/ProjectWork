@@ -24,8 +24,6 @@ public class Card : InteractableObject
         // Player picks up the card
         HasCard = true;
 
-        Debug.Log($"Picked up {cardName}!");
-
         // Notify other systems
         OnCardPickedUp?.Invoke();
 
