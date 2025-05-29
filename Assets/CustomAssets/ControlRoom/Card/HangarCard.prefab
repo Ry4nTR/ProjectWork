@@ -71,5 +71,56 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 157465b823d2c9247928594336e8b097, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7414619504061655442}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 157465b823d2c9247928594336e8b097, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4404802269945343395}
   m_SourcePrefab: {fileID: 100100000, guid: 157465b823d2c9247928594336e8b097, type: 3}
+--- !u!1 &5053901874453705257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 157465b823d2c9247928594336e8b097, type: 3}
+  m_PrefabInstance: {fileID: 5396008531288870776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7414619504061655442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053901874453705257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76cd232deef38c49b3c89c738f66dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDefinition: {fileID: 0}
+  canInteractAtStart: 1
+  interactionPrompt: Take
+  isUsingBlackScreen: 0
+  blackScreenData: {fileID: 0}
+  cardName: Access Card
+  cardPickupBlackScreenData: {fileID: 11400000, guid: f7f025f0d3e775a4e8fc9c11eff79490, type: 2}
+--- !u!65 &4404802269945343395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053901874453705257}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.000762001, y: 0.053680368, z: 0.08560053}
+  m_Center: {x: 3.7834977e-10, y: 0.0000009536743, z: 0}

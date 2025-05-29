@@ -995,6 +995,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1703289286597316245}
   - {fileID: 2094809456217811017}
   - {fileID: 3062160625289444537}
   - {fileID: 6589355556574685012}
@@ -1573,6 +1574,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4024338, y: 0.8232751, z: 0.03037238}
   m_Center: {x: 0, y: 0.4422653, z: 0.265318}
+--- !u!1 &8208382209903409223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1703289286597316245}
+  m_Layer: 0
+  m_Name: CardSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703289286597316245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208382209903409223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.13885783, y: -0.021942712, z: 0.41900787, w: 0.8970337}
+  m_LocalPosition: {x: 4.481, y: 1.297, z: 12.408}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5698098482386256766}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8563830583296618559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2410,10 @@ PrefabInstance:
       propertyPath: doorClosedPosition.z
       value: 14.23
       objectReference: {fileID: 0}
+    - target: {fileID: 2495864853442425283, guid: fcdf86f8782a82f4b928d2bad99e75aa, type: 3}
+      propertyPath: noCardBlackScreenData
+      value: 
+      objectReference: {fileID: 11400000, guid: 54a49fc36215f6e4f86ed8e0d3d0b320, type: 2}
     - target: {fileID: 2495864853442425283, guid: fcdf86f8782a82f4b928d2bad99e75aa, type: 3}
       propertyPath: doorBlockedBlackScreenData
       value: 
@@ -4681,8 +4717,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HangarPrisoner
       objectReference: {fileID: 0}
+    - target: {fileID: 7964700357627709157, guid: 225b7e843b612d844902596966791391, type: 3}
+      propertyPath: objectToSpawn
+      value: 
+      objectReference: {fileID: 5053901874453705257, guid: 838194acae4aae24ca426834b8280683, type: 3}
+    - target: {fileID: 7964700357627709157, guid: 225b7e843b612d844902596966791391, type: 3}
+      propertyPath: spawnPosition
+      value: 
+      objectReference: {fileID: 1703289286597316245}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6723837112047494601, guid: 225b7e843b612d844902596966791391, type: 3}
+    - {fileID: 8558367995963960124, guid: 225b7e843b612d844902596966791391, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 225b7e843b612d844902596966791391, type: 3}

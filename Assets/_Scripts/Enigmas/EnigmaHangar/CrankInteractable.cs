@@ -13,6 +13,9 @@ public class CrankInteractable : InteractableObject
     [Header("Stuck Object")]
     [SerializeField] private GameObject stuckObject; // Reference to the object that appears when blocked
 
+    [Header("Card Requirement")]
+    [SerializeField] private BlackScreenData noCardBlackScreenData; // Message when player doesn't have card
+
     public Transform hangarDoor;
     public float maxDoorMove = 5f;
     public Vector3 doorClosedPosition;
@@ -22,11 +25,17 @@ public class CrankInteractable : InteractableObject
     public InteractableObject unlockObject;
     public float returnSpeed = 50f;
 
+    public bool IsBlocked => isBlocked;
 
 
     private bool isBlocked = false;
     private bool hasBeenUnlocked = false;
     private bool isFullyClosed = false; // New flag for closed position
+    private bool isSystemActivated = false; // New flag for system activation
+
+    // Public properties to check states
+    public bool IsSystemActivated => isSystemActivated;
+    public bool HasBeenUnlocked => hasBeenUnlocked;
     private Camera cam;
     private bool isInteracting = false;
     private float totalRotation = 0f;
@@ -39,6 +48,34 @@ public class CrankInteractable : InteractableObject
         cam = Camera.main;
         doorOpenPosition = hangarDoor.localPosition;
         originalRotation = transform.rotation;
+
+        // Update interaction prompt based on card status
+        UpdateInteractionPrompt();
+
+        // Subscribe to card pickup event to update prompt
+        Card.OnCardPickedUp += UpdateInteractionPrompt;
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe to prevent memory leaks
+        Card.OnCardPickedUp -= UpdateInteractionPrompt;
+    }
+
+    private void UpdateInteractionPrompt()
+    {
+        if (!Card.HasCard)
+        {
+            SetInteractionPrompt("Need Access Card");
+        }
+        else if (!isSystemActivated)
+        {
+            SetInteractionPrompt("System Not Activated");
+        }
+        else
+        {
+            SetInteractionPrompt("Turn Crank");
+        }
     }
 
     void Update()
@@ -67,6 +104,34 @@ public class CrankInteractable : InteractableObject
             {
                 if (hit.transform == transform)
                 {
+                    // Check if player has the card before allowing interaction
+                    if (!Card.HasCard)
+                    {
+                        Debug.Log("You need an access card to operate this mechanism!");
+
+                        // Show "no card" message
+                        if (BlackScreenTextController.Instance != null && noCardBlackScreenData != null)
+                        {
+                            BlackScreenTextController.Instance.ActivateBlackScreen(noCardBlackScreenData);
+                        }
+
+                        return; // Don't start interaction without card
+                    }
+
+                    // Check if system is activated
+                    if (!isSystemActivated)
+                    {
+                        Debug.Log("The crank system needs to be activated first. Use the activation button.");
+
+                        // Show "system not activated" message (you can create a new BlackScreenData for this)
+                        if (BlackScreenTextController.Instance != null && noCardBlackScreenData != null)
+                        {
+                            BlackScreenTextController.Instance.ActivateBlackScreen(noCardBlackScreenData);
+                        }
+
+                        return; // Don't start interaction if system not activated
+                    }
+
                     isInteracting = true;
                     previousMouseDirection = GetMouseDirection();
                 }
@@ -111,7 +176,7 @@ public class CrankInteractable : InteractableObject
                     // Enable the button interaction
                     if (unlockButton != null)
                     {
-                        unlockButton.EnableInteraction();
+                        unlockButton.EnableForUnlock();
                     }
 
                     // Update UI
@@ -175,13 +240,23 @@ public class CrankInteractable : InteractableObject
         }
     }
 
+    // New method to activate the crank system
+    public void ActivateSystem()
+    {
+        isSystemActivated = true;
+        UpdateInteractionPrompt();
+        Debug.Log("Crank system activated! You can now operate the door mechanism.");
+    }
+
     public void ResetDoor()
     {
         isFullyClosed = false;
         isBlocked = false;
         hasBeenUnlocked = false;
+        isSystemActivated = false; // Reset system activation
         totalRotation = 0f;
         transform.rotation = originalRotation;
         UpdateDoorPosition();
+        UpdateInteractionPrompt(); // Update prompt when resetting
     }
 }
