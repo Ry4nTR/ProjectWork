@@ -126,5 +126,6 @@ AssetOrigin:
   productId: 264577
   packageName: Surveillance Camera
   packageVersion: 1.0
-  assetPath: Assets/AK Studio Art/Surveillance Camera/Textures/Indoor HDRI.exr
+  assetPath: Assets/AssetStore/Props/Cameras/Surveillance Camera/Textures/Indoor
+    HDRI.exr
   uploadId: 664797

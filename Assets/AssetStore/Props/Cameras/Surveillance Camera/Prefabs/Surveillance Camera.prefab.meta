@@ -10,5 +10,6 @@ AssetOrigin:
   productId: 264577
   packageName: Surveillance Camera
   packageVersion: 1.0
-  assetPath: Assets/AK Studio Art/Surveillance Camera/Prefabs/Surveillance Camera.prefab
+  assetPath: Assets/AssetStore/Props/Cameras/Surveillance Camera/Prefabs/Surveillance
+    Camera.prefab
   uploadId: 664797

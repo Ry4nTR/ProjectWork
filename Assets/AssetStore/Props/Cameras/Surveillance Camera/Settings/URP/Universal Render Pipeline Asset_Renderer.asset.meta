@@ -11,6 +11,6 @@ AssetOrigin:
   productId: 264577
   packageName: Surveillance Camera
   packageVersion: 1.0
-  assetPath: Assets/AK Studio Art/Surveillance Camera/Settings/URP/Universal Render
-    Pipeline Asset_Renderer.asset
+  assetPath: Assets/AssetStore/Props/Cameras/Surveillance Camera/Settings/URP/Universal
+    Render Pipeline Asset_Renderer.asset
   uploadId: 664797
