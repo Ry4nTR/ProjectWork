@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406ed888643358747b5783bf6787b15e, type: 3}
   m_Name: FinalDecision
   m_EditorClassIdentifier: 
-  TextToShow: 
+  TextToShow: BLA BLA BLA BLE BLE BLE BLU BLU BLU
   TextStayDuration: 2
   FadeInSettings:
     UseFade: 0

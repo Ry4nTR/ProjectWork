@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1729258096572162164, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: decisionPanel
+      value: 
+      objectReference: {fileID: 1301945395}
     - target: {fileID: 1747654709403943254, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: runSpeed
       value: 5
@@ -327,6 +331,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+--- !u!114 &1301945395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2428569313640319869, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+  m_PrefabInstance: {fileID: 2302123761186808211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0234f5cf9f6428c4c89f5d642c56f65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1397563735 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1798654236432070127, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
@@ -483,6 +498,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2428569313640319869, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: confirmBlackScreenData
+      value: 
+      objectReference: {fileID: 11400000, guid: a3ffd61a1af8a864680d3c431e8176f8, type: 2}
     - target: {fileID: 3600281856208635604, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_Name
       value: Canvas
