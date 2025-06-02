@@ -77,7 +77,6 @@ public class Interactor : BlackScreenEnabler
         if (windowTrigger.isFinalDecisionWindow)
         {
             currentInteractDistance = planetInteractionDistance;
-            Debug.Log($"Extended interaction distance to {planetInteractionDistance} for final decision window");
         }
         else
         {
@@ -89,7 +88,6 @@ public class Interactor : BlackScreenEnabler
     private void ResetInteractionDistance()
     {
         currentInteractDistance = normalInteractDistance;
-        Debug.Log($"Reset interaction distance to {normalInteractDistance}");
     }
 
     private void DeselectButton()

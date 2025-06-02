@@ -13,7 +13,7 @@ namespace ProjectWork
 
         [Header("Animation Settings")]
         public float planetApproachSpeed = 2f;
-        public float planetApproachDelay = 0.5f; // Delay before planet starts moving
+        public float planetApproachDelay = 0.5f;
 
         private PlanetSelector selectedPlanetSelector;
         private Transform selectedPlanet;
@@ -26,53 +26,29 @@ namespace ProjectWork
 
         private void Update()
         {
-            // Decision input - only check when planet has reached position
             if (decisionInProgress && planetReached)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    CompleteDecision(true); // Accept
+                    CompleteDecision(true);
                 }
                 else if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    CompleteDecision(false); // Reject
+                    CompleteDecision(false);
                 }
             }
         }
 
         public void StartDecision(PlanetSelector planetSelector)
         {
-            if (decisionInProgress)
-            {
+            if (decisionInProgress || planetSelector == null)
                 return;
-            }
-
-            if (planetSelector == null)
-            {
-                Debug.LogError("Planet selector is null!");
-                return;
-            }
 
             Transform planet = planetSelector.GetPlanetTransform();
             Transform decisionTarget = planetSelector.GetDecisionTarget();
 
-            if (planet == null)
-            {
-                Debug.LogError($"Planet transform is null for {planetSelector.GetPlanetName()}!");
+            if (planet == null || decisionTarget == null || decisionPanel == null)
                 return;
-            }
-
-            if (decisionTarget == null)
-            {
-                Debug.LogError($"Decision target is null for {planetSelector.GetPlanetName()}! Please assign a decision target in the inspector.");
-                return;
-            }
-
-            if (decisionPanel == null)
-            {
-                Debug.LogError("Decision panel is null!");
-                return;
-            }
 
             selectedPlanetSelector = planetSelector;
             selectedPlanet = planet;
@@ -82,67 +58,49 @@ namespace ProjectWork
             planetReached = false;
 
             peekController.LockExit();
-
-            // Start the planet approach sequence
             StartCoroutine(PlanetApproachSequence());
         }
 
         private IEnumerator PlanetApproachSequence()
         {
-            // Wait a moment before starting the approach
             yield return new WaitForSeconds(planetApproachDelay);
 
-            // Get the target position from the planet selector's decision target
             Vector3 targetPosition = selectedPlanetSelector.GetDecisionTarget().position;
-
-            // Move planet to target position
-            float timeout = 10f; // Safety timeout
+            float timeout = 10f;
             float elapsed = 0f;
 
             while (Vector3.Distance(selectedPlanet.position, targetPosition) > 0.1f && elapsed < timeout)
             {
-                Vector3 oldPos = selectedPlanet.position;
                 selectedPlanet.position = Vector3.MoveTowards(
                     selectedPlanet.position,
                     targetPosition,
                     planetApproachSpeed * Time.deltaTime
                 );
-
                 elapsed += Time.deltaTime;
-
                 yield return null;
             }
 
-            if (elapsed >= timeout)
-            {
-                Debug.LogWarning("Planet approach timed out!");
-            }
-
-            // Snap to final position
             selectedPlanet.position = targetPosition;
             planetReached = true;
-
-            // Show the decision overlay
             decisionPanel.ShowDecision(isEarthSelected);
         }
 
         private void CompleteDecision(bool accepted)
         {
+            if (accepted && decisionPanel != null)
+            {
+                decisionPanel.ConfirmDecision();
+            }
+
             StartCoroutine(CompleteDecisionSequence(accepted));
         }
 
         private IEnumerator CompleteDecisionSequence(bool accepted)
         {
-            // Hide the decision panel first
+            decisionPanel.HideDecision();
+            yield return new WaitForSeconds(0.7f);
             decisionPanel.HideDecision();
 
-            // Wait for panel to fade out
-            yield return new WaitForSeconds(0.7f); // Slightly longer to ensure fade completes
-
-            // Force hide the panel to ensure it's completely gone
-            decisionPanel.ForceHide();
-
-            // Return planet to original position if rejected
             if (!accepted && selectedPlanet != null)
             {
                 while (Vector3.Distance(selectedPlanet.position, originalPlanetPosition) > 0.1f)
@@ -150,21 +108,18 @@ namespace ProjectWork
                     selectedPlanet.position = Vector3.MoveTowards(
                         selectedPlanet.position,
                         originalPlanetPosition,
-                        planetApproachSpeed * 2f * Time.deltaTime // Move back faster
+                        planetApproachSpeed * 2f * Time.deltaTime
                     );
                     yield return null;
                 }
                 selectedPlanet.position = originalPlanetPosition;
             }
 
-            // Clean up
             decisionInProgress = false;
             planetReached = false;
             selectedPlanetSelector = null;
             selectedPlanet = null;
             peekController.UnlockExit();
-
-            // Notify game of decision
             OnFinalDecisionMade?.Invoke(accepted);
         }
     }
