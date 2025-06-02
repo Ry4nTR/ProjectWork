@@ -309,86 +309,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1747654709403943254, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: jumpSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2089004334294939606, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2089004334294939606, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 2089004334294939606, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: m_AllowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5241758460402669443, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: planetInteractionDistance
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: transitionSpeed
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1729258096572162164, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+      propertyPath: decisionPanel
+      value: 
+      objectReference: {fileID: 983392490}
     - target: {fileID: 6055781102602694057, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7697529602415086824, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: stopNaNs
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697529602415086824, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: antialiasing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697529602415086824, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      propertyPath: allowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6055781102602694057, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 777976357}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
---- !u!1 &682322424 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6055781102602694057, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
-  m_PrefabInstance: {fileID: 261662922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &777976345 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5767420731940091174, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
   m_PrefabInstance: {fileID: 261662922}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682322424}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afe62a4b9014dfc489808258da5e7aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &777976357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682322424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea0c69be7f54e247b0dd00382d260ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  peekController: {fileID: 777976345}
-  decisionPanel: {fileID: 983392490}
-  planetApproachSpeed: 100
-  planetApproachDelay: 0
 --- !u!1 &839531545
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,7 +69,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483649
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 2
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 1
   stopNaNs: 0
@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 511159734943942567}
   - component: {fileID: 6182564015543521030}
   - component: {fileID: 4179530751640060381}
+  - component: {fileID: 1729258096572162164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2694833796273840380}
   normalInteractDistance: 3
+  planetInteractionDistance: 1000
   interactableObjsLayer:
     serializedVersion: 2
     m_Bits: 257
@@ -553,12 +555,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe62a4b9014dfc489808258da5e7aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxYaw: 30
-  maxPitch: 20
+  defaultMaxYaw: 30
+  defaultMaxPitch: 20
   rotationSpeed: 2
-  transitionSpeed: 2
+  transitionSpeed: 1
   centerViewSpeed: 5
   centerThreshold: 0.5
+  isPeeking: 0
 --- !u!114 &6840927627082261487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +617,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {fileID: 0}
+--- !u!114 &1729258096572162164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055781102602694057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea0c69be7f54e247b0dd00382d260ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peekController: {fileID: 5767420731940091174}
+  decisionPanel: {fileID: 0}
+  planetApproachSpeed: 100
+  planetApproachDelay: 0
 --- !u!1001 &1424127820685268411
 PrefabInstance:
   m_ObjectHideFlags: 0
