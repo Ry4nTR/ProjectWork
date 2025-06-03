@@ -9,7 +9,7 @@ public class FootstepAudioManager : MonoBehaviour
     public AudioSource audioSource;
     public float stepInterval = 0.4f;
     public float raycastDistance = 2f;
-    public string footstepsBasePath = "Resources/Footsteps";
+    public string footstepsBasePath = "CustomAudio/Footsteps";
 
     private float stepTimer;
     private CharacterController controller;
