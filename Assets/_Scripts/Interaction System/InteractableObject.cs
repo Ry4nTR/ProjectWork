@@ -10,7 +10,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] protected bool canInteractAtStart = true;
     [SerializeField] protected string interactionPrompt = "Interact"; // Made protected so derived classes can modify it
 
-    [SerializeField] private bool isUsingBlackScreen = false;
+    public bool isUsingBlackScreen = false;
     [SerializeField] private BlackScreenData blackScreenData;
     private bool _canInteract;
 
