@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_fontSize
-      value: 76.25
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 811945471452256733, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_fontSize
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855874441568686269, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_text
@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1855874441568686269, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_fontSize
-      value: 99.4
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1855874441568686269, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_fontColor.g
@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6695188672566751146, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6695188672566751146, guid: 7eb18d14c5d166348b0402aaaf15f8d3, type: 3}
       propertyPath: m_Interactable
@@ -607,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_fontSize
-      value: 76.25
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -757,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_fontSize
-      value: 76.25
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
