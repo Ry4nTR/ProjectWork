@@ -1070,48 +1070,19 @@ MonoBehaviour:
   m_Name: DefaultSettingsVolumeProfile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 7686318427622180703}
-  - {fileID: -1016694868962581565}
-  - {fileID: 7502528774814404555}
-  - {fileID: 7542669330009093999}
-  - {fileID: 1501199423866068322}
-  - {fileID: 5315503232242033309}
-  - {fileID: 1932259527246508038}
-  - {fileID: 448115243408767295}
-  - {fileID: -7089757308646879465}
-  - {fileID: -8500501345142028434}
-  - {fileID: 2097231660816403494}
-  - {fileID: -2221611199267642475}
-  - {fileID: 3890548673666661999}
-  - {fileID: 832755449447501749}
-  - {fileID: -8155044992473613897}
-  - {fileID: 6461751120086797489}
-  - {fileID: -4582215702330607924}
-  - {fileID: 8263521343677454729}
-  - {fileID: 3615651043865738468}
-  - {fileID: -7403599284081947059}
-  - {fileID: 5296910148827677930}
-  - {fileID: 7583595154662182141}
-  - {fileID: -1929981330062118352}
-  - {fileID: -8656658792049159572}
-  - {fileID: -8590898064469796997}
-  - {fileID: 2275010622916882698}
-  - {fileID: 4124234415841269356}
-  - {fileID: 2315602758798172869}
-  - {fileID: -7127221906372611989}
-  - {fileID: -7164086736169898617}
-  - {fileID: 7976797561755824988}
-  - {fileID: 6911775328958096103}
-  - {fileID: -3879645609070737025}
-  - {fileID: 1762303015939780454}
-  - {fileID: -954779694490381907}
-  - {fileID: 615359071726340252}
-  - {fileID: -2301040138250820992}
-  - {fileID: -818889768124509459}
-  - {fileID: -8596572708647039912}
-  - {fileID: -2720882631143242909}
-  - {fileID: 848919840516348080}
-  - {fileID: -1545466629171015374}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4712880610793771827}
 --- !u!114 &448115243408767295
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1993,6 +1964,24 @@ MonoBehaviour:
   chromaticAbberationSampleCount:
     m_OverrideState: 1
     m_Value: 3
+--- !u!114 &4712880610793771827
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7ff42a8c5be6646ad3975f3a54c1eb, type: 3}
+  m_Name: DiffusionProfileList
+  m_EditorClassIdentifier: 
+  active: 1
+  diffusionProfiles:
+    m_OverrideState: 1
+    m_Value:
+    - {fileID: 11400000, guid: 404820c4cf36ad944862fa59c56064f0, type: 2}
+    - {fileID: 11400000, guid: 2384dbf2c1c420f45a792fbc315fbfb1, type: 2}
 --- !u!114 &5296910148827677930
 MonoBehaviour:
   m_ObjectHideFlags: 3
