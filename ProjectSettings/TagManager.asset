@@ -22,6 +22,9 @@ TagManager:
   - Hangar
   - CinemachineTarget
   - Door
+  - Master_Volume
+  - Music_Volume
+  - SFX_Volume
   layers:
   - Default
   - TransparentFX

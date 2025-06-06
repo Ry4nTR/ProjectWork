@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6057423639748543349}
     m_Modifications:
+    - target: {fileID: 383880120469622996, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: volumeParameterName
+      value: Master_Volume
+      objectReference: {fileID: 0}
     - target: {fileID: 1950463178088823997, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -122,7 +126,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_Name
-      value: SliderOption
+      value: Master_SliderOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_TagString
+      value: Master_Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_text
+      value: Master
       objectReference: {fileID: 0}
     - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_fontSize
@@ -461,6 +477,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6057423639748543349}
     m_Modifications:
+    - target: {fileID: 383880120469622996, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: volumeParameterName
+      value: SFX_Volume
+      objectReference: {fileID: 0}
     - target: {fileID: 1950463178088823997, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -575,7 +595,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_Name
-      value: SliderOption (2)
+      value: SFX_SliderOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_TagString
+      value: SFX_Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_text
+      value: Sound Effects
       objectReference: {fileID: 0}
     - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_fontSize
@@ -599,6 +627,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6057423639748543349}
     m_Modifications:
+    - target: {fileID: 383880120469622996, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: volumeParameterName
+      value: Music_Volume
+      objectReference: {fileID: 0}
     - target: {fileID: 1950463178088823997, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -713,7 +745,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_Name
-      value: SliderOption (1)
+      value: Music_SliderOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984728725769229627, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_TagString
+      value: Music_Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
+      propertyPath: m_text
+      value: Music
       objectReference: {fileID: 0}
     - target: {fileID: 8767657989111700038, guid: 21813415ad07f0c49821dcf60f1e45de, type: 3}
       propertyPath: m_fontSize

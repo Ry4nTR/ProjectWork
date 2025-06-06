@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6091180546641386759}
   - component: {fileID: 8186768355577233676}
   - component: {fileID: 1475400712701568628}
+  - component: {fileID: 9035834887572300453}
   m_Layer: 5
   m_Name: SliderOption
   m_TagString: Untagged
@@ -77,6 +78,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9035834887572300453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984728725769229627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c01aad9697b8b4aad3913e6cfc237b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 4035622516919673108}
+  audioMixer: {fileID: 24100000, guid: 361cdee37dc62b74c99e31fef597aa87, type: 2}
+  volumeParameterName: 
 --- !u!1 &8059661303780444089
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,8 +250,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7886069619033768740, guid: cc79ae399b0243745b039aaf05dee1ff, type: 3}
-      propertyPath: m_Value
-      value: 1
+      propertyPath: m_MinValue
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 7886069619436253122, guid: cc79ae399b0243745b039aaf05dee1ff, type: 3}
       propertyPath: m_AnchorMax.x
@@ -339,3 +355,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7886069619786293644, guid: cc79ae399b0243745b039aaf05dee1ff, type: 3}
   m_PrefabInstance: {fileID: 6156873437681984048}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4035622516919673108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7886069619033768740, guid: cc79ae399b0243745b039aaf05dee1ff, type: 3}
+  m_PrefabInstance: {fileID: 6156873437681984048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
