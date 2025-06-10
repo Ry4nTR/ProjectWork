@@ -4,36 +4,20 @@ using System.Collections;
 public class AudioZoneSwitcher : MonoBehaviour
 {
     [Header("Audio Sources")]
-    public AudioSource audioCella;
-    public AudioSource audioSala;
+    public AudioSource audioSource;
 
     [Header("Settings")]
     [Range(0.1f, 3f)] public float fadeTime = 1.0f;
     [Range(0f, 1f)] public float maxVolume = 1f;
 
     private Coroutine currentFade;
-    private bool inSala = false;
+   
 
-    void Start()
-    {
-        // Configurazione iniziale garantita
-        audioCella.volume = maxVolume;
-        audioSala.volume = 0;
-        audioCella.Play();
-        audioSala.Play(); // Entrambi sempre attivi ma con volume controllato
-    }
+ 
 
     void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-
-        // Determina la direzione della transizione
-        bool enteringSala = gameObject.name.Contains("Sala"); // Adatta al naming dei tuoi trigger
-
-        // Evita transizioni ridondanti
-        if (enteringSala == inSala) return;
-
-        inSala = enteringSala;
 
         // Interrompi qualsiasi fade in corso
         if (currentFade != null)
@@ -42,13 +26,22 @@ public class AudioZoneSwitcher : MonoBehaviour
         }
 
         // Avvia la nuova transizione
-        currentFade = StartCoroutine(TransitionAudio(
-            enteringSala ? audioCella : audioSala,
-            enteringSala ? audioSala : audioCella
-        ));
+        currentFade = StartCoroutine(TransitionAudio(true));
+        
+        
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
 
-    IEnumerator TransitionAudio(AudioSource fadeOut, AudioSource fadeIn)
+        // Interrompi qualsiasi fade in corso
+        if (currentFade != null)
+        {
+            StopCoroutine(currentFade);
+        }
+        currentFade = StartCoroutine(TransitionAudio(false));
+    }
+    IEnumerator TransitionAudio(bool fadeIn)
     {
         float timer = 0f;
 
@@ -56,15 +49,17 @@ public class AudioZoneSwitcher : MonoBehaviour
         {
             timer += Time.deltaTime;
             float progress = Mathf.Clamp01(timer / fadeTime);
-
-            fadeOut.volume = Mathf.Lerp(maxVolume, 0f, progress);
-            fadeIn.volume = Mathf.Lerp(0f, maxVolume, progress);
-
+            if (fadeIn)
+            {
+                audioSource.volume = Mathf.Lerp(0f, maxVolume, progress);
+            }else             {
+                audioSource.volume = Mathf.Lerp(maxVolume, 0f, progress);
+            }
             yield return null;
         }
 
         // Garantisce i valori finali
-        fadeOut.volume = 0;
-        fadeIn.volume = maxVolume;
+        audioSource.volume = fadeIn ? maxVolume : 0f;
+
     }
 }
