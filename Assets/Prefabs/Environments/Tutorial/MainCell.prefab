@@ -394,6 +394,8 @@ MonoBehaviour:
   interactionPrompt: Take a shower
   isUsingBlackScreen: 1
   blackScreenData: {fileID: 11400000, guid: 7e3d53efd8eb2aa4da54c21c646b7d97, type: 2}
+  showerSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!65 &990129101835989908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6716,18 +6718,6 @@ PrefabInstance:
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3373203768947759219, guid: 4200942e9fee342499357097a90d0126, type: 3}
       propertyPath: m_LocalRotation.w

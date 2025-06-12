@@ -26,13 +26,12 @@ namespace ProjectWork
 
         private void Awake()
         {
-            BlackScreenTextController.OnBlackScreenTextFinished += StartDialogueTest;
+            
         }
 
         private void OnDestroy()
         {
-            BlackScreenTextController.OnBlackScreenTextFinished -= StartDialogueTest;
-
+            
         }
 
         private void StartDialogueTest()
