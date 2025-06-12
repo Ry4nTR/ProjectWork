@@ -19,6 +19,8 @@ namespace NavKeypad
         public UnityEvent OnAccessGranted => onAccessGranted;
         public UnityEvent OnAccessDenied => onAccessDenied;
 
+        public static event Action OnKeypadUnlocked = delegate { };
+
         [Header("Settings")]
         [SerializeField] private string accessGrantedText = "Granted";
         [SerializeField] private string accessDeniedText = "Denied";
@@ -134,6 +136,7 @@ namespace NavKeypad
             accessWasGranted = true;
             keypadDisplayText.text = accessGrantedText;
             onAccessGranted?.Invoke();
+            OnKeypadUnlocked?.Invoke();
             SetScreenColor(ScreenPhase.Granted);
             audioSource.PlayOneShot(accessGrantedSfx);
         }
