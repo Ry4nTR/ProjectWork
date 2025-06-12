@@ -2226,26 +2226,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a706a9c1dea91794aad82a78b1b5b34a, type: 2}
     - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
-      propertyPath: 'dialogues.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: a706a9c1dea91794aad82a78b1b5b34a, type: 2}
-    - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
-      propertyPath: 'dialogues.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: e25a5ffa97cddf046be77951d01ddada, type: 2}
-    - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
-      propertyPath: 'dialogues.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 36dc1513513b3db45908e912e82d7a43, type: 2}
-    - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
-      propertyPath: 'dialogues.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 27e2082f41a2ff94f8f8a6378b75b7dc, type: 2}
-    - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: startDialogue.Array.size
       value: 1
       objectReference: {fileID: 0}
