@@ -1289,7 +1289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
   endDelay: 2
-  testDialogoIniziale: {fileID: 11400000, guid: e6795c742e284f44daf883606d3c5f06, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: a706a9c1dea91794aad82a78b1b5b34a, type: 2}
+  - {fileID: 11400000, guid: e25a5ffa97cddf046be77951d01ddada, type: 2}
+  - {fileID: 11400000, guid: 36dc1513513b3db45908e912e82d7a43, type: 2}
+  - {fileID: 11400000, guid: 27e2082f41a2ff94f8f8a6378b75b7dc, type: 2}
 --- !u!1 &814741854334402339
 GameObject:
   m_ObjectHideFlags: 0
