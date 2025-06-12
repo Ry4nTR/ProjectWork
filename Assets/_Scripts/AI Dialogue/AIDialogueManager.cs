@@ -2,6 +2,8 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using System.Linq;
+using NavKeypad;
 
 namespace ProjectWork
 {
@@ -22,21 +24,59 @@ namespace ProjectWork
         [SerializeField] private float endDelay = 2f; // Secondi prima della chiusura
 
         [Header("Test")]
-        [SerializeField] private AIDialogue startDialogue;
+        [SerializeField] private AIDialogue[] dialogues;
 
         private void Awake()
         {
-            BlackScreenTextController.OnInitialBlackScreenFinished += StartDialogue;
+            BlackScreenTextController.OnInitialBlackScreenFinished += StartFirstDialogue;
+            TutorialTaskChecker.OnDayPassed += StartSecondDialogue;
+            Keypad.OnKeypadUnlocked += StartThirdDialogue;
+            PuzzleChecker.OnAllPuzzlesCompleted += StartFourthDialogue;
         }
 
         private void OnDestroy()
         {
-            BlackScreenTextController.OnInitialBlackScreenFinished -= StartDialogue;
+            BlackScreenTextController.OnInitialBlackScreenFinished -= StartFirstDialogue;
+            TutorialTaskChecker.OnDayPassed -= StartSecondDialogue;
+            Keypad.OnKeypadUnlocked -= StartThirdDialogue;
+            PuzzleChecker.OnAllPuzzlesCompleted -= StartFourthDialogue;
         }
 
-        private void StartDialogue()
+
+        private void StartFourthDialogue()
         {
-            StartDialogue(startDialogue);
+            FindAndStartDialogueWithName("DIAL06");
+        }
+
+        private void StartThirdDialogue()
+        {
+            FindAndStartDialogueWithName("DIAL04");
+        }
+
+        private void StartSecondDialogue(bool areDaysPassed)
+        {
+            if (areDaysPassed)
+            {
+                FindAndStartDialogueWithName("DIAL03");
+            }
+        }
+
+        private void StartFirstDialogue()
+        {
+            FindAndStartDialogueWithName("DIAL01");
+        }
+
+        private void FindAndStartDialogueWithName(string dialogueName)
+        {
+            AIDialogue dialogue = dialogues.FirstOrDefault(d => d.name == dialogueName);
+            if (dialogue != null)
+            {
+                StartDialogue(dialogue);
+            }
+            else
+            {
+                Debug.LogWarning($"Dialogue '{dialogueName}' not found.");
+            }
         }
 
         public void StartDialogue(AIDialogue dialogue)
