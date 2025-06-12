@@ -22,21 +22,21 @@ namespace ProjectWork
         [SerializeField] private float endDelay = 2f; // Secondi prima della chiusura
 
         [Header("Test")]
-        [SerializeField] private AIDialogue testDialogoIniziale;
+        [SerializeField] private AIDialogue startDialogue;
 
         private void Awake()
         {
-            
+            BlackScreenTextController.OnInitialBlackScreenFinished += StartDialogue;
         }
 
         private void OnDestroy()
         {
-            
+            BlackScreenTextController.OnInitialBlackScreenFinished -= StartDialogue;
         }
 
-        private void StartDialogueTest()
+        private void StartDialogue()
         {
-            StartDialogue(testDialogoIniziale);
+            StartDialogue(startDialogue);
         }
 
         public void StartDialogue(AIDialogue dialogue)

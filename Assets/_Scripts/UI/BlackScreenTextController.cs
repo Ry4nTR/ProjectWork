@@ -15,6 +15,7 @@ namespace ProjectWork
         public static event Action OnBlackScreenFullActivated = delegate { };
         public static event Action OnBlackScreenTextStarted = delegate { };
         public static event Action OnBlackScreenTextFinished = delegate { };
+        public static event Action OnInitialBlackScreenFinished = delegate { };
 
         private Image blackBackground;
         private TextMeshProUGUI dialogueText;
@@ -30,7 +31,7 @@ namespace ProjectWork
             else
             {
                 Instance = this;
-                SceneManager.sceneLoaded += StartBlackScreen;
+                SceneManager.sceneLoaded += StartInitialBlackScreen;
                 blackBackground = GetComponent<Image>();
                 dialogueText = GetComponentInChildren<TextMeshProUGUI>();
 
@@ -40,10 +41,10 @@ namespace ProjectWork
 
         private void OnDestroy()
         {
-            SceneManager.sceneLoaded -= StartBlackScreen;
+            SceneManager.sceneLoaded -= StartInitialBlackScreen;
         }
 
-        private void StartBlackScreen(Scene arg0, LoadSceneMode arg1)
+        private void StartInitialBlackScreen(Scene arg0, LoadSceneMode arg1)
         {
             ActivateBlackScreen(initialBlackScreenData);
         }
@@ -80,7 +81,10 @@ namespace ProjectWork
                 SetAlpha(0f, 0f, false);
             }
             OnBlackScreenTextFinished?.Invoke();
-
+            if(blackScreenData == initialBlackScreenData)
+            {
+                OnInitialBlackScreenFinished?.Invoke();
+            }
             blackBackground.enabled = false;
         }
 
