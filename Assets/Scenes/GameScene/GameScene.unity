@@ -1972,6 +1972,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5751281705484617839, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.575775
+      objectReference: {fileID: 0}
     - target: {fileID: 6176142238947531648, guid: d4f955c1d960f6548b87943bc9687388, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2217,6 +2221,10 @@ PrefabInstance:
       propertyPath: showerSound
       value: 
       objectReference: {fileID: 8300000, guid: 32c57b5929d53d04282c48413e61a227, type: 3}
+    - target: {fileID: 1975969362974813851, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: startDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: a706a9c1dea91794aad82a78b1b5b34a, type: 2}
     - target: {fileID: 2089830839607698275, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: m_Name
       value: GameMap
