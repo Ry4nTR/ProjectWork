@@ -18,21 +18,29 @@ MonoBehaviour:
   - isAISpeaking: 0
     text: ... Where am I ? How did i get here ?
   - isAISpeaking: 1
-    text: "You\u2019re aboard the spaceship 'Celsius'. You volunteered for the Cross-Over
-      experiment to integrate artificial intelligence into the human mind.\nI am
-      Eco, your personal AI, here to help you adjust to this new reality."
-  - isAISpeaking: 0
-    text: " \u2026 Experiment ? AI ? Is this some kind of joke ?\nNo\u2026 it\u2019s
-      all too real to be a dream. But why would I sign up for something this complex
-      ?"
+    text: "You\u2019re aboard the spaceship \"Celsius\"."
   - isAISpeaking: 1
-    text: According to the information uploaded to my database, lead scientist Bob
-      convinced you to undergo the experiment to help improve human existence - seeking
-      perfect coexistence between man and machine.
+    text: You volunteered for the Cross-Over experiment to integrate artificial intelligence
+      into the human mind.
+  - isAISpeaking: 1
+    text: I am Eco, your personal AI, here to help you adjust to this new reality.
   - isAISpeaking: 0
-    text: "That crazy best friend of mine actually went through with it ? I still
-      remember him talking about it back when we were in college, but I never thought
-      he\u2019d really try it.\nEco, tell me what I need to do to help. him complete
-      this experiment"
+    text: " \u2026 Experiment ? AI ? Is this some kind of joke ?"
+  - isAISpeaking: 0
+    text: "No\u2026 it\u2019s all too real to be a dream."
+  - isAISpeaking: 1
+    text: But why would I sign up for something this complex ?
+  - isAISpeaking: 1
+    text: 'According to the information uploaded to my database, lead scientist Bob
+      convinced you to undergo the experiment to help improve human existence:'
+  - isAISpeaking: 1
+    text: ' Seeking perfect coexistence between man and machine.'
+  - isAISpeaking: 0
+    text: That crazy best friend of mine actually went through with it ?
+  - isAISpeaking: 0
+    text: "I still remember him talking about it back when we were in college, but
+      I never thought he\u2019d really try it."
+  - isAISpeaking: 0
+    text: Eco, tell me what I need to do to help him complete this experiment.
   - isAISpeaking: 1
     text: Perfect. Let's begin.
