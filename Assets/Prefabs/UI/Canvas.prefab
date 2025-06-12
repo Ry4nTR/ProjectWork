@@ -995,7 +995,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProjectWork.UI.UI_Panel, Assembly-CSharp
-        m_MethodName: SetCanvasGroup
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1039,7 +1039,6 @@ RectTransform:
   - {fileID: 8634664609316579842}
   - {fileID: 8668045494501317343}
   - {fileID: 3743075246726062999}
-  - {fileID: 8114016137262736480}
   - {fileID: 978535984812382189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1591,6 +1590,7 @@ RectTransform:
   - {fileID: 9164096491781510585}
   - {fileID: 4323710036094984104}
   - {fileID: 2338312505163241798}
+  - {fileID: 8114016137262736480}
   m_Father: {fileID: 7180992883976158500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3286,7 +3286,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7180992883976158500}
+    m_TransformParent: {fileID: 8668045494501317343}
     m_Modifications:
     - target: {fileID: 4648846218746656936, guid: 36fd1399f439f9e4a87d096448cd513e, type: 3}
       propertyPath: m_Pivot.x

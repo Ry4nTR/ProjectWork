@@ -8,7 +8,7 @@ namespace ProjectWork
 {
     public class SceneLoader : MonoBehaviour
     {
-        [SerializeField] private GameObject previousScreenContainer;
+        [SerializeField] private UI_Panel screenCaller;
         [SerializeField] private UI_Panel loadingScreen;
         private Slider loadingBarFill;
 
@@ -19,7 +19,7 @@ namespace ProjectWork
 
         public void LoadScene(string sceneName)
         {
-            previousScreenContainer.SetActive(false);
+            screenCaller.SetCanvasGroup(false);
             StartCoroutine(LoadSceneAsync(sceneName));
         }
 
