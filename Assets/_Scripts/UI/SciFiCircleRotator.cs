@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace ProjectWork
@@ -24,17 +25,23 @@ namespace ProjectWork
         [SerializeField] private float maxRotationDelta = 180f;
 
         private RectTransform rect;
-        private float targetAngle;
-        private bool isRotating = false;
 
         private void Awake()
         {
             rect = GetComponent<RectTransform>();
-            targetAngle = rect.localEulerAngles.z;
+        }
+
+        private void OnEnable()
+        {
             StartCoroutine(RotationRoutine());
         }
 
-        private System.Collections.IEnumerator RotationRoutine()
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
+
+        private IEnumerator RotationRoutine()
         {
             while (true)
             {
@@ -42,16 +49,12 @@ namespace ProjectWork
                 float delta = Random.Range(minRotationDelta, maxRotationDelta);
                 delta *= Random.value < 0.5f ? -1f : 1f;
 
-                float startAngle = rect.localEulerAngles.z;
-                float endAngle = startAngle + delta;
                 float rotated = 0f;
                 float total = Mathf.Abs(delta);
 
-                isRotating = true;
-
                 while (rotated < total)
                 {
-                    float step = rotationSpeed * Time.deltaTime;
+                    float step = rotationSpeed * Time.unscaledDeltaTime;
                     float rotationStep = Mathf.Min(step, total - rotated);
                     rotated += rotationStep;
 
@@ -59,11 +62,9 @@ namespace ProjectWork
                     yield return null;
                 }
 
-                isRotating = false;
-
                 // Pause before the next segment
                 float wait = Random.Range(minPauseTime, maxPauseTime);
-                yield return new WaitForSeconds(wait);
+                yield return new WaitForSecondsRealtime(wait);
             }
         }
     }

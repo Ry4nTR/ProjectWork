@@ -1,5 +1,3 @@
-#define DEBUG
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +28,7 @@ namespace ProjectWork
             slider = GetComponent<Slider>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             targetValue = slider.value;
             ScheduleNextChange();
@@ -39,10 +37,10 @@ namespace ProjectWork
         private void Update()
         {
             // Smooth transition toward target value
-            slider.value = Mathf.Lerp(slider.value, targetValue, Time.deltaTime * animationSpeed);
+            slider.value = Mathf.Lerp(slider.value, targetValue, Time.unscaledDeltaTime * animationSpeed);
 
             // Trigger a new random value if it's time
-            if (Time.time >= nextChangeTime)
+            if (Time.unscaledTime >= nextChangeTime)
             {
                 SetSliderValue(Random.Range(0f, 1f));
                 ScheduleNextChange();
@@ -51,7 +49,7 @@ namespace ProjectWork
 
         private void ScheduleNextChange()
         {
-            nextChangeTime = Time.time + Random.Range(minChangeInterval, maxChangeInterval);
+            nextChangeTime = Time.unscaledTime + Random.Range(minChangeInterval, maxChangeInterval);
         }
 
         /// <summary>
