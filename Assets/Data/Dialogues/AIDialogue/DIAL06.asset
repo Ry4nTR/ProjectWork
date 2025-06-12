@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68c5748a5318e594a93f2c0cf16b4dec, type: 3}
-  m_Name: Sala Centrale
+  m_Name: DIAL06
   m_EditorClassIdentifier: 
   messages: []
