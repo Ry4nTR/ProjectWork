@@ -20,45 +20,44 @@ MonoBehaviour:
     - ........................................................
     lineId: Line 1
     questions:
-    - question: Ehi Steve, posso farti qualche domanda?
+    - question: Hey Steve, can I ask you a few questions?
       responseId: Domanda 1
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Cosa vuoi sapere?
+    - What do you want to know?
     lineId: Domanda 1
     questions:
-    - question: "Perch\xE9 hai scelto di sottoporti a questo esperimento?"
+    - question: Why did you choose to take part in this experiment?
       responseId: Domanda 2
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Mi servivano dei soldi,
-    - avevo dei debiti con dei poco di buono per aiutare mia moglie e mia figlia,
-    - "cos\xEC ho deciso di fare da cavia per ripagarli e tenere al sicuro la mia
-      famiglia "
+    - ' I needed money.'
+    - I had debts with some shady people trying to help my wife and daughter,
+    - so I decided to be a guinea pig to pay them off and keep my family safe.
     lineId: Domanda 2
     questions:
-    - question: "Mi dispiace, hai pi\xF9 notizie di loro? "
+    - question: "I\u2019m sorry. Have you heard from them since?"
       responseId: Domanda 3
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - No, qui non arriva nessun messaggio,
-    - 'ma il capo scienziato mi ha assicurato che le avrebbe tenute al sicuro  '
+    - No, no messages come through here.
+    - "But the lead scientist promised me he\u2019d keep them safe."
     lineId: Domanda 3
     questions:
-    - question: "Puoi fidarti di Bob, \xE8 un tipo strano ma ha sempre mantenuto
-        le sue promesse "
+    - question: "You can trust Bob. He\u2019s a strange guy, but he\u2019s always
+        kept his promises."
       responseId: Domanda 4
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - "Non mi fido pi\xF9 di nessuno ormai,"
-    - ora lasciami in pace che devo finire delle cose
+    - " I don\u2019t trust anyone anymore."
+    - "Now leave me alone, I\u2019ve got things to finish."
     lineId: Domanda 4
     questions: []

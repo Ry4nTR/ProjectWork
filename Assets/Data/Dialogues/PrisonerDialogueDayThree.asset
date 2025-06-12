@@ -20,70 +20,66 @@ MonoBehaviour:
     - ........................................................
     lineId: Line 1
     questions:
-    - question: Steve, ci sei?
+    - question: Steve, are you there?
       responseId: Domanda 1
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Che vuoi ora?
+    - What do you want now?
     lineId: Domanda 1
     questions:
-    - question: "Secondo te perch\xE8 non ci danno task pi\xF9 complesse ma solo
-        basilari?"
+    - question: Why do you think they only give us basic tasks and nothing more complex?
       responseId: Domanda 2
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Semplice,
-    - "siamo ancora agli stage iniziali dell\u2019esperimento,"
-    - "l\u2019AI non \xE8 ancora del tutto implementata"
-    - "quindi non hanno ancora la possibilit\xE0 di farle fare cose pi\xF9 complesse."
+    - Simple.
+    - "We\u2019re still in the early stages of the experiment."
+    - "The AI hasn\u2019t been fully implemented yet,"
+    - "so they can\u2019t make it handle anything more advanced."
     lineId: Domanda 2
     questions:
-    - question: "Non del tutto implementata? Quella che hanno caricato a me sembra
-        completa, con tutte le funzionalit\xE0 attive "
+    - question: Not fully implemented? The one they uploaded in me seems complete,
+        all functionalities are active.
       responseId: Domanda 3
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - "Probabilmente avranno caricato una versione pi\xF9 recente a te visto che
-      sei arrivato per ultimo,"
-    - 'noi altri abbiamo avuto un sacco di problemi con bug di ogni tipo prima di
-      avere questa versione stabile '
+    - They probably gave you a more recent version since you arrived last.
+    - The rest of us had all sorts of bugs before we got to this stable build.
     lineId: Domanda 3
     questions:
-    - question: 'Noi altri? Quante altre cavie ci sono oltre a noi? '
+    - question: The rest of us? How many other test subjects are there besides us?
       responseId: Domanda 4
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - E chi lo sa?
-    - Io so solo di altri due che sono venuti prima di me nelle celle vicine,
-    - "ma nessuno sa quando \xE8 iniziato effettivamente questo esperimento\u2026 "
+    - Who knows?
+    - I only know of two others who came before me in the nearby cells,
+    - "but no one really knows when this experiment actually started\u2026"
     lineId: Domanda 4
     questions:
-    - question: " Bob, cosa hai combinato con questa pazzia? Perch\xE8 non ti sei
-        fermato? "
+    - question: "Bob, what the hell did you get us into? Why didn\u2019t you stop?"
       responseId: Domanda 5
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - A quanto pare il tuo amico non ti aveva spiegato la scala di grandezza del
-      suo progetto eh?
-    - "Adesso capisci perch\xE8 non mi fido pi\xF9 di nessuno? "
+    - "Looks like your friend didn\u2019t explain the scale of his little project,
+      huh?"
+    - "Now do you see why I don\u2019t trust anyone anymore? "
     lineId: Domanda 5
     questions:
-    - question: "Devo parlare con lui il prima possibile\u2026 "
+    - question: "I need to talk to him as soon as possible\u2026"
       responseId: Domanda 6
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Buona fortuna, io torno a dormire.
+    - "Good luck with that. I\u2019m going back to sleep."
     lineId: Domanda 6
     questions: []

@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4aaf7ed58d6a546a19203bfb928549, type: 3}
+  m_Name: PrisonerDialogueHangar
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "\u2026Finally (coughs)\u2026 you made it here."
+    - "I thought that damn door cell of yours would never open\u2026"
+    - "We tried everything, but it was sealed\u2026"
+    lineId: Line 1
+    questions:
+    - question: " Steve!? Is that you? What are you doing here and who did this to
+        you? I need to find a way to close your wounds\u2026 Eco, help me!"
+      responseId: Domanda 1
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Calm down, Mark\u2026 She can\u2019t help\u2026"
+    - "My wounds are too severe\u2026 Look at the other two\u2026"
+    - " I am not far from joining them\u2026"
+    lineId: Domanda 1
+    questions:
+    - question: "Don\u2019t say that, Steve. There has to be a way to save you. You
+        haven\u2019t seen your family yet! You can\u2019t give up now!"
+      responseId: Domanda 2
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "My family\u2026 They\u2019re dead, Mark. My wife and daughter are dead."
+    - "Captain Bob showed me an image a few months ago\u2026"
+    - "The people I owed money to came back for the experiment funds\u2026 and they
+      killed them\u2026"
+    lineId: Domanda 2
+    questions:
+    - question: "That can\u2019t be\u2026 Bob said he\u2019d protect them\u2026 He\u2019d
+        never leave them unguarded!"
+      responseId: Domanda 3
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Maybe you don\u2019t know your friend as well as you think\u2026 "
+    - "He let them die. And when we tried to escape from the guards to reach the
+      pods, he had us eliminated too\u2026"
+    - "He doesn\u2019t want anyone knowing about the experiment\u2026 or for it to
+      leave his precious ship\u2026"
+    lineId: Domanda 3
+    questions:
+    - question: "He\u2019s trying to cover everything up before the truth gets out\u2026
+        But why? What\u2019s the point of hiding a technology that could help all
+        humanity?"
+      responseId: Domanda 4
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Only he knows that\u2026"
+    - "I heard from the guards that he locked himself in the Command Room to finish
+      the cleanup he started\u2026"
+    - "But I doubt I\u2019ll get to ask him myself\u2026"
+    - "You\u2019ll have to do it for me, Mark\u2026 "
+    lineId: Domanda 4
+    questions:
+    - question: "I\u2019ll get to the bottom of this, Steve. I won\u2019t let you
+        and the others die in vain. I\u2019ll bring the truth to light, no matter
+        the cost\u2026"
+      responseId: Domanda 5
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Then take this\u2026 It\u2019s an ID card from one of the guards who attacked
+      me\u2026"
+    - "it\u2019ll help you unlock the room\u2019s central terminal and close the
+      hangar door\u2026"
+    - "They left it open on purpose so the ship can\u2019t move\u2026"
+    - "My time\u2019s up, Mark. I\u2019m going to be with my family\u2026 Goodbye\u2026"
+    lineId: Domanda 5
+    questions:
+    - question: "Goodbye, Steve. May you reunite with your family\u2026 Bob, you
+        won\u2019t get away with the pain you\u2019ve caused. I swear!"
+      responseId: Domanda 6
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - .................................................................................
+    lineId: Domanda 6
+    questions:
+    - question: "Goodbye, Steve. May you reunite with your family\u2026 Bob, you
+        won\u2019t get away with the pain you\u2019ve caused. I swear!"
+      responseId: Domanda 6

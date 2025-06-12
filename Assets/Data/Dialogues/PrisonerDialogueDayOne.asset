@@ -17,42 +17,43 @@ MonoBehaviour:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - "\u2026 sono stufo di eseguire le task che mi dai\u2026"
+    - "\u2026 I'm tired of carrying out the tasks you give me\u2026"
     lineId: Line 1
     questions:
-    - question: Ehi, mi senti?
+    - question: Hey, can you hear me?
       responseId: Domanda 1
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Finalmente ti sei svegliato,
-    - sono passate ore da quando ti hanno portato qui,
-    - 'pensavo fossi morto '
+    - Finally, you're awake.
+    - It's been hours since they brought you here
+    - I thought you were dead.
     lineId: Domanda 1
     questions:
-    - question: "Ci ho messo un po\u2019 ad abituarmi al nuovo sistema, ma credo
-        di averne compreso le basi"
+    - question: "It took me a while to get used to the new system, but I think I\u2019ve
+        grasped the basics."
       responseId: Domanda 2
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - Le basi eh? Ti basteranno quelle
-    - "non vorranno insegnarti altro finch\xE8 non saremo al laboratorio"
-    - per rischiare di compromettere il loro prezioso esperimento
+    - "The basics, huh ? That\u2019ll have to do "
+    - "they won\u2019t teach you anything else until we\u2019re at the lab."
+    - "They wouldn\u2019t risk compromising their precious experiment."
     lineId: Domanda 2
     questions:
-    - question: Come ti chiami e da quanto tempo sei qui per affermare una cosa del
-        genere?
+    - question: "What\u2019s your name, and how long have you been here to make such
+        a claim?"
       responseId: Domanda 3
   - character:
       name: Prova
       icon: {fileID: 0}
     lines:
-    - "Mi chiamo Steve, ma per quanto riguarda il tempo non saprei dirtelo\u2026"
-    - "\u2026 Giorni, mesi, anni\u2026 "
-    - "Qui i giorni non passano mai e perderai il senno se continuerai a contarli\u2026"
-    - 'Ora sono stanco e vado a dormire.  '
+    - "My name\u2019s Steve, but as for how long I\u2019ve been here\u2026"
+    - "I couldn\u2019t tell you. Days, months, years\u2026"
+    - "Time doesn\u2019t pass here, and you\u2019ll lose your mind if you keep trying
+      to count it."
+    - "Now I\u2019m tired, I\u2019m going to sleep."
     lineId: Domanda 3
     questions: []

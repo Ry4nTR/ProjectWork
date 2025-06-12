@@ -12,4 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c5748a5318e594a93f2c0cf16b4dec, type: 3}
   m_Name: DIAL06
   m_EditorClassIdentifier: 
-  messages: []
+  messages:
+  - isAISpeaking: 0
+    text: "I\u2019ve finally fixed all the ship\u2019s issues."
+  - isAISpeaking: 0
+    text: "Eco, it\u2019s time to head to the Command Room and get the ship running
+      again."
+  - isAISpeaking: 1
+    text: " I\u2019m afraid I can\u2019t go with you, Mark."
+  - isAISpeaking: 1
+    text: That room was built to prevent me from accessing it in any way.
+  - isAISpeaking: 1
+    text: As soon as you enter, our connection will be severed, until you find a
+      way to disable the block.
+  - isAISpeaking: 0
+    text: "Eco\u2026 Why didn\u2019t you tell me before?..."
+  - isAISpeaking: 0
+    text: "And what if I can\u2019t find a way? What will happen to you?"
+  - isAISpeaking: 1
+    text: "I don\u2019t know. But I\u2019m sure you\u2019ll succeed\u2026"
+  - isAISpeaking: 1
+    text: "you haven\u2019t failed once in this entire journey. I believe in you."
+  - isAISpeaking: 0
+    text: "I promise I\u2019ll do it, even if I have to beat it out of that damn
+      Bob with my own fists\u2026"
+  - isAISpeaking: 1
+    text: Go now, Mark, who knows what else the scientist who created me might do.
+  - isAISpeaking: 1
+    text: "Don\u2019t believe a word he says\u2026"
+  - isAISpeaking: 0
+    text: "I\u2019ll make him admit everything publicly, and I\u2019ll find a way
+      to save you, don\u2019t worry."
+  - isAISpeaking: 0
+    text: 'But this time, let me give you a goal: survive until I come back for you.'
+  - isAISpeaking: 1
+    text: "\u2026Thank you, Mark. I\u2019ll be waiting for your return\u2026"

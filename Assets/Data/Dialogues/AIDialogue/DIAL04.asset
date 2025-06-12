@@ -12,4 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c5748a5318e594a93f2c0cf16b4dec, type: 3}
   m_Name: DIAL04
   m_EditorClassIdentifier: 
-  messages: []
+  messages:
+  - isAISpeaking: 0
+    text: "Eco, I\u2019ve reached the Control Room. Now what?"
+  - isAISpeaking: 1
+    text: "According to the scans I\u2019ve just run,"
+  - isAISpeaking: 1
+    text: there are currently four major issues that need to be resolved
+  - isAISpeaking: 1
+    text: to access the Command Room and restart the ship.
+  - isAISpeaking: 1
+    text: "I\u2019ll display them on the central screen."
+  - isAISpeaking: 0
+    text: Are you sure I can fix the whole ship by myself?
+  - isAISpeaking: 0
+    text: "I\u2019ve never worked on a spacecraft of this scale."
+  - isAISpeaking: 1
+    text: You were one of the top aerospace engineers before the experiment
+  - isAISpeaking: 1
+    text: and now you have an AI to assist you.
+  - isAISpeaking: 1
+    text: "I have no doubt you\u2019ll succeed, Mark."
+  - isAISpeaking: 0
+    text: "Thanks, Eco. Even though we\u2019ve only known each other a short time,"
+  - isAISpeaking: 0
+    text: I feel I can trust your guidance.
+  - isAISpeaking: 1
+    text: "That\u2019s what I was created for, to help humanity reach new heights."
+  - isAISpeaking: 1
+    text: "But I gladly accept the compliment. Now let\u2019s get to work."
+  - isAISpeaking: 1
+    text: "The sooner we fix these problems, the better it\u2019ll be for us and
+      the ship."

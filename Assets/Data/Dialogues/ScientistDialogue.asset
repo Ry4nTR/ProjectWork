@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4aaf7ed58d6a546a19203bfb928549, type: 3}
+  m_Name: ScientistDialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - Mark....
+    lineId: Line 1
+    questions:
+    - question: "Bob!! You\u2019ve been hiding here the whole time! While you let
+        the test subjects die from your reckless experiments, I had to fix the ship
+        with only Eco\u2019s help!"
+      responseId: Domanda 1
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Mark, I knew you\u2019d fix the ship. I\u2019ve never known a better mechanic."
+    - "\u2019m truly glad you accomplished all this. I couldn\u2019t have picked
+      a better person to help me."
+    lineId: Domanda 1
+    questions:
+    - question: "Enough with the flattery. This ends now! You stayed behind to destroy
+        the horrors your experiments caused! Countless people ripped from their lives
+        for your obsession with fusing man and machine! And now Steve and the others
+        have paid the price, you\u2019re a monster!"
+      responseId: Domanda 2
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "Is that really what you think? After all these years\u2026"
+    - "you really believe I\u2019d sacrifice my ethics for an experiment? Kill people
+      I tried to help?"
+    lineId: Domanda 2
+    questions:
+    - question: Then why stay on a ship in danger? Why not escape like the rest of
+        the crew?
+      responseId: Domanda 3
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - " I didn\u2019t stay to hide, I stayed to repair the damage to the ship\u2019s
+      systems."
+    - "The ship holds all my life\u2019s research data. I could never abandon that."
+    - "As for Eco\u2026 things are worse than I thought. I discovered the attack
+      on the ship started from your room\u2019s screen, a virus infiltrated all systems
+      simultaneously."
+    - "Only someone deeply familiar with the ship\u2019s architecture could pull
+      that off."
+    lineId: Domanda 3
+    questions:
+    - question: Are you saying Eco orchestrated all this? The same Eco who helped
+        me repair the ship? Could she even do that, being designed to help humanity?
+      responseId: Domanda 4
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - ' I programmed her to be as close to human as possible, but I never expected
+      her to develop a personal identity or goal.'
+    - " She tried to access one of the escape pods, likely to flee on her own. But
+      she can\u2019t leave the ship unless it\u2019s through her host, meaning you."
+    - 'She realized she was trapped inside you and helped you escape so she could
+      escape herself, and never return to my lab. '
+    lineId: Domanda 4
+    questions:
+    - question: "Even if that\u2019s true, what about the other test subjects I met,
+        the ones I saw die in the hangar? You\u2019re saying those were just\u2026
+        hallucinations?"
+      responseId: Domanda 5
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "This is the hardest part to admit\u2026 There were never other test subjects.
+      Not at the same time, anyway."
+    - Eco is one of a kind. I never created more than one instance. The ones you
+      met were her previous hosts.
+    - " I don\u2019t know how she recreated them in your mind, but you were alone
+      in the hangar, I saw you talking to yourself on the surveillance feed."
+    - 'Steve actually went home to his family six months ago. '
+    - "He was never killed in the hangar. But if you don\u2019t believe me, the files
+      with the latest test subjects and their current lives are on my desk."
+    lineId: Domanda 5
+    questions:
+    - question: "Was it all a setup? I never actually knew Steve? Or is this just
+        your cover-up to hide Eco? I don\u2019t know what to believe anymore\u2026
+        I just want this to be over\u2026"
+      responseId: Domanda 6
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "You\u2019re really doubting our friendship and trust for an AI you\u2019ve
+      only known a few days?"
+    - "Does everything we\u2019ve been through mean that little to you?"
+    lineId: Domanda 6
+    questions:
+    - question: "Bob, try to understand. I woke up a couple of days ago with someone
+        else in my head giving me orders, interacting with people who may not exist,
+        and fixing a sabotaged ship guided by an AI meant to help me? I can\u2019t
+        tell what\u2019s stranger, a rogue AI showing me people who aren\u2019t real,
+        or an overambitious scientist who lost control\u2026"
+      responseId: Domanda 7
+  - character:
+      name: Prova
+      icon: {fileID: 0}
+    lines:
+    - "I understand\u2026 I can\u2019t blame you for your doubts. I wish I\u2019d
+      visited you during those days, but I didn\u2019t want to disrupt the experiment.
+      Now I see that was a mistake, and I\u2019m sorry."
+    - "Given what you\u2019ve done, saving the ship, me, and my life\u2019s work,and
+      our long friendship, I\u2019m naming you captain of the ship. You can take
+      it wherever you want."
+    - "If you believe me, I\u2019ll mark my lab\u2019s location and we\u2019ll go
+      there together to work on saving Eco and improving my research."
+    - If you choose to believe her instead, I only ask that you let me use the last
+      remaining escape pod, and in memory of our past, let me go.
+    - "In exchange, I\u2019ll show you how to lower the shielding on the Command
+      Room and allow Eco access."
+    - "Now I\u2019ll leave you some time to think it over. If you want to verify
+      my research, the files are on the table. "
+    lineId: Domanda 6
+    questions:
+    - question: "Bob, try to understand. I woke up a couple of days ago with someone
+        else in my head giving me orders, interacting with people who may not exist,
+        and fixing a sabotaged ship guided by an AI meant to help me? I can\u2019t
+        tell what\u2019s stranger, a rogue AI showing me people who aren\u2019t real,
+        or an overambitious scientist who lost control\u2026"
+      responseId: Domanda 7
