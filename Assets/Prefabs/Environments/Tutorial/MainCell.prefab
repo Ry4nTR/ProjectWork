@@ -31,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 2362489537466302237}
   - {fileID: 7676802902855660691}
-  - {fileID: 1584744921919341482}
   - {fileID: 1541632255633957317}
   - {fileID: 9106036964558259636}
   - {fileID: 5103165142744132342}
@@ -269,37 +268,6 @@ Transform:
   - {fileID: 3949430621002699228}
   - {fileID: 6120781749424032444}
   - {fileID: 3045435737050376885}
-  m_Father: {fileID: 7006927665127923303}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1792827859857132810
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1584744921919341482}
-  m_Layer: 0
-  m_Name: Porta Temporanea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1584744921919341482
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792827859857132810}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.087999344, y: 1.537, z: -3.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
   - {fileID: 6624229832182998001}
   m_Father: {fileID: 7006927665127923303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1003,11 +971,11 @@ Transform:
   m_GameObject: {fileID: 5636618169190402475}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09800005, y: -0.53699994, z: 0.3}
+  m_LocalPosition: {x: 4.5, y: 1, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1584744921919341482}
+  m_Father: {fileID: 7676802902855660691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &990777886538376496
 MonoBehaviour:
