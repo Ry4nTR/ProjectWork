@@ -1022,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4179530751640060381, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4179530751640060381, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
       propertyPath: startPosition

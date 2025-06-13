@@ -30,7 +30,7 @@ namespace ProjectWork
             if(other.TryGetComponent(out Food food))
             {
                 if (food.FoodType == _foodType)
-                {              
+                {
                     PlaceFoodHere(food);
                     food.UnlockInteraction();
                     SetActive(false);
@@ -44,7 +44,7 @@ namespace ProjectWork
             food.gameObject.layer = LayerMask.NameToLayer("Interactable");
             food.transform.parent = transform;
             food.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            //food.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            food.transform.parent = null;
             food.tag = "Untagged";
         }
 
