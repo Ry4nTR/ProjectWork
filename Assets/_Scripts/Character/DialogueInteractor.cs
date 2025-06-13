@@ -73,15 +73,5 @@ namespace ProjectWork
                 SetPromptVisibility(false);
             }
         }
-
-        // Debug visualization
-        private void OnDrawGizmos()
-        {
-            if (playerCamera != null)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * interactionRange);
-            }
-        }
     }
 }

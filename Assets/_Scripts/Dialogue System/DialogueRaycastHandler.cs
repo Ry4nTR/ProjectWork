@@ -16,25 +16,28 @@ namespace ProjectWork
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            // Left Mouse Click - Skip/advance dialogue lines
+            if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
                 if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, raycastDistance))
                 {
-                    // Se stai guardando il DialogueText
+                    // Only trigger if clicking on DialogueText during active dialogue
                     if (hit.collider.TryGetComponent(out DialogueText dialogueText) && dialogueManager.IsDialogueActive())
                     {
                         dialogueManager.HandleExternalClick();
-                        return;
                     }
+                }
+            }
 
-                    // Se stai guardando un NPC
-                    if (!dialogueManager.IsDialogueActive() && dialogueInteractor != null && dialogueInteractor.IsLookingAtNPC())
-                    {
-                        var trigger = dialogueInteractor.GetCurrentNPCDialogueTrigger();
-                        if (trigger != null)
-                            trigger.TriggerDialogue();
-                    }
+            // "E" Key - Start dialogue with NPC (only when NOT in dialogue)
+            if (Input.GetKeyDown(KeyCode.E) && !dialogueManager.IsDialogueActive())
+            {
+                if (dialogueInteractor != null && dialogueInteractor.IsLookingAtNPC())
+                {
+                    var trigger = dialogueInteractor.GetCurrentNPCDialogueTrigger();
+                    if (trigger != null)
+                        trigger.TriggerDialogue();
                 }
             }
         }
