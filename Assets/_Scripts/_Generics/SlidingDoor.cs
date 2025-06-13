@@ -20,12 +20,12 @@ namespace ProjectWork
 
         public void OpenDoor()
         {
-            transform.DOMove(openedPosition, timeToMove);
+            transform.DOLocalMove(openedPosition, timeToMove);
         }
 
         public void CloseDoor()
         {
-            transform.DOMove(closedPosition, timeToMove);
+            transform.DOLocalMove(closedPosition, timeToMove);
         }
     }
 }
