@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1527527227468396489, guid: 9ce165dd222504a7dada2f13901e2cbd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7146596
+      objectReference: {fileID: 0}
     - target: {fileID: 6665201252127774988, guid: 9ce165dd222504a7dada2f13901e2cbd, type: 3}
       propertyPath: m_Intensity
       value: 47.746483
@@ -227,7 +231,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProfileDoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2248216688999675418, guid: 9ce165dd222504a7dada2f13901e2cbd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -402,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375009329a6daf34fb1349f6d39169db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closedPosition: {x: -0.5539501, y: -0.7146596, z: -0.06441116}
-  openedPosition: {x: -1.728, y: -0.7146596, z: -0.064}
+  closedPosition: {x: -0.55395013, y: -0.7146596, z: -0.06441116}
+  openedPosition: {x: -0.55395013, y: 0.983, z: -0.06441116}
   timeToMove: 1
   isStartedClosed: 1
 --- !u!4 &4932241745320373729 stripped
