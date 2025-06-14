@@ -1336,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1895561553858998299, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: 'dialogues.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b7c8ddb69219124ea4f58d73935d2b2, type: 2}
     - target: {fileID: 1989160105617279466, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: player
       value: 
@@ -1448,6 +1452,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412507855574187691, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: 'dialogues.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 25d31dc6ccb68f547a8d5ecd6fd1b678, type: 2}
     - target: {fileID: 5511303705331347325, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: cameraTransform
       value: 
