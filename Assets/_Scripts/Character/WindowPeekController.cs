@@ -118,7 +118,7 @@ namespace ProjectWork
         /// <summary>
         /// Enables input listening
         /// </summary>
-        private void UnlockInput()
+        private void UnlockInput(InteractableObject _ = null)
         {
             canListenInput = true;
         }

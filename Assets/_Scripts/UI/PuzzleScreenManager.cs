@@ -29,12 +29,12 @@ namespace ProjectWork
 
         private void OnEnable()
         {
-            ProgressBar.OnPuzzleCompleted += HandlePuzzleCompleted;
+            ProgressBar.OnSpecificPuzzleCompleted += HandlePuzzleCompleted;
         }
 
         private void OnDisable()
         {
-            ProgressBar.OnPuzzleCompleted -= HandlePuzzleCompleted;
+            ProgressBar.OnSpecificPuzzleCompleted -= HandlePuzzleCompleted;
         }
 
         public void InitializeScreens()
@@ -49,8 +49,13 @@ namespace ProjectWork
             }
         }
 
-        private void HandlePuzzleCompleted()
+        private void HandlePuzzleCompleted(Puzzle specificPuzzleCompleted)
         {
+            if(specificPuzzleCompleted.GetType() != typeof(ProgressBar))
+            {
+                return;
+            }
+
             foreach (PuzzleScreen screen in screens)
             {
                 SetScreenState(screen, true);

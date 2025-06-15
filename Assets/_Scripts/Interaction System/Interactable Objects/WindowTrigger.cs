@@ -73,7 +73,7 @@ namespace ProjectWork
 
             if (hasProgressBar)
             {
-                ProgressBar.OnPuzzleCompleted += HandlePuzzleCompleted;
+                ProgressBar.OnSpecificPuzzleCompleted += HandlePuzzleCompleted;
             }
         }
 
@@ -83,15 +83,19 @@ namespace ProjectWork
 
             if (hasProgressBar)
             {
-                ProgressBar.OnPuzzleCompleted -= HandlePuzzleCompleted;
+                ProgressBar.OnSpecificPuzzleCompleted -= HandlePuzzleCompleted;
             }
         }
 
         /// <summary>
         /// Handles puzzle completion - permanently disables interaction
         /// </summary>
-        private void HandlePuzzleCompleted()
+        private void HandlePuzzleCompleted(Puzzle specificPuzzleCompleted)
         {
+            if(specificPuzzleCompleted.GetType() != typeof(ProgressBar))
+            {
+                return;
+            }    
             puzzleCompleted = true;
             LockInteraction();
         }

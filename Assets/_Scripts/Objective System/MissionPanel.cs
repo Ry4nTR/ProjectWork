@@ -1,8 +1,7 @@
-using UnityEngine;
-using TMPro;
-using System.Collections.Generic;
-using ProjectWork;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 
 namespace ProjectWork.UI
 {
@@ -21,7 +20,12 @@ namespace ProjectWork.UI
             if (_objectivesText != null)
             {
                 _objectivesText.text = defaultObjectiveText;
-            }
+            }            
+        }
+
+        private void OnEnable()
+        {
+            StartCoroutine(MonitorObjectives());
         }
 
         private IEnumerator Start()
@@ -31,17 +35,22 @@ namespace ProjectWork.UI
                 Debug.LogWarning("MissionPanel: ObjectiveManager not found, waiting for it to initialize.");
                 yield return null;
             }
+            ObjectiveManager.Instance.OnObjectivesUpdated += UpdateMissions;
             ForceUpdateDisplay();
         }
 
-        private void OnEnable()
-        {
-            StartCoroutine(MonitorObjectives());
-        }
 
         private void OnDisable()
         {
             StopAllCoroutines();
+        }
+
+        private void OnDestroy()
+        {
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.OnObjectivesUpdated -= UpdateMissions;
+            }
         }
 
         private IEnumerator MonitorObjectives()
@@ -62,12 +71,23 @@ namespace ProjectWork.UI
         private bool ShouldUpdate()
         {
             return ObjectiveManager.Instance != null &&
-                   ObjectiveManager.Instance.activeChecklists.Count > 0 &&
                    (Time.time - _updateTimer) >= _updateInterval;
+        }
+
+
+        private void UpdateMissions(List<ObjectiveDisplayData> list)
+        {           
+            UpdateDisplay();
         }
 
         private void UpdateDisplay()
         {
+            if (ObjectiveManager.Instance.activeChecklists.Count == 0)
+            {
+                _objectivesText.text = defaultObjectiveText;
+                return;
+            }
+
             var checklist = ObjectiveManager.Instance.activeChecklists[0];
             var formattedText = new System.Text.StringBuilder();
 

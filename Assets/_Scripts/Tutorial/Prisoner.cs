@@ -56,10 +56,14 @@ namespace ProjectWork
 
         private void DisableCollider() => npcCollider.enabled = false;
 
-        private void EnableColliderAndInvokeEvent()
+        private void EnableColliderAndInvokeEvent(InteractableObject character)
         {
+            if(character.GetType() != typeof(Prisoner))
+            {
+                return;
+            }
             npcCollider.enabled = true;
-            OnDialogueFinished?.Invoke(this);
+            //OnDialogueFinished?.Invoke(this);
         }
     }
 }

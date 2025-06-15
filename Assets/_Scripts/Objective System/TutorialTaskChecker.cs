@@ -93,6 +93,7 @@ namespace ProjectWork
             if (areDaysPassed)
             {
                 LockInteractions();
+                UnregisterChecklist();
             }
             else
             {

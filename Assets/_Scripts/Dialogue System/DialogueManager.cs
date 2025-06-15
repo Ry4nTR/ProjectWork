@@ -8,7 +8,7 @@ namespace ProjectWork
     public class DialogueManager : MonoBehaviour
     {
         public static event Action OnDialogueStarted = delegate { };
-        public static event Action OnDialogueFinished = delegate { };
+        public static event Action<InteractableObject> OnDialogueFinished = delegate { };
 
         public static DialogueManager Instance;
 
@@ -126,7 +126,8 @@ namespace ProjectWork
             if (dialogueText != null)
             {
                 dialogueText.gameObject.SetActive(false);
-                OnDialogueFinished?.Invoke();
+                InteractableObject characterInteractable = dialogueText.GetComponentInParent<InteractableObject>();
+                OnDialogueFinished?.Invoke(characterInteractable);
             }
         }
 

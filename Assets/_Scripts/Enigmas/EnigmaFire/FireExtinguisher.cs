@@ -48,12 +48,12 @@ namespace ProjectWork
             fireExtObj.collider = GetComponent<Collider>();
             fireExtObj.meshRenderer = GetComponent<MeshRenderer>();
 
-            FirePuzzle.OnPuzzleCompleted += AbortOperations;
+            FirePuzzle.OnSpecificPuzzleCompleted += AbortOperations;
         }
 
         private void OnDestroy()
         {
-            FirePuzzle.OnPuzzleCompleted -= AbortOperations;
+            FirePuzzle.OnSpecificPuzzleCompleted -= AbortOperations;
         }
 
         protected override void InteractChild()
@@ -62,8 +62,12 @@ namespace ProjectWork
             StartCoroutine(StartRefilling());
         }
 
-        private void AbortOperations()
+        private void AbortOperations(Puzzle specificPuzzleCompleted)
         {
+            if(specificPuzzleCompleted.GetType() != typeof(FirePuzzle))
+            {
+                return;
+            }
             StopAllCoroutines();
             SetObjectActivation(false);
             LockInteraction();

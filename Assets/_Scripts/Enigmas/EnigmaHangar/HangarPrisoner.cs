@@ -42,9 +42,13 @@ namespace ProjectWork
             }
         }
 
-        private void OnDialogueFinished()
+        private void OnDialogueFinished(InteractableObject character)
         {
             if (hasInteracted) return;
+            if(character.GetType() != typeof(HangarPrisoner))
+            {
+                return;
+            }
 
             hasInteracted = true;
             LockInteraction(); // Disabilita ulteriori interazioni

@@ -39,7 +39,7 @@ namespace ProjectWork
             glassMaterial = glassRenderer.material;
 
             FireExtinguisher.OnFireExtinguisherPickedUp += EnableFireExtinguisherMode;
-            FirePuzzle.OnPuzzleCompleted += DisableFireExtinguisherMode;
+            FirePuzzle.OnSpecificPuzzleCompleted += DisableFireExtinguisherMode;
         }
 
         private void Start()
@@ -69,7 +69,7 @@ namespace ProjectWork
         private void OnDestroy()
         {
             FireExtinguisher.OnFireExtinguisherPickedUp -= EnableFireExtinguisherMode;
-            FirePuzzle.OnPuzzleCompleted -= DisableFireExtinguisherMode;
+            FirePuzzle.OnSpecificPuzzleCompleted -= DisableFireExtinguisherMode;
         }
 
         private void EnableFireExtinguisherMode()
@@ -77,8 +77,10 @@ namespace ProjectWork
             SetFireExtinguisherObject(true);
         }
 
-        private void DisableFireExtinguisherMode()
+        private void DisableFireExtinguisherMode(Puzzle specificPuzzleCompleted)
         {
+            if (specificPuzzleCompleted.GetType() != typeof(FirePuzzle))
+                return;
             SetFireExtinguisherObject(false);
         }
 
