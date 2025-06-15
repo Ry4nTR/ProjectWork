@@ -22,7 +22,7 @@ namespace ProjectWork
         private float originalSensitivityValue = 2.5f;
         public CameraManager mouseLookScript;
         private PickupText PicUpText;
-        //[SerializeField] private GameObject heldText;
+        private ThrowText throwText; // Add reference to ThrowText
 
         private bool isInPlacementRange = false;
 
@@ -30,11 +30,13 @@ namespace ProjectWork
         {
             FoodHologram.OnFoodPlaced += DropObject;
             PicUpText = FindFirstObjectByType<PickupText>(FindObjectsInactive.Include);
+            throwText = FindFirstObjectByType<ThrowText>(FindObjectsInactive.Include); // Initialize ThrowText
         }
 
         void Start()
         {
             LayerNumber = LayerMask.NameToLayer("holdLayer");
+            throwText.SetActive(false); // Ensure throw text is hidden at start
         }
 
         void Update()
@@ -91,7 +93,7 @@ namespace ProjectWork
 
         private void ShowHeldObjectPrompt()
         {
-            //heldText.SetActive(true);
+            throwText.SetActive(true); // Show throw text when holding an object
         }
 
         private void HidePickUpPrompt()
@@ -115,8 +117,7 @@ namespace ProjectWork
                 heldObj.layer = LayerNumber;
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
 
-                //if (hologram != null) hologram.gameObject.SetActive(true);
-                if(pickUpObj.TryGetComponent(out Food foodObj))
+                if (pickUpObj.TryGetComponent(out Food foodObj))
                 {
                     OnFoodPickedUp?.Invoke(foodObj.FoodType);
                 }
@@ -125,6 +126,8 @@ namespace ProjectWork
 
         void DropObject()
         {
+            if (heldObj == null) return;
+
             Collider heldObjCollider = heldObj.GetComponent<Collider>();
             Collider playerCollider = player.GetComponent<Collider>();
             Physics.IgnoreCollision(heldObjCollider, playerCollider, false);
@@ -134,6 +137,7 @@ namespace ProjectWork
             heldObjRb = null;
             heldObj = null;
             canDrop = false;
+            throwText.SetActive(false); // Hide throw text when dropping object
         }
 
         void MoveObject()
@@ -168,6 +172,7 @@ namespace ProjectWork
             heldObj.transform.parent = null;
             heldObjRb.AddForce(transform.forward * throwForce);
             heldObj = null;
+            throwText.SetActive(false); // Hide throw text when throwing object
         }
 
         void StopClipping()
