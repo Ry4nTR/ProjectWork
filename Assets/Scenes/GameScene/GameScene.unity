@@ -922,6 +922,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe62a4b9014dfc489808258da5e7aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1397563756 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 964427897386672498, guid: e24de033faa1aa54a8b2f3e81a1f9cd2, type: 3}
+  m_PrefabInstance: {fileID: 1241991537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1620776690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,6 +2668,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1989160105617279466, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1397563756}
     - target: {fileID: 2089830839607698275, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: m_Name
       value: GameMap
@@ -2795,6 +2804,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3659513954027075963, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: peekController
+      value: 
+      objectReference: {fileID: 1397563755}
     - target: {fileID: 5511303705331347325, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -3007,6 +3020,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8545038082366727018, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1397563756}
     - target: {fileID: 8685005967375177696, guid: 67594e5738c85d547a8809dee7eefc20, type: 3}
       propertyPath: dialogueInteractor
       value: 
